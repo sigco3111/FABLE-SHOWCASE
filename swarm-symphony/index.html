@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Swarm Symphony</title>
+<title>스웜 심포니</title>
 <style>
   :root{
     --bg0:#050510;
@@ -22,7 +22,7 @@
   body{
     background:radial-gradient(120% 100% at 30% 20%, var(--bg1) 0%, var(--bg0) 65%);
     color:var(--ink);
-    font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;
+    font-family:"Avenir Next","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",system-ui,-apple-system,sans-serif;
     -webkit-font-smoothing:antialiased;
     user-select:none;
   }
@@ -167,55 +167,55 @@
 
 <canvas id="stage"></canvas>
 
-<div id="hint">click: place attractor &nbsp;·&nbsp; drag: move &nbsp;·&nbsp; double-click: dissolve</div>
+<div id="hint">클릭: 어트랙터 놓기 &nbsp;·&nbsp; 드래그: 이동 &nbsp;·&nbsp; 더블 클릭: 해체</div>
 
 <div id="veil">
-  <h1>SWARM&nbsp;SYMPHONY</h1>
-  <p>A living score. Particles orbit the attractors you place, and every time
-     one crosses an orbit ring it strikes a <b>pentatonic note</b>.
-     Arrange the constellation &mdash; compose the music.</p>
-  <button id="begin">BEGIN</button>
+  <h1>스웜&nbsp;심포니</h1>
+  <p>살아 있는 악보. 입자가 당신이 놓은 어트랙터를 돌고, 궤도 고리를
+     가로지를 때마다 <b>펜타토닉 음</b> 하나가 울립니다.
+     별자리를 배열해 — 음악을 작곡하세요.</p>
+  <button id="begin">시작</button>
 </div>
 
 <div id="panel">
   <div id="panelHead">
-    <span class="dot"></span><h2>SWARM SYMPHONY</h2><span class="chev">&#9650;</span>
+    <span class="dot"></span><h2>스웜 심포니</h2><span class="chev">&#9650;</span>
   </div>
   <div id="panelBody">
-    <div class="row"><label>Scale</label>
+    <div class="row"><label>스케일</label>
       <select id="scaleSel">
-        <option value="major">Major pentatonic</option>
-        <option value="minor" selected>Minor pentatonic</option>
-        <option value="ritusen">Ritusen</option>
-        <option value="hirajoshi">Hirajoshi</option>
-        <option value="egyptian">Egyptian</option>
+        <option value="major">메이저 펜타토닉</option>
+        <option value="minor" selected>마이너 펜타토닉</option>
+        <option value="ritusen">리쓰센</option>
+        <option value="hirajoshi">히라조시</option>
+        <option value="egyptian">이집트</option>
       </select>
       <select id="rootSel" style="flex:0 0 64px"></select>
     </div>
-    <div class="row"><label>Tempo</label><input type="range" id="tempo" min="40" max="180" step="1" value="96"><output id="tempoOut">96</output></div>
-    <div class="row"><label>Gravity</label><input type="range" id="grav" min="0.2" max="3" step="0.05" value="1"><output id="gravOut">1.00</output></div>
-    <div class="row"><label>Swarm</label><input type="range" id="count" min="80" max="1200" step="20" value="420"><output id="countOut">420</output></div>
-    <div class="row"><label>Volume</label><input type="range" id="vol" min="0" max="1" step="0.01" value="0.7"><output id="volOut">70%</output></div>
+    <div class="row"><label>템포</label><input type="range" id="tempo" min="40" max="180" step="1" value="96"><output id="tempoOut">96</output></div>
+    <div class="row"><label>중력</label><input type="range" id="grav" min="0.2" max="3" step="0.05" value="1"><output id="gravOut">1.00</output></div>
+    <div class="row"><label>스웜 수</label><input type="range" id="count" min="80" max="1200" step="20" value="420"><output id="countOut">420</output></div>
+    <div class="row"><label>볼륨</label><input type="range" id="vol" min="0" max="1" step="0.01" value="0.7"><output id="volOut">70%</output></div>
     <div class="btnrow">
-      <button id="scatterBtn" title="re-scatter the swarm">Scatter</button>
-      <button id="clearBtn" title="remove all attractors">Clear</button>
-      <button id="pauseBtn" title="freeze time">Pause</button>
-      <button id="muteBtn" title="silence">Mute</button>
+      <button id="scatterBtn" title="스웜 재분산">산개</button>
+      <button id="clearBtn" title="모든 어트랙터 제거">지우기</button>
+      <button id="pauseBtn" title="시간 정지">일시정지</button>
+      <button id="muteBtn" title="음소거">음소거</button>
     </div>
   </div>
 </div>
 
-<button id="aboutBtn" title="about">?</button>
+<button id="aboutBtn" title="정보">?</button>
 <div id="about">
-  <h3>ABOUT</h3>
-  The swarm <i>is</i> the score. Each attractor carries five orbit rings; when a
-  particle crosses a ring it fires a note from the chosen pentatonic scale,
-  quantized to the tempo grid &mdash; low notes near the core, high notes at the
-  rim, stereo position following the attractor. Drop attractors to add voices,
-  drag them to modulate the phrase, double-click to dissolve one back into dust.
+  <h3>정보</h3>
+  스웜 <i>이 곧</i> 악보입니다. 각 어트랙터는 다섯 개의 궤도 고리를 지니고,
+  입자가 고리를 가로지를 때 선택된 펜타토닉 스케일에서 음 하나가 발사되며
+  템포 격자에 양자화됩니다 — 코어 근처는 낮은 음, 가장자리에는 높은 음,
+  어트랙터의 위치가 스테레오 위치를 결정합니다. 어트랙터를 내려놓아 목소리를
+  더하고, 끌어서 프레이즈를 변주하며, 더블 클릭하면 먼지로 풀어집니다.
   <br><br>
-  Everything here is one file: vanilla JS, Canvas 2D and the Web Audio API. No
-  libraries, no network.
+  모든 것은 한 파일 안에 있습니다: 바닐라 JS, Canvas 2D와 Web Audio API.
+  라이브러리 없음, 네트워크 없음.
   <div class="credit">Built by <em>Claude Fable 5</em></div>
 </div>
 

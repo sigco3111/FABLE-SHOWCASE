@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SYNTHWAVE DRIVE — Neon Horizon, Infinite Miles</title>
+<title>신스웨이브 드라이브 — 네온 지평선, 끝없는 질주</title>
 <style>
 /* ================================================================
    SYNTHWAVE DRIVE — "VHS Poster Maximalism"
@@ -21,7 +21,7 @@
 html,body{height:100%;overflow:hidden}
 body{
   background:#07020f;color:#e8e4ff;
-  font-family:"Avenir Next","Helvetica Neue",Futura,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-family:"Avenir Next","Helvetica Neue",Futura,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   -webkit-font-smoothing:antialiased;user-select:none;-webkit-user-select:none;
 }
 #stage{position:fixed;inset:0;display:block;width:100%;height:100%;background:#07020f;cursor:crosshair}
@@ -193,99 +193,99 @@ body.photo #hud, body.photo #toast{ display:none !important }
 </head>
 <body>
 
-<canvas id="stage" aria-label="Animated synthwave highway scene: an endless neon road driving toward a giant striped sun"></canvas>
+<canvas id="stage" aria-label="움직이는 신스웨이브 하이웨이 장면: 거대한 줄무늬 태양을 향해 끝없이 달리는 네온 도로"></canvas>
 
 <!-- boot / title card -->
-<div id="boot" role="dialog" aria-label="Synthwave Drive start screen">
+<div id="boot" role="dialog" aria-label="신스웨이브 드라이브 시작 화면">
   <div class="boot-card">
-    <div class="boot-kicker">A LOST LASERDISC ATTRACT MODE &middot; 1986</div>
-    <h1 class="boot-title chrome-text">Synthwave<br>Drive</h1>
-    <div class="boot-sub">Neon Horizon &middot; Infinite Miles</div>
-    <p class="boot-tag">An endless 1986 that never existed: a pseudo-3D chrome highway pouring out of a striped sun,
-      with a synth bassline welded to the curves of the road.</p>
+    <div class="boot-kicker">잊혀진 레이저디스크 어트랙트 모드 &middot; 1986</div>
+    <h1 class="boot-title chrome-text">신스웨이브<br>드라이브</h1>
+    <div class="boot-sub">네온 지평선 &middot; 끝없는 질주</div>
+    <p class="boot-tag">존재하지 않았던 1986년이 끝없이 이어집니다. 줄무늬 태양에서 쏟아져 나오는 의사 3D 크롬 하이웨이,
+      그리고 도로의 곡선에 용접된 신스 베이스라인.</p>
     <div class="boot-btns">
-      <button id="btnEngine" class="btn-big">&#9654;&nbsp; Engine Start</button>
-      <button id="btnSilent" class="btn-big alt">Cruise Silent</button>
+      <button id="btnEngine" class="btn-big">&#9654;&nbsp; 엔진 시동</button>
+      <button id="btnSilent" class="btn-big alt">무음 주행</button>
     </div>
-    <div class="boot-hint"><b>&uarr;&darr;</b> throttle &nbsp;&middot;&nbsp; <b>space</b> nitro &nbsp;&middot;&nbsp; <b>p</b> photo mode &nbsp;&middot;&nbsp; <b>1-4</b> palettes</div>
+    <div class="boot-hint"><b>&uarr;&darr;</b> 스로틀 &nbsp;&middot;&nbsp; <b>space</b> 니트로 &nbsp;&middot;&nbsp; <b>p</b> 사진 모드 &nbsp;&middot;&nbsp; <b>1-4</b> 팔레트</div>
   </div>
 </div>
 
 <!-- HUD: car stereo faceplate -->
-<div id="hud" role="toolbar" aria-label="Drive controls">
+<div id="hud" role="toolbar" aria-label="주행 컨트롤">
   <div class="hud-brand">FBL&middot;5</div>
   <div class="hud-cell">
-    <span class="hud-lab">Velocity</span>
+    <span class="hud-lab">속도</span>
     <div class="speedo"><span class="num" id="mph">65</span><span class="unit">MPH</span></div>
   </div>
   <div class="hud-cell">
-    <label class="hud-lab" for="throttle">Throttle</label>
-    <input id="throttle" type="range" min="0" max="200" value="65" step="1" aria-label="Speed, 0 to 200 miles per hour">
+    <label class="hud-lab" for="throttle">스로틀</label>
+    <input id="throttle" type="range" min="0" max="200" value="65" step="1" aria-label="속도, 시간당 0에서 200마일">
   </div>
   <div class="hud-cell">
-    <span class="hud-lab">Palette</span>
-    <div class="seg-row" id="palRow" role="group" aria-label="Color palette">
-      <button class="seg-btn" data-pal="0" aria-pressed="true">Outrun</button>
-      <button class="seg-btn" data-pal="1" aria-pressed="false">Miami</button>
-      <button class="seg-btn" data-pal="2" aria-pressed="false">Midnight</button>
-      <button class="seg-btn" data-pal="3" aria-pressed="false">Sunbleed</button>
+    <span class="hud-lab">팔레트</span>
+    <div class="seg-row" id="palRow" role="group" aria-label="색상 팔레트">
+      <button class="seg-btn" data-pal="0" aria-pressed="true">아웃런</button>
+      <button class="seg-btn" data-pal="1" aria-pressed="false">마이애미</button>
+      <button class="seg-btn" data-pal="2" aria-pressed="false">미드나이트</button>
+      <button class="seg-btn" data-pal="3" aria-pressed="false">선블리드</button>
     </div>
   </div>
   <div class="hud-cell">
-    <span class="hud-lab">Scene</span>
-    <div class="seg-row" id="sceneRow" role="group" aria-label="Scene variant">
-      <button class="seg-btn" data-scene="0" aria-pressed="true">Coast</button>
-      <button class="seg-btn" data-scene="1" aria-pressed="false">Canyon</button>
-      <button class="seg-btn" data-scene="2" aria-pressed="false">Grid Zone</button>
+    <span class="hud-lab">장면</span>
+    <div class="seg-row" id="sceneRow" role="group" aria-label="장면 종류">
+      <button class="seg-btn" data-scene="0" aria-pressed="true">해안</button>
+      <button class="seg-btn" data-scene="1" aria-pressed="false">협곡</button>
+      <button class="seg-btn" data-scene="2" aria-pressed="false">그리드 존</button>
     </div>
   </div>
   <div class="hud-cell">
-    <span class="hud-lab">Nitro <span style="opacity:.6">[space]</span></span>
+    <span class="hud-lab">니트로 <span style="opacity:.6">[space]</span></span>
     <div class="nitro-wrap"><div class="nitro-bar"><div class="nitro-fill" id="nitroFill"></div></div></div>
   </div>
   <div class="hud-cell">
-    <span class="hud-lab">System</span>
+    <span class="hud-lab">시스템</span>
     <div class="seg-row">
-      <button class="icon-btn" id="btnAudio" aria-pressed="false"><span class="led"></span>Audio</button>
-      <button class="icon-btn" id="btnPhoto">Photo</button>
-      <button class="icon-btn" id="btnAbout" aria-label="About this demo">?</button>
+      <button class="icon-btn" id="btnAudio" aria-pressed="false"><span class="led"></span>오디오</button>
+      <button class="icon-btn" id="btnPhoto">사진</button>
+      <button class="icon-btn" id="btnAbout" aria-label="이 데모 정보">?</button>
     </div>
   </div>
 </div>
 
 <!-- photo mode toolbar -->
 <div id="photoUI">
-  <span class="cap">Photo Mode</span>
-  <button class="icon-btn" id="btnDownload">Save PNG</button>
-  <button class="icon-btn" id="btnExitPhoto">Exit [P]</button>
+  <span class="cap">사진 모드</span>
+  <button class="icon-btn" id="btnDownload">PNG 저장</button>
+  <button class="icon-btn" id="btnExitPhoto">나가기 [P]</button>
 </div>
 
 <!-- about -->
-<div id="about" role="dialog" aria-modal="true" aria-label="About Synthwave Drive">
+<div id="about" role="dialog" aria-modal="true" aria-label="신스웨이브 드라이브 정보">
   <div class="about-card">
-    <h2 class="chrome-text">Synthwave Drive</h2>
-    <div class="sub">Neon Horizon &middot; Infinite Miles</div>
-    <p>An infinite retro drive rendered with a plain 2D canvas — no WebGL, no libraries.
-       The highway is classic segment-projected pseudo-3D: per-segment curvature and elevation
-       bend the road through S-curves and over crests, and the neon grid shares the same projection
-       math, so everything converges on one honest vanishing point.</p>
-    <p>The soundtrack is synthesized from raw oscillators — detuned saw bass, sidechained pads,
-       gated-reverb snare — on a lookahead scheduler that shares its clock with the renderer,
-       so the grid pulses land exactly on the beat.</p>
+    <h2 class="chrome-text">신스웨이브 드라이브</h2>
+    <div class="sub">네온 지평선 &middot; 끝없는 질주</div>
+    <p>WebGL도 라이브러리도 없이, 순수한 2D 캔버스만으로 그려낸 무한 레트로 드라이브입니다.
+       하이웨이는 고전적인 세그먼트 투영 방식의 의사 3D로, 세그먼트마다 곡률과 고도가
+       도로를 S자 커브와 언덕으로 휘어놓습니다. 네온 그리드도 같은 투영 계산을 공유하므로
+       모든 것이 하나의 정직한 소실점으로 모입니다.</p>
+    <p>사운드트랙은 순수 오실레이터에서 합성됩니다. 디튠된 소 베이스, 사이드체인 패드,
+       게이트 리버브 스네어가 렌더러와 같은 시계를 쓰는 룩어헤드 스케줄러 위에서 울리기에,
+       그리드의 맥동이 정확히 비트에 떨어집니다.</p>
     <table class="keys">
-      <tr><td><kbd>&uarr;</kbd> <kbd>&darr;</kbd> / scroll</td><td>throttle 0–200 mph (music tempo follows)</td></tr>
-      <tr><td><kbd>space</kbd></td><td>NITRO — hold for 3 seconds of overdrive</td></tr>
-      <tr><td><kbd>1</kbd>–<kbd>4</kbd></td><td>palettes: Outrun / Miami / Midnight / Sunbleed</td></tr>
-      <tr><td><kbd>5</kbd>–<kbd>7</kbd></td><td>scenes: Coast / Canyon / Grid Zone</td></tr>
-      <tr><td><kbd>P</kbd></td><td>Photo Mode — freeze, letterbox, save a poster PNG</td></tr>
-      <tr><td><kbd>M</kbd></td><td>audio on / off</td></tr>
-      <tr><td><kbd>H</kbd></td><td>hide / show the dash</td></tr>
+      <tr><td><kbd>&uarr;</kbd> <kbd>&darr;</kbd> / 스크롤</td><td>스로틀 0–200 mph (음악 템포가 따라옵니다)</td></tr>
+      <tr><td><kbd>space</kbd></td><td>니트로 — 3초간 오버드라이브 (누르고 있기)</td></tr>
+      <tr><td><kbd>1</kbd>–<kbd>4</kbd></td><td>팔레트: 아웃런 / 마이애미 / 미드나이트 / 선블리드</td></tr>
+      <tr><td><kbd>5</kbd>–<kbd>7</kbd></td><td>장면: 해안 / 협곡 / 그리드 존</td></tr>
+      <tr><td><kbd>P</kbd></td><td>사진 모드 — 정지, 레터박스, 포스터 PNG 저장</td></tr>
+      <tr><td><kbd>M</kbd></td><td>오디오 켜기 / 끄기</td></tr>
+      <tr><td><kbd>H</kbd></td><td>대시보드 숨기기 / 보이기</td></tr>
     </table>
-    <p style="font-size:11px;color:#8d80bd">Honors <i>prefers-reduced-motion</i> with a slow 20&nbsp;mph cruise and no glitch effects.
-       An auto-degrade governor sheds grain, aberration, then glow before it will ever drop a frame.</p>
-    <div class="credit">Built by <b>Claude Fable 5</b> &middot; one file &middot; zero dependencies</div>
+    <p style="font-size:11px;color:#8d80bd"><i>prefers-reduced-motion</i>을 존중하여 20&nbsp;mph의 느린 주행과 글리치 없는 화면을 제공합니다.
+       자동 품질 조절 장치는 프레임을 떨어뜨리기 전에 그레인, 색수차, 글로우를 차례로 덜어냅니다.</p>
+    <div class="credit">제작 <b>Claude Fable 5</b> &middot; 단일 파일 &middot; 의존성 없음</div>
     <div style="text-align:center;margin-top:18px">
-      <button class="icon-btn" id="btnCloseAbout">Close [esc]</button>
+      <button class="icon-btn" id="btnCloseAbout">닫기 [esc]</button>
     </div>
   </div>
 </div>
@@ -300,7 +300,7 @@ body.photo #hud, body.photo #toast{ display:none !important }
       Everything hackable lives up here.
    ================================================================ */
 const PALETTES = [
-  { name:'OUTRUN',
+  { name:'아웃런',
     skyTop:'#0b0020', skyMid:'#2b0a4e', skyLow:'#7a1867', bloom:'#ff2e88',
     sunTop:'#ffd319', sunBot:'#ff2975', sunGlow:'#ff8a3d',
     grid:'#22e6ff', dash:'#ff2e88', edge:'#ff2e88',
@@ -308,7 +308,7 @@ const PALETTES = [
     rumble:'#3c1660', mtnFarA:'#3b1560', mtnFarB:'#1b0838', mtnNearA:'#2a0d4e', mtnNearB:'#0f0425',
     ridge:'#ffb347', palm:'#0a0318', fog:'#3d0e56',
     uiA:'#ff2e88', uiB:'#22e6ff', stars:0, moon:0 },
-  { name:'MIAMI',
+  { name:'마이애미',
     skyTop:'#041d2e', skyMid:'#0b4a5e', skyLow:'#c95f8e', bloom:'#ff7eb6',
     sunTop:'#fff3d6', sunBot:'#ff9a7b', sunGlow:'#ffd9a0',
     grid:'#3ffcd4', dash:'#ff6fae', edge:'#ff8ec3',
@@ -316,7 +316,7 @@ const PALETTES = [
     rumble:'#155060', mtnFarA:'#1c5a6e', mtnFarB:'#0a2a3c', mtnNearA:'#123f52', mtnNearB:'#051622',
     ridge:'#ffe9bf', palm:'#03121c', fog:'#7c3f66',
     uiA:'#ff6fae', uiB:'#3ffcd4', stars:0, moon:0 },
-  { name:'MIDNIGHT',
+  { name:'미드나이트',
     skyTop:'#01010c', skyMid:'#0d1033', skyLow:'#2c2a6e', bloom:'#5f5ad6',
     sunTop:'#ffffff', sunBot:'#aebaff', sunGlow:'#8f9bff',
     grid:'#7a86ff', dash:'#b39dff', edge:'#8f7bff',
@@ -324,7 +324,7 @@ const PALETTES = [
     rumble:'#232457', mtnFarA:'#1c1f52', mtnFarB:'#0a0b28', mtnNearA:'#14153e', mtnNearB:'#06061c',
     ridge:'#cfd6ff', palm:'#03030f', fog:'#191b45',
     uiA:'#b39dff', uiB:'#7a86ff', stars:1, moon:1 },
-  { name:'SUNBLEED',
+  { name:'선블리드',
     skyTop:'#180101', skyMid:'#4e0d0d', skyLow:'#a63208', bloom:'#ff6a00',
     sunTop:'#ffe25e', sunBot:'#ff2200', sunGlow:'#ff7b2e',
     grid:'#ffc94d', dash:'#ff3b1f', edge:'#ff8c1f',
@@ -334,9 +334,9 @@ const PALETTES = [
     uiA:'#ff6a00', uiB:'#ffc94d', stars:0, moon:0 },
 ];
 const SCENES = [
-  { name:'COAST',    mtn:1, mtnScale:0.85, coast:1, ocean:1, palmDensity:0.62 },
-  { name:'CANYON',   mtn:1, mtnScale:1.85, coast:0, ocean:0, palmDensity:0.22 },
-  { name:'GRID ZONE',mtn:0, mtnScale:1.0,  coast:0, ocean:0, palmDensity:0.06 },
+  { name:'해안',    mtn:1, mtnScale:0.85, coast:1, ocean:1, palmDensity:0.62 },
+  { name:'협곡',   mtn:1, mtnScale:1.85, coast:0, ocean:0, palmDensity:0.22 },
+  { name:'그리드 존',mtn:0, mtnScale:1.0,  coast:0, ocean:0, palmDensity:0.06 },
 ];
 const BILLBOARD_COPY = [
   ['FABLE FM', '85.5'],
@@ -1223,8 +1223,8 @@ function downloadPoster(){
     a.download='synthwave-drive-'+Date.now()+'.png';
     a.href=canvas.toDataURL('image/png');
     a.click();
-    toast('POSTER SAVED');
-  }catch(e){ console.warn(e); toast('EXPORT BLOCKED'); }
+    toast('포스터 저장 완료');
+  }catch(e){ console.warn(e); toast('내보내기 차단됨'); }
 }
 
 /* ================================================================
@@ -1329,12 +1329,12 @@ document.getElementById('sceneRow').addEventListener('click',e=>{
 const btnAudio=document.getElementById('btnAudio');
 function setAudio(on){
   if(on){
-    if(!AudioEngine.start()){ toast('AUDIO UNAVAILABLE'); return; }
+    if(!AudioEngine.start()){ toast('오디오 사용 불가'); return; }
     S.audioOn=true;
   } else { AudioEngine.stop(); S.audioOn=false; }
   btnAudio.setAttribute('aria-pressed',String(S.audioOn));
   btnAudio.classList.toggle('on',S.audioOn);
-  toast(S.audioOn?'AUDIO ON':'AUDIO OFF');
+  toast(S.audioOn?'오디오 켜짐':'오디오 꺼짐');
 }
 btnAudio.addEventListener('click',()=>setAudio(!S.audioOn));
 document.getElementById('btnPhoto').addEventListener('click',()=>S.photo?exitPhoto():enterPhoto());
@@ -1389,7 +1389,7 @@ window.addEventListener('wheel',e=>{
   if(S.photo||aboutEl.classList.contains('show')) return;
   S.targetSpeed=clamp(S.targetSpeed - Math.sign(e.deltaY)*5, 0, 200);
 },{passive:true});
-if(reduceMotion){ S.targetSpeed=20; toast('REDUCED MOTION CRUISE'); }
+if(reduceMotion){ S.targetSpeed=20; toast('모션 감소 주행'); }
 
 /* ================================================================
    13. MAIN LOOP

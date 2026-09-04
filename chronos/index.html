@@ -1,6 +1,9 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Chronos — A Clock Zoo</title>
+<title>크로노스 — 시계의 동물원</title>
 <style>
 /* ============================================================
    CHRONOS — A Clock Zoo
@@ -28,7 +31,7 @@
   --ease-inout:  cubic-bezier(.65,0,.35,1);
 
   --serif: "ChronosDisplay", "Hoefler Text", "Georgia", "Times New Roman", serif;
-  --grot:  "ChronosGrot", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --grot:  "ChronosGrot", "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", system-ui, sans-serif;
   --mono:  "ChronosMono", "SF Mono", "Menlo", "Consolas", monospace;
 }
 
@@ -467,12 +470,12 @@ footer .made b{ color:var(--brass); font-weight:600; }
 <div class="wrap">
   <header>
     <div class="brand">
-      <div class="eyebrow">An Observatory of Instruments</div>
+      <div class="eyebrow">관측소의 시계들</div>
       <h1 class="wordmark">Chron<em>o</em>s</h1>
-      <p class="tagline">Six instruments, one moment: the same second told six impossible ways.</p>
+      <p class="tagline">여섯 대의 시계, 한 순간 — 같은 초를 여섯 가지 불가능한 방식으로.</p>
     </div>
     <div class="master" id="master">
-      <div class="mlabel"><span id="mlabelText">Standard Time</span> <span class="beat" id="beat"></span></div>
+      <div class="mlabel"><span id="mlabelText">표준시</span> <span class="beat" id="beat"></span></div>
       <div class="mtime" id="masterTime">--:--:--</div>
       <div class="mdate" id="masterDate">—</div>
     </div>
@@ -481,42 +484,42 @@ footer .made b{ color:var(--brass); font-weight:600; }
   <main class="grid" id="grid">
     <!-- I. Analog Escapement -->
     <section class="cell" data-clock>
-      <div class="plate"><span class="title">Escapement</span><span class="idx">NO. I</span></div>
+      <div class="plate"><span class="title">에스카프먼트</span><span class="idx">제I호</span></div>
       <div class="stage"><canvas id="cvAnalog"></canvas></div>
-      <div class="caption" id="capAnalog">deadbeat · tick &amp; settle</div>
+      <div class="caption" id="capAnalog">데드빗 · 톡 하고 가라앉다</div>
     </section>
 
     <!-- II. BCD Lattice -->
     <section class="cell" data-clock>
-      <div class="plate"><span class="title">BCD Lattice</span><span class="idx">NO. II</span></div>
+      <div class="plate"><span class="title">BCD 격자</span><span class="idx">제II호</span></div>
       <div class="stage"><div class="bcd" id="bcd"></div></div>
-      <div class="caption" id="capBcd">binary-coded decimal</div>
+      <div class="caption" id="capBcd">이진화 십진</div>
     </section>
 
     <!-- III. Spiral of Time -->
     <section class="cell" data-clock>
-      <div class="plate"><span class="title">Spiral of Time</span><span class="idx">NO. III</span></div>
+      <div class="plate"><span class="title">시간의 나선</span><span class="idx">제III호</span></div>
       <div class="stage"><canvas id="cvSpiral"></canvas></div>
-      <div class="caption" id="capSpiral">the day, wound inward</div>
+      <div class="caption" id="capSpiral">안으로 감긴 하루</div>
     </section>
 
     <!-- IV. Word Clock -->
     <section class="cell" data-clock>
-      <div class="plate"><span class="title">Word Clock</span><span class="idx">NO. IV</span></div>
+      <div class="plate"><span class="title">단어 시계</span><span class="idx">제IV호</span></div>
       <div class="stage"><div class="word" id="word"></div></div>
-      <div class="caption" id="capWord">time, spelled</div>
+      <div class="caption" id="capWord">글자로 풀어쓴 시각</div>
     </section>
 
     <!-- V. Pendulum -->
     <section class="cell" data-clock>
-      <div class="plate"><span class="title">Pendulum</span><span class="idx">NO. V</span></div>
+      <div class="plate"><span class="title">진자</span><span class="idx">제V호</span></div>
       <div class="stage"><canvas id="cvPendulum"></canvas></div>
-      <div class="caption" id="capPendulum">true 2-second period</div>
+      <div class="caption" id="capPendulum">정확한 2초 주기</div>
     </section>
 
     <!-- VI. Color of Day -->
     <section class="cell" data-clock>
-      <div class="plate"><span class="title">Color of Day</span><span class="idx">NO. VI</span></div>
+      <div class="plate"><span class="title">하늘의 색</span><span class="idx">제VI호</span></div>
       <div class="stage"><canvas id="cvColor"></canvas></div>
       <div class="caption" id="capColor"><span class="dayhex" id="dayHex">#000000</span></div>
     </section>
@@ -524,39 +527,39 @@ footer .made b{ color:var(--brass); font-weight:600; }
 
   <!-- Time-scrub console: drag to send all six clocks to any moment -->
   <div class="console" id="console">
-    <span class="clabel" id="consoleLabel">Scrub the day</span>
+    <span class="clabel" id="consoleLabel">하루를 쓸어보기</span>
     <div class="scrubwrap">
       <div class="track"></div>
       <div class="trackfill" id="trackfill"></div>
       <input class="range" id="scrub" type="range" min="0" max="86399" step="1" value="0"
-             aria-label="Scrub the day — drag to send all six clocks to any moment">
+             aria-label="여섯 시계를 모두 임의의 순간으로 보내려면 끌어서 하루를 쓸어내려세요">
     </div>
-    <span class="scrubtime" id="scrubTime">LIVE</span>
-    <button class="livebtn" id="liveBtn">↻ Return to Now</button>
+    <span class="scrubtime" id="scrubTime">실시간</span>
+    <button class="livebtn" id="liveBtn">↻ 지금으로</button>
   </div>
 
   <footer>
-    <div class="made">Built by <b>Claude Fable 5</b> — one heartbeat, six machines.</div>
-    <button class="btn" id="aboutBtn">About</button>
+    <div class="made"><b>클로드 페이블 5</b> 제작 — 한 번의 박동, 여섯 대의 기계.</div>
+    <button class="btn" id="aboutBtn">소개</button>
   </footer>
 </div>
 
 <div class="overlay" id="overlay">
   <div class="about">
-    <div class="sub">The Clock Zoo</div>
+    <div class="sub">시계의 동물원</div>
     <h2>Chron<em>o</em>s</h2>
-    <p>Every clock here reads a <b>single shared moment</b> on one <b>requestAnimationFrame</b> heartbeat, so they are provably counting the same real second. Once per second a <b>cyan pulse</b> sweeps left-to-right across the whole grid — the same frame the escapement ticks, a binary bit carries, the spiral bead crosses its mark, the pendulum reaches apex, the word phrase flickers, and the day-color shifts one shade.</p>
+    <p>이 안의 모든 시계는 하나의 <b>requestAnimationFrame</b> 박동 위에서 단일한 <b>공유 순간</b>을 읽으므로, 같은 실재 초를 헤아리고 있음이 증명됩니다. 매초마다 <b>청록빛 펄스</b>가 그리드 전체를 왼쪽에서 오른쪽으로 쓸고 지나갑니다 — 같은 프레임에 에스카프먼트가 톡, 이진 비트가 옮겨가며, 나선 알갱이가 표식을 넘고, 진자가 정점에 닿으며, 단어 문장이 깜빡이고, 하루의 색이 한 톤 이동합니다.</p>
     <ul>
-      <li><b>Escapement</b> — a deadbeat tick with damped overshoot &amp; recoil.</li>
-      <li><b>BCD Lattice</b> — HH:MM:SS in binary-coded decimal, dots fading on flip.</li>
-      <li><b>Spiral of Time</b> — the second bead rides an Archimedean track, one turn per minute.</li>
-      <li><b>Word Clock</b> — active words bloom brass, the rest stay embossed.</li>
-      <li><b>Pendulum</b> — a true sinusoid phased to the seconds fraction.</li>
-      <li><b>Color of Day</b> — the day's elapsed fraction mapped to one hue.</li>
+      <li><b>에스카프먼트</b> — 감쇠 오버슈트와 반동이 있는 데드빗 틱.</li>
+      <li><b>BCD 격자</b> — HH:MM:SS를 이진화 십진으로, 점은 뒤집힐 때 옅어짐.</li>
+      <li><b>시간의 나선</b> — 초의 알갱이가 아르키메데스 궤도를, 분당 한 바퀴를 달립니다.</li>
+      <li><b>단어 시계</b> — 활성화된 단어가 황동빛으로 피고, 나머지는 음각으로 남습니다.</li>
+      <li><b>진자</b> — 초의 소수 부분에 위상이 맞는 진짜 사인파 진동.</li>
+      <li><b>하늘의 색</b> — 하루의 경과 비율을 한 색조에 대응시킵니다.</li>
     </ul>
-    <p><b>Try the console.</b> Drag the brass dial to scrub anywhere in the day and watch all six instruments obey the <em>same</em> phantom clock in lockstep — proof they share one source of truth. Release near live, or hit <em>Return to Now</em>, to rejoin real time.</p>
-    <p style="font-size:11.5px;color:var(--ink-faint)">No frameworks. No network. No build. Just Canvas, CSS &amp; one clock.</p>
-    <button class="btn close" id="closeBtn">Close</button>
+    <p><b>콘솔을 써 보세요.</b> 황동 다이얼을 끌어서 하루의 어디든 쓸어가면, 여섯 시계가 한몸처럼 움직이며 <em>같은</em> 환영 시계에 복종하는 것을 볼 수 있습니다 — 단 하나의 진실된 근원을 공유한다는 증거. 실시에 가까이에서 놓거나, <em>지금으로</em>를 눌러 다시 실시간으로 돌아오세요.</p>
+    <p style="font-size:11.5px;color:var(--ink-faint)">프레임워크 없음. 네트워크 없음. 빌드 없음. 단 하나의 Canvas, CSS와 시계만.</p>
+    <button class="btn close" id="closeBtn">닫기</button>
   </div>
 </div>
 
@@ -1151,7 +1154,7 @@ footer .made b{ color:var(--brass); font-weight:600; }
       TIME.mode="scrub";
       consoleEl.classList.add("active");
       masterEl.classList.add("scrubbing");
-      mlabelText.textContent="Phantom Time";
+      mlabelText.textContent="환영 시간";
     }
   }
   function beginReturn(){
@@ -1160,8 +1163,8 @@ footer .made b{ color:var(--brass); font-weight:600; }
     TIME.mode="return";
     consoleEl.classList.remove("active");
     masterEl.classList.remove("scrubbing");
-    mlabelText.textContent="Standard Time";
-    scrubTimeEl.textContent="LIVE";
+    mlabelText.textContent="표준시";
+    scrubTimeEl.textContent="실시간";
   }
 
   scrub.addEventListener("input", ()=>{
@@ -1229,11 +1232,11 @@ footer .made b{ color:var(--brass); font-weight:600; }
     if(s!==capSec){
       capSec=s;
       const h=now.getHours(),m=now.getMinutes();
-      capAnalog.innerHTML="deadbeat · <b>"+pad(s)+"</b> s";
+      capAnalog.innerHTML="데드빗 · <b>"+pad(s)+"</b> 초";
       capBcd.innerHTML="BCD · <b>"+pad(h)+" "+pad(m)+" "+pad(s)+"</b>";
       const dayFrac=((h*3600+m*60+s)/86400*100).toFixed(2);
-      capSpiral.innerHTML="day <b>"+dayFrac+"%</b> wound";
-      capPendulum.innerHTML="apex on <b>:"+pad(s)+"</b>";
+      capSpiral.innerHTML="하루 <b>"+dayFrac+"%</b> 감김";
+      capPendulum.innerHTML="정점 <b>:"+pad(s)+"</b>";
     }
 
     try{

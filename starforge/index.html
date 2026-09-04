@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Starforge — Forge a universe from a single seed</title>
+<title>스타포지 — 하나의 시드에서 우주를 주조하다</title>
 <style>
   :root {
     --void: #060811;
@@ -447,22 +447,22 @@
 
 <div class="chrome" id="header">
   <div id="brand">
-    <span class="mark">STARFORGE</span> &nbsp;·&nbsp; STELLAR CARTOGRAPHY DIVISION
-    <span class="sub">Deep-Field Survey Instrument · rev. V</span>
+    <span class="mark">스타포지</span> &nbsp;·&nbsp; 항성 측량부
+    <span class="sub">심우주 측량 기기 · rev. V</span>
   </div>
   <div id="coords" aria-hidden="true"></div>
 </div>
 
 <div class="chrome" id="nameplate">
-  <h1 id="sysName">—<span class="cat">initializing</span>
+  <h1 id="sysName">—<span class="cat">초기화 중</span>
     <svg class="flourish" viewBox="0 0 148 12"><path d="M0 6 H58 M90 6 H148" stroke="rgba(232,220,196,0.4)" stroke-width="1"/><circle cx="74" cy="6" r="3.2" fill="none" stroke="rgba(232,220,196,0.55)" stroke-width="1"/><circle cx="74" cy="6" r="1" fill="rgba(232,220,196,0.7)"/></svg>
   </h1>
 </div>
 
 <div class="chrome" id="report">
   <div class="rep-head">
-    <span>Stellar Survey Report</span>
-    <span class="stamp" id="repStamp">FILE —</span>
+    <span>항성 측량 보고서</span>
+    <span class="stamp" id="repStamp">파일 —</span>
   </div>
   <div id="reportInner"><div id="reportText"></div></div>
 </div>
@@ -470,30 +470,30 @@
 <div class="chrome" id="panel">
   <div class="row">
     <div class="field">
-      <label for="seedIn">Seed</label>
+      <label for="seedIn">시드</label>
       <input id="seedIn" type="text" spellcheck="false" autocomplete="off" />
     </div>
-    <button class="btn icon" id="randomBtn" title="Random seed">⟳</button>
-    <button class="btn icon" id="copyBtn" title="Copy share link">⧉</button>
+    <button class="btn icon" id="randomBtn" title="무작위 시드">⟳</button>
+    <button class="btn icon" id="copyBtn" title="공유 링크 복사">⧉</button>
   </div>
   <div class="row">
-    <button class="btn primary" id="forgeBtn">◈ Forge System</button>
+    <button class="btn primary" id="forgeBtn">◈ 시스템 주조</button>
   </div>
 </div>
 
 <div id="toast"></div>
 <div id="callout"></div>
 <div id="dossier"></div>
-<button id="aboutBtn">About</button>
+<button id="aboutBtn">정보</button>
 
 <div id="about">
   <div id="aboutCard">
-    <button id="aboutClose" title="Close">✕</button>
-    <h2>Starforge</h2>
-    <div class="tag">Forge a universe from a single seed</div>
-    <p>Every star system here is minted from a single 32-bit number. Type a seed — a word, a name, anything — and a deterministic engine hashes it into a complete world: a temperature-driven star, its family of planets with rings and moons, catalog names, and a hand-written survey report. The same seed always forges the identical system.</p>
-    <p>Press <span class="kbd">Forge</span> or hit <span class="kbd">Enter</span> in the seed field to witness a birth-of-a-system sequence. Use <span class="kbd">⟳</span> for a random seed and <span class="kbd">⧉</span> to copy a shareable link. Hover any planet to read its telemetry.</p>
-    <p style="color:var(--bone-faint);font-size:13px;">No two systems alike — 4 billion seeds, each a pure function of its number. Single canvas, zero dependencies, no network.</p>
+    <button id="aboutClose" title="닫기">✕</button>
+    <h2>스타포지</h2>
+    <div class="tag">하나의 시드에서 우주를 주조하다</div>
+    <p>여기 모든 항성계는 단 하나의 32비트 정수에서 새겨집니다. 시드 — 단어든, 이름이든, 무엇이든 — 를 입력하면 결정론적 엔진이 그것을 해시해 완전한 세계를 빚어냅니다: 온도로 결정되는 항성, 고리와 위성을 거느린 행성 가족, 카탈로그 이름, 손으로 쓴 측량 보고서까지. 같은 시드는 항상 같은 항성계를 만듭니다.</p>
+    <p><span class="kbd">주조</span>를 누르거나 시드 필드에서 <span class="kbd">Enter</span>를 치면 항성계탄생 시퀀스가 펼쳐집니다. <span class="kbd">⟳</span>은 무작위 시드, <span class="kbd">⧉</span>은 공유 가능한 링크 복사. 행성 위에 마우스를 올려 원격 측정 정보를 읽어보세요.</p>
+    <p style="color:var(--bone-faint);font-size:13px;">40억 개의 시드, 어느 둘도 닮지 않습니다 — 각각 자신의 숫자에 대한 순수 함수. 단일 캔버스, 의존성 없음, 네트워크 없음.</p>
     <div class="credit">Built by Claude Fable 5</div>
   </div>
 </div>

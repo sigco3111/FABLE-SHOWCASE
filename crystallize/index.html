@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Crystallize — A Diffusion-Limited Crystal Growth Lab</title>
+<title>크리스탈화 — 확산 제한 결정 성장 실험실</title>
 <style>
 /* ============================================================
    CRYSTALLIZE — "Dark Lapidary"
@@ -16,9 +16,9 @@
   --hairline:rgba(255,255,255,.08);
   --ink:rgba(255,255,255,.82);
   --ink-dim:rgba(255,255,255,.42);
-  --serif:ui-serif,"New York",Georgia,"Times New Roman",serif;
-  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --serif:ui-serif,"New York",Georgia,"Times New Roman","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono","Apple SD Gothic Neo",Menlo,Consolas,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
@@ -289,89 +289,86 @@ input[type=range]:focus-visible{box-shadow:0 0 0 3px rgba(var(--accent-rgb),.3)}
 <body>
 
 <main id="stage">
-  <canvas id="view" tabindex="0" aria-label="Crystal growth canvas. Arrow keys move the light, space pauses, R regrows, E exports."></canvas>
+  <canvas id="view" tabindex="0" aria-label="결정 성장 캔버스. 방향키로 빛을 움직이고, 스페이스로 정지, R로 다시 자라게, E로 내보냅니다."></canvas>
   <div id="cursorRing"></div>
 </main>
 
-<aside id="rail" aria-label="Controls">
-  <div class="wordmark">Crystallize</div>
-  <div class="tag">diffusion-limited lapidary</div>
+<aside id="rail" aria-label="조작 패널">
+  <div class="wordmark">크리스탈화</div>
+  <div class="tag">확산 제한 보석 가공</div>
 
   <div class="sect">
-    <h3>Mineral</h3>
+    <h3>광물</h3>
     <div class="chips" id="chips">
       <button class="chip on" data-m="amethyst" style="--g1:#dcc2ff;--g2:#6d2fd6">
-        <span class="gem"></span>Amethyst</button>
+        <span class="gem"></span>자수정</button>
       <button class="chip" data-m="bismuth" style="--g1:#ffd9a0;--g2:#c04fb0">
-        <span class="gem"></span>Bismuth</button>
+        <span class="gem"></span>비스무트</button>
       <button class="chip" data-m="emerald" style="--g1:#c4ffdf;--g2:#0d8c4d">
-        <span class="gem"></span>Emerald</button>
+        <span class="gem"></span>에메랄드</button>
       <button class="chip" data-m="ice" style="--g1:#e6faff;--g2:#2f7fd6">
-        <span class="gem"></span>Ice</button>
+        <span class="gem"></span>얼음</button>
     </div>
   </div>
 
   <div class="sect">
-    <h3>Seed</h3>
+    <h3>씨앗</h3>
     <div class="seeds" id="seeds">
-      <button class="seed on" data-s="point" title="Point — classic radial bloom">
+      <button class="seed on" data-s="point" title="점 — 고전적인 방사형 꽃">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3" opacity=".5"/></svg>
-        Point</button>
-      <button class="seed" data-s="line" title="Line — a ridge growing upward">
+        점</button>
+      <button class="seed" data-s="line" title="선 — 위로 자라나는 능선">
         <svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M8 19v-5M12 19V9M16 19v-7" opacity=".5"/></svg>
-        Line</button>
-      <button class="seed" data-s="ring" title="Ring — crystals close inward to an aperture">
+        선</button>
+      <button class="seed" data-s="ring" title="고리 — 결정이 구멍으로 안쪽으로 모입니다">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><path d="M12 8.5v2M12 13.5v2M8.5 12h2M13.5 12h2" opacity=".5"/></svg>
-        Ring</button>
-      <button class="seed" data-s="shard" title="Shard — scattered segments, geode cluster">
+        고리</button>
+      <button class="seed" data-s="shard" title="파편 — 흩어진 결정 조각, 정동석 군집">
         <svg viewBox="0 0 24 24"><path d="M6 18 10 9M13 16l5-9M9 20l7-3" /></svg>
-        Shard</button>
+        파편</button>
     </div>
   </div>
 
   <div class="sect">
-    <h3>Growth</h3>
+    <h3>성장</h3>
     <div class="slider">
-      <label><b>Growth Speed</b><output id="speedOut">·</output></label>
-      <input type="range" id="speed" min="0" max="100" value="62" aria-label="Growth speed">
+      <label><b>성장 속도</b><output id="speedOut">·</output></label>
+      <input type="range" id="speed" min="0" max="100" value="62" aria-label="성장 속도">
     </div>
     <div class="slider">
-      <label><b>Facet ↔ Dendrite</b><output id="branchOut">·</output></label>
-      <input type="range" id="branch" min="0" max="100" value="40" aria-label="Branching: sticking probability">
+      <label><b>면 ↔ 가지</b><output id="branchOut">·</output></label>
+      <input type="range" id="branch" min="0" max="100" value="40" aria-label="가지치기: 부착 확률">
     </div>
     <div class="slider">
-      <label><b>Symmetry</b><output id="symOut">6-fold</output></label>
-      <input type="range" id="sym" min="0" max="4" value="3" step="1" aria-label="Symmetry fold">
+      <label><b>대칭</b><output id="symOut">6-fold</output></label>
+      <input type="range" id="sym" min="0" max="4" value="3" step="1" aria-label="대칭 차수">
     </div>
   </div>
 
   <div class="sect">
-    <h3>Lab</h3>
+    <h3>실험실</h3>
     <div class="btnrow">
-      <button class="btn" id="regrow">Regrow<small>new seed · R</small></button>
-      <button class="btn ghost" id="replay">Replay<small>same seed · ⇧R</small></button>
+      <button class="btn" id="regrow">다시 자라게<small>새 씨앗 · R</small></button>
+      <button class="btn ghost" id="replay">다시 재생<small>같은 씨앗 · ⇧R</small></button>
     </div>
     <div class="btnrow" style="margin-top:7px">
-      <button class="btn ghost" id="pause">Pause<small>space</small></button>
-      <button class="btn" id="export">Export<small>PNG 2× · E</small></button>
+      <button class="btn ghost" id="pause">일시정지<small>스페이스</small></button>
+      <button class="btn" id="export">내보내기<small>PNG 2× · E</small></button>
     </div>
-    <label class="check"><input type="checkbox" id="transparent"> transparent plate</label>
+    <label class="check"><input type="checkbox" id="transparent"> 투명 배경</label>
   </div>
 </aside>
 
 <div id="stats" aria-live="off"></div>
 
-<button id="aboutBtn" aria-label="About">?</button>
+<button id="aboutBtn" aria-label="정보">?</button>
 <div id="about" hidden>
-  <h2>Crystallize</h2>
-  <p>A real <b>diffusion-limited aggregation</b> simulation: thousands of random-walk
-  particles wander an invisible lattice and freeze on contact. Low branching gives dense
-  facets; high branching grows feathery dendrites. Everything you see — the ~1.71 fractal
-  dimension included — is physics, not animation.</p>
-  <p>Try the rose window: <b>Ice · Ring · 12-fold</b>.</p>
-  <p><kbd>←→↑↓</kbd> move light &nbsp;<kbd>space</kbd> pause &nbsp;<kbd>R</kbd> regrow &nbsp;<kbd>E</kbd> export<br>
-  Tap the canvas to place the key light; long-press to regrow.</p>
-  <p class="credit">Built by Claude Fable 5 · single file · zero dependencies</p>
+  <h2>크리스탈화</h2>
+  <p>진짜 <b>확산 제한 응집</b> 시뮬레이션입니다. 수천 개의 무작위 보행 입자가 보이지 않는 격자를 헤매다 닿는 순간 결빙합니다. 낮은 가지치기는 치밀한 면을, 높은 가지치기는 깃털 같은 수지상 결정을 만듭니다. 화면에 보이는 모든 것 — ~1.71 프랙탈 차원까지 — 은 애니메이션이 아니라 물리입니다.</p>
+  <p>장미 창을 시도해 보세요: <b>얼음 · 고리 · 12-fold</b>.</p>
+  <p><kbd>←→↑↓</kbd> 빛 이동 &nbsp;<kbd>space</kbd> 일시정지 &nbsp;<kbd>R</kbd> 다시 자라게 &nbsp;<kbd>E</kbd> 내보내기<br>
+  캔버스를 눌러 키 라이트를 놓고, 길게 누르면 다시 자랍니다.</p>
+  <p class="credit">제작 Claude Fable 5 · 단일 파일 · 의존성 없음</p>
 </div>
 
 <div id="shutter"></div>
@@ -933,11 +930,11 @@ function renderStats(){
   var R = S.clusterR;
   if(S.mode === 1) R = Math.max(2, (S.gh - 8) - S.minY);
   var D = (S.n > 60 && R > 5) ? (Math.log(S.n)/Math.log(R)).toFixed(2) : "—";
-  var st = S.paused ? "paused" : S.completed ? "crystallized" : "growing";
+  var st = S.paused ? "일시정지" : S.completed ? "결정화 완료" : "성장 중";
   statsEl.innerHTML =
-    "<b>" + S.n.toLocaleString() + "</b> particles · R <b>" + Math.round(R*CELL) +
+    "<b>" + S.n.toLocaleString() + "</b> 개 입자 · R <b>" + Math.round(R*CELL) +
     "</b>px · D≈<b>" + D + "</b> · " + st +
-    " · seed <span class='replay' id='seedLink' title='replay this exact crystal'>" +
+    " · seed <span class='replay' id='seedLink' title='이 결정을 그대로 다시 재생'>" +
     S.seedVal.toString(16) + "</span>";
   var link = $("seedLink");
   if(link) link.onclick = function(){ startShatter(true); };
@@ -963,7 +960,7 @@ function exportPNG(){
     composite(ectx, performance.now());
     /* discreet caption */
     var fold = (S.seedMode==="line") ? 1 : SYMS[+sliders.sym.value];
-    var cap = "CRYSTALLIZED · " + m.label.toLowerCase() + " · " + S.seedMode +
+    var cap = "결정화 · " + m.label.toLowerCase() + " · " + S.seedMode +
               " · " + fold + "-fold · seed " + S.seedVal.toString(16);
     ectx.font = "10px " + "ui-monospace, Menlo, monospace";
     ectx.textAlign = "right";
@@ -972,15 +969,15 @@ function exportPNG(){
     var shut = $("shutter");
     shut.classList.remove("snap"); void shut.offsetWidth; shut.classList.add("snap");
     ec.toBlob(function(blob){
-      if(!blob){ toast("export failed — canvas too large?"); return; }
+      if(!blob){ toast("내보내기 실패 — 캔버스가 너무 큰가요?"); return; }
       var a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = "crystallize-" + S.mineral + "-" + S.seedMode + "-" + S.seedVal.toString(16) + ".png";
       document.body.appendChild(a); a.click();
       setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 4000);
-      toast("exported at 2× — " + m.label.toLowerCase() + " preserved");
+      toast("2×로 내보냈습니다 — " + m.label.toLowerCase() + " 보존됨");
     }, "image/png");
-  }catch(err){ toast("export failed: " + err.message); }
+  }catch(err){ toast("내보내기 실패: " + err.message); }
 }
 
 /* ============================================================
@@ -1008,7 +1005,7 @@ function refreshOutputs(){
   outs.speed.textContent = (speedToSteps(+sliders.speed.value)/1000).toFixed(0) + "k steps/f";
   outs.branch.textContent = "p=" + branchToP(+sliders.branch.value).toFixed(2);
   var f = SYMS[+sliders.sym.value];
-  outs.sym.textContent = (S.seedMode === "line") ? "1 (line)" : f + "-fold";
+  outs.sym.textContent = (S.seedMode === "line") ? "1 (선)" : f + "-fold";
   paintSliderFill(sliders.speed); paintSliderFill(sliders.branch); paintSliderFill(sliders.sym);
 }
 
@@ -1034,7 +1031,7 @@ function selectMineral(name, silent){
   buildDirs(m); buildColors(m); makeGlintSprite(m);
   seedGlints();
   applyMineralTheme();
-  if(!silent) toast(m.label + " — lattice re-lit. Regrow for a clean crystal.");
+  if(!silent) toast(m.label + " — 격자가 다시 켜졌습니다. 깨끗한 결정을 보려면 다시 자라게 하세요.");
 }
 
 function selectSeed(name){
@@ -1073,7 +1070,7 @@ $("export").addEventListener("click", function(){ sheen(this); exportPNG(); });
 $("pause").addEventListener("click", function(){
   sheen(this);
   S.paused = !S.paused;
-  this.firstChild.textContent = S.paused ? "Resume" : "Pause";
+  this.firstChild.textContent = S.paused ? "재개" : "일시정지";
 });
 $("aboutBtn").addEventListener("click", function(){
   var a = $("about"); a.hidden = !a.hidden;
@@ -1093,7 +1090,7 @@ window.addEventListener("keydown", function(e){
     case " ":
       if(tag === "button") return;
       S.paused = !S.paused;
-      $("pause").firstChild.textContent = S.paused ? "Resume" : "Pause";
+      $("pause").firstChild.textContent = S.paused ? "재개" : "일시정지";
       e.preventDefault(); break;
     case "r": startShatter(false); break;
     case "R": startShatter(true); break;
@@ -1109,7 +1106,7 @@ view.addEventListener("pointerdown", function(e){
   pressTimer = setTimeout(function(){
     pressTimer = 0;
     startShatter(false);
-    toast("regrown");
+    toast("다시 자랐습니다");
   }, 620);
 });
 view.addEventListener("pointerup", function(e){
@@ -1133,7 +1130,7 @@ view.addEventListener("pointerleave", function(){
   if(pressTimer){ clearTimeout(pressTimer); pressTimer = 0; }
 });
 $("transparent").addEventListener("change", function(){
-  toast(this.checked ? "export plate: transparent" : "export plate: dark velvet");
+  toast(this.checked ? "내보내기 배경: 투명" : "내보내기 배경: 짙은 벨벳");
 });
 
 /* rail auto-dim */
@@ -1166,7 +1163,7 @@ if(window.ResizeObserver){
 
 /* error guard */
 window.addEventListener("error", function(e){
-  if(e && e.message) toast("hairline fracture: " + e.message);
+  if(e && e.message) toast("미세한 균열: " + e.message);
 });
 
 /* boot */

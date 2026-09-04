@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Glassworks — Atelier de Lumière</title>
+<title>유리공방 — 빛의 작업실</title>
 <style>
 :root{
   --bg:#141210; --bg2:#171411; --ink:#d3c7b2; --muted:#8d8069; --faint:#5c5344;
   --brass:#b08d4f; --brass-hi:#e0bd7d; --hair:#2c261d; --hair2:#221d15;
-  --serif:"Didot","Bodoni MT","Bodoni 72","Playfair Display","Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  --serif:"Didot","Bodoni MT","Bodoni 72","Playfair Display","Cormorant Garamond",Georgia,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Times New Roman",serif;
+  --mono:"SF Mono",ui-monospace,"Apple SD Gothic Neo","Noto Sans KR",Menlo,Consolas,monospace;
   --ease:cubic-bezier(.23,.72,.26,.99);
 }
 ::selection{background:rgba(176,141,79,.4);color:#f4e9d2}
@@ -199,10 +199,10 @@ kbd{font-family:var(--mono);font-size:.66rem;border:1px solid var(--hair);paddin
 </head>
 <body>
 <header>
-  <h1>Glassworks</h1>
-  <span class="tagline">Atelier de Lumière — grow infinite stained-glass windows &amp; watch the sun move through them</span>
+  <h1>유리공방</h1>
+  <span class="tagline">빛의 작업실 — 무한한 스테인드글라스 창을 만들고 그 사이를 흐르는 태양을 지켜보세요</span>
   <span id="accession">GW-1887-0000</span>
-  <button id="aboutBtn">About</button>
+  <button id="aboutBtn">정보</button>
 </header>
 
 <main>
@@ -214,84 +214,84 @@ kbd{font-family:var(--mono);font-size:.66rem;border:1px solid var(--hair);paddin
       <svg id="dial"></svg>
       <div id="caption"></div>
     </div>
-    <div id="gallery"><span class="shelfLabel">Esquisses</span></div>
+    <div id="gallery"><span class="shelfLabel">에스키스</span></div>
   </div>
 
   <aside id="panel">
     <section>
-      <h3>Accession <em id="seedEcho"></em></h3>
+      <h3>등록 번호 <em id="seedEcho"></em></h3>
       <div class="seedrow">
-        <button class="ctl" id="prevSeed" title="previous seed">‹</button>
-        <input id="seedField" spellcheck="false" aria-label="seed accession number">
-        <button class="ctl" id="nextSeed" title="next seed">›</button>
-        <button class="ctl" id="dice" title="forge anew (Space)">⚄</button>
+        <button class="ctl" id="prevSeed" title="이전 시드">‹</button>
+        <input id="seedField" spellcheck="false" aria-label="시드 등록 번호">
+        <button class="ctl" id="nextSeed" title="다음 시드">›</button>
+        <button class="ctl" id="dice" title="다시 벼리기 (스페이스)">⚄</button>
       </div>
     </section>
 
     <section>
-      <h3>Template</h3>
+      <h3>틀</h3>
       <div class="tplGrid" id="tplGrid"></div>
     </section>
 
     <section>
-      <h3>Glass Palette</h3>
+      <h3>유리 팔레트</h3>
       <div class="palList" id="palList"></div>
-      <div class="rowBtns"><button class="ctl" id="shuffleBtn" title="re-deal colours (S)">Shuffle colours</button></div>
+      <div class="rowBtns"><button class="ctl" id="shuffleBtn" title="색상 다시 섞기 (S)">색상 섞기</button></div>
     </section>
 
     <section>
-      <h3>Craft</h3>
+      <h3>제작</h3>
       <div class="sliderRow">
-        <label>Complexity <output id="cxOut"></output></label>
+        <label>복잡도 <output id="cxOut"></output></label>
         <input type="range" id="cxSlider" min="40" max="400" step="4">
       </div>
       <div class="sliderRow">
-        <label>Lead came <output id="leadOut"></output></label>
+        <label>연출선 두께 <output id="leadOut"></output></label>
         <input type="range" id="leadSlider" min="1.5" max="8" step="0.1">
       </div>
     </section>
 
     <section>
-      <h3>Light</h3>
+      <h3>빛</h3>
       <div class="sliderRow">
-        <label>Hour <output id="hourOut"></output></label>
+        <label>시간 <output id="hourOut"></output></label>
         <input type="range" id="timeSlider" min="0" max="1" step="0.005">
       </div>
-      <label class="checkRow"><input type="checkbox" id="autoCycle"> let the day turn</label>
-      <p class="hint">Drag the brass sun along its astrolabe arc above the window — panes flare, rays swing, and the pool of jewel-light slides across the floor. And tap any pane: the glass rings — great panes toll low, slivers chime high.</p>
+      <label class="checkRow"><input type="checkbox" id="autoCycle"> 하루가 흐르게</label>
+      <p class="hint">황동 태양을 천체도 호를 따라 끌고 다세요 — 판이 빛나고, 광선이 휘두르며, 보석빛 웅덩이가 바닥 위로 미끄러집니다. 판을 누르면: 유리가 울립니다 — 큰 판은 낮게, 가늘고 긴 조각은 높게 울립니다.</p>
     </section>
 
     <section>
-      <h3>Export</h3>
+      <h3>내보내기</h3>
       <div class="rowBtns">
-        <button class="ctl" id="expSvg" title="pristine vector (E)">SVG</button>
-        <button class="ctl" id="expPng" title="2× snapshot with light">PNG</button>
+        <button class="ctl" id="expSvg" title="깔끔한 벡터 (E)">SVG</button>
+        <button class="ctl" id="expPng" title="2× 빛 포함 스냅샷">PNG</button>
       </div>
-      <p class="hint"><kbd>space</kbd> new seed · <kbd>←→</kbd> palette · <kbd>↑↓</kbd> template · <kbd>E</kbd> export · <kbd>S</kbd> shuffle</p>
+      <p class="hint"><kbd>space</kbd> 새 시드 · <kbd>←→</kbd> 팔레트 · <kbd>↑↓</kbd> 틀 · <kbd>E</kbd> 내보내기 · <kbd>S</kbd> 색상 섞기</p>
     </section>
   </aside>
 </main>
 
-<button id="panelToggle">Atelier</button>
+<button id="panelToggle">작업실</button>
 
 <div id="overlay" role="dialog" aria-modal="true">
   <div class="card">
-    <button class="close" id="closeAbout" aria-label="close">×</button>
-    <h2>Glassworks</h2>
-    <div class="sub">Atelier de Lumière — a generative cathedral in a single file</div>
-    <p>Every window here is grown, not drawn: a seeded field of points is relaxed into hand-cut Voronoi panes, clipped to gothic tracery, glazed with art-historical palettes, and leaded with soldered came. No two accession numbers ever produce the same glass.</p>
-    <p>Grab the <b style="color:var(--brass)">brass sun</b> on its arc and drag it across the sky — every pane answers the changing angle of incidence, god-rays swing through the dust, and transmitted colour pools on the stone floor. Scrub the hour from Matins to Compline to sweep the light from dawn cobalt to vespers amber. And strike any pane: it rings like true glass, its pitch set by the size of the cut.</p>
+    <button class="close" id="closeAbout" aria-label="닫기">×</button>
+    <h2>유리공방</h2>
+    <div class="sub">빛의 작업실 — 단일 파일 안의 생성형 대성당</div>
+    <p>여기 모든 창은 그려진 것이 아니라 자라납니다: 시드된 점들의 필드가 손으로 자른 보로노이 판으로 이완되고, 고딕 트레이서리로 잘려나가고, 미술사적 팔레트로 채색되고, 납출선으로 이어집니다. 같은 등록 번호가 두 번 같은 유리를 만들지는 않습니다.</p>
+    <p>호 위의 <b style="color:var(--brass)">황동 태양</b>을 잡고 하늘을 가로질러 끌고 가세요 — 모든 판이 변하는 입사각에 응답하고, 신의 광선이 먼지를 뚫고 흔들리며, 투과된 색이 돌바닥 위에 웅덩이를 만듭니다. 새벽 코발트에서 저녁 호박빛까지, 시간을 끌어서 빛을 훑어보세요. 그리고 어떤 판이든 두드리세요: 크기에 맞춰 음정이 정해진 진짜 유리처럼 울립니다.</p>
     <div class="keys">
-      <div><kbd>space</kbd>&nbsp; forge a new window</div>
-      <div><kbd>click</kbd>&nbsp; ring a pane</div>
-      <div><kbd>← →</kbd>&nbsp; change palette</div>
-      <div><kbd>↑ ↓</kbd>&nbsp; change template</div>
-      <div><kbd>S</kbd>&nbsp; shuffle colours</div>
-      <div><kbd>E</kbd>&nbsp; export SVG</div>
-      <div><kbd>?</kbd>&nbsp; this panel</div>
+      <div><kbd>space</kbd>&nbsp; 새 창을 벼리기</div>
+      <div><kbd>click</kbd>&nbsp; 판 울리기</div>
+      <div><kbd>← →</kbd>&nbsp; 팔레트 바꾸기</div>
+      <div><kbd>↑ ↓</kbd>&nbsp; 틀 바꾸기</div>
+      <div><kbd>S</kbd>&nbsp; 색상 섞기</div>
+      <div><kbd>E</kbd>&nbsp; SVG 내보내기</div>
+      <div><kbd>?</kbd>&nbsp; 이 패널</div>
     </div>
-    <p>Windows are shareable: the seed, template, palette and hour live in the URL hash. Exported SVGs carry their full provenance as metadata.</p>
-    <div class="credit">Built by Claude Fable 5 · MMXXVI</div>
+    <p>창은 공유할 수 있습니다: 시드, 틀, 팔레트, 시간이 URL 해시에 담깁니다. 내보낸 SVG는 전체 출처를 메타데이터로 함께 싣고 갑니다.</p>
+    <div class="credit">제작 Claude Fable 5 · MMXXVI</div>
   </div>
 </div>
 
@@ -552,19 +552,19 @@ function circleD(cx,cy,r){return`M${r2(cx-r)} ${r2(cy)}A${r2(r)} ${r2(r)} 0 1 0 
 
 const TPL_ORDER=['rose','lancet','twin','ogee','oculus','cath'];
 const TPL={
-  rose:{label:'Rose Window',make(){
+  rose:{label:'장미창',make(){
     const cx=400,cy=485,R=372;
     return{regions:[{poly:circlePoly(cx,cy,R,96),gen:'rose',cx,cy,R,bossR:62}],
       tracery:[circleD(cx,cy,172),circleD(cx,cy,R-8),circleD(cx,cy,84)],
       frame:[circleD(cx,cy,R)],frameFill:null,center:[cx,cy],maxR:R};
   }},
-  lancet:{label:'Gothic Lancet',make(){
+  lancet:{label:'고딕 랜싯',make(){
     const p=lancetPoly(185,615,560,1030);
     return{regions:[{poly:p,gen:'mirror',axisX:400}],
       tracery:['M400 1030L400 652',circleD(400,432,80),'M400 652L306 486','M400 652L494 486'],
       frame:[polyToD(p)],frameFill:null,center:[400,600],maxR:478};
   }},
-  twin:{label:'Twin Lancets',make(){
+  twin:{label:'쌍 랜싯',make(){
     const outer=lancetPoly(156,644,560,1030);
     const L=lancetPoly(180,388,640,1030);
     const R=mirrorPoly(L,400);
@@ -576,19 +576,19 @@ const TPL={
       tracery:[],frame:[polyToD(outer),polyToD(L),polyToD(R),polyToD(Q)],
       frameFill:polyToD(outer),center:[400,600],maxR:500};
   }},
-  ogee:{label:'Ogee Arch',make(){
+  ogee:{label:'오지 아치',make(){
     const p=ogeePoly(190,610,620,1030);
     return{regions:[{poly:p,gen:'mirror',axisX:400}],
       tracery:['M400 1030L400 700',circleD(400,505,72)],
       frame:[polyToD(p)],frameFill:null,center:[400,626],maxR:455};
   }},
-  oculus:{label:'Round Oculus',make(){
+  oculus:{label:'원형 오쿨루스',make(){
     const p=circlePoly(400,520,352,96);
     return{regions:[{poly:p,gen:'mirror',axisX:400}],
       tracery:[circleD(400,520,344)],
       frame:[circleD(400,520,352)],frameFill:null,center:[400,520],maxR:352};
   }},
-  cath:{label:'Grand Cathedral',make(){
+  cath:{label:'대성당',make(){
     const C=lancetPoly(302,498,520,1030,2.2);
     const S=lancetPoly(112,282,585,1030,1.4);
     const S2=mirrorPoly(S,400);
@@ -609,36 +609,36 @@ const TPL={
 /* ---------- glass palettes ---------- */
 /* tier: 0 deep, 1 mid, 2 accent */
 const PALETTES=[
- {name:'Chartres Bleu',era:'Chartres, c. 1194',entries:[
-   {c:'#14306e',n:'cobalt bleu de Chartres',t:1,w:5},{c:'#0c1e4d',n:'midnight cobalt',t:0,w:4},
-   {c:'#7c1f2d',n:'pot-metal ruby',t:2,w:3},{c:'#d4a62a',n:'gold-pot yellow',t:2,w:2},
-   {c:'#2f6da8',n:'cerulean flash',t:1,w:3},{c:'#e9e2cc',n:'pearl grisaille',t:2,w:1},
-   {c:'#23492e',n:'bottle green',t:0,w:2},{c:'#5c2a52',n:'manganese violet',t:0,w:1}]},
- {name:'Tiffany Opaline',era:'Tiffany Studios, c. 1900',entries:[
-   {c:'#9dc4a9',n:'opaline sea-green',t:1,w:4},{c:'#557f63',n:'rippled leaf',t:0,w:3},
-   {c:'#e0b23f',n:'amber drapery',t:2,w:3},{c:'#d6907f',n:'rose favrile',t:2,w:2},
-   {c:'#efe6d3',n:'milk opalescent',t:1,w:3},{c:'#79a3b4',n:'steel-blue wisteria',t:1,w:2},
-   {c:'#a5563a',n:'tortoise amber',t:0,w:2},{c:'#31473a',n:'deep pond',t:0,w:2}]},
- {name:'Sainte-Chapelle',era:'Paris, c. 1248',entries:[
-   {c:'#8e1f2f',n:'flashed crimson',t:1,w:5},{c:'#5d1220',n:'oxblood ruby',t:0,w:4},
-   {c:'#274e91',n:'sapphire pot-metal',t:2,w:3},{c:'#d4a62a',n:'silver-stain gold',t:2,w:2},
-   {c:'#3a6b35',n:'vert mousse',t:1,w:1},{c:'#d9d0ba',n:'bone white',t:2,w:1},
-   {c:'#3b1220',n:'wine shadow',t:0,w:2},{c:'#b3452c',n:'vermilion streak',t:1,w:2}]},
- {name:'Alhambra',era:'Nasrid Granada, c. 1350',entries:[
-   {c:'#1e7a5b',n:'emerald pot-metal',t:1,w:4},{c:'#0e4f44',n:'deep viridian',t:0,w:3},
-   {c:'#2fa39d',n:'turquoise faience',t:2,w:3},{c:'#d9a441',n:'honey amber',t:2,w:3},
-   {c:'#7e9a3f',n:'olive quarry',t:1,w:2},{c:'#efe3c2',n:'ivory alabaster',t:2,w:1},
-   {c:'#79422a',n:'cedar umber',t:0,w:2},{c:'#28353f',n:'night tile',t:0,w:1}]},
- {name:'Midnight Rose',era:'Nocturne, c. 1889',entries:[
-   {c:'#482b6e',n:'violet pot-metal',t:1,w:4},{c:'#2a1850',n:'deep amethyst',t:0,w:4},
-   {c:'#8e58aa',n:'mauve flash',t:1,w:3},{c:'#c9b9dc',n:'moon opal',t:2,w:2},
-   {c:'#d9bd63',n:'silver-stain star',t:2,w:2},{c:'#5f74b3',n:'slate lavender',t:1,w:2},
-   {c:'#170f30',n:'void indigo',t:0,w:2},{c:'#a03a56',n:'dusk rose',t:2,w:1}]},
- {name:'Grisaille',era:'Cistercian, c. 1150',entries:[
-   {c:'#c8c2b2',n:'smoke white',t:1,w:5},{c:'#a49e8e',n:'ash grey',t:1,w:4},
-   {c:'#797466',n:'charcoal wash',t:0,w:3},{c:'#545046',n:'iron grey',t:0,w:2},
-   {c:'#e6e0d0',n:'clear quarry',t:2,w:3},{c:'#8e1f2b',n:'the single ruby',t:2,w:0.8},
-   {c:'#37342c',n:'lead smoke',t:0,w:1}]}
+ {name:'Chartres Bleu',era:'샤르트르, 약 1194년',entries:[
+   {c:'#14306e',n:'샤르트르 코발트 블루',t:1,w:5},{c:'#0c1e4d',n:'미드나잇 코발트',t:0,w:4},
+   {c:'#7c1f2d',n:'포트메탈 루비',t:2,w:3},{c:'#d4a62a',n:'골드포트 옐로',t:2,w:2},
+   {c:'#2f6da8',n:'셀룰리안 플래시',t:1,w:3},{c:'#e9e2cc',n:'펄 그리제이',t:2,w:1},
+   {c:'#23492e',n:'보틀 그린',t:0,w:2},{c:'#5c2a52',n:'망가니즈 바이올렛',t:0,w:1}]},
+ {name:'Tiffany Opaline',era:'티파니 스튜디오, 약 1900년',entries:[
+   {c:'#9dc4a9',n:'오팔린 시그린',t:1,w:4},{c:'#557f63',n:'리플드 리프',t:0,w:3},
+   {c:'#e0b23f',n:'앰버 드레이퍼리',t:2,w:3},{c:'#d6907f',n:'로즈 파브릴',t:2,w:2},
+   {c:'#efe6d3',n:'밀크 오팔',t:1,w:3},{c:'#79a3b4',n:'스틸블루 위스테리아',t:1,w:2},
+   {c:'#a5563a',n:'토터투이스 앰버',t:0,w:2},{c:'#31473a',n:'딥 폰드',t:0,w:2}]},
+ {name:'Sainte-Chapelle',era:'파리, 약 1248년',entries:[
+   {c:'#8e1f2f',n:'플래시드 크림슨',t:1,w:5},{c:'#5d1220',n:'옥스블러드 루비',t:0,w:4},
+   {c:'#274e91',n:'사파이어 포트메탈',t:2,w:3},{c:'#d4a62a',n:'실버스테인 골드',t:2,w:2},
+   {c:'#3a6b35',n:'베르 무스',t:1,w:1},{c:'#d9d0ba',n:'본 화이트',t:2,w:1},
+   {c:'#3b1220',n:'와인 섀도',t:0,w:2},{c:'#b3452c',n:'버밀리온 스트릭',t:1,w:2}]},
+ {name:'Alhambra',era:'나스리드 그라나다, 약 1350년',entries:[
+   {c:'#1e7a5b',n:'에메랄드 포트메탈',t:1,w:4},{c:'#0e4f44',n:'딥 비리디안',t:0,w:3},
+   {c:'#2fa39d',n:'터키석 파이언스',t:2,w:3},{c:'#d9a441',n:'허니 앰버',t:2,w:3},
+   {c:'#7e9a3f',n:'올리브 광리',t:1,w:2},{c:'#efe3c2',n:'아이보리 알라바스터',t:2,w:1},
+   {c:'#79422a',n:'시더 엄버',t:0,w:2},{c:'#28353f',n:'나이트 타일',t:0,w:1}]},
+ {name:'Midnight Rose',era:'녹턴, 약 1889년',entries:[
+   {c:'#482b6e',n:'바이올렛 포트메탈',t:1,w:4},{c:'#2a1850',n:'딥 아마시스트',t:0,w:4},
+   {c:'#8e58aa',n:'모브 플래시',t:1,w:3},{c:'#c9b9dc',n:'문 오팔',t:2,w:2},
+   {c:'#d9bd63',n:'실버스테인 스타',t:2,w:2},{c:'#5f74b3',n:'슬레이트 라벤더',t:1,w:2},
+   {c:'#170f30',n:'보이드 인디고',t:0,w:2},{c:'#a03a56',n:'더스크 로즈',t:2,w:1}]},
+ {name:'Grisaille',era:'시스테르시안, 약 1150년',entries:[
+   {c:'#c8c2b2',n:'스모크 화이트',t:1,w:5},{c:'#a49e8e',n:'애시 그레이',t:1,w:4},
+   {c:'#797466',n:'차콜 워시',t:0,w:3},{c:'#545046',n:'아이언 그레이',t:0,w:2},
+   {c:'#e6e0d0',n:'클리어 광리',t:2,w:3},{c:'#8e1f2b',n:'그 단 하나의 루비',t:2,w:0.8},
+   {c:'#37342c',n:'납빛 연기',t:0,w:1}]}
 ];
 
 /* ---------- colour temperature (canonical hours) ---------- */
@@ -653,7 +653,7 @@ function tempColor(t){
   }
   return TEMP_STOPS[TEMP_STOPS.length-1][1];
 }
-const HOURS=[[0,'Matins'],[0.14,'Lauds'],[0.30,'Prime'],[0.42,'Terce'],[0.5,'Sext'],[0.60,'Nones'],[0.76,'Vespers'],[0.9,'Compline']];
+const HOURS=[[0,'새벽기도'],[0.14,'찬미가'],[0.30,'첫시'],[0.42,'삼시'],[0.5,'육시'],[0.60,'구시'],[0.76,'저녁기도'],[0.9,'취침기도']];
 function hourName(t){let n=HOURS[0][1];for(const[k,v]of HOURS)if(t>=k)n=v;return n;}
 
 /* ---------- model ---------- */
@@ -823,7 +823,7 @@ function buildSVG(model,st,o={}){
   }
   const meta=o.export?
     `<title>Glassworks ${accession(st.seed)}</title>`+
-    `<desc>Generative stained glass. seed=${st.seed} template=${st.tpl} palette=${pal.name} lead=${st.lead} complexity=${st.complexity}. Glassworks — Atelier de Lumière, built by Claude Fable 5. Reopen with #s=${st.seed}&amp;t=${st.tpl}&amp;p=${st.pal}</desc>`:'';
+    `<desc>생성형 스테인드글라스. 시드=${st.seed} 틀=${st.tpl} 팔레트=${pal.name} 연출선=${st.lead} 복잡도=${st.complexity}. 유리공방 — 빛의 작업실, 제작 Claude Fable 5. #s=${st.seed}&amp;t=${st.tpl}&amp;p=${st.pal}로 다시 여세요</desc>`:'';
   const size=o.export?` width="${W*2}" height="${H*2}"`:'';
   return`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}"${size} preserveAspectRatio="xMidYMid meet">${meta}<defs>${defs}</defs>${parts.join('')}</svg>`;
 }
@@ -889,7 +889,7 @@ function toast(msg){
   els.toast.textContent=msg;els.toast.classList.add('show');
   clearTimeout(toast._t);toast._t=setTimeout(()=>els.toast.classList.remove('show'),1800);
 }
-window.addEventListener('error',e=>{try{toast('a pane cracked — recovering');}catch(_){}});
+window.addEventListener('error',e=>{try{toast('유리판에 금이 갔습니다 — 복구 중');}catch(_){}});
 
 /* --- mounting with crossfade --- */
 function mountSVG(str){
@@ -978,7 +978,7 @@ function onPaneOver(e){
   hoverI=i;
   const p=model.panes[i],pal=PALETTES[state.pal],en=pal.entries[p.entry];
   t.style.filter='saturate(1.3) brightness(1.18)';
-  els.caption.innerHTML=`<b>${en.n}</b> · ${pal.era} — pane № ${String(i+1).padStart(3,'0')}`;
+  els.caption.innerHTML=`<b>${en.n}</b> · ${pal.era} — 판 № ${String(i+1).padStart(3,'0')}`;
   if(shineEls[i])shineEls[i].setAttribute('opacity','0.32');
 }
 function onPaneOut(e){
@@ -1011,7 +1011,7 @@ function regenerate(){
     activity();
   }catch(err){
     console.error(err);
-    toast('the kiln misfired — try another seed');
+    toast('가마가 불발되었습니다 — 다른 시드를 시도하세요');
   }
 }
 function reshuffle(){
@@ -1030,7 +1030,7 @@ function updateReadout(){
   els.accession.textContent=acc;
   els.seedField.value=acc;
   els.seedEcho.textContent='№ '+String(state.seed).padStart(4,'0');
-  els.cxOut.textContent=state.complexity+' panes';
+  els.cxOut.textContent=state.complexity+' 판';
   els.cxSlider.value=state.complexity;
   els.leadOut.textContent=state.lead.toFixed(1)+' pt';
   els.leadSlider.value=state.lead;
@@ -1416,11 +1416,11 @@ function exportSVG(){
   if(!model)return;
   const str='<?xml version="1.0" encoding="UTF-8"?>\n'+buildSVG(model,state,{export:true});
   download(new Blob([str],{type:'image/svg+xml'}),`glassworks-${accession(state.seed)}.svg`);
-  toast('vector despatched — '+accession(state.seed));
+  toast('벡터 전송됨 — '+accession(state.seed));
 }
 function exportPNG(){
   if(!model)return;
-  toast('firing the kiln…');
+  toast('가마에 불을 붙이는 중…');
   try{
     const str=buildSVG(model,state,{export:true});
     const img=new Image();
@@ -1446,13 +1446,13 @@ function exportPNG(){
         x.fillStyle='rgba(176,141,79,0.85)';
         x.font='11px SF Mono, Menlo, monospace';
         x.textAlign='center';
-        x.fillText(`GLASSWORKS · ${accession(state.seed)} · ${PALETTES[state.pal].name.toUpperCase()} · ${TPL[state.tpl].label.toUpperCase()}`,w/2,h-16);
+        x.fillText(`유리공방 · ${accession(state.seed)} · ${PALETTES[state.pal].name.toUpperCase()} · ${TPL[state.tpl].label.toUpperCase()}`,w/2,h-16);
         cv.toBlob(bl=>{if(bl)download(bl,`glassworks-${accession(state.seed)}.png`);URL.revokeObjectURL(url);},'image/png');
-      }catch(e){console.error(e);toast('snapshot failed');}
+      }catch(e){console.error(e);toast('스냅샷 실패');}
     };
-    img.onerror=()=>toast('snapshot failed');
+    img.onerror=()=>toast('스냅샷 실패');
     img.src=url;
-  }catch(e){console.error(e);toast('snapshot failed');}
+  }catch(e){console.error(e);toast('스냅샷 실패');}
 }
 
 /* --- build control widgets --- */

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Ink Flow</title>
+<title>잉크의 흐름</title>
 <style>
   :root{
     --glass: rgba(255,255,255,0.055);
@@ -222,11 +223,11 @@
 <div id="aura"></div>
 
 <div id="placard">
-  <div class="mark">ink flow</div>
-  <div class="sub">a darkroom aquarium</div>
+  <div class="mark">잉크의 흐름</div>
+  <div class="sub">암실의 수족관</div>
 </div>
 
-<div id="hint">drag to release ink</div>
+<div id="hint">드래그해서 잉크를 풀어보세요</div>
 
 <div id="info">i</div>
 
@@ -235,22 +236,22 @@
 
 <div id="hud">
   <div class="group">
-    <span class="label">palette</span>
+    <span class="label">팔레트</span>
     <div class="swatches" id="swatches"></div>
   </div>
   <div class="divider"></div>
   <div class="group">
-    <span class="label">viscosity</span>
+    <span class="label">점성</span>
     <div class="slider" id="visc"><div class="track"></div><div class="fill"></div><div class="knob"></div></div>
   </div>
   <div class="group">
-    <span class="label">emission</span>
+    <span class="label">분사량</span>
     <div class="slider" id="emis"><div class="track"></div><div class="fill"></div><div class="knob"></div></div>
   </div>
   <div class="divider"></div>
   <div class="group">
-    <button class="btn" id="clear">clear</button>
-    <button class="btn iconbtn" id="shot" title="save png (s)">
+    <button class="btn" id="clear">지우기</button>
+    <button class="btn iconbtn" id="shot" title="PNG로 저장 (S)">
       <svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.4"/></svg>
     </button>
   </div>
@@ -258,15 +259,15 @@
 
 <div id="about">
   <div class="card">
-    <h1>ink flow</h1>
-    <p>Drag your finger through still water and watch color bloom, braid, and dissolve. An invisible curl-noise current grabs every stroke and unspools it into slow, glowing filaments — alive before you lift your finger, and never the same twice.</p>
-    <p style="color:var(--ink-faint)">Light refracts through the drifting dye, casting shimmering caustics across the darkroom floor. Leave it be and faint emitters wake at the edges, keeping the water in quiet motion. Double-tap the water for a supernova.</p>
+    <h1>잉크의 흐름</h1>
+    <p>손가락을 정지된 물에 가만히 가로지르면 색이 피어오르고, 서로 엉켜가며, 다시 풀려 흐릅니다. 보이지 않는 컬 노이즈의 흐름이 한 획을 붙잡아 천천히 빛나는 가닥들로 풀어헤칩니다 — 손가락을 떼기도 전에 이미 살아 있고, 두 번 다시 같은 모양은 없습니다.</p>
+    <p style="color:var(--ink-faint)">빛이 흘러가는 염료 사이를 통과하며 굴절되어, 암실 바닥 위로 반짝이는 코스틱 무늬를 드리웁니다. 가만히 두면 가장자리에서 희미한 발광체가 깨어나 물을 은은하게 계속 움직이게 합니다. 물을 더블 탭하면 초신성이 폭발합니다.</p>
     <div class="keys">
-      <b>drag</b> &nbsp;release ink &nbsp;·&nbsp; <b>flick</b> &nbsp;jets &nbsp;·&nbsp; <b>double-tap</b> &nbsp;burst<br>
-      <b>s</b> &nbsp;save a png &nbsp;·&nbsp; <b>c</b> &nbsp;clear &nbsp;·&nbsp; <b>space</b> &nbsp;bloom &nbsp;·&nbsp; <b>1–5</b> &nbsp;palettes
+      <b>드래그</b> &nbsp;잉크 풀기 &nbsp;·&nbsp; <b>쓸기</b> &nbsp;제트 &nbsp;·&nbsp; <b>더블 탭</b> &nbsp;폭발<br>
+      <b>S</b> &nbsp;PNG 저장 &nbsp;·&nbsp; <b>C</b> &nbsp;지우기 &nbsp;·&nbsp; <b>스페이스</b> &nbsp;꽃 피우기 &nbsp;·&nbsp; <b>1–5</b> &nbsp;팔레트
     </div>
-    <div class="credit">built by Claude Fable 5</div>
-    <button class="btn close" id="aboutClose">close</button>
+    <div class="credit">Claude Fable 5 제작</div>
+    <button class="btn close" id="aboutClose">닫기</button>
   </div>
 </div>
 
@@ -279,11 +280,11 @@
    Ordered bright core -> cool translucent tail.
    ============================================================ */
 const PALETTES = [
-  { name:"sumi", stops:[ [0xF4,0xF2,0xEC],[0x9A,0xA0,0xAE],[0x30,0x34,0x40],[0x0C,0x0D,0x12] ] },
-  { name:"kintsugi", stops:[ [0xFF,0xE7,0x9A],[0xF5,0xC4,0x51],[0xE5,0x48,0x4D],[0x2A,0x10,0x14] ] },
-  { name:"abyssal", stops:[ [0xBE,0xFF,0xF4],[0x2D,0xD4,0xBF],[0x63,0x66,0xF1],[0x18,0x0B,0x2E] ] },
-  { name:"peony", stops:[ [0xFF,0xE1,0xF0],[0xF9,0xA8,0xD4],[0xD6,0x3A,0xA6],[0x35,0x0F,0x2C] ] },
-  { name:"chlorophyll", stops:[ [0xE6,0xFF,0x9E],[0xA3,0xE6,0x35],[0x1E,0x8A,0x5A],[0x06,0x1B,0x18] ] }
+  { name:"먹", stops:[ [0xF4,0xF2,0xEC],[0x9A,0xA0,0xAE],[0x30,0x34,0x40],[0x0C,0x0D,0x12] ] },
+  { name:"금수", stops:[ [0xFF,0xE7,0x9A],[0xF5,0xC4,0x51],[0xE5,0x48,0x4D],[0x2A,0x10,0x14] ] },
+  { name:"심연", stops:[ [0xBE,0xFF,0xF4],[0x2D,0xD4,0xBF],[0x63,0x66,0xF1],[0x18,0x0B,0x2E] ] },
+  { name:"모란", stops:[ [0xFF,0xE1,0xF0],[0xF9,0xA8,0xD4],[0xD6,0x3A,0xA6],[0x35,0x0F,0x2C] ] },
+  { name:"엽록", stops:[ [0xE6,0xFF,0x9E],[0xA3,0xE6,0x35],[0x1E,0x8A,0x5A],[0x06,0x1B,0x18] ] }
 ];
 
 // Build a 256-entry RGB LUT (Float 0..1) from stops.
@@ -1199,8 +1200,8 @@ function screenshot(){
     a.href=url; a.download='ink-flow-'+Date.now()+'.png'; a.click();
     flash.style.transition='none'; flash.style.opacity='0.5';
     requestAnimationFrame(()=>{ flash.style.transition='opacity .5s ease'; flash.style.opacity='0'; });
-    toast('saved');
-  }catch(err){ console.warn('screenshot failed',err); toast('save failed'); }
+    toast('저장됨');
+  }catch(err){ console.warn('screenshot failed',err); toast('저장 실패'); }
 }
 
 // idle HUD fade
@@ -1287,7 +1288,7 @@ window.addEventListener('resize',()=>{
 canvas.addEventListener('webglcontextlost',e=>{ e.preventDefault(); }, false);
 canvas.addEventListener('webglcontextrestored',()=>{
   if(!useGL) return;
-  try{ initGL(); resizeGL(); toast('restored'); }
+  try{ initGL(); resizeGL(); toast('복원됨'); }
   catch(err){ console.warn('context restore failed',err); }
 }, false);
 

@@ -1,6 +1,9 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>murmuration</title>
+<title>먹구름 무리</title>
 <style>
   :root{
     --ink-zenith:#0B0E1A;
@@ -13,7 +16,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%;overflow:hidden;background:#0B0E1A}
   body{
-    font-family:system-ui,-apple-system,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
     color:var(--ui);
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
@@ -179,67 +182,67 @@
 <div id="vignette"></div>
 
 <div id="placard">
-  <h1>murmuration</h1>
-  <div class="sub">a living ink-wash sky where starlings breathe, scatter, and re-form around a hunting falcon</div>
-  <div id="clock" aria-hidden="true"><span class="dot"></span><span id="clockLabel">dusk</span></div>
+  <h1>먹구름 무리</h1>
+  <div class="sub">찌르레기가 숨 쉬고, 흩어지고, 사냥하는 매를 피해 다시 모이는 살아 있는 먹 효과의 하늘</div>
+  <div id="clock" aria-hidden="true"><span class="dot"></span><span id="clockLabel">황혼</span></div>
 </div>
 
 <div id="histo" aria-hidden="true"></div>
-<div id="histoLab">heading</div>
+<div id="histoLab">방위</div>
 
-<div id="panel" aria-label="controls">
+<div id="panel" aria-label="컨트롤">
   <div class="p-head">
-    <span class="p-title">the sky</span>
-    <span class="fps">flock <b id="nBoids">—</b> · <b id="fpsv">60</b> fps</span>
+    <span class="p-title">하늘</span>
+    <span class="fps">무리 <b id="nBoids">—</b> · <b id="fpsv">60</b> fps</span>
   </div>
 
   <div class="ctrl">
-    <div class="lab"><span>separation</span><span class="v" id="vSep"></span></div>
-    <input type="range" id="sep" min="0" max="2.5" step="0.01" aria-label="separation">
+    <div class="lab"><span>거리 유지</span><span class="v" id="vSep"></span></div>
+    <input type="range" id="sep" min="0" max="2.5" step="0.01" aria-label="거리 유지">
   </div>
   <div class="ctrl">
-    <div class="lab"><span>alignment</span><span class="v" id="vAli"></span></div>
-    <input type="range" id="ali" min="0" max="2.5" step="0.01" aria-label="alignment">
+    <div class="lab"><span>방향 맞추기</span><span class="v" id="vAli"></span></div>
+    <input type="range" id="ali" min="0" max="2.5" step="0.01" aria-label="방향 맞추기">
   </div>
   <div class="ctrl">
-    <div class="lab"><span>cohesion</span><span class="v" id="vCoh"></span></div>
-    <input type="range" id="coh" min="0" max="2.5" step="0.01" aria-label="cohesion">
+    <div class="lab"><span>결속</span><span class="v" id="vCoh"></span></div>
+    <input type="range" id="coh" min="0" max="2.5" step="0.01" aria-label="결속">
   </div>
   <div class="ctrl">
-    <div class="lab"><span>flock size</span><span class="v" id="vNum"></span></div>
-    <input type="range" id="num" min="80" max="1600" step="20" aria-label="flock size">
+    <div class="lab"><span>무리 크기</span><span class="v" id="vNum"></span></div>
+    <input type="range" id="num" min="80" max="1600" step="20" aria-label="무리 크기">
   </div>
   <div class="ctrl">
-    <div class="lab"><span>falcons</span><span class="v" id="vPred"></span></div>
-    <input type="range" id="pred" class="ember" min="0" max="5" step="1" aria-label="falcons">
+    <div class="lab"><span>매 수리부엉이</span><span class="v" id="vPred"></span></div>
+    <input type="range" id="pred" class="ember" min="0" max="5" step="1" aria-label="매 수리부엉이">
   </div>
 
   <div class="divider"></div>
-  <div class="p-title" style="margin-bottom:11px">moods</div>
+  <div class="p-title" style="margin-bottom:11px">기분</div>
   <div class="moods" id="moods">
-    <button class="mood" data-m="calm">calm dusk</button>
-    <button class="mood" data-m="panic">panic</button>
-    <button class="mood" data-m="vortex">vortex</button>
-    <button class="mood" data-m="scatter">loose scatter</button>
+    <button class="mood" data-m="calm">고요한 황혼</button>
+    <button class="mood" data-m="panic">공황</button>
+    <button class="mood" data-m="vortex">소용돌이</button>
+    <button class="mood" data-m="scatter">흩어진 군락</button>
   </div>
 
   <div class="toggles">
-    <label class="tog" id="togAttract" tabindex="0" role="switch" aria-checked="false"><span>cursor as attractor</span><span class="sw"></span></label>
-    <label class="tog" id="togCycle" tabindex="0" role="switch" aria-checked="true"><span>day / night cycle</span><span class="sw"></span></label>
+    <label class="tog" id="togAttract" tabindex="0" role="switch" aria-checked="false"><span>커서를 끌어당기는 힘으로</span><span class="sw"></span></label>
+    <label class="tog" id="togCycle" tabindex="0" role="switch" aria-checked="true"><span>낮 / 밤 순환</span><span class="sw"></span></label>
   </div>
 
-  <div class="hint">click empty sky to drop a paper slab · drag it to reposition · tap to startle the flock · <kbd>space</kbd> pause · <kbd>C</kbd> clear</div>
+  <div class="hint">빈 하늘을 클릭해 종이 깃발을 떨어뜨리기 · 끌어 옮기기 · 짧게 눌러 무리 놀라게 하기 · <kbd>space</kbd> 일시정지 · <kbd>C</kbd> 비우기</div>
 </div>
 
-<div id="about" tabindex="0" role="button" aria-label="about this piece">about</div>
+<div id="about" tabindex="0" role="button" aria-label="이 작품 소개">소개</div>
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
   <div class="card">
-    <h2 id="aboutTitle">murmuration</h2>
-    <p>Thousands of starlings, each following three local rules — <span class="em">keep your distance, match your neighbours, stay together</span> — with no leader and no plan. Order you can watch being born.</p>
-    <p>Drop a persimmon falcon into the cloud and the whole organism recoils, folding open into a hollow vacuole around the hunter, its smoke-trails smearing into shockwave arcs — then pouring silently back together the moment the danger passes.</p>
-    <p>The sky itself keeps time: it drifts from <span class="em">dawn to noon to dusk to a deep star-flecked night</span> and back, retinting every ink-trail as it turns. Every second is emergent, unscripted, and never the same twice.</p>
-    <div class="credit">Built by Claude Fable 5</div>
-    <div class="close" id="closeAbout" tabindex="0" role="button">close</div>
+    <h2 id="aboutTitle">먹구름 무리</h2>
+    <p>수천 마리의 찌르레기가 각자 세 가지의 국지 규칙 — <span class="em">거리를 유지하고, 이웃의 방향을 따르며, 함께 무리지어</span> — 를 따르고는 있지만, 지도자는 없고 계획도 없습니다. 당신이 보며 자라나는 질서.</p>
+    <p>감람색 매를 무리 속에 떨어뜨리면 유기체 전체가 흠칫 물러나며 포식자 주위에 빈 공동을 접어 열고, 잉크 자국이 충격파 호로 번져 — 위험이 지나간 순간 조용히 다시 합쳐집니다.</p>
+    <p>하늘 자체가 시간을 짭니다: <span class="em">새벽에서 한낮으로, 황혼에서 별이 총총한 깊은 밤</span>으로, 다시 돌아오며, 모든 잉크 흔적을 회전마다 다시 물들입니다. 매 순간이 떠오르고, 각본 없이, 두 번 다시 같지 않습니다.</p>
+    <div class="credit">클로드 페이블 5 제작</div>
+    <div class="close" id="closeAbout" tabindex="0" role="button">닫기</div>
   </div>
 </div>
 
@@ -600,11 +603,11 @@
   const clockDot=document.querySelector('#clock .dot');
   function phaseName(p){
     p=((p%1)+1)%1;
-    if(p<0.16) return 'dawn';
-    if(p<0.40) return 'morning';
-    if(p<0.60) return 'dusk';
-    if(p<0.78) return 'twilight';
-    return 'night';
+    if(p<0.16) return '새벽';
+    if(p<0.40) return '아침';
+    if(p<0.60) return '황혼';
+    if(p<0.78) return '박명';
+    return '밤';
   }
 
   // ---------- simulation step ----------

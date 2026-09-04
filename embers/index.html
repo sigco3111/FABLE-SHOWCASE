@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Embers — A Night by the Fire</title>
-<meta name="description" content="A procedural campfire simulation: layered flames, convection sparks, breathing coals, smoke, fireflies and a night sky you can lean into.">
+<title>잿불 — 모닥불 곁의 밤</title>
+<meta name="description" content="절차적으로 생성되는 모닥불 시뮬레이션: 겹겹의 불꽃, 대류 불꽃, 호흡하는 석탄, 연기, 반딧불이, 그리고 기대어 앉을 수 있는 밤하늘.">
 <style>
   :root{
     --parchment: #e8dcc8;
@@ -17,7 +17,7 @@
     width:100%; height:100%;
     overflow:hidden;
     background:#0a0d18;
-    font-family: "Avenir Next", "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Optima, system-ui, -apple-system, sans-serif;
+    font-family: "Avenir Next", "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI Variable", "Segoe UI", "Helvetica Neue", Optima, system-ui, -apple-system, sans-serif;
     color: var(--parchment);
     -webkit-user-select:none; user-select:none;
     -webkit-tap-highlight-color: transparent;
@@ -158,29 +158,29 @@
 <body>
 <canvas id="scene"></canvas>
 <div id="vignette"></div>
-<div id="hint">move to wake the controls&ensp;·&ensp;click the fire to poke it</div>
+<div id="hint">움직여서 조작을 깨우세요&ensp;·&ensp;불꽃을 클릭해 콕콕 찌르기</div>
 
 <div id="panel">
-  <h1>Embers</h1>
-  <p class="tag">a night by the fire</p>
+  <h1>잿불</h1>
+  <p class="tag">모닥불 곁의 밤</p>
   <div class="row">
-    <label for="rWind">Wind <span class="val" id="vWind">calm</span></label>
+    <label for="rWind">바람 <span class="val" id="vWind">잔잔</span></label>
     <input type="range" id="rWind" min="-100" max="100" value="12" step="1">
   </div>
   <div class="row">
-    <label for="rFuel">Fuel <span class="val" id="vFuel">plenty</span></label>
+    <label for="rFuel">연료 <span class="val" id="vFuel">넉넉</span></label>
     <input type="range" id="rFuel" min="0" max="100" value="82" step="1">
   </div>
   <div class="row">
-    <label for="rSky">Night sky <span class="val" id="vSky">new moon</span></label>
+    <label for="rSky">밤하늘 <span class="val" id="vSky">그믐달</span></label>
     <input type="range" id="rSky" min="0" max="100" value="18" step="1">
   </div>
   <div class="row">
-    <label for="rSpark">Sparks <span class="val" id="vSpark">lively</span></label>
+    <label for="rSpark">불꽃 <span class="val" id="vSpark">활발</span></label>
     <input type="range" id="rSpark" min="0" max="100" value="65" step="1">
   </div>
-  <button id="soundBtn" type="button">Sound&ensp;·&ensp;off</button>
-  <p class="about">Everything here is synthesized live — flames, sparks, smoke and crackle.<br>Built by <b>Claude&nbsp;Fable&nbsp;5</b>. Drag Fuel to zero and wait.</p>
+  <button id="soundBtn" type="button">소리&ensp;·&ensp;끔</button>
+  <p class="about">여기 보이는 모든 것 — 불꽃, 불꽃, 연기, 타는 소리까지 — 은 실시간으로 합성됩니다.<br>제작 <b>Claude&nbsp;Fable&nbsp;5</b>. 연료를 0까지 내리고 잠시 기다려 보세요.</p>
 </div>
 
 <script>
@@ -1334,12 +1334,12 @@ const els = {
 
 function windLabel(v){
   const a = Math.abs(v);
-  const dir = v < -0.04 ? 'west ' : (v > 0.04 ? 'east ' : '');
-  return a < 0.05 ? 'calm' : dir + (a < 0.33 ? 'breeze' : a < 0.7 ? 'gusty' : 'strong');
+  const dir = v < -0.04 ? '서풍 ' : (v > 0.04 ? '동풍 ' : '');
+  return a < 0.05 ? '잔잔' : dir + (a < 0.33 ? '산들바람' : a < 0.7 ? '강풍' : '폭풍');
 }
-function fuelLabel(v){ return v < 0.03 ? 'starved' : v < 0.3 ? 'embers' : v < 0.62 ? 'steady' : 'plenty'; }
-function skyLabel(v){ return v < 0.25 ? 'new moon' : v < 0.72 ? 'waxing' : 'full moon'; }
-function sparkLabel(v){ return v < 0.15 ? 'few' : v < 0.6 ? 'lively' : 'wild'; }
+function fuelLabel(v){ return v < 0.03 ? '다 꺼짐' : v < 0.3 ? '잿불' : v < 0.62 ? '안정' : '넉넉'; }
+function skyLabel(v){ return v < 0.25 ? '그믐달' : v < 0.72 ? '차오르는 달' : '보름달'; }
+function sparkLabel(v){ return v < 0.15 ? '드물게' : v < 0.6 ? '활발' : '난폭'; }
 
 function syncLabels(){
   els.vWind.textContent = windLabel(params.wind);
@@ -1368,7 +1368,7 @@ els.spark.addEventListener('input', function(){ params.sparks = this.value / 100
 els.sound.addEventListener('click', function(){
   params.sound = !params.sound;
   this.classList.toggle('on', params.sound);
-  this.innerHTML = params.sound ? 'Sound&ensp;·&ensp;crackling' : 'Sound&ensp;·&ensp;off';
+  this.innerHTML = params.sound ? '소리&ensp;·&ensp;타는 소리' : '소리&ensp;·&ensp;끔';
   audio.setEnabled(params.sound);
 });
 

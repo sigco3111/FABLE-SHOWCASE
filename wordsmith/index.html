@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="sea">
+<html lang="ko" data-theme="sea">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Wordsmith — a one-file generative poetry atelier. Haiku, cinquain and free verse struck from seeded grammars. Built by Claude Fable 5.">
-<title>Wordsmith — A Generative Poetry Atelier</title>
+<meta name="description" content="워드스미스 — 단일 파일로 동작하는 생성형 시 아틀리에. 시드 기반 문법으로 빚어낸 하이쿠·신퀜·자유시. Claude Fable 5가 만들었습니다.">
+<title>워드스미스 — 생성형 시 아틀리에</title>
 <style>
 /* ============================================================
    WORDSMITH — The Letterpress Studio at Dusk
    ============================================================ */
 :root{
-  --serif:'Didot','Bodoni 72','Hoefler Text','Playfair Display',Georgia,'Times New Roman',serif;
-  --sans:'Optima','Gill Sans','Avenir Next','Segoe UI',system-ui,sans-serif;
+  --serif:'Didot','Bodoni 72','Hoefler Text','Playfair Display',Georgia,'Times New Roman','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',serif;
+  --sans:'Optima','Gill Sans','Avenir Next','Segoe UI',system-ui,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;
   --chrome:rgba(236,230,214,.78);
   --chrome-dim:rgba(236,230,214,.42);
   --noise:none;
@@ -345,12 +345,12 @@ footer .btn:active{transform:translateY(0); transition-duration:.1s}
 
 <header>
   <div class="plate">
-    <h1>Wordsmith</h1>
-    <p class="tag">A Generative Poetry Atelier</p>
+    <h1>워드스미스</h1>
+    <p class="tag">생성형 시 아틀리에</p>
   </div>
   <div class="controls">
-    <nav class="forms" id="formTabs" aria-label="Poetic form"></nav>
-    <nav class="themes" id="themeDots" aria-label="Theme"></nav>
+    <nav class="forms" id="formTabs" aria-label="시 형식"></nav>
+    <nav class="themes" id="themeDots" aria-label="테마"></nav>
   </div>
 </header>
 
@@ -361,7 +361,7 @@ footer .btn:active{transform:translateY(0); transition-duration:.1s}
       <div class="nib" id="nib"></div>
       <div class="sheetInner" id="sheetInner"></div>
       <div class="sealCorner">
-        <button class="seal" id="sealBtn" title="Stamp a new impression (Space)" aria-label="Compose a new poem">
+        <button class="seal" id="sealBtn" title="새로운 인상을 찍기 (스페이스)" aria-label="새 시 한 편 짓기">
           <span class="mono">W</span>
         </button>
         <div class="impNo" id="impNo">Impression № 0001</div>
@@ -372,33 +372,27 @@ footer .btn:active{transform:translateY(0); transition-duration:.1s}
 </main>
 
 <footer>
-  <span class="hint">space — new impression &nbsp;·&nbsp; 1–4 — themes &nbsp;·&nbsp; e — export &nbsp;·&nbsp; ? — about</span>
-  <button class="btn" id="exportBtn">Export card</button>
-  <button class="btn" id="aboutBtn">About</button>
-  <span class="credit">Built by Claude Fable 5</span>
+  <span class="hint">스페이스 — 새로운 인상 &nbsp;·&nbsp; 1–4 — 테마 &nbsp;·&nbsp; e — 내보내기 &nbsp;·&nbsp; ? — 정보</span>
+  <button class="btn" id="exportBtn">카드 내보내기</button>
+  <button class="btn" id="aboutBtn">정보</button>
+  <span class="credit">Claude Fable 5 제작</span>
 </footer>
 
-<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="About Wordsmith">
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="워드스미스 정보">
   <div class="aboutCard">
-    <h2>Wordsmith</h2>
+    <h2>워드스미스</h2>
     <div class="fl">❧</div>
-    <p>A one-file letterpress studio. Each poem is composed on the spot by a small
-       context-free grammar working from four curated lexicons — Sea, City, Cosmos and
-       Autumn — every word tagged with its part of speech, syllable count and imagery
-       register, so a haiku lands its 5–7–5 exactly and a poem that opens with gulls
-       will not end in the subway.</p>
-    <p>A seeded random number generator drives the whole composition: the impression
-       number <em>is</em> the seed, so any impression, in any theme and form, can be
-       struck again — identical to the letter.</p>
+    <p>한 파일로 돌아가는 인쇄소의 작업실. 작은 문맥 자유 문법이 네 가지 정교하게 다듬어진 어휘집 — 바다, 도시, 코스모스, 가을 — 을 토대로 그 자리에서 시를 지어냅니다. 각 단어에는 품사와 음절 수, 이미지의 결이 함께 붙어 있어, 하이쿠는 5·7·5 박자를 맞추고, 갈매기 결에서 시작된 시가 지하철 결로 끝나지 않도록 합니다.</p>
+    <p>시드 기반 난수 생성기가 전체 작성을 이끌어 갑니다. 인상 번호 <em>자체가</em> 시드이기 때문에, 어떤 테마와 형식의 어떤 인상이라도 — 활판처럼 똑같이 — 다시 찍어낼 수 있습니다.</p>
     <div class="keys">
-      <b>Space</b><span>stamp a new impression</span>
-      <b>1 – 4</b><span>sea · city · cosmos · autumn</span>
-      <b>E</b><span>export a typographic PNG card</span>
-      <b>Tabs</b><span>haiku · cinquain · free verse</span>
-      <b>?</b><span>this note · Esc closes</span>
+      <b>스페이스</b><span>새 인상을 찍기</span>
+      <b>1 – 4</b><span>바다 · 도시 · 코스모스 · 가을</span>
+      <b>E</b><span>활판 스타일 PNG 카드로 내보내기</span>
+      <b>탭</b><span>하이쿠 · 신퀜 · 자유시</span>
+      <b>?</b><span>이 안내 · Esc로 닫기</span>
     </div>
-    <p class="sig">No dependencies · no network · Built by Claude Fable 5</p>
-    <div class="closeRow"><button class="closeBtn" id="closeAbout">Close</button></div>
+    <p class="sig">의존성 없음 · 네트워크 없음 · Claude Fable 5 제작</p>
+    <div class="closeRow"><button class="closeBtn" id="closeAbout">닫기</button></div>
   </div>
 </div>
 
@@ -427,7 +421,7 @@ function L(s){return s.trim().split(/\s+/).map(function(t){
 const PREP=L("under/2 beneath/2 through/1 beyond/2 against/2 into/2 over/2 past/1 along/2 across/2");
 
 const THEMES={
-sea:{name:"Sea",subs:["shore","deep","sky"],
+sea:{name:"바다",subs:["shore","deep","sky"],
  fallback:["The cold tide returns","gulls drift in the pale morning","salt, foam, and silence."],
  lex:{
  n:L("tide/1/0 shore/1/0 foam/1/0 salt/1/0 sand/1/0 wrack/1/0 shell/1/0 driftwood/2/0 harbor/2/0 jetty/2/0 wave/1/0 spindrift/2/0 brine/1/1 kelp/1/1 whale/1/1 pearl/1/1 abyss/2/1 current/2/1 trench/1/1 anchor/2/1 coral/2/1 fathom/2/1 undertow/3/1 seabed/2/1 leviathan/4/1 gull/1/2 horizon/3/2 mist/1/2 moon/1/2 wind/1/2 squall/1/2 beacon/2/2 lighthouse/2/2 gannet/2/2 storm/1/2 cloudbank/2/2 vapor/2/2"),
@@ -437,7 +431,7 @@ sea:{name:"Sea",subs:["shore","deep","sky"],
  vp:L("turn/1 break/1 drift/1 gleam/1 recede/2 return/2 scatter/2 gather/2 rise/1 fall/1 wander/2 remember/3 dissolve/2 hush/1"),
  ving:L("drifting/2 breaking/2 gleaming/2 falling/2 returning/3 dissolving/3 shining/2 receding/3"),
  adv:L("slowly/2 softly/2 again/2 below/2 offshore/2")}},
-city:{name:"City",subs:["street","above","night"],
+city:{name:"도시",subs:["street","above","night"],
  fallback:["The streetlamp flickers","rain writes its name on windows","a taxi waits, lit."],
  lex:{
  n:L("street/1/0 curb/1/0 subway/2/0 awning/2/0 taxi/2/0 pavement/2/0 gutter/2/0 kiosk/2/0 crosswalk/2/0 alley/2/0 vendor/2/0 grate/1/0 newsprint/2/0 corner/2/0 avenue/3/0 rooftop/2/1 antenna/3/1 skyline/2/1 window/2/1 pigeon/2/1 ledge/1/1 billboard/2/1 smokestack/2/1 cornice/2/1 crane/1/1 lamplight/2/2 neon/2/2 siren/2/2 midnight/2/2 headlight/2/2 stranger/2/2 rain/1/2 streetlamp/2/2 train/1/2 diner/2/2 static/2/2 fog/1/2"),
@@ -447,7 +441,7 @@ city:{name:"City",subs:["street","above","night"],
  vp:L("hum/1 flicker/2 wait/1 scatter/2 blink/1 lean/1 glow/1 pass/1 vanish/2 echo/2 shiver/2 cross/1 dissolve/2"),
  ving:L("humming/2 flickering/3 waiting/2 raining/2 passing/2 glowing/2 leaning/2 burning/2"),
  adv:L("uptown/2 tonight/2 slowly/2 almost/2 below/2")}},
-cosmos:{name:"Cosmos",subs:["star","void","dawn"],
+cosmos:{name:"코스모스",subs:["star","void","dawn"],
  fallback:["One red star rises","the dark expands, remembers","dawn dims the far edge."],
  lex:{
  n:L("star/1/0 nova/2/0 comet/2/0 nebula/3/0 quasar/2/0 pulsar/2/0 sun/1/0 corona/3/0 meteor/3/0 starlight/2/0 ember/2/0 flare/1/0 void/1/1 vacuum/2/1 darkness/2/1 silence/2/1 orbit/2/1 gravity/3/1 abyss/2/1 distance/2/1 entropy/3/1 midnight/2/1 signal/2/1 dawn/1/2 aurora/3/2 zodiac/3/2 eclipse/2/2 zenith/2/2 sky/1/2 planet/2/2 twilight/2/2 telescope/3/2 moon/1/2 halo/2/2"),
@@ -457,7 +451,7 @@ cosmos:{name:"Cosmos",subs:["star","void","dawn"],
  vp:L("burn/1 fall/1 drift/1 wheel/1 scatter/2 collide/2 dim/1 expand/2 wander/2 dissolve/2 spin/1 align/2"),
  ving:L("burning/2 falling/2 drifting/2 wheeling/2 spinning/2 expanding/3 orbiting/3 dimming/2"),
  adv:L("slowly/2 forever/3 outward/2 alone/2 above/2")}},
-autumn:{name:"Autumn",subs:["field","wood","hearth"],
+autumn:{name:"가을",subs:["field","wood","hearth"],
  fallback:["The last apple falls","woodsmoke settles on the field","a lantern ripens."],
  lex:{
  n:L("field/1/0 harvest/2/0 stubble/2/0 scarecrow/2/0 furrow/2/0 hay/1/0 orchard/2/0 apple/2/0 pumpkin/2/0 fence/1/0 frost/1/0 corn/1/0 leaf/1/1 oak/1/1 maple/2/1 acorn/2/1 bramble/2/1 thicket/2/1 mushroom/2/1 woodsmoke/2/1 birch/1/1 fern/1/1 moss/1/1 crow/1/1 hearth/1/2 lantern/2/2 cider/2/2 ember/2/2 kettle/2/2 quilt/1/2 candle/2/2 chimney/2/2 kitchen/2/2 bread/1/2 sweater/2/2 letter/2/2"),
@@ -646,9 +640,9 @@ function makeVerse(ctx){
 }
 
 const FORMS={
-  haiku:{name:"Haiku",scheme:"5 · 7 · 5",make:makeSyllabic([5,7,5])},
-  cinquain:{name:"Cinquain",scheme:"2 · 4 · 6 · 8 · 2",make:makeSyllabic([2,4,6,8,2])},
-  verse:{name:"Free Verse",scheme:"3 – 7 lines",make:makeVerse}
+  haiku:{name:"하이쿠",scheme:"5 · 7 · 5",make:makeSyllabic([5,7,5])},
+  cinquain:{name:"신퀜",scheme:"2 · 4 · 6 · 8 · 2",make:makeSyllabic([2,4,6,8,2])},
+  verse:{name:"자유시",scheme:"3 – 7 행",make:makeVerse}
 };
 const FORM_KEYS=["haiku","cinquain","verse"];
 
@@ -841,7 +835,7 @@ try{
       schedWords(lr.words,false);
       t+=500+Math.random()*220;                       /* thinking at the line break */
     });
-    impNo.textContent="Impression № "+pad4(poem.imp);
+    impNo.textContent="인상 № "+pad4(poem.imp);
   }
 
   /* ---- the writing loop: one rAF, a travelling nib-glow ---- */
@@ -1005,7 +999,7 @@ try{
       c.fillText("❦",W/2,H-72*S);
       c.fillStyle=ink60;c.globalAlpha=0.75;
       c.font=(8.5*S)+"px "+serif;
-      c.fillText(spaced("WORDSMITH — BUILT BY CLAUDE FABLE 5",1),W/2,H-50*S);
+      c.fillText(spaced("워드스미스 — 클로드 페이블 5 제작",1),W/2,H-50*S);
       c.globalAlpha=1;
 
       const a=document.createElement("a");
@@ -1082,11 +1076,11 @@ try{
   /* last-resort fallback: never show a blank desk */
   try{
     const el=document.getElementById("sheetInner");
-    if(el)el.innerHTML='<div class="poemTitle">Wordsmith</div>'+
+    if(el)el.innerHTML='<div class="poemTitle">워드스미스</div>'+
       '<div class="fleuron">❧</div>'+
-      '<div class="line" style="opacity:1">The cold tide returns —</div>'+
-      '<div class="line" style="opacity:1">something in this browser broke,</div>'+
-      '<div class="line" style="opacity:1">but the poem stays.</div>';
+      '<div class="line" style="opacity:1">차가운 밀물이 돌아온다 —</div>'+
+      '<div class="line" style="opacity:1">이 브라우저의 무언가가 부서졌으나,</div>'+
+      '<div class="line" style="opacity:1">시는 그대로 남는다.</div>';
     document.querySelectorAll(".g").forEach(function(g){g.style.opacity=1;});
   }catch(e2){}
   if(window.console)console.error("Wordsmith boot error:",err);

@@ -1,7 +1,8 @@
 <!doctype html>
+<html lang="ko">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Fractal Voyager</title>
+<title>프랙탈 항해자</title>
 <style>
   :root {
     --void: #0A0B0F;
@@ -26,7 +27,7 @@
     background: var(--void);
     color: var(--ink);
     overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overscroll-behavior: none;
@@ -471,57 +472,57 @@
   <div id="topbar" class="glass">
     <div class="brand-mark"></div>
     <div class="titles">
-      <h1>Fractal Voyager</h1>
-      <div class="tag">Fall forever into infinite math.</div>
+      <h1>프랙탈 항해자</h1>
+      <div class="tag">무한한 수학 속으로 영원히 떨어집니다.</div>
     </div>
-    <button class="iconbtn" id="aboutBtn" title="About & shortcuts" style="margin-left:6px">
+    <button class="iconbtn" id="aboutBtn" title="정보 및 단축키" style="margin-left:6px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
     </button>
   </div>
 
   <!-- Top-right readout -->
   <div id="readout" class="glass mono">
-    <div class="k">Depth</div><div class="v big" id="rDepth">1.0×</div>
-    <div class="k">Re</div><div class="v" id="rRe">-0.500000</div>
-    <div class="k">Im</div><div class="v" id="rIm">0.000000</div>
-    <div class="k">Iter</div><div class="v" id="rIter">256</div>
-    <div class="k">Mode</div><div class="v" id="rMode">Mandelbrot</div>
+    <div class="k">깊이</div><div class="v big" id="rDepth">1.0×</div>
+    <div class="k">실수부</div><div class="v" id="rRe">-0.500000</div>
+    <div class="k">허수부</div><div class="v" id="rIm">0.000000</div>
+    <div class="k">반복</div><div class="v" id="rIter">256</div>
+    <div class="k">모드</div><div class="v" id="rMode">망델브로</div>
   </div>
 
   <!-- Reveal tab (collapsed state) -->
   <div id="revealtab" class="glass">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-a)" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-    <span class="label">Show HUD</span>
+    <span class="label">HUD 표시</span>
   </div>
 
   <!-- Control panel -->
   <div id="panel" class="glass">
     <div class="phead">
-      <span class="label">Instrument</span>
-      <button class="iconbtn" id="collapseBtn" title="Full-bleed (H)">
+      <span class="label">조작</span>
+      <button class="iconbtn" id="collapseBtn" title="전체 화면 (H)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
       </button>
     </div>
     <div class="body">
       <!-- Mode -->
       <div>
-        <div class="label" style="margin-bottom:7px">Mode</div>
+        <div class="label" style="margin-bottom:7px">모드</div>
         <div class="seg" id="modeSeg">
-          <button data-mode="0" class="active">Mandelbrot</button>
-          <button data-mode="1">Julia</button>
+          <button data-mode="0" class="active">망델브로</button>
+          <button data-mode="1">줄리아</button>
         </div>
       </div>
 
       <!-- Palettes -->
       <div class="palettes">
-        <div class="label">Palette</div>
+        <div class="label">팔레트</div>
         <div class="swatch-row" id="swatches"></div>
       </div>
 
       <!-- Drift -->
       <div class="ctrl">
         <div class="toggle on" id="driftToggle">
-          <span class="sw"></span><span class="txt">Palette drift</span>
+          <span class="sw"></span><span class="txt">팔레트 드리프트</span>
         </div>
         <div class="track-wrap">
           <input type="range" id="driftSpeed" min="0" max="100" value="34" />
@@ -530,31 +531,31 @@
 
       <!-- Iteration quality -->
       <div class="ctrl">
-        <div class="row"><span class="label">Detail</span><span class="val mono" id="detailVal">Balanced</span></div>
+        <div class="row"><span class="label">디테일</span><span class="val mono" id="detailVal">균형</span></div>
         <div class="track-wrap"><input type="range" id="detailSlider" min="0" max="100" value="50" /></div>
       </div>
 
       <!-- Bookmarks -->
       <div>
-        <div class="label" style="margin-bottom:8px">Voyages</div>
+        <div class="label" style="margin-bottom:8px">항해 기록</div>
         <div class="bookmarks" id="bookmarks"></div>
       </div>
 
       <!-- Voyage (auto-dive) -->
-      <button class="gbtn voyage" id="voyageBtn" title="Cinematic auto-dive (V)">
+      <button class="gbtn voyage" id="voyageBtn" title="시네마틱 자동 다이브 (V)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 3l-2.5 2.5M12 3l2.5 2.5"/><circle cx="12" cy="14" r="7"/><circle cx="12" cy="14" r="2.6"/></svg>
-        <span class="vlabel">Engage Voyage</span>
+        <span class="vlabel">항해 시작</span>
       </button>
 
       <!-- Actions -->
       <div class="btnrow">
-        <button class="gbtn" id="shotBtn" title="Export PNG (S)">
+        <button class="gbtn" id="shotBtn" title="PNG로 내보내기 (S)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.4"/></svg>
-          Capture
+          캡처
         </button>
-        <button class="gbtn" id="resetBtn" title="Reset view (R)">
+        <button class="gbtn" id="resetBtn" title="보기 초기화 (R)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 108-8M4 12V6M4 12h6"/></svg>
-          Reset
+          리셋
         </button>
       </div>
     </div>
@@ -563,42 +564,42 @@
   <!-- Julia inset preview -->
   <div id="inset" class="glass">
     <canvas id="insetCanvas"></canvas>
-    <div class="cap mono">JULIA PREVIEW</div>
-    <div class="hint">click to morph</div>
+    <div class="cap mono">줄리아 미리보기</div>
+    <div class="hint">클릭해 변환</div>
     <div class="seed mono" id="insetSeed"></div>
   </div>
 
   <!-- Hint chips -->
   <div id="hints">
-    <div class="chip"><b>Scroll</b> zoom · <b>Drag</b> pan</div>
-    <div class="chip"><b>Hover</b> to preview a Julia set</div>
-    <div class="chip"><b>V</b> for a hands-free Voyage</div>
-    <div class="chip"><b>Space</b> drift · <b>S</b> capture · <b>H</b> hide UI</div>
+    <div class="chip"><b>스크롤</b> 확대 · <b>드래그</b> 이동</div>
+    <div class="chip"><b>마우스 올리기</b>로 줄리아 집합 미리보기</div>
+    <div class="chip"><b>V</b>로 손 놓고 항해</div>
+    <div class="chip"><b>스페이스</b> 드리프트 · <b>S</b> 캡처 · <b>H</b> UI 숨기기</div>
   </div>
 </div>
 
 <!-- About overlay -->
 <div id="about-backdrop">
   <div id="about" class="glass">
-    <h2>Fractal Voyager</h2>
-    <div class="sub">A GPU fractal observatory · every pixel solved live in a fragment shader.</div>
-    <p>Zoom, and the instrument recomputes the entire Mandelbrot (or Julia) set on your graphics card in real time. Colors come from smooth fractional-escape iteration counts pushed through cosine palettes, so bands are silky gradients rather than stair-stepped rings.</p>
-    <p><b>The trick:</b> hover the Mandelbrot to preview the Julia set seeded at that exact point — then click, and the whole screen morphs continuously from one fractal into the other. They are the same object, seen two ways.</p>
-    <p><b>Hands off?</b> Hit <kbd>V</kbd> to <b>Engage Voyage</b> — a cinematic auto-dive that falls forever into Seahorse Valley, cycling palettes as the depth counter spins toward the precision horizon. Any pan, zoom, or a second <kbd>V</kbd> takes back the controls.</p>
+    <h2>프랙탈 항해자</h2>
+    <div class="sub">GPU 프랙탈 천문대 · 모든 픽셀이 프래그먼트 셰이더에서 실시간으로 계산됩니다.</div>
+    <p>확대하면 이 도구가 망델브로(혹은 줄리아) 집합 전체를 그래픽 카드에서 실시간으로 다시 계산합니다. 색은 부드러운 분수 이탈 횟수를 코사인 팔레트로 통과시켜 만들어지므로, 띠는 계단식 고리가 아니라 비단 같은 그라데이션이 됩니다.</p>
+    <p><b>비결:</b> 망델브로 위에 마우스를 올리면 그 지점을 시드로 한 줄리아 집합이 미리 보입니다 — 클릭하면 화면 전체가 한 프랙탈에서 다른 프랙탈로 끊임없이 변환됩니다. 그것들은 같은 대상을 두 가지로 바라본 것입니다.</p>
+    <p><b>손을 떼고 싶으세요?</b> <kbd>V</kbd>를 눌러 <b>항해 시작</b> — 시네마틱 자동 다이브가 Seahorse Valley로 영원히 떨어지며, 깊이 표시가 정밀도의 지평선을 향해 회전할 때 팔레트가 순환합니다. 패닝, 줌, 혹은 <kbd>V</kbd> 한 번 더 누르면 조작을 되찾습니다.</p>
     <div class="kbd-grid">
-      <div class="r"><span>Pan</span><span><kbd>Drag</kbd> / <kbd>Arrows</kbd></span></div>
-      <div class="r"><span>Zoom</span><span><kbd>Scroll</kbd> / <kbd>+</kbd><kbd>-</kbd></span></div>
-      <div class="r"><span>Voyage (auto-dive)</span><span><kbd>V</kbd></span></div>
-      <div class="r"><span>Palette drift</span><span><kbd>Space</kbd></span></div>
-      <div class="r"><span>Capture PNG</span><span><kbd>S</kbd></span></div>
-      <div class="r"><span>Reset view</span><span><kbd>R</kbd></span></div>
-      <div class="r"><span>Hide HUD</span><span><kbd>H</kbd></span></div>
-      <div class="r"><span>Fullscreen</span><span><kbd>F</kbd></span></div>
-      <div class="r"><span>Cycle palette</span><span><kbd>1</kbd>–<kbd>5</kbd></span></div>
+      <div class="r"><span>이동</span><span><kbd>드래그</kbd> / <kbd>방향키</kbd></span></div>
+      <div class="r"><span>확대</span><span><kbd>스크롤</kbd> / <kbd>+</kbd><kbd>-</kbd></span></div>
+      <div class="r"><span>항해 (자동 다이브)</span><span><kbd>V</kbd></span></div>
+      <div class="r"><span>팔레트 드리프트</span><span><kbd>스페이스</kbd></span></div>
+      <div class="r"><span>PNG 캡처</span><span><kbd>S</kbd></span></div>
+      <div class="r"><span>보기 초기화</span><span><kbd>R</kbd></span></div>
+      <div class="r"><span>HUD 숨기기</span><span><kbd>H</kbd></span></div>
+      <div class="r"><span>전체화면</span><span><kbd>F</kbd></span></div>
+      <div class="r"><span>팔레트 순환</span><span><kbd>1</kbd>–<kbd>5</kbd></span></div>
     </div>
     <div class="foot">
-      <span class="credit">Built by <b>Claude Fable 5</b></span>
-      <button class="gbtn" id="closeAbout" style="flex:0 0 auto; padding:8px 20px">Enter</button>
+      <span class="credit">제작 <b>Claude Fable 5</b></span>
+      <button class="gbtn" id="closeAbout" style="flex:0 0 auto; padding:8px 20px">들어가기</button>
     </div>
   </div>
 </div>
@@ -607,8 +608,8 @@
 
 <div id="fatal">
   <div class="inner">
-    <h3>WebGL unavailable</h3>
-    <p>Fractal Voyager needs WebGL to render on the GPU. Try a recent Chrome, Firefox, Safari or Edge, and make sure hardware acceleration is enabled.</p>
+    <h3>WebGL을 사용할 수 없습니다</h3>
+    <p>프랙탈 항해자는 GPU 렌더링을 위해 WebGL이 필요합니다. 최신 Chrome, Firefox, Safari 혹은 Edge를 사용해 보시고, 하드웨어 가속이 켜져 있는지 확인해 주세요.</p>
   </div>
 </div>
 
@@ -641,11 +642,11 @@
   // ---------- Palettes (Iñigo Quílez cosine gradients: a + b*cos(2π(c*t + d))) ----------
   // Each palette = { a, b, c, d } as vec3s. Named + curated.
   const PALETTES = [
-    { name: "Aurora",  a:[0.62,0.52,0.42], b:[0.42,0.44,0.52], c:[1.00,1.05,1.00], d:[0.00,0.18,0.55] },
-    { name: "Ember",   a:[0.55,0.28,0.18], b:[0.52,0.34,0.24], c:[1.00,1.00,1.00], d:[0.00,0.10,0.20] },
-    { name: "Abyss",   a:[0.34,0.46,0.58], b:[0.36,0.40,0.44], c:[1.00,1.00,1.00], d:[0.60,0.72,0.85] },
-    { name: "Bismuth", a:[0.55,0.48,0.55], b:[0.48,0.50,0.45], c:[1.15,0.95,1.10], d:[0.10,0.55,0.85] },
-    { name: "Ivory",   a:[0.62,0.60,0.56], b:[0.40,0.40,0.42], c:[1.00,1.00,1.00], d:[0.15,0.16,0.18] },
+    { name: "오로라",  a:[0.62,0.52,0.42], b:[0.42,0.44,0.52], c:[1.00,1.05,1.00], d:[0.00,0.18,0.55] },
+    { name: "잿불",   a:[0.55,0.28,0.18], b:[0.52,0.34,0.24], c:[1.00,1.00,1.00], d:[0.00,0.10,0.20] },
+    { name: "심연",   a:[0.34,0.46,0.58], b:[0.36,0.40,0.44], c:[1.00,1.00,1.00], d:[0.60,0.72,0.85] },
+    { name: "비스무트", a:[0.55,0.48,0.55], b:[0.48,0.50,0.45], c:[1.15,0.95,1.10], d:[0.10,0.55,0.85] },
+    { name: "아이보리", a:[0.62,0.60,0.56], b:[0.40,0.40,0.42], c:[1.00,1.00,1.00], d:[0.15,0.16,0.18] },
   ];
 
   // ---------- Shaders ----------
@@ -1161,7 +1162,7 @@
     target.cx = 0; target.cy = 0; target.scale = 1.5;
     updateReadoutMode();
     markInteract();
-    toast("Morphing into Julia set");
+    toast("줄리아 집합으로 변환 중");
   }
   function toMandelbrot() {
     if (voyaging) stopVoyage(true); // reset / mode change takes back the controls
@@ -1269,7 +1270,7 @@
     rIter.textContent = lastRenderIter;
   }
   function updateReadoutMode() {
-    rMode.textContent = mode === 1 ? "Julia" : "Mandelbrot";
+    rMode.textContent = mode === 1 ? "줄리아" : "망델브로";
   }
   function updateInsetSeed() {
     document.getElementById("insetSeed").textContent =
@@ -1366,7 +1367,7 @@
   // Detail slider
   const detailSlider = document.getElementById("detailSlider");
   const detailVal = document.getElementById("detailVal");
-  function detailLabel(v){ return v < 0.28 ? "Fast" : v < 0.62 ? "Balanced" : v < 0.85 ? "Rich" : "Ultra"; }
+  function detailLabel(v){ return v < 0.28 ? "빠르게" : v < 0.62 ? "균형" : v < 0.85 ? "풍부하게" : "울트라"; }
   detailSlider.addEventListener("input", () => {
     detail = detailSlider.value / 100;
     detailVal.textContent = detailLabel(detail);
@@ -1424,11 +1425,11 @@
     if (!driftOn) { driftOn = true; syncDriftUI(); }
     document.body.classList.add("voyaging");
     voyageBtn && voyageBtn.classList.add("active");
-    setVoyageLabel("Voyaging — tap to stop");
+    setVoyageLabel("항해 중 — 눌러 정지");
     velX = velY = 0;
     showInset(false);
     markInteract();
-    toast("Voyage engaged — falling inward");
+    toast("항해 시작 — 안쪽으로 떨어집니다");
   }
 
   function stopVoyage(silent) {
@@ -1436,7 +1437,7 @@
     voyaging = false;
     document.body.classList.remove("voyaging");
     voyageBtn && voyageBtn.classList.remove("active");
-    setVoyageLabel("Engage Voyage");
+    setVoyageLabel("항해 시작");
     // Freeze exactly where we are — snap target to the rendered view so it
     // doesn't keep gliding after the pilot lets go.
     target.cx = view.cx; target.cy = view.cy; target.scale = view.scale;
@@ -1444,7 +1445,7 @@
     if (voyagePrevDrift === false) { driftOn = false; syncDriftUI(); }
     voyagePrevDrift = null;
     markInteract();
-    if (!silent) toast("Voyage paused");
+    if (!silent) toast("항해 일시정지");
   }
 
   // Advances the voyage each frame: an exponential dive that steers gently
@@ -1517,7 +1518,7 @@
         a.download = `fractal-voyager_${PALETTES[paletteIdx].name.toLowerCase()}_${tag}.png`;
         document.body.appendChild(a); a.click(); a.remove();
         setTimeout(() => URL.revokeObjectURL(url), 4000);
-        toast("Saved " + (superSample) + "× PNG");
+        toast(superSample + "× PNG로 저장했습니다");
       }, "image/png");
     } catch (e) {
       console.error(e);

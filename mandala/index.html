@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mandala — a meditative drawing instrument</title>
+<title>만다라 — 명상용 드로잉 악기</title>
 <style>
   :root{
     --bg0:#101736; --bg1:#05060f;
@@ -16,7 +16,7 @@
   html,body{height:100%;overflow:hidden;overscroll-behavior:none}
   body{
     background:radial-gradient(135% 105% at 50% 36%, var(--bg0), var(--bg1) 78%);
-    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
     color:var(--ink); user-select:none;-webkit-user-select:none;
     transition:background 1.2s ease;
   }
@@ -111,50 +111,49 @@
 <div id="cursor"></div>
 
 <header>
-  <h1>Mand<i>a</i>la</h1>
-  <p>a meditative drawing instrument</p>
+  <h1>만<i>다</i>라</h1>
+  <p>명상적 드로잉 악기</p>
 </header>
 
-<div id="hint">draw anywhere · every stroke blooms across the axes</div>
+<div id="hint">어디든 그려 보세요 · 모든 획이 대칭축을 따라 피어납니다</div>
 
-<button id="aboutBtn" title="About">i</button>
+<button id="aboutBtn" title="정보">i</button>
 <div id="about">
-  <h2>Mandala</h2>
-  Each stroke is mirrored across the symmetry axes with velocity-sensitive,
-  glowing brushwork. Press <b>✦ Bloom</b> to let the machine compose layered
-  petals, rings and beads — or toggle <b>Breathe</b> and draw with the slow pulse
-  of the canvas.
+  <h2>만다라</h2>
+  모든 획이 대칭축을 따라 거울처럼 반사되며, 속도에 따라 빛나는 붓질이 더해집니다.
+  <b>✦ Bloom</b>을 눌러 기계가 겹겹의 꽃잎과 고리, 진주 같은 문양을 짜게 하거나,
+  <b>Breathe</b>를 켜고 캔버스의 느린 호흡에 맞춰 그려 보세요.
   <div class="keys">
-    <kbd>B</kbd> bloom &nbsp; <kbd>Z</kbd> undo &nbsp; <kbd>M</kbd> mirror &nbsp;
-    <kbd>space</kbd> breathe &nbsp; <kbd>S</kbd> save
+    <kbd>B</kbd> 블룸 &nbsp; <kbd>Z</kbd> 실행취소 &nbsp; <kbd>M</kbd> 미러 &nbsp;
+    <kbd>space</kbd> 브리스 &nbsp; <kbd>S</kbd> 저장
   </div>
-  Nothing leaves this page; the mandala is yours alone.
-  <div class="credit">Built by <i>Claude Fable 5</i></div>
+  이 페이지를 벗어나는 것은 아무것도 없습니다 — 만다라는 오직 당신만의 것입니다.
+  <div class="credit">제작 <i>Claude Fable 5</i></div>
 </div>
 
 <nav id="panel">
   <div class="grp">
-    <label>Symmetry <output id="symV">8</output></label>
+    <label>대칭 <output id="symV">8</output></label>
     <input type="range" id="symR" min="3" max="24" step="1" value="8">
   </div>
   <div class="grp">
-    <label>Brush <output id="sizeV">9</output></label>
+    <label>브러시 <output id="sizeV">9</output></label>
     <input type="range" id="sizeR" min="2" max="26" step="1" value="9">
   </div>
   <div class="grp">
-    <label>Glow <output id="glowV">60</output></label>
+    <label>빛남 <output id="glowV">60</output></label>
     <input type="range" id="glowR" min="0" max="100" step="1" value="60">
   </div>
   <div class="sep"></div>
   <div id="swatches"></div>
   <div class="sep"></div>
   <div class="btns">
-    <button class="act" id="bloomBtn">✦ Bloom<span class="k">B</span></button>
-    <button class="act on" id="mirrorBtn">Mirror</button>
-    <button class="act on" id="breatheBtn">Breathe</button>
-    <button class="act" id="undoBtn">Undo</button>
-    <button class="act" id="clearBtn">Clear</button>
-    <button class="act" id="saveBtn">Save PNG</button>
+    <button class="act" id="bloomBtn">✦ 블룸<span class="k">B</span></button>
+    <button class="act on" id="mirrorBtn">미러</button>
+    <button class="act on" id="breatheBtn">브리스</button>
+    <button class="act" id="undoBtn">실행취소</button>
+    <button class="act" id="clearBtn">지우기</button>
+    <button class="act" id="saveBtn">PNG 저장</button>
   </div>
 </nav>
 
@@ -171,15 +170,15 @@ const actx = art.getContext('2d');
 
 /* ---------- palettes ---------- */
 const PALETTES = [
-  { name:'Aurora',    bg:['#101736','#05060f'], accent:[168,90,62],
+  { name:'오로라',    bg:['#101736','#05060f'], accent:[168,90,62],
     stops:[[168,95,62],[204,95,66],[262,88,70],[318,92,72]] },
-  { name:'Ember',     bg:['#22110a','#0a0405'], accent:[36,100,60],
+  { name:'잿불',     bg:['#22110a','#0a0405'], accent:[36,100,60],
     stops:[[48,100,66],[26,100,58],[6,92,58],[346,82,62]] },
-  { name:'Lotus',     bg:['#1d0f26','#08040d'], accent:[322,90,72],
+  { name:'연꽃',     bg:['#1d0f26','#08040d'], accent:[322,90,72],
     stops:[[288,75,72],[326,95,72],[350,100,76],[266,80,74]] },
-  { name:'Ocean',     bg:['#07202c','#03080f'], accent:[188,95,60],
+  { name:'바다',     bg:['#07202c','#03080f'], accent:[188,95,60],
     stops:[[172,95,58],[196,100,62],[216,95,68],[156,80,62]] },
-  { name:'Moonlight', bg:['#151824','#05060a'], accent:[222,32,82],
+  { name:'월광', bg:['#151824','#05060a'], accent:[222,32,82],
     stops:[[222,26,88],[210,16,70],[232,22,94],[244,26,80]] }
 ];
 let pal = PALETTES[0];

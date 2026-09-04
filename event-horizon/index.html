@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>EVENT HORIZON — A Gravitational Light Study</title>
+<title>이벤트 호라이즌 — 중력에 의한 빛 연구</title>
 <style>
   /* ============================================================
      EVENT HORIZON — the page is 98% void. The black hole is the
@@ -18,7 +18,7 @@
   *{ margin:0; padding:0; box-sizing:border-box; }
   html,body{ width:100%; height:100%; overflow:hidden; background:var(--void); }
   body{
-    font-family: system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: system-ui, "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Helvetica Neue", Helvetica, Arial, sans-serif;
     color: var(--gold-dim);
     -webkit-font-smoothing: antialiased;
     user-select: none;
@@ -227,58 +227,46 @@
 <canvas id="gl"></canvas>
 
 <div id="titlecard">
-  <h1>EVENT HORIZON</h1>
-  <p>A Gravitational Light Study</p>
+  <h1>이벤트 호라이즌</h1>
+  <p>중력에 의한 빛 연구</p>
 </div>
 
 <div id="ui">
   <div class="rule"></div>
   <div class="ctl">
-    <div class="row"><label for="sLum">Disk Luminosity</label><span class="val" id="vLum">0.85 L</span></div>
+    <div class="row"><label for="sLum">원반 광도</label><span class="val" id="vLum">0.85 L</span></div>
     <input type="range" id="sLum" min="0" max="1.5" step="0.01" value="0.85">
   </div>
   <div class="ctl">
-    <div class="row"><label for="sLens">Lensing Strength</label><span class="val" id="vLens">0.00 R&#8347;</span></div>
+    <div class="row"><label for="sLens">렌즈 효과</label><span class="val" id="vLens">0.00 R&#8347;</span></div>
     <input type="range" id="sLens" min="0" max="2" step="0.01" value="0">
   </div>
   <div class="ctl">
-    <div class="row"><label for="sOrb">Orbit &middot; Inclination</label><span class="val" id="vOrb">1.00 &times;</span></div>
+    <div class="row"><label for="sOrb">궤도 &middot; 기울기</label><span class="val" id="vOrb">1.00 &times;</span></div>
     <input type="range" id="sOrb" min="0" max="2" step="0.01" value="1">
   </div>
-  <div class="sig">Built by Claude Fable 5</div>
+  <div class="sig">제작 Claude Fable 5</div>
 </div>
 
 <div id="hint">
-  <span class="keys"><b>Drag</b>&ensp;Orbit&ensp;&middot;&ensp;<b>Scroll</b>&ensp;Zoom&ensp;&middot;&ensp;<b>Click</b>&ensp;Feed<br></span>
-  <span class="keys"><b>H</b>&ensp;UI&ensp;&middot;&ensp;<b>F</b>&ensp;Fullscreen<br></span>
-  <button id="aboutBtn" type="button">About</button>
+  <span class="keys"><b>드래그</b>&ensp;궤도&ensp;&middot;&ensp;<b>스크롤</b>&ensp;확대&ensp;&middot;&ensp;<b>클릭</b>&ensp;먹이 주기<br></span>
+  <span class="keys"><b>H</b>&ensp;UI&ensp;&middot;&ensp;<b>F</b>&ensp;전체화면<br></span>
+  <button id="aboutBtn" type="button">정보</button>
 </div>
 
-<div id="about" role="dialog" aria-label="About">
+<div id="about" role="dialog" aria-label="정보">
   <div class="card">
-    <h2>Event Horizon</h2>
+    <h2>이벤트 호라이즌</h2>
     <div class="hr"></div>
-    <p>A Schwarzschild black hole rendered live in a single fragment shader.
-       Every ray is marched through curved spacetime — bent step by step toward
-       the singularity — so the photon ring, the Einstein halo of the accretion
-       disk lensed over the top of the hole, and the doubling of background
-       stars all emerge from the same equation, not from artwork.</p>
-    <p>The disk is shaded by physics: blackbody temperature falling with radius,
-       relativistic Doppler beaming brightening the approaching side into
-       blue-white, gravitational redshift dimming the inner edge, and
-       differentially rotating turbulence shearing into spiral streaks.
-       Set LENSING to zero and gravity switches off — flat space, a plain dark
-       circle — then bend reality back on.</p>
-    <p>Click the void to feed it: a stray star is torn into a hot spot that
-       spirals through the disk — its light bent into both lensed images —
-       then plunges past the horizon in a flare and a brief ringdown
-       shiver of the lens itself.</p>
-    <p class="fine">Raw WebGL &middot; zero dependencies &middot; one file<br>Built by Claude Fable 5</p>
-    <div class="close">Click anywhere or press Esc to close</div>
+    <p>단일 프래그먼트 셰이더 안에서 실시간으로 렌더링되는 슈바르츠실트 블랙홀. 모든 광선은 휘어진 시공간을 따라 한 걸음씩 특이점을 향해 굽이져 진행됩니다 — 광자 고리, 블랙홀 위를 지나 렌즈로 굴절된 강착 원반의 아인슈타인 후광, 배경 별의 중복된 영상까지 모두 같은 방정식에서 자연스럽게 떠오릅니다. 작품이 아닙니다.</p>
+    <p>원반은 물리로 음영 처리됩니다. 반경에 따라 떨어지는 흑체 온도, 다가오는 쪽을 청백색으로 밝히는 상대론적 도플러 빔 효과, 내부 가장자리를 어둡게 만드는 중력 적색 편이, 그리고 나선형 줄무늬로 갈라지는 차등 회전 난류 — 모든 효과가 한 식에서 나옵니다. LENSING을 0으로 두면 중력이 사라집니다 — 평평한 공간, 단순한 검은 원 — 그리고 다시 현실을 휘게 하세요.</p>
+    <p>공허를 클릭해 먹이를 주세요: 빗나간 별이 잡아당겨져 뜨거운 점이 되어 원반을 가로지르며 나선으로 내려갑니다 — 두 개의 렌즈 영상으로 굽이진 빛이 — 그리고 마지막에 플레어와 짧은 렌즈의 잔향 떨림과 함께 사건의 지평선을 지나 추락합니다.</p>
+    <p class="fine">순수 WebGL &middot; 의존성 없음 &middot; 단일 파일<br>제작 Claude Fable 5</p>
+    <div class="close">아무 데나 클릭하거나 Esc를 눌러 닫기</div>
   </div>
 </div>
 
-<div id="fallback"><div>EVENT HORIZON requires WebGL<br><span id="fallbackMsg"></span></div></div>
+<div id="fallback"><div>이벤트 호라이즌은 WebGL이 필요합니다<br><span id="fallbackMsg"></span></div></div>
 
 <!-- ============================================================
      SHADERS

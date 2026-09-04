@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0E1A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='25' font-size='26' text-anchor='middle' fill='%23D9B45B'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
-<title>LABYRINTH — A Maze Algorithm Observatory</title>
+<title>미궁 — 미로 알고리즘 관측소</title>
 <style>
 /* ============ MIDNIGHT CARTOGRAPHY ============ */
 :root{
@@ -24,7 +24,7 @@
   --dfs:#F5A97F;
   --ast:#C4A7F7;
   --def:#F27E9D;
-  --serif:"Didot","Bodoni MT","Playfair Display",Georgia,"Times New Roman",serif;
+  --serif:"Didot","Bodoni MT","Playfair Display",Georgia,"Times New Roman","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",serif;
   --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Mono",Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -267,83 +267,83 @@ button.primary:hover{box-shadow:0 3px 18px rgba(217,180,91,.35);background:linea
 </head>
 <body>
 <header>
-  <div class="wordmark">Laby<span class="orn">&#10022;</span>rinth</div>
-  <div class="tagline">Watch four ways to build a maze &mdash; then set four minds loose to race through it.</div>
+  <div class="wordmark">Lab<span class="orn">&#10022;</span>rinth</div>
+  <div class="tagline">네 가지 길로 미로를 짓는 법을 지켜보세요 — 그 다음 네 마음이 그 미로를 가로지르는 경주를 펼칩니다.</div>
   <div class="hdr-right">
-    <span id="ambientChip">AMBIENT &mdash; MOVE TO TAKE THE HELM</span>
-    <button id="aboutBtn" data-tip="What is this place? Algorithms, keys, and credits.">About</button>
+    <span id="ambientChip">앰비언트 — 움직여 조종을 잡으세요</span>
+    <button id="aboutBtn" data-tip="이곳은 무엇인가? 알고리즘, 키, 그리고 크레딧.">정보</button>
   </div>
 </header>
 <main>
   <aside id="side">
     <div class="sect">
-      <h3>The Maze</h3>
+      <h3>미로</h3>
       <div class="btngrid" id="genBtns"></div>
       <div class="row" style="margin-top:11px">
-        <label class="ctl">Size</label>
+        <label class="ctl">크기</label>
         <input type="range" id="sizeSlider" min="11" max="121" step="2" value="41">
         <span class="val" id="sizeVal">41&times;41</span>
       </div>
       <div class="row">
-        <label class="ctl">Braid</label>
+        <label class="ctl">꼬임</label>
         <input type="range" id="braidSlider" min="0" max="100" step="5" value="15"
-          data-tip="Loop injection &mdash; reopens a share of dead-ends so the maze is no longer a perfect tree, letting the solvers truly diverge.">
+          data-tip="루프 주입 — 막힌 길을 일부 다시 열어 미로가 완전한 트리가 아니게 만들어, 솔버가들이 진정으로 갈라지게 합니다.">
         <span class="val" id="braidVal">15%</span>
       </div>
       <div class="row">
-        <label class="ctl">Seed</label>
-        <input type="text" id="seedInput" spellcheck="false" data-tip="Same seed, same maze &mdash; the fairness clause of every race. Press Enter to rebuild.">
-        <button id="diceBtn" data-tip="Cast a new seed into the dark.">&#8634;</button>
+        <label class="ctl">씨앗</label>
+        <input type="text" id="seedInput" spellcheck="false" data-tip="같은 씨앗, 같은 미로 — 모든 경주의 공정 조항. Enter로 다시 만듭니다.">
+        <button id="diceBtn" data-tip="어둠 속에 새 씨앗을 던지세요.">&#8634;</button>
       </div>
       <div class="row" style="margin-top:11px">
-        <button id="genGo" style="flex:1" data-tip="Rebuild the labyrinth from the seed above. (G rolls a fresh seed.)">Generate</button>
-        <button id="solveGo" style="flex:1" data-tip="Release the chosen mind into the current maze.">Solve</button>
+        <button id="genGo" style="flex:1" data-tip="위 씨앗으로 미궁을 다시 짓습니다. (G는 새 씨앗을 굴립니다.)">생성</button>
+        <button id="solveGo" style="flex:1" data-tip="선택한 마음을 현재 미로로 보냅니다.">풀기</button>
       </div>
     </div>
     <div class="sect">
-      <h3>The Minds</h3>
+      <h3>마음들</h3>
       <div class="btngrid" id="solBtns"></div>
       <div class="hint" id="solHint"></div>
     </div>
     <div class="sect">
-      <h3>Observatory</h3>
+      <h3>관측소</h3>
       <div class="row">
-        <button id="xrayBtn" style="flex:1" data-tip="Distance-from-entrance rendered as a blue&rarr;gold heat gradient &mdash; the maze&rsquo;s topography made visible.">X-Ray Heatmap</button>
+        <button id="xrayBtn" style="flex:1" data-tip="입구로부터의 거리를 파란색→금색의 열 그래디언트로 보여줍니다 — 미로의 지형이 드러납니다.">엑스레이 히트맵</button>
       </div>
       <div class="an-grid" id="anGrid">
-        <div class="an-cell"><div class="an-k">Dead Ends</div><div class="an-v" id="anDead">&mdash;</div></div>
-        <div class="an-cell"><div class="an-k">Branching</div><div class="an-v" id="anBranch">&mdash;</div></div>
-        <div class="an-cell"><div class="an-k">Longest Corridor</div><div class="an-v" id="anCorr">&mdash;</div></div>
-        <div class="an-cell"><div class="an-k">Optimal Path</div><div class="an-v" id="anOpt">&mdash;</div></div>
+        <div class="an-cell"><div class="an-k">막다른 길</div><div class="an-v" id="anDead">&mdash;</div></div>
+        <div class="an-cell"><div class="an-k">분기도</div><div class="an-v" id="anBranch">&mdash;</div></div>
+        <div class="an-cell"><div class="an-k">가장 긴 복도</div><div class="an-v" id="anCorr">&mdash;</div></div>
+        <div class="an-cell"><div class="an-k">최단 경로</div><div class="an-v" id="anOpt">&mdash;</div></div>
       </div>
-      <div class="hint">Click a maze to move the goal &middot; shift-click moves the entrance &middot; the minds re-run at once.</div>
+      <div class="hint">미로를 클릭하면 도착점이 이동 · 쉬프트 클릭은 입구를 이동 · 마음들이 즉시 다시 달립니다.</div>
     </div>
     <div class="sect">
-      <h3>Keys</h3>
+      <h3>키</h3>
       <div class="keys">
-        <kbd>Space</kbd><span>pause / resume</span>
-        <kbd>G</kbd><span>new seed + regenerate</span>
-        <kbd>R</kbd><span>race all four minds</span>
-        <kbd>1&ndash;4</kbd><span>swap solver (solo / duel)</span>
-        <kbd>&rarr;</kbd><span>step one event (paused)</span>
-        <kbd>&uarr; &darr;</kbd><span>speed up / down</span>
-        <kbd>X</kbd><span>x-ray heatmap</span>
-        <kbd>?</kbd><span>about</span>
+        <kbd>스페이스</kbd><span>일시정지 / 재개</span>
+        <kbd>G</kbd><span>새 씨앗 + 재생성</span>
+        <kbd>R</kbd><span>네 마음 모두 경주</span>
+        <kbd>1&ndash;4</kbd><span>솔버 교체 (단일 / 대결)</span>
+        <kbd>&rarr;</kbd><span>이벤트 하나 진행 (일시정지 중)</span>
+        <kbd>&uarr; &darr;</kbd><span>속도 증가 / 감소</span>
+        <kbd>X</kbd><span>엑스레이 히트맵</span>
+        <kbd>?</kbd><span>정보</span>
       </div>
     </div>
-    <div class="credit">Built by <b>Claude Fable 5</b> &middot; zero dependencies</div>
+    <div class="credit"><b>Claude Fable 5</b> 제작 · 외부 의존성 없음</div>
   </aside>
 
   <section id="stage">
     <div id="topbar">
       <div id="tabs"></div>
       <div id="transport">
-        <button id="pauseBtn" data-tip="Hold the observatory&rsquo;s breath. (Space)">&#10074;&#10074;</button>
-        <button id="stepBtn" data-tip="Advance a single atomic event &mdash; one carve, one visit. (&rarr;)">Step</button>
+        <button id="pauseBtn" data-tip="관측소의 숨을 멈추게 합니다. (스페이스)">&#10074;&#10074;</button>
+        <button id="stepBtn" data-tip="단일 원자 이벤트를 진행 — 한 번 새기고, 한 번 방문합니다. (&rarr;)">단계</button>
         <input type="range" id="speedSlider" min="0" max="5" step="1" value="1" style="width:110px"
-          data-tip="Observation speed, 1&times; to 32&times; &mdash; scrub the clocks of every algorithm at once.">
+          data-tip="관측 속도, 1&times; ~ 32&times; — 모든 알고리즘의 시계를 동시에 탐색합니다.">
         <span class="val" id="speedVal">2&times;</span>
-        <button class="primary" id="raceBtn" data-tip="Four identical mazes, four minds, one synchronized clock. (R)">&#9654; Race</button>
+        <button class="primary" id="raceBtn" data-tip="같은 미로 네 개, 네 마음, 하나의 동기화된 시계. (R)">&#9654; 경주</button>
       </div>
       <div id="status">&mdash;</div>
     </div>
@@ -357,27 +357,27 @@ button.primary:hover{box-shadow:0 3px 18px rgba(217,180,91,.35);background:linea
 
 <div id="about">
   <div class="about-card">
-    <button class="about-x" id="aboutX" aria-label="Close">&#10005;</button>
-    <h1>Laby<span>&#10022;</span>rinth</h1>
-    <div class="sub">A maze algorithm observatory &mdash; watch four ways to build a maze, then set four minds loose to race through it.</div>
-    <h2>The Builders</h2>
+    <button class="about-x" id="aboutX" aria-label="닫기">&#10005;</button>
+    <h1>Lab<span>&#10022;</span>rinth</h1>
+    <div class="sub">미로 알고리즘 관측소 — 네 가지 길로 미로를 짓고, 네 마음을 풀어 경주를 벌입니다.</div>
+    <h2>건축가들</h2>
     <div class="alg-grid">
-      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>Recursive Backtracker</div><div class="d">A drunkard with perfect memory: wanders deep, retreats only when cornered &mdash; long, winding corridors and few branches.</div></div>
-      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>Prim&rsquo;s</div><div class="d">Grows like frost from a random seed, always carving at some point on its frontier &mdash; an organic, blooming texture.</div></div>
-      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>Kruskal&rsquo;s</div><div class="d">Knits random walls open across the whole field at once, merging islands until a single labyrinth remains.</div></div>
-      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>Eller&rsquo;s</div><div class="d">Weaves the maze one row at a time on a loom, never holding more than a single row in mind.</div></div>
+      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>재귀 백트래커</div><div class="d">완벽한 기억력을 가진 취객: 깊이 헤매다 막히면 물러납니다 — 길고 구불구불한 복도, 적은 분기.</div></div>
+      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>프림(Prim)</div><div class="d">무작위 씨앗에서 서리처럼 자라며, 항상 전선의 어딘가를 새깁니다 — 유기적이고 만개하는 결.</div></div>
+      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>크루스칼(Kruskal)</div><div class="d">전체 필드에서 무작위 벽을 동시에 열어 섬들을 합쳐 단 하나의 미궁만 남게 합니다.</div></div>
+      <div class="alg"><div class="n" style="color:var(--gold)"><i style="color:var(--gold)"></i>엘러(Eller)</div><div class="d">직기에서 한 줄씩 미로를 짜며, 한 번에 한 줄 이상은 머릿속에 담지 않습니다.</div></div>
     </div>
-    <h2>The Minds</h2>
+    <h2>마음들</h2>
     <div class="alg-grid">
-      <div class="alg"><div class="n" style="color:var(--bfs)"><i style="color:var(--bfs)"></i>Breadth-First</div><div class="d">Floods outward in even rings; slow to commit but constitutionally incapable of missing the shortest path.</div></div>
-      <div class="alg"><div class="n" style="color:var(--dfs)"><i style="color:var(--dfs)"></i>Depth-First</div><div class="d">Commits to one corridor at a time, backtracking only when the maze says no &mdash; reckless, occasionally lucky.</div></div>
-      <div class="alg"><div class="n" style="color:var(--ast)"><i style="color:var(--ast)"></i>A&#42; Search</div><div class="d">Walks toward the goal on purpose, weighing distance travelled against distance remaining &mdash; tinted by its own f-scores.</div></div>
-      <div class="alg"><div class="n" style="color:var(--def)"><i style="color:var(--def)"></i>Dead-End Filling</div><div class="d">Floods every cul-de-sac dark until only the true path survives &mdash; solving by pure elimination, from the outside in.</div></div>
+      <div class="alg"><div class="n" style="color:var(--bfs)"><i style="color:var(--bfs)"></i>너비우선 탐색</div><div class="d">균일한 동심원으로 바깥으로 범람 — 결단은 느리지만 최단 경로를 놓칠 수는 없는 본성.</div></div>
+      <div class="alg"><div class="n" style="color:var(--dfs)"><i style="color:var(--dfs)"></i>깊이우선 탐색</div><div class="d">한 번에 하나의 복도에 매진, 미로가 거절할 때만 되돌아갑니다 — 무모하고, 가끔 운이 좋다.</div></div>
+      <div class="alg"><div class="n" style="color:var(--ast)"><i style="color:var(--ast)"></i>A&#42; 탐색</div><div class="d">목표를 향해 의도를 가지고 걷습니다 — 이미 걸은 거리와 남은 거리를 자기 f-점수로 저울질합니다.</div></div>
+      <div class="alg"><div class="n" style="color:var(--def)"><i style="color:var(--def)"></i>막다른 길 채움</div><div class="d">모든 막다른 골목을 어둠에 잠그고 진짜 길만 남을 때까지 — 바깥에서 안으로의 순수 제거로 풉니다.</div></div>
     </div>
-    <h2>Field Notes</h2>
-    <p><b>Braiding</b> reopens dead-ends into loops; on a braided maze A&#42; and BFS genuinely diverge, and dead-end filling must fall back on wits. <b>X-ray</b> paints distance-from-entrance as blue&rarr;gold heat. Leave the observatory idle for twenty seconds and it becomes a museum installation, generating and racing endlessly on its own.</p>
-    <p>Everything here is one HTML file: generators and solvers are JavaScript generator functions yielding atomic events (carve, visit, fill, path), consumed at a fixed timestep by one rendering clock &mdash; which is why pause, step, scrub and photo-finish synchronization all come for free.</p>
-    <div class="about-foot">Built by <b>Claude Fable 5</b> &middot; no libraries &middot; no network &middot; one file</div>
+    <h2>현장 기록</h2>
+    <p><b>꼬임</b>은 막다른 길을 다시 열어 루프로 바꾸며, 꼬인 미로에서 A&#42;와 BFS는 진정으로 갈라지고, 막다른 길 채움이 결국 머리로 풀어야 합니다. <b>엑스레이</b>는 입구로부터의 거리를 파란색→금색의 열로 그립니다. 관측소를 20초 이상 가만히 두면 스스로 미로를 짓고 끝없이 경주를 벌이는 미술 설치로 변합니다.</p>
+    <p>여기 모든 것은 한 HTML 파일 안에 있습니다 — 생성기와 솔버는 자바스크립트 제너레이터 함수로, 원자 이벤트(새김, 방문, 채움, 경로)를 산출하며, 단일 렌더 시계가 고정된 타임스텝으로 그것을 소비합니다 — 그래서 일시정지, 단계, 탐색, 사진 결승선 동기화가 모두 공짜로 따라옵니다.</p>
+    <div class="about-foot"><b>Claude Fable 5</b> 제작 · 라이브러리 없음 · 네트워크 없음 · 단일 파일</div>
   </div>
 </div>
 
@@ -607,24 +607,24 @@ function* solveDeadEnd(g,s,t){
 
 /* ---------------- registries ---------------- */
 var GENS=[
- {id:'back',name:'Backtracker',full:'Recursive Backtracker',run:genBacktracker,
-  tip:'A drunkard with perfect memory: wanders deep, retreats only when cornered — long, winding corridors.'},
- {id:'prim',name:"Prim's",full:"Prim's Algorithm",run:genPrim,
-  tip:'Grows the maze like frost from a random seed, always carving at a point on its frontier.'},
- {id:'krus',name:"Kruskal's",full:"Kruskal's Algorithm",run:genKruskal,
-  tip:'Knits random walls open across the whole field at once, merging islands until one labyrinth remains.'},
- {id:'ell',name:"Eller's",full:"Eller's Algorithm",run:genEller,
-  tip:'Weaves the maze one row at a time on a loom, never holding more than a single row in mind.'}
+ {id:'back',name:'백트래커',full:'재귀 백트래커',run:genBacktracker,
+  tip:'완벽한 기억력을 가진 취객처럼 미로를 깊이 헤매다 막히면 물러납니다 — 길고 구불구불한 복도.'},
+ {id:'prim',name:'프림',full:'프림 알고리즘',run:genPrim,
+  tip:'무작위 씨앗에서 서리처럼 자라며, 항상 전선의 어딘가를 새깁니다.'},
+ {id:'krus',name:'크루스칼',full:'크루스칼 알고리즘',run:genKruskal,
+  tip:'전체 필드에서 무작위 벽을 동시에 열어 섬들을 합쳐 하나의 미궁만 남게 합니다.'},
+ {id:'ell',name:'엘러',full:'엘러 알고리즘',run:genEller,
+  tip:'한 번에 한 줄씩 직기에서 미로를 짜며, 그 이상은 머릿속에 담지 않습니다.'}
 ];
 var SOLVERS=[
- {id:'bfs',name:'BFS',full:'Breadth-First Search',color:'#5EEAD4',run:solveBFS,
-  tip:'Floods outward in even rings — slow to commit, incapable of missing the shortest path.'},
- {id:'dfs',name:'DFS',full:'Depth-First Search',color:'#F5A97F',run:solveDFS,
-  tip:'Commits to one corridor at a time, backtracking only when the maze says no.'},
- {id:'ast',name:'A*',full:'A* Search',color:'#C4A7F7',run:solveAstar,
-  tip:'Walks toward the goal on purpose, weighing distance travelled against distance remaining.'},
- {id:'def',name:'Dead-End Fill',full:'Dead-End Filling',color:'#F27E9D',run:solveDeadEnd,
-  tip:'Floods every cul-de-sac dark until only the true path survives — solving by elimination.'}
+ {id:'bfs',name:'BFS',full:'너비우선 탐색',color:'#5EEAD4',run:solveBFS,
+  tip:'균일한 동심원으로 바깥으로 범람 — 결단은 느리지만 최단 경로를 놓칠 수 없는 본성.'},
+ {id:'dfs',name:'DFS',full:'깊이우선 탐색',color:'#F5A97F',run:solveDFS,
+  tip:'한 번에 하나의 복도에 매진, 미로가 거절할 때만 되돌아갑니다.'},
+ {id:'ast',name:'A*',full:'A* 탐색',color:'#C4A7F7',run:solveAstar,
+  tip:'목표를 향해 의도를 가지고 걷습니다 — 이미 걸은 거리와 남은 거리를 저울질합니다.'},
+ {id:'def',name:'막다른 길 채움',full:'막다른 길 채움',color:'#F27E9D',run:solveDeadEnd,
+  tip:'모든 막다른 골목을 어둠에 잠그고 진짜 길만 남을 때까지 — 제거의 방식으로 풉니다.'}
 ];
 SOLVERS.forEach(function(s){s.rgb=hex2rgb(s.color);s.bright=mix(s.rgb,[255,250,235],0.65);});
 var GOLD=hex2rgb('#E9C46A'), IVORY=hex2rgb('#E8E3D3');
@@ -1121,7 +1121,7 @@ function onPanelClick(p,e){
     if(app.mode==='solo'&&app.grid&&p.genDone){startSoloSolve();return;}
     if((app.mode==='race'||app.mode==='duel')&&app.grid){startSolve();return;}
   }
-  setStatus('markers moved — <b>R</b> to re-race');
+  setStatus('마커 이동됨 — <b>R</b>로 다시 경주');
 }
 
 /* ================================================================
@@ -1180,7 +1180,7 @@ function startGeneration(){
     app.phase='gen';
     buildBoard();
     layoutPanels();
-    setStatus('weaving four looms&hellip;');
+    setStatus('네 직기를 짜는 중&hellip;');
     if(RM){finishGenerationInstant();}
     return;
   }
@@ -1193,7 +1193,7 @@ function startGeneration(){
     app.phase='gen';
     buildBoard();
     layoutPanels();
-    setStatus('carving &mdash; <b>'+GENS[app.genId].name+'</b>');
+    setStatus('새기는 중 &mdash; <b>'+GENS[app.genId].name+'</b>');
     if(RM){finishGenerationInstant();}
     return;
   }
@@ -1220,7 +1220,7 @@ function finalizeGen(p){
   requestAnimationFrame(function(){p.cv.wall.style.opacity='1';});
   if(p.gen&&!p.solver){
     var an=p.grid.an;
-    p.footEl.innerHTML='dead-ends <b>'+an.dead+'</b> &middot; branch <b>'+an.branch.toFixed(2)+'</b> &middot; corridor <b>'+an.corr+'</b> &middot; depth <b>'+an.maxD+'</b>';
+    p.footEl.innerHTML='막다른 길 <b>'+an.dead+'</b> &middot; 분기도 <b>'+an.branch.toFixed(2)+'</b> &middot; 복도 <b>'+an.corr+'</b> &middot; 깊이 <b>'+an.maxD+'</b>';
   }
 }
 function afterGeneration(){
@@ -1228,14 +1228,14 @@ function afterGeneration(){
     app.phase='done';
     updateAnalyticsUI();
     buildBoard();
-    setStatus('four textures, one seed &mdash; compare');
+    setStatus('네 가지 결, 하나의 씨앗 &mdash; 비교해 보세요');
     if(app.ambient)app.ambientTimer=performance.now()+5200;
     return;
   }
   /* solo: pause a beat, then release the mind */
   updateAnalyticsUI();
   app.phase='idle';
-  setStatus('maze complete &mdash; releasing <b>'+SOLVERS[app.soloSolver].name+'</b>');
+  setStatus('미로 완성 &mdash; <b>'+SOLVERS[app.soloSolver].name+'</b>을 풉니다');
   schedule(RM?5:40,function(){startSoloSolve();});
 }
 
@@ -1267,7 +1267,7 @@ function startSoloSolve(){
   p.iter=solverIter(p.solver,p.grid,app.soloSolver);
   app.phase='solve';app.acc=0;app.finishOrder=[];
   buildBoard();
-  setStatus('<b>'+p.solver.name+'</b> is thinking&hellip;');
+  setStatus('<b>'+p.solver.name+'</b>이(가) 생각하는 중&hellip;');
 }
 function startSolve(){
   /* duel / race launch on shared master grid */
@@ -1288,7 +1288,7 @@ function startSolve(){
     p.cv.wall.style.opacity='0';
     requestAnimationFrame(function(){p.cv.wall.style.opacity='1';});
   });
-  setStatus(app.mode==='duel'?'duel underway':'the race is on');
+  setStatus(app.mode==='duel'?'대결 진행 중':'경주 시작');
 }
 function onSolverFinished(p){
   app.finishOrder.push(p);
@@ -1299,8 +1299,8 @@ function onSolverFinished(p){
   if(app.mode==='solo'){
     app.phase='done';
     spawnSparks(p,true);
-    p.footEl.innerHTML='explored <b>'+p.explored+'</b> cells &middot; path <b>'+p.path.length+'</b> ('+pratio.toFixed(2)+'&times; optimal) &middot; '+ratio.toFixed(1)+'&times; explored/optimal';
-    setStatus('<b>'+p.solver.name+'</b> &mdash; path '+p.path.length+' in '+p.finishSteps+' steps');
+    p.footEl.innerHTML='탐색 <b>'+p.explored+'</b> 셀 &middot; 경로 <b>'+p.path.length+'</b> ('+pratio.toFixed(2)+'&times; 최단) &middot; '+ratio.toFixed(1)+'&times; 탐색/최단';
+    setStatus('<b>'+p.solver.name+'</b> &mdash; 경로 '+p.path.length+'개를 '+p.finishSteps+' 단계로');
     if(app.ambient)app.ambientTimer=performance.now()+5200;
     return;
   }
@@ -1309,12 +1309,12 @@ function onSolverFinished(p){
     p.win=true;
     spawnSparks(p,true);
     p.el.classList.add('winner');
-    p.bannerEl.innerHTML='<div class="bt">&#10022; Photo Finish &mdash; '+p.solver.name+'</div>'+
-      '<div class="bs">path <b>'+p.path.length+'</b> ('+pratio.toFixed(2)+'&times; optimal) &middot; explored <b>'+p.explored+'</b> cells ('+ratio.toFixed(2)+'&times; optimal) &middot; <b>'+p.finishSteps+'</b> steps</div>';
+    p.bannerEl.innerHTML='<div class="bt">&#10022; 사진 결승선 &mdash; '+p.solver.name+'</div>'+
+      '<div class="bs">경로 <b>'+p.path.length+'</b> ('+pratio.toFixed(2)+'&times; 최단) &middot; 탐색 <b>'+p.explored+'</b> 셀 ('+ratio.toFixed(2)+'&times; 최단) &middot; <b>'+p.finishSteps+'</b> 단계</div>';
     requestAnimationFrame(function(){p.bannerEl.classList.add('show');});
     app.panels.forEach(function(q){if(q!==p&&!q.done)q.frozen=true;});
     app.phase='done';
-    setStatus('<b>'+p.solver.name+'</b> takes it &mdash; '+p.finishSteps+' steps');
+    setStatus('<b>'+p.solver.name+'</b>이(가) 잡는다 &mdash; '+p.finishSteps+' 단계');
     if(app.ambient)app.ambientTimer=performance.now()+6500;
   }
 }
@@ -1395,8 +1395,8 @@ function buildBoard(){
   lbRows=[];
   var html='';
   if(app.mode==='builders'){
-    html='<div class="lb-title">Loom Report</div><div class="lb-grid">'+
-      '<div class="lb-h">Builder</div><div class="lb-h">Carves</div><div class="lb-h">Dead Ends</div><div class="lb-h">Branching</div><div class="lb-h">Longest Corridor</div>';
+    html='<div class="lb-title">직기 보고서</div><div class="lb-grid">'+
+      '<div class="lb-h">건축가</div><div class="lb-h">새긴 횟수</div><div class="lb-h">막다른 길</div><div class="lb-h">분기도</div><div class="lb-h">가장 긴 복도</div>';
     app.panels.forEach(function(p,i){
       html+='<div class="lb-c lb-name"><i style="background:#D9B45B;color:#D9B45B"></i>'+p.gen.name+'</div>'+
         '<div class="lb-c" id="lb'+i+'a">0</div><div class="lb-c" id="lb'+i+'b">&mdash;</div>'+
@@ -1404,8 +1404,8 @@ function buildBoard(){
     });
     html+='</div>';
   }else{
-    html='<div class="lb-title">'+(app.mode==='solo'?'Field Log':'Leaderboard')+'</div><div class="lb-grid">'+
-      '<div class="lb-h">Mind</div><div class="lb-h">Explored</div><div class="lb-h">Path</div><div class="lb-h">Steps</div><div class="lb-h">Verdict</div>';
+    html='<div class="lb-title">'+(app.mode==='solo'?'현장 일지':'리더보드')+'</div><div class="lb-grid">'+
+      '<div class="lb-h">마음</div><div class="lb-h">탐색</div><div class="lb-h">경로</div><div class="lb-h">단계</div><div class="lb-h">결론</div>';
     app.panels.forEach(function(p,i){
       var name=p.solver?p.solver.name:GENS[app.genId].name;
       var col=p.solver?p.solver.color:'#D9B45B';
@@ -1429,27 +1429,27 @@ function updateBoard(){
       if(p.genDone&&p.grid.an){
         r.b.textContent=p.grid.an.dead;
         r.c.textContent=p.grid.an.branch.toFixed(2);
-        r.d.textContent=p.grid.an.corr+' cells';
+        r.d.textContent=p.grid.an.corr+' 셀';
       }
       continue;
     }
     if(!p.solver){ /* solo still generating */
       r.a.textContent=p.carves;r.c.textContent=p.steps;
-      r.d.innerHTML='<span class="dim">carving&hellip;</span>';
+      r.d.innerHTML='<span class="dim">새기는 중&hellip;</span>';
       continue;
     }
     r.a.textContent=p.explored;
     r.b.textContent=p.path?p.path.length:'—';
     r.c.textContent=p.done?p.finishSteps:p.steps;
     var an=p.grid.an,opt=an?an.optimal:0;
-    if(p.failed)r.d.innerHTML='<span class="dim">no route</span>';
+    if(p.failed)r.d.innerHTML='<span class="dim">길이 없음</span>';
     else if(p.done&&p.path){
       var place=app.finishOrder.indexOf(p)+1;
       var ratio=opt?(p.explored/opt).toFixed(2):'?';
-      r.d.innerHTML=(place===1?'<em>&#10022; victor</em> &middot; ':'#'+place+' &middot; ')+ratio+'&times; explored/optimal';
+      r.d.innerHTML=(place===1?'<em>&#10022; 승자</em> &middot; ':'#'+place+' &middot; ')+ratio+'&times; 탐색/최단';
     }
-    else if(p.frozen)r.d.innerHTML='<span class="dim">frozen mid-thought</span>';
-    else if(app.phase==='solve')r.d.innerHTML='<span class="dim">searching&hellip;</span>';
+    else if(p.frozen)r.d.innerHTML='<span class="dim">생각이 멈춤</span>';
+    else if(app.phase==='solve')r.d.innerHTML='<span class="dim">탐색 중&hellip;</span>';
     else r.d.innerHTML='<span class="dim">&mdash;</span>';
   }
 }
@@ -1462,18 +1462,18 @@ function updateAnalyticsUI(){
   var an=g&&g.an;
   $('#anDead').innerHTML=an?an.dead+' <small>('+(an.dead/(g.n*g.n)*100).toFixed(0)+'%)</small>':'—';
   $('#anBranch').textContent=an?an.branch.toFixed(2):'—';
-  $('#anCorr').innerHTML=an?an.corr+' <small>cells</small>':'—';
-  $('#anOpt').innerHTML=an?an.optimal+' <small>cells</small>':'—';
+  $('#anCorr').innerHTML=an?an.corr+' <small>셀</small>':'—';
+  $('#anOpt').innerHTML=an?an.optimal+' <small>셀</small>':'—';
 }
 
 /* ================================================================
    UI WIRING
    ================================================================ */
 var MODES=[
-  {id:'solo',name:'Solo',tip:'One maze, one mind — watch a single build and a single solve, unhurried.'},
-  {id:'builders',name:'Builders',tip:'Four generators weave the same seed side-by-side — compare their textures.'},
-  {id:'duel',name:'Duel',tip:'Two minds, one maze, one clock — pick your fighters below.'},
-  {id:'race',name:'Race',tip:'All four minds on identical mazes, synchronized — first to the goal takes the flare.'}
+  {id:'solo',name:'단독',tip:'하나의 미로, 하나의 마음 — 천천히 단일 생성과 단일 풀기를 지켜보세요.'},
+  {id:'builders',name:'건축가',tip:'네 생성기가 같은 씨앗으로 나란히 직조 — 결을 비교합니다.'},
+  {id:'duel',name:'대결',tip:'두 마음, 하나의 미로, 하나의 시계 — 아래에서 파이터를 고르세요.'},
+  {id:'race',name:'경주',tip:'네 마음이 같은 미로 위에서 동시에 — 먼저 목표에 닿는 쪽이 승리.'}
 ];
 function setMode(m,go){
   app.mode=m;
@@ -1580,7 +1580,7 @@ function setPaused(v){
   app.paused=v;
   pauseBtn.innerHTML=v?'&#9654;':'&#10074;&#10074;';
   pauseBtn.classList.toggle('on',v);
-  if(v)setStatus('held &mdash; <b>Space</b> to resume, <b>&rarr;</b> to step');
+  if(v)setStatus('멈춤 &mdash; <b>스페이스</b>로 재개, <b>&rarr;</b>로 단계 진행');
 }
 pauseBtn.addEventListener('click',function(){setPaused(!app.paused);});
 $('#stepBtn').addEventListener('click',function(){

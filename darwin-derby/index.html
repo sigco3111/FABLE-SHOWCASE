@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Darwin Derby — Speciation Grand Prix</title>
+<title>다윈 더비 — 종 분화 그랑프리</title>
 <style>
 :root{
   --paper:#f4eddf;
@@ -25,8 +25,8 @@
   --verdigris:#4a7a6b;
   --oxblood:#7a2e2a;
   --slate:#5a6b7a;
-  --serif:Georgia,'Times New Roman',serif;
-  --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  --serif:Georgia,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",'Times New Roman',serif;
+  --mono:ui-monospace,"SF Mono","Apple SD Gothic Neo","Noto Sans KR",SFMono-Regular,Menlo,Consolas,monospace;
   --hud-w:336px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -260,36 +260,36 @@ input[type=range]::-moz-range-thumb{width:11px;height:11px;border-radius:50%;bac
     <div id="grain"></div>
     <div id="vignette"></div>
     <header id="masthead">
-      <h1>Darwin Derby <em>— Speciation Grand Prix</em></h1>
+      <h1>다윈 더비 <em>— 종 분화 그랑프리</em></h1>
       <div class="rule"></div>
-      <div class="tagline">Being a study of artificial selection among self-propelled polygon specimens, observed in their native terrain.</div>
-      <div id="genline">gen <b id="glGen">1</b> · <span id="glStatus">heat in progress</span></div>
+      <div class="tagline">자력 추진하는 다각형 견본들 사이의 인위 선택에 관한 연구 — 그 본래의 서식지에서 관찰된 기록.</div>
+      <div id="genline">세대 <b id="glGen">1</b> · <span id="glStatus">준비 중</span></div>
     </header>
-    <div id="modeband">Race of the Ancestors</div>
-    <div id="minimapwrap"><span id="mmlabel">Course Survey</span><canvas id="minimap"></canvas></div>
+    <div id="modeband">선조들의 경주</div>
+    <div id="minimapwrap"><span id="mmlabel">코스 도면</span><canvas id="minimap"></canvas></div>
     <div id="pageturn"><div class="pt-sheet"><div class="pt-inner" id="ptInner"></div></div></div>
   </main>
 
   <aside id="hud">
     <div id="hudscroll">
       <section class="sec">
-        <h2>Telemetry <span class="sub">pit wall</span></h2>
+        <h2>계측 <span class="sub">Pit Wall</span></h2>
         <div class="telem">
-          <div class="cell"><span class="k">Generation</span><span class="v" id="tGen">1</span></div>
-          <div class="cell"><span class="k">Alive</span><span class="v" id="tAlive">20<small>/20</small></span></div>
-          <div class="cell"><span class="k">Leader Dist</span><span class="v" id="tLead">0.0<small> m</small></span></div>
-          <div class="cell"><span class="k">All-Time Best</span><span class="v" id="tBest">0.0<small> m</small></span></div>
-          <div class="cell"><span class="k">Mean (Last Gen)</span><span class="v" id="tMean">—</span></div>
-          <div class="cell"><span class="k">Heat Clock</span><span class="v" id="tClock">0.0<small> s</small></span></div>
-          <div class="cell wide"><span class="k">Terrain Seed</span><span class="v" id="seedval" title="Click to copy seed">—</span></div>
+          <div class="cell"><span class="k">세대</span><span class="v" id="tGen">1</span></div>
+          <div class="cell"><span class="k">생존</span><span class="v" id="tAlive">20<small>/20</small></span></div>
+          <div class="cell"><span class="k">선두 거리</span><span class="v" id="tLead">0.0<small> m</small></span></div>
+          <div class="cell"><span class="k">역대 최고</span><span class="v" id="tBest">0.0<small> m</small></span></div>
+          <div class="cell"><span class="k">이전 세대 평균</span><span class="v" id="tMean">—</span></div>
+          <div class="cell"><span class="k">경기 시간</span><span class="v" id="tClock">0.0<small> s</small></span></div>
+          <div class="cell wide"><span class="k">지형 시드</span><span class="v" id="seedval" title="클릭해 시드 복사">—</span></div>
         </div>
       </section>
 
       <section class="sec">
-        <h2>Controls <span class="sub">selection pressure</span></h2>
+        <h2>조작 <span class="sub">선택 압</span></h2>
         <div class="ctlrow">
-          <button id="btnPause" class="primary">Pause</button>
-          <button id="btnStep" title="Simulate one full generation instantly">Run 1 Gen ⏭</button>
+          <button id="btnPause" class="primary">일시정지</button>
+          <button id="btnStep" title="한 세대를 즉시 시뮬레이션">1세대 진행 ⏭</button>
         </div>
         <div class="ctlrow">
           <div class="seg" id="speedSeg">
@@ -299,43 +299,41 @@ input[type=range]::-moz-range-thumb{width:11px;height:11px;border-radius:50%;bac
           </div>
         </div>
         <div class="sliderrow">
-          <label for="mutSlider">Mutation</label>
+          <label for="mutSlider">변이</label>
           <input type="range" id="mutSlider" min="0" max="100" value="30">
           <output id="mutOut">30%</output>
         </div>
-        <label class="checkrow"><input type="checkbox" id="elitism" checked> Elitism <em>— champion survives untouched</em></label>
+        <label class="checkrow"><input type="checkbox" id="elitism" checked> 엘리트 보존 <em>— 챔피언은 변하지 않고 살아남습니다</em></label>
         <div class="ctlrow" style="margin-top:12px">
-          <button id="btnAncestors" disabled title="Resurrect past champions onto one track">Race the Ancestors</button>
+          <button id="btnAncestors" disabled title="과거 챔피언들을 한 트랙으로 소환">선조들의 경주</button>
         </div>
         <div class="ctlrow">
-          <button id="btnNewRun" class="danger" title="New seed, fresh Gen 1, clears saved line">New Run ⟲</button>
+          <button id="btnNewRun" class="danger" title="새 시드, 1세대부터 다시, 기록 초기화">새 경기 ⟲</button>
         </div>
       </section>
 
       <section class="sec">
-        <h2>Fitness Observatory <span class="sub">per generation</span></h2>
+        <h2>적합도 관측소 <span class="sub">세대별</span></h2>
         <div id="chartwrap">
           <canvas id="chart"></canvas>
           <div id="tooltip"></div>
         </div>
         <div class="legend">
-          <span><i style="background:#d8a531"></i>best</span>
-          <span><i style="background:#a89e88"></i>mean</span>
-          <span><i style="background:#6f6753"></i>worst</span>
-          <span style="margin-left:auto;font-style:italic">hover dots for champions</span>
+          <span><i style="background:#d8a531"></i>최고</span>
+          <span><i style="background:#a89e88"></i>평균</span>
+          <span><i style="background:#6f6753"></i>최저</span>
+          <span style="margin-left:auto;font-style:italic">점 위에 마우스를 올리면 챔피언을 볼 수 있습니다</span>
         </div>
       </section>
 
       <section class="sec">
-        <h2>Hall of Fame <span class="sub">pinned plates</span></h2>
-        <div id="hof"><div class="empty">No champions pinned yet — the first specimen to set a record will be mounted here.</div></div>
+        <h2>명예의 전당 <span class="sub">꼃은 기록</span></h2>
+        <div id="hof"><div class="empty">아직 챔피언이 꼃혔지 않습니다 — 첫 기록을 세운 견본이 여기에 모셔집니다.</div></div>
       </section>
     </div>
     <footer id="about">
-      A field study in artificial selection: scratch-built verlet physics, seeded terrain, and a live genetic
-      algorithm — twenty polygon specimens per generation, bred from the farthest travellers. Everything on this
-      page is procedural; no libraries, no network. <b>Built by Claude Fable 5.</b>
-      <span class="keys">space pause · 1/2/3 speed · g run one gen</span>
+      인위 선택의 현장 연구: 직접 짠 verlet 물리, 시드 기반 지형, 그리고 살아 있는 유전 알고리즘 — 세대당 스무 마리의 다각형 견본이 가장 멀리 간 개체들로부터 번식합니다. 이 페이지의 모든 것은 절차적으로 생성되었습니다; 라이브러리도, 네트워크 호출도 없습니다. <b>제작: Claude Fable 5.</b>
+      <span class="keys">space 일시정지 · 1/2/3 속도 · g 1세대 진행</span>
     </footer>
   </aside>
 </div>
@@ -1062,8 +1060,8 @@ function drawCar(car, isLeader, isChampBadge){
     ctx.setLineDash([2,3]); ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(sx, syTop+9); ctx.lineTo(sx, w2sY(P[0].y)-10); ctx.stroke();
     ctx.setLineDash([]);
-    const txt = (state.mode==='ancestors' ? car.label+' champion' :
-      'Gen '+state.gen+' — Specimen '+car.label) + ', dist. '+fmt1(Math.max(0,P[0].x))+' m';
+    const txt = (state.mode==='ancestors' ? car.label+' 챔피언' :
+      state.gen+'세대 — 견본 '+car.label) + ', 주행 거리 '+fmt1(Math.max(0,P[0].x))+' m';
     ctx.font = 'italic 12.5px Georgia,serif';
     ctx.textAlign = 'center';
     const tw = ctx.measureText(txt).width;
@@ -1098,7 +1096,7 @@ function breakTape(car){
     });
   }
   stamps.push({x: tape.x, y: gy+2.2, born: performance.now(), kind:'record',
-    sub: fmt1(tape.x)+' m — specimen '+car.label});
+    sub: fmt1(tape.x)+' m — 견본 '+car.label});
 }
 function updateConfetti(dt){
   if (!confetti.length) return;
@@ -1318,7 +1316,7 @@ function drawChart(){
   if (n===0){
     c.fillStyle='#6f6753';
     c.font = 'italic 11px Georgia,serif';
-    c.fillText('Awaiting the first generation…', CH_PAD.l, chartH/2);
+    c.fillText('첫 세대를 기다리는 중…', CH_PAD.l, chartH/2);
     return;
   }
   const maxV = chartMax();
@@ -1374,8 +1372,8 @@ function drawChart(){
     }
   }
   c.fillStyle='#6f6753';
-  c.fillText('gen '+(hist[0].g||1), CH_PAD.l, chartH-4);
-  const lastLbl = 'gen '+(hist[n-1].g||n);
+  c.fillText('세대 '+(hist[0].g||1), CH_PAD.l, chartH-4);
+  const lastLbl = '세대 '+(hist[n-1].g||n);
   c.fillText(lastLbl, chartW-CH_PAD.r-c.measureText(lastLbl).width, chartH-4);
 }
 // hover: champion genome tooltip
@@ -1409,12 +1407,12 @@ chartCv.addEventListener('mousemove', ev=>{
   const champG = Float32Array.from(e.champ);
   sketchGenome(ttCanvas, champG, e.hue, e.sat);
   const spec = decodeGenome(champG);
-  tooltip.innerHTML = '<div class="tt-h">Gen '+(e.g||bi+1)+' champion</div>';
+  tooltip.innerHTML = '<div class="tt-h">세대 '+(e.g||bi+1)+' 챔피언</div>';
   tooltip.appendChild(ttCanvas);
   const s = document.createElement('div');
   s.className='tt-s';
-  s.innerHTML = 'dist <b>'+fmt1(e.b)+' m</b> · mean '+fmt1(e.m)+
-    '<br>wheels '+spec.wheels.length+' · ω '+fmt1(spec.omega)+' · ρ '+spec.density.toFixed(2);
+  s.innerHTML = '거리 <b>'+fmt1(e.b)+' m</b> · 평균 '+fmt1(e.m)+
+    '<br>바퀴 '+spec.wheels.length+'개 · ω '+fmt1(spec.omega)+' · 밀도 '+spec.density.toFixed(2);
   tooltip.appendChild(s);
   const wrap = $('chartwrap').getBoundingClientRect();
   let tx = ev.clientX - wrap.left + 12;
@@ -1434,7 +1432,7 @@ function renderHof(){
   const el = $('hof');
   el.innerHTML = '';
   if (!state.hof.length){
-    el.innerHTML = '<div class="empty">No champions pinned yet — the first specimen to set a record will be mounted here.</div>';
+    el.innerHTML = '<div class="empty">아직 챔피언이 꼃혔지 않습니다 — 첫 기록을 세운 견본이 여기에 모셔집니다.</div>';
     $('btnAncestors').disabled = true;
     return;
   }
@@ -1446,7 +1444,7 @@ function renderHof(){
     d.className = 'plate';
     const head = document.createElement('div');
     head.className='ph';
-    head.innerHTML = '<span><b>Plate '+romanize(plateNo)+'</b> — Gen '+h.gen+'</span><span class="pn">SPECIMEN · PINNED</span>';
+    head.innerHTML = '<span><b>제 '+romanize(plateNo)+'호</b> — '+h.gen+'세대</span><span class="pn">견본 · 꼃음</span>';
     d.appendChild(head);
     const cv = document.createElement('canvas');
     cv.width=192; cv.height=116;
@@ -1455,12 +1453,12 @@ function renderHof(){
     d.appendChild(cv);
     const st = document.createElement('div');
     st.className='stats';
-    st.innerHTML = 'dist <b>'+fmt1(h.fit)+' m</b><br>wheels '+h.wheels+' · ω '+fmt1(h.omega)+'<br>mass '+fmt1(h.mass)+' u';
+    st.innerHTML = '거리 <b>'+fmt1(h.fit)+' m</b><br>바퀴 '+h.wheels+'개 · ω '+fmt1(h.omega)+'<br>질량 '+fmt1(h.mass)+' 단위';
     d.appendChild(st);
     if (ri===0){
       const seal = document.createElement('div');
       seal.className='seal'; seal.textContent='✦';
-      seal.title='Reigning champion';
+      seal.title='현 챔피언';
       d.appendChild(seal);
     }
     el.appendChild(d);
@@ -1491,13 +1489,13 @@ function buildBreedHTML(finishedGen, best){
     pairs += '<span class="pt-pair">'+chip(p.a)+' ✕ '+chip(p.b)+' → '+chip(p.c)+'</span>';
   }
   const html =
-    '<div class="pt-kicker">field notebook · artificial selection</div>'+
-    '<div class="pt-gen">Gen '+finishedGen+' <em>→ Gen '+(finishedGen+1)+'</em></div>'+
+    '<div class="pt-kicker">현장 노트 · 인위 선택</div>'+
+    '<div class="pt-gen">'+finishedGen+'세대 <em>→ '+(finishedGen+1)+'세대</em></div>'+
     '<canvas id="'+cvId+'" class="pt-sketch" width="360" height="184" style="width:180px;height:92px"></canvas>'+
-    '<div style="font-style:italic;font-size:13px;color:#5c5140">champion travelled '+fmt1(best.fitness)+' m</div>'+
+    '<div style="font-style:italic;font-size:13px;color:#5c5140">챔피언은 '+fmt1(best.fitness)+' m를 주행했습니다</div>'+
     '<div class="pt-cross">'+pairs+'</div>'+
-    '<div class="pt-note">'+(state.elitism?'champion preserved · ':'')+(POP-(state.elitism?1:0))+
-      ' offspring · tournament of 3 · μ '+Math.round(state.mutRate*100)+'%</div>';
+    '<div class="pt-note">'+(state.elitism?'챔피언 보존 · ':'')+(POP-(state.elitism?1:0))+
+      '마리의 새 세대 · 3자 토너먼트 · μ '+Math.round(state.mutRate*100)+'%</div>';
   const bg = Float32Array.from(best.genome);
   requestAnimationFrame(()=>{
     const cv = document.getElementById(cvId);
@@ -1509,11 +1507,11 @@ function buildAncestorResultHTML(win){
   const cvId = 'ptcv'+(++ptSeq);
   const wg = Float32Array.from(win.genome);
   const html =
-    '<div class="pt-kicker">race of the ancestors</div>'+
-    '<div class="pt-gen">'+win.label+' <em>prevails</em></div>'+
+    '<div class="pt-kicker">선조들의 경주</div>'+
+    '<div class="pt-gen">'+win.label+' <em>의 승리</em></div>'+
     '<canvas id="'+cvId+'" class="pt-sketch" width="360" height="184" style="width:180px;height:92px"></canvas>'+
-    '<div style="font-style:italic;font-size:13px;color:#5c5140">'+fmt1(win.fitness)+' m — bloodlines do not lie</div>'+
-    '<div class="pt-note">rematch begins shortly</div>';
+    '<div style="font-style:italic;font-size:13px;color:#5c5140">'+fmt1(win.fitness)+' m — 핏줄은 거짓말하지 않습니다</div>'+
+         '<div class="pt-note">재대결이 곧 시작됩니다</div>';
   requestAnimationFrame(()=>{
     const cv = document.getElementById(cvId);
     if (cv) sketchGenome(cv, wg, decodeGenome(wg).hue, 1);
@@ -1581,13 +1579,13 @@ function updateLiveTelemetry(dtReal){
   const L = leaderCar();
   $('tLead').innerHTML = (L?fmt1(Math.max(0,L.P[0].x)):'0.0')+'<small> m</small>';
   $('tClock').innerHTML = fmt1(state.simTime)+'<small> s</small>';
-  $('glStatus').textContent = state.paused ? 'paused' :
-    state.mode==='ancestors' ? 'ancestral heat' :
-    alive===0 ? 'breeding…' : 'heat in progress · '+alive+' alive';
+  $('glStatus').textContent = state.paused ? '일시정지' :
+    state.mode==='ancestors' ? '선조 경주' :
+    alive===0 ? '번식 중…' : '주행 중 · 생존 '+alive+'마리';
 }
 $('btnPause').addEventListener('click', ()=>{
   state.paused = !state.paused;
-  $('btnPause').textContent = state.paused?'Resume':'Pause';
+  $('btnPause').textContent = state.paused?'재개':'일시정지';
   $('btnPause').classList.toggle('toggled', state.paused);
 });
 $('btnStep').addEventListener('click', ()=>{ runOneGeneration(); });
@@ -1609,12 +1607,12 @@ $('btnAncestors').addEventListener('click', ()=>{
   if (state.mode === 'evolve'){
     if (state.hof.length < 2) return;
     state.mode = 'ancestors';
-    $('btnAncestors').textContent = 'Return to Evolution';
+    $('btnAncestors').textContent = '진화로 돌아가기';
     $('btnAncestors').classList.add('toggled');
     $('modeband').classList.add('on');
   } else {
     state.mode = 'evolve';
-    $('btnAncestors').textContent = 'Race the Ancestors';
+    $('btnAncestors').textContent = '선조들의 경주';
     $('btnAncestors').classList.remove('toggled');
     $('modeband').classList.remove('on');
   }
@@ -1625,7 +1623,7 @@ $('seedval').addEventListener('click', ()=>{
   try{
     if (navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(txt).then(()=>{
-        $('seedval').textContent = 'copied ✓';
+        $('seedval').textContent = '복사됨 ✓';
         setTimeout(()=>{ $('seedval').textContent = txt; }, 900);
       }, ()=>{});
     }
@@ -1650,7 +1648,7 @@ window.addEventListener('keydown', ev=>{
 function initRun(seed, fresh){
   state.seed = seed|0;
   state.mode = 'evolve';
-  $('btnAncestors').textContent = 'Race the Ancestors';
+  $('btnAncestors').textContent = '선조들의 경주';
   $('btnAncestors').classList.remove('toggled');
   $('modeband').classList.remove('on');
   terrain.reset(state.seed);
@@ -1706,7 +1704,7 @@ function frame(now){
     if(!errShown){
       errShown = true;
       const t = $('errtoast');
-      t.textContent = 'A specimen escaped containment: '+((e && e.message)||e);
+      t.textContent = '견본이 우리에서 이탈했습니다: '+((e && e.message)||e);
       t.style.display='block';
       setTimeout(()=>{ t.style.display='none'; errShown=false; }, 5000);
     }

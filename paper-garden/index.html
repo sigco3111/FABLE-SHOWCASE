@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Paper Garden</title>
+<title>종이 정원</title>
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M2 16 30 4 20 28 14 19z" fill="%23e07a5f"/></svg>'>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html, body { height:100%; overflow:hidden; }
   body {
-    font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    font-family: "Avenir Next", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
     background:#ffe3c8;
     -webkit-user-select:none; user-select:none;
   }
@@ -85,18 +85,18 @@
 <div id="grain"></div>
 
 <div id="panel">
-  <h1 id="hdr" title="Click to fold the panel away">Paper Garden <small>origami flock</small></h1>
+  <h1 id="hdr" title="패널을 접어 두려면 클릭">종이 정원 <small>종이접기 무리</small></h1>
   <div class="body">
     <div class="row">
-      <button class="paper" id="refold" title="Unfold everything back to flat sheets and watch them fold again">Refold all</button>
-      <button class="paper" id="audio" title="Gentle paper-rustle wingbeats and breeze">Rustle: off</button>
+      <button class="paper" id="refold" title="모두 펼쳐 다시 접히는 과정을 지켜봅니다">모두 다시 접기</button>
+      <button class="paper" id="audio" title="부드러운 종이 바스락거리는 날갯짓과 산들바람">종이소리: 끄기</button>
     </div>
-    <label class="ctl">Flock size <b id="nval">12</b>
+    <label class="ctl">무리 크기 <b id="nval">12</b>
       <input type="range" id="flock" min="2" max="28" value="12" step="1">
     </label>
-    <label class="ctl">Paper palette</label>
+    <label class="ctl">종이 팔레트</label>
     <div id="chips"></div>
-    <p class="about">Flat sheets crease themselves into cranes and butterflies, then drift through a layered papercraft valley. Tap any flier to unfold it. Built by <strong>Claude Fable 5</strong>.</p>
+    <p class="about">평평한 종잇장이 스스로 접혀 학과 나비가 되고, 종이 공예의 겹겹의 계곡을 가로질러 흘러갑니다. 날아가는 종이를 탭하면 다시 펼쳐집니다. 제작 <strong>Claude Fable 5</strong>.</p>
   </div>
 </div>
 
@@ -119,23 +119,23 @@ var LX=-0.45, LY=0.78, LZ=0.48;
 
 /* ---------------- palettes ---------------- */
 var PALETTES = [
-  { name:'Dawn',
+  { name:'여명',
     sky:['#FFF3E0','#FFD3B0'], sun:'#FF9A62', sunIn:'#FFDCA8', glow:'255,154,98',
     hills:['#FFD9AE','#FFB984','#EE8E67','#C46A62','#8A4E60'], cloud:'#FFF8EE',
     papers:[['#FFFFFF','#FFB4A2'],['#FFD166','#EF8354'],['#83C5BE','#EDF6F9'],['#E5989B','#FFE5D9'],['#F4F1EA','#E07A5F']] },
-  { name:'Meadow',
+  { name:'목초',
     sky:['#EDF7EE','#C9E8CE'], sun:'#FFD166', sunIn:'#FFEBB0', glow:'255,209,102',
     hills:['#D5EBC8','#AFD8A0','#83BE7E','#589B66','#396F50'], cloud:'#FFFFFF',
     papers:[['#FFFFFF','#FFCFD2'],['#F94144','#FFD166'],['#F9C74F','#90BE6D'],['#F8F5EF','#577590'],['#FF99C8','#FCF6BD']] },
-  { name:'Sakura',
+  { name:'벚꽃',
     sky:['#FFF0F5','#FFD2E2'], sun:'#FF87A2', sunIn:'#FFC9D6', glow:'255,135,162',
     hills:['#FFD7E2','#F7B2C8','#E289AE','#AF6390','#7C4A72'], cloud:'#FFF7FA',
     papers:[['#FFFFFF','#FFB3C6'],['#FF5D8F','#FFE0E9'],['#B8E0D2','#FFF1F3'],['#FFF0F3','#D65780'],['#F7E1D7','#B37BA4']] },
-  { name:'Dusk',
+  { name:'황혼',
     sky:['#3D4470','#7B5B8F'], sun:'#F6E7C1', sunIn:'#FFF8E1', glow:'246,231,193',
     hills:['#6C6FA3','#585C8F','#454877','#33355C','#232441'], cloud:'#8E85B3',
     papers:[['#F6E7C1','#E8A87C'],['#FFC15E','#B0413E'],['#9AD1D4','#3E5C76'],['#F2D7EE','#8E6C88'],['#FF8C61','#FAF3DD']] },
-  { name:'Kraft',
+  { name:'크라프트',
     sky:['#F5EDDF','#E7D3B0'], sun:'#E07A5F', sunIn:'#F2B880', glow:'224,122,95',
     hills:['#E3CBA5','#CCAD7E','#A98B5F','#7C7B54','#4F5945'], cloud:'#FBF6EC',
     papers:[['#FCF7EE','#D96C47'],['#3D8A78','#DCEDE7'],['#E07A5F','#F6E3CE'],['#EAD7B7','#7A5C3E'],['#9DBF9E','#FCF7EE']] }
@@ -717,7 +717,7 @@ refold.addEventListener('click', function(){
 
 audioB.addEventListener('click', function(){
   setAudio(!audioOn);
-  audioB.textContent = 'Rustle: ' + (audioOn ? 'on' : 'off');
+  audioB.textContent = '종이소리: ' + (audioOn ? '켜기' : '끄기');
   audioB.classList.toggle('on', audioOn);
 });
 

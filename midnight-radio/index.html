@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Midnight Radio — a generative ambient station for late hours</title>
+<title>미드나이트 라디오 — 깊은 밤을 위한 생성형 앰비언트 방송국</title>
 <style>
 /* ============ MIDNIGHT RADIO ============
    analog hi-fi at 2AM · Built by Claude Fable 5
@@ -24,7 +24,7 @@ html,body{height:100%;overflow:hidden}
 body{
   background:var(--bg0);
   color:var(--ink);
-  font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',system-ui,-apple-system,'Segoe UI',sans-serif;
   -webkit-font-smoothing:antialiased;
   user-select:none;-webkit-user-select:none;
 }
@@ -237,58 +237,52 @@ button:focus-visible,input:focus-visible,#dial:focus-visible{outline:2px solid v
 <div id="scanline" aria-hidden="true"></div>
 
 <header id="hud">
-  <div class="brand">Midnight Radio</div>
-  <div id="stationName">Rainy Night</div>
+  <div class="brand">미드나이트 라디오</div>
+  <div id="stationName">비 내리는 밤</div>
   <div class="readout">
     <span><span id="freqRead">089.10</span> <span class="mhz">MHz&nbsp;FM</span></span>
-    <span id="sig" title="signal"><i></i><i></i><i></i><i></i><i></i></span>
+    <span id="sig" title="신호"><i></i><i></i><i></i><i></i><i></i></span>
     <span id="clock">--:--:--</span>
   </div>
   <div id="rds" aria-hidden="true"></div>
 </header>
 
-<div id="standby"><span>press power · space</span></div>
+<div id="standby"><span>전원 버튼 · 스페이스바</span></div>
 
-<section id="console" class="off" aria-label="Radio console">
-  <button id="drawerBtn" aria-label="Toggle console">— console —</button>
+<section id="console" class="off" aria-label="라디오 콘솔">
+  <button id="drawerBtn" aria-label="콘솔 전환">— 콘솔 —</button>
   <div class="dial-zone">
-    <div id="dial" role="slider" aria-label="Tuning dial" aria-valuemin="87.5" aria-valuemax="105.5" aria-valuenow="89.1" tabindex="0">
+    <div id="dial" role="slider" aria-label="튜닝 다이얼" aria-valuemin="87.5" aria-valuemax="105.5" aria-valuenow="89.1" tabindex="0">
       <svg id="dialSvg" viewBox="-120 -120 240 240" xmlns="http://www.w3.org/2000/svg"></svg>
     </div>
-    <div class="dial-hint">drag · scroll · keys 1–4</div>
+    <div class="dial-hint">드래그 · 스크롤 · 1–4 키</div>
   </div>
   <div class="strips" id="strips"></div>
   <div class="side">
-    <button id="powerBtn" aria-pressed="false" title="Power (Space)">&#9211;</button>
-    <button id="sleepBtn" class="small" title="Sleep timer">&#9790; <span id="sleepLbl">OFF</span></button>
-    <button id="infoBtn" class="small" title="About">INFO</button>
+    <button id="powerBtn" aria-pressed="false" title="전원 (스페이스바)">&#9211;</button>
+    <button id="sleepBtn" class="small" title="수면 타이머">&#9790; <span id="sleepLbl">끄기</span></button>
+    <button id="infoBtn" class="small" title="정보">정보</button>
   </div>
 </section>
 
-<div id="about" role="dialog" aria-modal="true" aria-label="About Midnight Radio">
+<div id="about" role="dialog" aria-modal="true" aria-label="미드나이트 라디오 정보">
   <div class="about-card">
-    <h2>Midnight Radio</h2>
-    <p>A generative ambient station for late hours. Every sound is synthesized live
-    from silence — layered drones, probability-gated arpeggios, granular rain,
-    convolved thunder, formant choirs. No samples, no loops, no repeats.
-    Grab the dial and tune between stations; the static in between is real
-    synthesized dead air.</p>
+    <h2>미드나이트 라디오</h2>
+    <p>깊은 밤을 위한 생성형 앰비언트 방송국. 모든 음향은 정적으로부터 실시간 합성됩니다 — 겹겹이 쌓인 드론, 확률로 게이트된 아르페지오, 그레뉼러 빗소리, 컨볼브된 천둥, 포르만트 합창. 샘플도, 루프도, 반복도 없습니다. 다이얼을 잡고 방송국 사이를 돌려보세요; 그 사이의 잡음은 정말로 합성된 데드 에어입니다.</p>
     <table>
-      <tr><td>89.1 KRAI</td><td>Rainy Night — minor pentatonic, close weather</td></tr>
-      <tr><td>91.3 KVOD</td><td>Deep Space — dorian drift, nine-second reverb</td></tr>
-      <tr><td>96.7 KDWN</td><td>Forest Dawn — major pentatonic, first light</td></tr>
-      <tr><td>103.3 ----</td><td>Dead Air — pure textural static, for purists</td></tr>
-      <tr><td>SPACE</td><td>power (with tube warm-up)</td></tr>
-      <tr><td>1 – 4</td><td>jump to station</td></tr>
-      <tr><td>M</td><td>master mute</td></tr>
-      <tr><td>&#8592; &#8594;</td><td>fine tuning</td></tr>
+      <tr><td>89.1 KRAI</td><td>비 내리는 밤 — 단음5음 음계, 흐린 날씨</td></tr>
+      <tr><td>91.3 KVOD</td><td>깊은 우주 — 도리안 선율, 9초 리버브</td></tr>
+      <tr><td>96.7 KDWN</td><td>숲의 새벽 — 장음5음 음계, 첫 빛</td></tr>
+      <tr><td>103.3 ----</td><td>데드 에어 — 텍스처 잡음만, 순수파용</td></tr>
+      <tr><td>스페이스</td><td>전원 (진공관 워밍업 포함)</td></tr>
+      <tr><td>1 – 4</td><td>방송국 점프</td></tr>
+      <tr><td>M</td><td>마스터 음소거</td></tr>
+      <tr><td>&#8592; &#8594;</td><td>미세 조정</td></tr>
     </table>
-    <p>The RDS radiotext ticker invents track titles that have never existed —
-    every “now playing” is composed on the spot, like the music itself.</p>
-    <p>Your tuned mix — station and fader positions — lives in the URL hash,
-    so a link carries the whole mood.</p>
-    <p class="credit">Built by Claude Fable 5 · pure Web Audio · zero samples</p>
-    <button id="aboutClose">Close</button>
+    <p>RDS 라디오텍스트 티커는 한 번도 존재하지 않았던 곡명을 만들어냅니다 — 모든 "재생 중" 안내는 음악 자체처럼 그 자리에서 즉석에서 작곡됩니다.</p>
+    <p>당신이 튜닝한 믹스 — 방송국과 페이더 위치 — 은 URL 해시에 저장되므로, 링크 하나로 그 분위기 전체가 전달됩니다.</p>
+    <p class="credit">Claude Fable 5 제작 · 순수 Web Audio · 샘플 0개</p>
+    <button id="aboutClose">닫기</button>
   </div>
 </div>
 
@@ -318,22 +312,22 @@ const GREY = { accent:hex2rgb('#8FA3B8'), accent2:hex2rgb('#64748B'),
                bg0:hex2rgb('#0A0C12'), bg1:hex2rgb('#141821') };
 
 const STATIONS = [
-  { id:'rain', freq:89.1, name:'Rainy Night', call:'KRAI',
+  { id:'rain', freq:89.1, name:'비 내리는 밤', call:'KRAI',
     accent:'#5EEAD4', accent2:'#38BDF8', bg0:'#0B0E1A', bg1:'#12203A',
     levels:{drone:.5, arps:.42, rain:.9, thunder:.6, pad:.28},
     scale:[0,3,5,7,10], root:57, bpm:84, arpProb:.5,
     droneCut:380, revSec:3.5, revMix:.5, thunderMean:16, dropRate:1 },
-  { id:'space', freq:91.3, name:'Deep Space', call:'KVOD',
+  { id:'space', freq:91.3, name:'깊은 우주', call:'KVOD',
     accent:'#C084FC', accent2:'#818CF8', bg0:'#05040A', bg1:'#120a22',
     levels:{drone:.85, arps:.26, rain:0, thunder:.14, pad:.6},
     scale:[0,2,3,7,9], root:50, bpm:56, arpProb:.32,
     droneCut:640, revSec:9, revMix:.85, thunderMean:48, dropRate:0 },
-  { id:'dawn', freq:96.7, name:'Forest Dawn', call:'KDWN',
+  { id:'dawn', freq:96.7, name:'숲의 새벽', call:'KDWN',
     accent:'#FCA5A5', accent2:'#FDE68A', bg0:'#0A100D', bg1:'#1a231b',
     levels:{drone:.42, arps:.62, rain:.14, thunder:0, pad:.5},
     scale:[0,2,4,7,9], root:52, bpm:74, arpProb:.62,
     droneCut:520, revSec:5, revMix:.6, thunderMean:0, dropRate:.25 },
-  { id:'dead', freq:103.3, name:'Dead Air', call:'----',
+  { id:'dead', freq:103.3, name:'데드 에어', call:'----',
     accent:'#8FA3B8', accent2:'#64748B', bg0:'#0A0C10', bg1:'#151922',
     levels:{drone:0, arps:0, rain:0, thunder:0, pad:0},
     scale:[0], root:48, bpm:60, arpProb:0,
@@ -343,11 +337,11 @@ STATIONS.forEach(s => { s.accentRGB=hex2rgb(s.accent); s.accent2RGB=hex2rgb(s.ac
                         s.bg0RGB=hex2rgb(s.bg0); s.bg1RGB=hex2rgb(s.bg1); });
 
 const LAYERS = [
-  { id:'drone',   label:'Drone', send:.35 },
-  { id:'arps',    label:'Arps',  send:.5  },
-  { id:'rain',    label:'Rain',  send:.12 },
-  { id:'thunder', label:'Thndr', send:.85 },
-  { id:'pad',     label:'Choir', send:.55 },
+  { id:'drone',   label:'드론', send:.35 },
+  { id:'arps',    label:'아르페지오', send:.5  },
+  { id:'rain',    label:'비', send:.12 },
+  { id:'thunder', label:'천둥', send:.85 },
+  { id:'pad',     label:'성가', send:.55 },
 ];
 
 /* ---------- state ---------- */
@@ -754,14 +748,14 @@ function lockStation(idx, hard=false){
 
 /* ---------- RDS radiotext — procedurally invented track titles ---------- */
 const RDS_BANKS={
-  rain:{ a:['Wet Asphalt','Neon in the Gutter','Last Bus Home','Umbrella Arithmetic','Petrichor','Window Beads','Streetlight Halo','Awning Percussion','Crosswalk Ghosts','Puddle Cartography','Fogged Glass','Vacant Diner'],
-         b:['at 3AM','in E Minor','(Slow Reprise)','for No One in Particular','(Field Recording)','with Distant Thunder','on the Night Route','(Unmastered)','pt. II','after the Storm Warning'] },
-  space:{ a:['Heliopause','Parallax Lullaby','Cold Apogee','Voyager’s Postcard','Zero Gravity Waltz','Redshift','The Long Ellipse','Dark Between Stars','Kuiper Hymn','Perihelion Dream','Signal from L2','Tidal Lock'],
-          b:['(Nine-Second Halo)','in Dorian','for Empty Orbits','— transmission 7 of ∞','(Drift Mix)','beyond the Belt','at Escape Velocity','(First Contact Dub)','pt. IV','in Free Fall'] },
-  dawn: { a:['First Light','Fern Unfurling','Dew Ledger','Birdsong Census','The Clearing','Moss Cathedral','Pale Gold Hour','Understory','Slow Chlorophyll','Waking Meadow','Threadbare Mist','Root and Ramble'],
-          b:['at 5:47AM','in A Major','(Sunrise Edit)','for Early Risers','(One Take)','with Two Wrens','before the Heat','(Canopy Version)','pt. III','on the East Ridge'] },
+  rain:{ a:['젖은 아스팔트','빗물 속 네온','마지막 버스','우산의 산수','피트리코어','창에 맺힌 물방울','가로등 후광','처마 밑 리듬','횡단보도의 유령','웅덩이 지도','흐릿한 유리','빈 식당'],
+         b:['새벽 3시','E 단조로','(슬로우 리프레이즈)','그저 누군가를 위해','(필드 레코딩)','먼 천둥과 함께','야간 노선에서','(언마스터드)','2부','폭풍 경보 이후'] },
+  space:{ a:['헬리오포즈','시차 자장가','차가운 원지점','보이저의 엽서','무중력 왈츠','적색편이','긴 타원 궤도','별 사이의 어둠','카이퍼 찬가','근일점 꿈','L2에서의 신호','조석 고정'],
+          b:['(9초 후광)','도리안으로','비어 있는 궤도를 위해','— ∞ 중 7번째 송신','(드리프트 믹스)','벨트 너머로','탈출 속도로','(최초 접촉 더빙)','4부','자유낙하 중'] },
+  dawn: { a:['첫 빛','고사리 폄잎','이슬의 장부','새벽의 새소리 조사','작은 공터','이끼의 성당','엷은 황금빛 시간','하층 식생','느린 엽록소','잠에서 깨는 초원','얇은 안개','뿌리와 방랑'],
+          b:['오전 5시 47분','A 장조로','(선라이즈 에디트)','일찍 일어나는 이를 위해','(원 테이크)','두 마리 되새와 함께','더위 오기 전에','(캐노피 버전)','3부','동쪽 능선에서'] },
 };
-const RDS_DEAD=['— no carrier —','…','transmitter unattended since 1987','static appreciation hour','you are listening to nothing, beautifully','[dead air preserved for posterity]','the silence is intentional'];
+const RDS_DEAD=['— 캐리어 없음 —','…','1987년 이후 방치된 송신기','잡음 감상 시간','당신은 아름답게 아무것도 듣지 않고 있습니다','[후세를 위해 보존된 데드 에어]','이 침묵은 의도된 것입니다'];
 const rdsEl=$('#rds');
 let rdsTimer=0, rdsSwapT=0, lastRdsTitle='';
 function rdsText(){
@@ -770,7 +764,7 @@ function rdsText(){
   const bank=RDS_BANKS[st.id];
   let t; do{ t=`${choice(bank.a)} ${choice(bank.b)}`; }while(t===lastRdsTitle);
   lastRdsTitle=t;
-  return `♪ NOW — “${t}” · ${st.call} radiotext`;
+  return `♪ NOW — “${t}” · ${st.call} 라디오텍스트`;
 }
 function rdsUpdate(on){
   clearTimeout(rdsTimer); clearTimeout(rdsSwapT);
@@ -914,7 +908,7 @@ function sleepFactor(){
 }
 function cancelSleep(){
   state.sleepEnd=0; state.sleepChoice=0;
-  $('#sleepLbl').textContent='OFF';
+  $('#sleepLbl').textContent='끄기';
   $('#sleepBtn').classList.remove('armed');
   $('#fadeout').style.opacity=0;
 }
@@ -944,11 +938,11 @@ function buildStrips(){
         <div class="meter"><i data-meter></i></div>
         <div class="fader-wrap">
           <input type="range" min="0" max="100" value="${Math.round(trim*100)}"
-            aria-label="${label} level" data-fader>
+            aria-label="${label} 레벨" data-fader>
         </div>
       </div>
-      ${isMaster? '<div class="ms"><button class="mute" data-mmute title="Master mute (M)">M</button></div>'
-                : '<div class="ms"><button class="mute" data-mute title="Mute">M</button><button class="solo" data-solo title="Solo">S</button></div>'}
+      ${isMaster? '<div class="ms"><button class="mute" data-mmute title="마스터 음소거 (M)">M</button></div>'
+                : '<div class="ms"><button class="mute" data-mute title="음소거">M</button><button class="solo" data-solo title="솔로">S</button></div>'}
       <div class="lbl">${label}</div>`;
     host.appendChild(el);
     meterEls[id]=el.querySelector('[data-meter]');
@@ -987,7 +981,7 @@ function buildStrips(){
     updateDb(id, trim);
   };
   for(const L of LAYERS) mk(L.id, L.label, state.trims[L.id], false);
-  mk('master','Master', state.masterTrim, true);
+  mk('master','마스터', state.masterTrim, true);
 }
 function updateDb(id, v){
   dbEls[id].textContent = v<=0.001 ? '-∞' : (20*Math.log10(v)).toFixed(1);

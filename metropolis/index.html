@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>METROPOLIS — A City That Dreams Itself</title>
+<title>메트로폴리스 — 스스로를 꿈꾸는 도시</title>
 <style>
   :root{
     --ink: rgba(232,238,255,.92);
@@ -17,7 +17,7 @@
   html,body{ height:100%; overflow:hidden; }
   body{
     background:#0B1026;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic", sans-serif;
     color:var(--ink);
     -webkit-user-select:none; user-select:none;
   }
@@ -202,30 +202,30 @@
 </div>
 
 <div id="title" class="ui">
-  <h1>METROPOLIS</h1>
-  <div class="tag">A city that dreams itself</div>
+  <h1>메트로폴리스</h1>
+  <div class="tag">스스로를 꿈꾸는 도시</div>
 </div>
 
-<button id="infoBtn" class="ui" aria-label="About">?</button>
+<button id="infoBtn" class="ui" aria-label="정보">?</button>
 
 <div id="rail" class="ui">
-  <div id="plate" class="mono" title="Click to copy share link">CITY Nº ···· · POP ···</div>
+  <div id="plate" class="mono" title="공유 링크 복사">도시 Nº ···· · 인구 ···</div>
   <div class="row seedrow">
-    <input id="seedIn" class="mono" spellcheck="false" maxlength="16" aria-label="Seed">
-    <button id="diceBtn" title="New city (R)">⚄</button>
-    <button id="copyBtn" title="Copy share link">⧉</button>
+    <input id="seedIn" class="mono" spellcheck="false" maxlength="16" aria-label="시드">
+    <button id="diceBtn" title="새 도시 (R)">⚄</button>
+    <button id="copyBtn" title="공유 링크 복사">⧉</button>
   </div>
-  <div class="row slider"><label>DENSITY</label><input id="density" type="range" min="30" max="100" value="68"><span class="val mono" id="densityV">.68</span></div>
-  <div class="row slider"><label>SKYLINE</label><input id="skyline" type="range" min="30" max="200" value="100"><span class="val mono" id="skylineV">1.0×</span></div>
+  <div class="row slider"><label>밀도</label><input id="density" type="range" min="30" max="100" value="68"><span class="val mono" id="densityV">.68</span></div>
+  <div class="row slider"><label>스카이라인</label><input id="skyline" type="range" min="30" max="200" value="100"><span class="val mono" id="skylineV">1.0×</span></div>
   <div class="row sunrow">
-    <canvas id="dial" title="Drag to scrub time"></canvas>
+    <canvas id="dial" title="드래그하여 시간 조절"></canvas>
     <div class="suncol">
       <div id="clock" class="mono">--:--</div>
       <div id="phase">—</div>
-      <button id="playBtn" title="Pause / resume (Space)">PAUSE</button>
+      <button id="playBtn" title="일시정지 / 재시작 (스페이스)">일시정지</button>
     </div>
   </div>
-  <div class="credit">BUILT BY CLAUDE FABLE 5 · ONE FILE · NO DEPENDENCIES</div>
+  <div class="credit">제작 CLAUDE FABLE 5 · 단일 파일 · 외부 의존성 없음</div>
 </div>
 
 <div id="plaque" hidden><div class="pname"></div><div class="pmeta mono"></div></div>
@@ -233,24 +233,24 @@
 
 <div id="info" hidden>
   <div class="card">
-    <h2>METROPOLIS</h2>
-    <p class="itag">Every seed is a different city; stay long enough and you'll watch it fall asleep and wake up.</p>
-    <p>A procedural isometric city, generated whole from a single seed: a river carved by a random walk,
-       arterial roads radiating from downtown, districts with their own architecture — glass towers with
-       setbacks and beacons, brick row houses, smokestack yards, neon quarters, waterfront wharves.
-       Every window has a resident with a bedtime; watch them wink on one by one at dusk.</p>
+    <h2>메트로폴리스</h2>
+    <p class="itag">시드마다 다른 도시가 태어나고, 오래 머무르면 잠들었다 깨어나는 모습을 지켜보게 됩니다.</p>
+    <p>하나의 시드로부터 통째로 생성되는 등각투영의 절차적 도시 — 무작위 보행으로 깎아 만든 강,
+       도심에서 사방으로 뻗어나가는 대로, 각자의 건축 어휘를 가진 구역들 — 세트백과 신호탑을 갖춘 유리 타워,
+       붉은 벽돌의 연립주택, 굴뚝이 늘어선 공장 부지, 네온 거리, 강변의 부두.
+       창문마다 잠자리가 있는 주민이 살고, 황혼에 하나둘 켜지는 불빛을 지켜보세요.</p>
     <ul>
-      <li><b>R / ⚄</b>dream a new city</li>
-      <li><b>SPACE</b>pause the sun</li>
-      <li><b>DRAG DIAL</b>scrub through the day</li>
-      <li><b>HOVER</b>read a building's record</li>
-      <li><b>SLIDERS</b>grow it denser or taller, live</li>
-      <li><b>WAIT 20s</b>cinematic drift mode</li>
-      <li><b>MIDNIGHT</b>the city celebrates — watch the sky</li>
-      <li><b>URL HASH</b>any city is shareable by its seed</li>
+      <li><b>R / ⚄</b>새 도시를 꿈꾼다</li>
+      <li><b>스페이스</b>태양을 멈춘다</li>
+      <li><b>다이얼 드래그</b>하루를 자유롭게 넘는다</li>
+      <li><b>마우스 호버</b>건물의 신상을 읽는다</li>
+      <li><b>슬라이더</b>밀도와 높이를 실시간으로 키운다</li>
+      <li><b>20초 기다리기</b>시네마틱 드리프트 모드</li>
+      <li><b>자정</b>도시가 스스로를 축제하며 하늘을 밝힌다</li>
+      <li><b>URL 해시</b>어떤 도시든 시드로 공유할 수 있다</li>
     </ul>
-    <p class="credit2">Built by Claude Fable 5 · single HTML file · zero dependencies</p>
-    <button id="closeInfo">CLOSE</button>
+    <p class="credit2">제작 Claude Fable 5 · 단일 HTML 파일 · 외부 의존성 없음</p>
+    <button id="closeInfo">닫기</button>
   </div>
 </div>
 
@@ -338,7 +338,7 @@ const PAD=80;               // px overscan for camera drift
 const QSTATIC=300;          // sun/window quantization steps -> static repaints (~3.3/s)
 const T_EMPTY=0, T_WATER=1, T_ROAD=2, T_BRIDGE=3, T_PARKG=4, T_LOT=5;
 const DT=0, MT=1, ENT=2, OT=3, IND=4, WF=5, PARK=6;
-const DIST_NAME=['Downtown','Midtown','Neon Quarter','Old Town','Industrial','Waterfront','Parkside'];
+const DIST_NAME=['도심','미드타운','네온 거리','구시가지','공업지대','강변부','공원가'];
 const DIST_COLS=[
   ['#C7D0D8','#B9C6CF','#D3D9DE','#AEB9C6','#BFC9D4'],
   ['#E8E4DC','#DDD6CA','#D9CFC0','#CFC9BD','#E2DACE'],
@@ -428,7 +428,7 @@ const sctx=cs.getContext('2d'), dctx=cd.getContext('2d');
 const occCv=document.createElement('canvas'), octx=occCv.getContext('2d');
 const dial=$('dial'), dialCtx=dial.getContext('2d');
 const plaque=$('plaque'), toast=$('toast');
-if(!sctx||!dctx||!octx) throw new Error('canvas unavailable');
+if(!sctx||!dctx||!octx) throw new Error('캔버스를 사용할 수 없습니다');
 
 /* ---------------- projection ---------------- */
 function pr(x,y,z){ return [V.ox+(x-y)*V.U, V.oy+(x+y)*V.U*0.5-(z||0)]; }
@@ -1370,7 +1370,7 @@ function randomSeed(){
   return h(4)+'-'+h(2);
 }
 function updatePlate(){
-  plate.textContent='CITY Nº '+seed.toUpperCase()+' · POP '+city.pop.toLocaleString('en-US');
+  plate.textContent='도시 Nº '+seed.toUpperCase()+' · 인구 '+city.pop.toLocaleString('en-US');
   seedIn.value=seed.toUpperCase();
 }
 function regen(newSeed,animate){
@@ -1393,14 +1393,14 @@ function regen(newSeed,animate){
 
 /* clock + phase */
 function phaseName(t){
-  if(t<0.21||t>=0.88) return 'NIGHT';
-  if(t<0.31) return 'DAWN';
-  if(t<0.45) return 'MORNING';
-  if(t<0.62) return 'MIDDAY';
-  if(t<0.70) return 'AFTERNOON';
-  if(t<0.775) return 'GOLDEN HOUR';
-  if(t<0.85) return 'DUSK';
-  return 'NIGHT';
+  if(t<0.21||t>=0.88) return '밤';
+  if(t<0.31) return '새벽';
+  if(t<0.45) return '아침';
+  if(t<0.62) return '정오';
+  if(t<0.70) return '오후';
+  if(t<0.775) return '황금 시간대';
+  if(t<0.85) return '해질녘';
+  return '밤';
 }
 function updateClock(){
   const mins=Math.floor(timeT*1440);
@@ -1449,7 +1449,7 @@ function dialFromEvent(e){
 /* play/pause */
 function setPlaying(p){
   playing=p;
-  playBtn.textContent=playing?'PAUSE':'RESUME';
+  playBtn.textContent=playing?'일시정지':'재시작';
 }
 playBtn.addEventListener('click',()=>{ setPlaying(!playing); act(); });
 
@@ -1481,8 +1481,8 @@ function copyLink(){
   const url=location.origin==='null'?('#'+seed):location.href.split('#')[0]+'#'+seed;
   const txt=location.protocol==='file:'?seed:url;
   (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(
-    ()=>showToast('COPIED · '+seed.toUpperCase()),
-    ()=>showToast('SEED · '+seed.toUpperCase())
+    ()=>showToast('복사됨 · '+seed.toUpperCase()),
+    ()=>showToast('시드 · '+seed.toUpperCase())
   );
   act();
 }
@@ -1545,7 +1545,7 @@ function pick(){
     if(found){
       plaque.querySelector('.pname').textContent=found.name;
       plaque.querySelector('.pmeta').textContent=
-        found.fl+' FLOOR'+(found.fl>1?'S':'')+' · EST '+found.year+' · '+DIST_NAME[found.dist].toUpperCase();
+        found.fl+'층 · 건축 '+found.year+' · '+DIST_NAME[found.dist];
       plaque.hidden=false;
     }else plaque.hidden=true;
   }
@@ -1616,7 +1616,7 @@ function boot(){
 try{ boot(); }
 catch(err){
   const e=$('err'); e.hidden=false;
-  e.textContent='METROPOLIS failed to boot: '+err.message;
+  e.textContent='메트로폴리스 부팅 실패: '+err.message;
   throw err;
 }
 window.addEventListener('error',ev=>{

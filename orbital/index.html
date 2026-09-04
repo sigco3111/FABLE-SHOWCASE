@@ -1,6 +1,9 @@
+<!doctype html>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Orbital — A Gravity Sandbox</title>
+<title>오비탈 — 중력 샌드박스</title>
 <style>
   :root{
     --phos:#7FE9E0;
@@ -14,7 +17,7 @@
     --dimmer:rgba(234,242,244,.34);
     --ease:cubic-bezier(.22,.61,.36,1);
     --ease-out:cubic-bezier(.16,1,.3,1);
-    --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+    --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%;overflow:hidden;background:#05060B;color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
@@ -178,7 +181,8 @@
     body{cursor:auto}
   }
 </style>
-
+</head>
+<body>
 <canvas id="bg"></canvas>
 <canvas id="trail"></canvas>
 <canvas id="glow"></canvas>
@@ -187,68 +191,68 @@
 <div id="reticle"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="9" fill="none" stroke="#7FE9E0" stroke-width="1"/><circle cx="17" cy="17" r="1.6" fill="#7FE9E0"/><line x1="17" y1="1" x2="17" y2="6" stroke="#7FE9E0" stroke-width="1"/><line x1="17" y1="28" x2="17" y2="33" stroke="#7FE9E0" stroke-width="1"/><line x1="1" y1="17" x2="6" y2="17" stroke="#7FE9E0" stroke-width="1"/><line x1="28" y1="17" x2="33" y2="17" stroke="#7FE9E0" stroke-width="1"/></svg></div>
 
 <div id="brand">
-  <h1>ORB<b>ITAL</b></h1>
-  <p>Fling worlds into the dark and watch gravity paint their paths in light.</p>
+  <h1>오비<b>탈</b></h1>
+  <p>어둠 속으로 세상을 내던지고, 중력이 빛으로 그리는 궤적을 지켜보세요.</p>
 </div>
 
 <div id="hud" class="glass">
-  <div class="stat"><span class="lbl">Bodies</span><span class="v num" id="rCount">0</span></div>
+  <div class="stat"><span class="lbl">천체 수</span><span class="v num" id="rCount">0</span></div>
   <div class="sep"></div>
-  <div class="stat"><span class="lbl">System Energy</span><span class="v num" id="rEnergy">0<small>ke</small></span></div>
+  <div class="stat"><span class="lbl">계 에너지</span><span class="v num" id="rEnergy">0<small>ke</small></span></div>
   <div class="sep"></div>
-  <div class="stat"><span class="lbl">Fastest</span><span class="v num" id="rVel">0<small>v</small></span></div>
+  <div class="stat"><span class="lbl">최고속</span><span class="v num" id="rVel">0<small>v</small></span></div>
 </div>
 
 <div id="presets" class="glass">
-  <div class="plabel">Presets</div>
+  <div class="plabel">프리셋</div>
 </div>
 
 <div id="console" class="glass">
   <div class="group btns">
-    <button class="btn icon play" id="btnPlay" title="Pause / Play (space)"></button>
-    <button class="btn" id="btnClear" title="Clear (R)">Clear</button>
+    <button class="btn icon play" id="btnPlay" title="일시정지 / 재생 (스페이스)"></button>
+    <button class="btn" id="btnClear" title="지우기 (R)">지우기</button>
   </div>
   <div class="vsep"></div>
   <div class="group sliders">
     <div class="slider-row">
-      <div class="top"><span class="lbl">Gravity · G</span><span class="val num" id="vG">1.00</span></div>
+      <div class="top"><span class="lbl">중력 · G</span><span class="val num" id="vG">1.00</span></div>
       <input type="range" id="sG" min="0" max="3" step="0.01" value="1">
     </div>
     <div class="slider-row">
-      <div class="top"><span class="lbl">Trail Length</span><span class="val num" id="vTrail">Long</span></div>
+      <div class="top"><span class="lbl">궤적 길이</span><span class="val num" id="vTrail">김</span></div>
       <input type="range" id="sTrail" min="0" max="100" step="1" value="62">
     </div>
   </div>
   <div class="vsep"></div>
   <div class="group sliders">
     <div class="slider-row">
-      <div class="top"><span class="lbl">Sim Speed</span><span class="val num" id="vSpeed">1×</span></div>
+      <div class="top"><span class="lbl">시뮬 속도</span><span class="val num" id="vSpeed">1×</span></div>
       <input type="range" id="sSpeed" min="0" max="100" step="1" value="55">
     </div>
     <div class="btns" style="justify-content:flex-start">
-      <button class="btn" id="btnSlow" title="Slow motion">◐ Slow-Mo</button>
+      <button class="btn" id="btnSlow" title="슬로우 모션">◐ 슬로모션</button>
     </div>
   </div>
 </div>
 
-<div class="fade-hint" id="hint">Click &amp; drag to fling a world — hold to grow it — double-tap a star to detonate it</div>
+<div class="fade-hint" id="hint">드래그하여 천을을 던지세요 — 길게 누르면 질량이 커지고 — 별을 두 번 탭하면 폭발합니다</div>
 
 <div id="toast"></div>
 
-<div id="aboutBtn" title="About">i</div>
+<div id="aboutBtn" title="정보">i</div>
 <div id="about"><div id="aboutCard" class="glass">
-  <h2>ORB<b>ITAL</b></h2>
-  <p class="tag">A quiet planetarium at 2am. Newtonian n-body gravity, integrated with Velocity Verlet so orbits stay honest. Bodies glow along a stellar-temperature ramp — cold violet masses drift, hot gold ones whip and slingshot. Trails are painted into a fading framebuffer, so light lingers where energy passed.</p>
+  <h2>오비<b>탈</b></h2>
+  <p class="tag">새벽 두 시의 조용한 플라네타리움. 뉴턴 n-체 중력을 Velocity Verlet 적분으로 풀어 궤도를 정직하게 유지합니다. 천체는 항성 온도 곡선을 따라 빛나며 — 차가운 보라빛 덩어리는 천천히 표류하고, 뜨거운 금빛 천체는 휘감겨 슬링샷합니다. 궤적은 옅어지는 프레임버퍼에 그려져, 에너지가 지나간 자리에 빛이 머뭅니다.</p>
   <div class="hr"></div>
   <ul>
-    <li><kbd>Drag</kbd><span>Press to spawn, hold to grow mass, drag to aim &amp; fling. A dotted arc previews its real path.</span></li>
-    <li><kbd>Dbl-tap</kbd><span>Double-click a massive body to trigger a <b>supernova</b> — it detonates into a spray of glowing ejecta.</span></li>
-    <li><kbd>1 – 4</kbd><span>Fire presets: Solar System, Binary Stars, Chaotic Three-Body, Galaxy Sprinkle.</span></li>
-    <li><kbd>Space</kbd><span>Pause &amp; play.</span></li>
-    <li><kbd>R</kbd><span>Clear the field.</span></li>
-    <li><kbd>Merge</kbd><span>Bodies that touch coalesce with conserved momentum, blooming a shockwave ring.</span></li>
+    <li><kbd>드래그</kbd><span>누르면 천체가 생성되고, 누르고 있으면 질량이 커지며, 드래그해 방향을 정해 던집니다. 점선 호가 실제 경로를 미리 보여줍니다.</span></li>
+    <li><kbd>더블탭</kbd><span>무거운 천체를 더블 클릭하면 <b>초신성</b> 폭발이 일어나며 빛나는 잔해로 분사됩니다.</span></li>
+    <li><kbd>1 – 4</kbd><span>프리셋 실행: 태양계, 쌍성, 혼돈의 삼체, 은하 스프링클.</span></li>
+    <li><kbd>스페이스</kbd><span>일시정지와 재생.</span></li>
+    <li><kbd>R</kbd><span>필드를 비웁니다.</span></li>
+    <li><kbd>병합</kbd><span>만난 천체는 운동량을 보존하며 합쳐지고, 충격파 고리가 퍼집니다.</span></li>
   </ul>
-  <div class="credit">Built by <b>Claude Fable 5</b></div>
+  <div class="credit">제작 <b>Claude Fable 5</b></div>
 </div></div>
 
 <script>
@@ -526,7 +530,7 @@ function detonate(b){
     addBody(f);
   }
   flashPulse=1;
-  showToast("★ Supernova");
+  showToast("★ 초신성");
 }
 let flashPulse=0;
 
@@ -835,10 +839,10 @@ function presetGalaxy(){
 }
 
 const PRESETS=[
-  {key:"1",name:"Solar System",tag:"one warm star",build:presetSolar,icon:solarIcon},
-  {key:"2",name:"Binary Stars",tag:"mutual waltz",build:presetBinary,icon:binaryIcon},
-  {key:"3",name:"Three-Body",tag:"figure-eight",build:presetThreeBody,icon:threeIcon},
-  {key:"4",name:"Galaxy Sprinkle",tag:"320 stars",build:presetGalaxy,icon:galaxyIcon},
+  {key:"1",name:"태양계",tag:"따뜻한 별 하나",build:presetSolar,icon:solarIcon},
+  {key:"2",name:"쌍성",tag:"서로의 춤",build:presetBinary,icon:binaryIcon},
+  {key:"3",name:"삼체",tag:"에이트자",build:presetThreeBody,icon:threeIcon},
+  {key:"4",name:"은하 스프링클",tag:"320개의 별",build:presetGalaxy,icon:galaxyIcon},
 ];
 
 let currentPreset=-1;
@@ -990,7 +994,7 @@ function applyTrail(){
   const v=+sTrail.value;
   const f=lerp(0.5,0.012, Math.pow(v/100,0.6));
   sim.trailFade=f;
-  $("vTrail").textContent = v<20?"Short":v<45?"Med":v<75?"Long":"Comet";
+  $("vTrail").textContent = v<20?"짧게":v<45?"중간":v<75?"길게":"혜성";
 }
 function applySpeed(){
   const v=+sSpeed.value;
@@ -1115,3 +1119,5 @@ requestAnimationFrame(frame);
 window.addEventListener("error",e=>{ console.warn("Orbital caught:",e.message); });
 })();
 </script>
+</body>
+</html>

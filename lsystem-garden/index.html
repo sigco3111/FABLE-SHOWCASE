@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VERDANT — An L-System Conservatory</title>
+<title>VERDANT — L-시스템 식물원</title>
 <style>
 /* ============================================================
    VERDANT — An L-System Conservatory
@@ -11,7 +11,7 @@
    ============================================================ */
 :root{
   --serif: "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-  --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
   --ink: #e8efe6;
   --ink-dim: #b7c6b4;
   --ink-faint: #7d907c;
@@ -265,61 +265,61 @@ body.q2 #card{ background:rgba(9,20,13,.86); }
 
 <header id="brand">
   <h1>VERD<span>A</span>NT</h1>
-  <div class="sub">An L-System Conservatory</div>
-  <div class="tag">A living garden grown from grammar — watch mathematics blossom, branch by branch.</div>
+  <div class="sub">L-시스템 식물원</div>
+  <div class="tag">문법으로 자라난 살아 있는 정원 — 가지마다 수학이 꽃피는 것을 지켜보세요.</div>
 </header>
 
-<button id="aboutBtn" title="About this conservatory" aria-label="About this conservatory">i</button>
-<button id="cardToggle" title="Toggle specimen card" aria-label="Toggle specimen card">&#x276F;</button>
+<button id="aboutBtn" title="이 식물원에 관하여" aria-label="이 식물원에 관하여">i</button>
+<button id="cardToggle" title="표본 카드 열기/닫기" aria-label="표본 카드 열기/닫기">&#x276F;</button>
 
 <aside id="card">
-  <div class="plate-label">specimen card</div>
-  <div id="specCommon">Cherry Blossom</div>
+  <div class="plate-label">표본 카드</div>
+  <div id="specCommon">벚꽃</div>
   <div id="specLatin">Prunus verniflora</div>
-  <div id="specMeta">specimen no. 1 &middot; front bed</div>
+  <div id="specMeta">표본 번호 1 · 앞마당</div>
 
   <hr class="rule">
-  <div class="plate-label">species</div>
+  <div class="plate-label">종</div>
   <div class="speciesGrid" id="speciesGrid"></div>
 
   <hr class="rule">
-  <div class="plate-label">grammar</div>
+  <div class="plate-label">문법</div>
 
-  <div class="ctl"><div class="row"><span class="plate-label">branching angle</span><span class="val" id="vAngle">27&deg;</span></div>
+  <div class="ctl"><div class="row"><span class="plate-label">분기 각도</span><span class="val" id="vAngle">27&deg;</span></div>
     <input type="range" id="sAngle" min="4" max="58" step="0.5" value="27"></div>
-  <div class="ctl"><div class="row"><span class="plate-label">iteration depth</span><span class="val" id="vIter">5</span></div>
+  <div class="ctl"><div class="row"><span class="plate-label">반복 깊이</span><span class="val" id="vIter">5</span></div>
     <input type="range" id="sIter" min="2" max="7" step="1" value="5"></div>
-  <div class="ctl"><div class="row"><span class="plate-label">stochastic jitter</span><span class="val" id="vJit">0.40</span></div>
+  <div class="ctl"><div class="row"><span class="plate-label">확률적 흔들림</span><span class="val" id="vJit">0.40</span></div>
     <input type="range" id="sJit" min="0" max="100" step="1" value="40"></div>
-  <div class="ctl"><div class="row"><span class="plate-label">tropism &middot; gravity</span><span class="val" id="vTrop">&minus;0.12</span></div>
+  <div class="ctl"><div class="row"><span class="plate-label">굴성 · 중력</span><span class="val" id="vTrop">&minus;0.12</span></div>
     <input type="range" id="sTrop" min="-60" max="80" step="1" value="-12"></div>
 
-  <div class="ctl" style="margin-top:18px"><div class="row"><span class="plate-label">time-lapse</span><span class="val" id="vGrow">&mdash;</span></div>
+  <div class="ctl" style="margin-top:18px"><div class="row"><span class="plate-label">타임랩스</span><span class="val" id="vGrow">&mdash;</span></div>
     <input type="range" id="sGrow" min="0" max="1000" step="1" value="0"></div>
 
   <div class="btnRow">
-    <button id="bCutting" title="Re-roll the seed (C)">new cutting</button>
-    <button id="bMeadow" class="primary" title="Scatter a full scene (G)">grow meadow</button>
+    <button id="bCutting" title="씨앗 번호 새로 뽑기 (C)">새 모목</button>
+    <button id="bMeadow" class="primary" title="전체 장면 흩뿌리기 (G)">초원 가꾸기</button>
   </div>
   <div class="btnRow">
-    <button id="bClear" title="Clear the garden (X)">clear garden</button>
-    <button id="bPostcard" title="Export a 2&times; postcard PNG (P)">postcard</button>
+    <button id="bClear" title="정원 비우기 (X)">정원 비우기</button>
+    <button id="bPostcard" title="2× 엽서 PNG 내보내기 (P)">엽서</button>
   </div>
 
-  <div class="plate-label" id="plaqueTitle">production rules</div>
+  <div class="plate-label" id="plaqueTitle">생성 규칙</div>
   <div id="plaque"></div>
 
-  <div class="hint">Click the hillside to plant a chance seedling &middot; shift-click to plant this species &middot; hover any plant for its binomial &middot; drag the wheel through the seasons.</div>
+  <div class="hint">언덕을 클릭해 우연한 모종을 심어보세요 · Shift-클릭으로 현재 종을 심을 수 있습니다 · 식물 위에 마우스를 올려 학명을 확인하세요 · 다이얼을 드래그해 계절을 돌릴 수 있습니다.</div>
 </aside>
 
 <div id="dock">
   <div>
     <div id="wheelWrap"><canvas id="seasonWheel" width="156" height="156"></canvas></div>
-    <div id="seasonName">spring</div>
+    <div id="seasonName">봄</div>
   </div>
   <div class="dockBtns">
-    <div class="rowB"><button id="bNight" title="Toggle night (N)">nightfall</button><button id="bSound" title="Gentle breeze &amp; chimes (S)">sound</button></div>
-    <div class="rowB"><button id="bPause" title="Pause the breeze (space)">pause</button><button id="bHelp" title="About (?)">about</button></div>
+    <div class="rowB"><button id="bNight" title="밤/낮 전환 (N)">밤으로</button><button id="bSound" title="산들바람과 풍경 소리 (S)">소리</button></div>
+    <div class="rowB"><button id="bPause" title="산들바람 일시정지 (스페이스)">일시정지</button><button id="bHelp" title="소개 (?)">소개</button></div>
   </div>
 </div>
 
@@ -329,21 +329,21 @@ body.q2 #card{ background:rgba(9,20,13,.86); }
 <div id="about">
   <div id="aboutCard">
     <h2>VERD<span>A</span>NT</h2>
-    <div class="ital">An L-system conservatory &mdash; every plant in this garden is a sentence in a formal grammar, rewritten and re-rewritten until it becomes a willow, a fern, a rose.</div>
-    <p>Aristid Lindenmayer's systems (1968) describe growth as string rewriting: an axiom like <i>X</i> and rules like <i>X &rarr; F&minus;[[X]+X]+F[+FX]&minus;X</i> expand, iteration by iteration, into instructions for a drawing turtle &mdash; <i>F</i> grows a segment, <i>+/&minus;</i> turn, <i>[ ]</i> branch. Here each species is a stochastic grammar compiled once into a flat skeleton, then posed live every frame: growth clocks stagger down the branches, a travelling value-noise wind bends every limb by depth, and one season scalar re-colours the entire world &mdash; when autumn passes over a leaf's own threshold, it lets go and tumbles on the very same wind field it grew up in. In high bloom, look for butterflies — they cross the valley to perch on the blossoms, and sway with the very branches the grammar grew.</p>
+    <div class="ital">L-시스템의 정원 &mdash; 이 정원의 모든 식물은 형식 문법의 한 문장으로, 끝없이 다시 쓰여 버드나무, 고사리, 장미가 됩니다.</div>
+    <p>아리스티드 린덴마이어의 시스템(1968)은 성장을 문자열 재작성으로 봅니다. <i>X</i>와 같은 공리와 <i>X &rarr; F&minus;[[X]+X]+F[+FX]&minus;X</i>와 같은 규칙이 반복을 거치며 그리는 거북이에게 명령이 됩니다 &mdash; <i>F</i>는 마디를 자라고, <i>+/&minus;</i>는 방향을 틀며, <i>[ ]</i>는 가지를 만듭니다. 여기서 각 종은 확률적 문법으로 한 번 컴파일되어 평평한 골격이 되고, 매 프레임 실시간으로 배치됩니다. 성장 시계가 가지를 따라 흐르고, 값-잡음 바람이 모든 가지를 깊이만큼 휘게 하며, 계절 스칼라 하나가 세계 전체의 색을 다시 칠합니다 &mdash; 가을이 한 잎의 임계점을 지나면, 그 잎은 스스로 떨어져 자라던 바로 그 바람 속에 굴러 떨어집니다. 만개한 시기, 나비를 살펴보세요 — 그들은 골짜기를 건너 꽃송이에 앉아, 문법이 키운 가지와 함께 흔들립니다.</p>
     <div class="keys">
-      <b>1 2 3 4</b><span>spring &middot; summer &middot; autumn &middot; winter</span>
-      <b>G</b><span>grow a meadow</span>
-      <b>C</b><span>new cutting (re-roll seed)</span>
-      <b>N</b><span>nightfall / dawn</span>
-      <b>W</b><span>summon a gust</span>
-      <b>S</b><span>breeze &amp; chimes</span>
-      <b>P</b><span>export postcard</span>
-      <b>X</b><span>clear the garden</span>
-      <b>space</b><span>pause</span>
+      <b>1 2 3 4</b><span>봄 · 여름 · 가을 · 겨울</span>
+      <b>G</b><span>초원 가꾸기</span>
+      <b>C</b><span>새 모목 (씨앗 번호 새로 뽑기)</span>
+      <b>N</b><span>밤으로 / 낮으로</span>
+      <b>W</b><span>바람 소환</span>
+      <b>S</b><span>산들바람 &amp; 풍경</span>
+      <b>P</b><span>엽서 내보내기</span>
+      <b>X</b><span>정원 비우기</span>
+      <b>space</b><span>일시정지</span>
     </div>
-    <div class="credit">built by <em>Claude Fable 5</em> &middot; one file &middot; no dependencies</div>
-    <button id="aboutClose">return to the garden</button>
+    <div class="credit"><em>Claude Fable 5</em>가 만들었습니다 · 단일 파일 · 의존성 없음</div>
+    <button id="aboutClose">정원으로 돌아가기</button>
   </div>
 </div>
 
@@ -358,7 +358,7 @@ body.q2 #card{ background:rgba(9,20,13,.86); }
 /* ---------------- error guard ---------------- */
 window.addEventListener("error", function(e){
   var bar = document.getElementById("errbar");
-  if(bar){ bar.style.display = "block"; bar.textContent = "The conservatory hit a snag: " + (e.message || e.type); }
+  if(bar){ bar.style.display = "block"; bar.textContent = "식물원에 문제가 발생했습니다: " + (e.message || e.type); }
 });
 
 /* ---------------- tiny helpers ---------------- */
@@ -450,7 +450,7 @@ var PAL = [
     flower:[212,22,82], flowerB:[210,15,86], sun:[200,40,92]
   }
 ];
-var SEASON_NAMES = ["spring","summer","autumn","winter"];
+var SEASON_NAMES = ["봄","여름","가을","겨울"];
 var NIGHT_SKY_TOP = [164,45,6], NIGHT_SKY_BOT = [160,36,11];
 
 function palAt(s, night){
@@ -503,7 +503,7 @@ function latinName(genus, seed){
    SPECIES — six curated stochastic grammars
    ================================================================ */
 var SPECIES = [
-  { id:"willow", name:"Weeping Willow", genus:"Salix",
+  { id:"willow", name:"수양버들", genus:"Salix",
     axiom:"A",
     rules:{
       A:[["FF[+B][-B]F[++B]A",3],["FF[-B][+B]FA",2],["F[+B]F[-B]A",1]],
@@ -515,7 +515,7 @@ var SPECIES = [
     leafShape:"sliver", leafChance:0.14, leafMinDepth:2, leafSize:10,
     flowerShape:null, flowerAmts:[0,0,0,0], curl:0, size:1.3, growDur:5.2 },
 
-  { id:"fern", name:"Bracken Fern", genus:"Pteridium",
+  { id:"fern", name:"고사리", genus:"Pteridium",
     axiom:"X",
     rules:{
       X:[["F-[[X]+X]+F[+FX]-X",2],["F+[[X]-X]-F[-FX]+X",2],["F-[[X]+X]+F[+FX]-FX",1]],
@@ -526,7 +526,7 @@ var SPECIES = [
     leafShape:"pinna", leafChance:0.5, leafMinDepth:2, leafSize:8,
     flowerShape:null, flowerAmts:[0,0,0,0], curl:2.6, size:0.85, growDur:4.6 },
 
-  { id:"cherry", name:"Cherry Blossom", genus:"Prunus",
+  { id:"cherry", name:"벚꽃", genus:"Prunus",
     axiom:"A",
     rules:{
       A:[["FF[+A][-A]FB",3],["FF[+A][-FB]A",2],["FF[-A][+A]B",2],["F[+A]F[-A]A",1]]
@@ -537,7 +537,7 @@ var SPECIES = [
     leafShape:"oval", leafChance:0.22, leafMinDepth:2, leafSize:10,
     flowerShape:"blossom", flowerAmts:[1,0.22,0.02,0], petalShed:true, size:1.12, growDur:4.8 },
 
-  { id:"rose", name:"Wild Rose", genus:"Rosa",
+  { id:"rose", name:"들장미", genus:"Rosa",
     axiom:"A",
     rules:{
       A:[["F+[LA][-FLA]F[+LB]A",2],["F-[LA][+FLB]FA",2],["F+F[-A][+A]LB",1]]
@@ -548,7 +548,7 @@ var SPECIES = [
     leafShape:"rose", leafChance:0.1, leafMinDepth:1, leafSize:9,
     flowerShape:"rosefl", flowerAmts:[0.35,1,0.12,0], thorns:true, size:0.9, growDur:4.4 },
 
-  { id:"grass", name:"Prairie Grass", genus:"Stipa",
+  { id:"grass", name:"들풀", genus:"Stipa",
     axiomFn:function(r){
       var s="", n = 10 + (r()*6|0);
       for(var k=0;k<n;k++){
@@ -564,7 +564,7 @@ var SPECIES = [
     leafShape:null, leafChance:0, leafMinDepth:9, leafSize:0, bladeTint:true,
     flowerShape:null, flowerAmts:[0,0,0,0], size:0.8, growDur:3.4 },
 
-  { id:"sage", name:"Sagebrush", genus:"Artemisia",
+  { id:"sage", name:"쑥", genus:"Artemisia",
     axiom:"A",
     rules:{
       A:[["F[++A][--A]FA",2],["F[+A][-A][FA]",1],["FF[++A][-A]",1],["F[--A]F[+A]A",1]]
@@ -1145,7 +1145,7 @@ function updateButterflies(dt){
         size:0.75+Math.random()*0.5, perch:null, target:perch,
         rest:0, born:S.t, leaving:false
       });
-      if(!butterflySeen){ butterflySeen = true; toast("A visitor drifts in on the breeze…"); }
+      if(!butterflySeen){ butterflySeen = true; toast("산들바람에 나비가 찾아옵니다…"); }
     }
   }
   for(var i=butterflies.length-1;i>=0;i--){
@@ -1424,7 +1424,7 @@ function clearGarden(){
   for(var i=0;i<POOL;i++) parts[i].on=false;
   partsAlive = 0;
   updateCardHeader();
-  toast("The beds are cleared — click the hillside to plant.");
+  toast("화단을 비웠습니다 — 언덕을 클릭해 심어보세요.");
 }
 function growMeadow(){
   clearGardenSilent();
@@ -1451,7 +1451,7 @@ function growMeadow(){
   }
   S.meadowGustAt = S.t + 7.6;
   selectPlant(focal || S.plants[0]);
-  toast("The meadow wakes…");
+  toast("초원이 깨어납니다…");
 }
 function clearGardenSilent(){
   S.plants.length = 0; S.selected=null;
@@ -1524,7 +1524,7 @@ var suppress = false;
 
 function buildSpeciesGrid(){
   var grid = $("speciesGrid");
-  var labels = { willow:"willow", fern:"fern", cherry:"cherry", rose:"rose", grass:"grass", sage:"sage" };
+  var labels = { willow:"버들", fern:"고사리", cherry:"벚꽃", rose:"장미", grass:"풀", sage:"쑥" };
   SPECIES.forEach(function(sp){
     var b = document.createElement("button");
     b.textContent = labels[sp.id];
@@ -1540,7 +1540,7 @@ function buildSpeciesGrid(){
         pl.latin = latinName(sp.genus, pl.seed);
         pl.place(); pl.rebuild();
         syncCardFromPlant(pl);
-        toast(sp.name + " — a fresh cutting takes root.");
+        toast(sp.name + " — 새 모목이 뿌리를 내립니다.");
       }
     });
     grid.appendChild(b);
@@ -1566,23 +1566,23 @@ function syncCardFromPlant(pl){
 function updateCardHeader(){
   var pl = S.selected;
   if(!pl){
-    elCommon.textContent = "— empty bed —";
+    elCommon.textContent = "— 빈 화단 —";
     elLatin.textContent = "Hortus vacuus";
-    elMeta.textContent = "click the hillside to plant";
+    elMeta.textContent = "언덕을 클릭해 심어보세요";
     sGrow.value = 0; vGrow.innerHTML = "&mdash;";
     updatePlaque();
     return;
   }
   elCommon.textContent = pl.spec.name;
   elLatin.textContent = pl.latin;
-  var bed = pl.layer>0.66 ? "front bed" : pl.layer>0.33 ? "middle terrace" : "far slope";
-  elMeta.textContent = "specimen no. " + pl.no + " · " + bed + " · seed " + (pl.seed%10000);
+  var bed = pl.layer>0.66 ? "앞마당" : pl.layer>0.33 ? "중간 테라스" : "먼 언덕";
+  elMeta.textContent = "표본 번호 " + pl.no + " · " + bed + " · 씨앗 번호 " + (pl.seed%10000);
 }
 function updatePlaque(){
   var pl = S.selected;
-  if(!pl){ elPlaque.innerHTML = "<span class='k'>axiom</span>  —"; return; }
+  if(!pl){ elPlaque.innerHTML = "<span class='k'>공리</span>  —"; return; }
   var sp = pl.spec;
-  var out = "<span class='k'>axiom</span>  " + (sp.axiomFn? "[tuft × n]" : sp.axiom) + "\n";
+  var out = "<span class='k'>공리</span>  " + (sp.axiomFn? "[덩어리 × n]" : sp.axiom) + "\n";
   for(var ch in sp.rules){
     var rs = sp.rules[ch];
     for(var i=0;i<rs.length;i++){
@@ -1595,7 +1595,7 @@ function updatePlaque(){
     }
   }
   out += "<span class='k'>θ</span> = " + pl.params.angle.toFixed(1) + "°   <span class='k'>n</span> = " + pl.params.iter
-       + "   <span class='k'>nodes</span> = " + pl.n;
+       + "   <span class='k'>노드</span> = " + pl.n;
   elPlaque.innerHTML = out;
 }
 
@@ -1648,10 +1648,10 @@ window.addEventListener("pointerup", function(){ scrubPointer = false; S.scrubbi
 window.addEventListener("pointercancel", function(){ scrubPointer = false; S.scrubbing = false; });
 
 $("bCutting").addEventListener("click", function(){
-  if(!S.selected){ toast("Plant something first — click the hillside."); return; }
+  if(!S.selected){ toast("먼저 식물을 심어주세요 — 언덕을 클릭하세요."); return; }
   S.selected.reseed();
   syncCardFromPlant(S.selected);
-  toast("A new cutting: " + S.selected.latin);
+  toast("새 모목: " + S.selected.latin);
 });
 $("bMeadow").addEventListener("click", growMeadow);
 $("bClear").addEventListener("click", clearGarden);
@@ -1673,12 +1673,12 @@ $("cardToggle").addEventListener("click", function(){
 function toggleNight(){
   S.nightTarget = S.nightTarget > 0.5 ? 0 : 1;
   $("bNight").classList.toggle("on", S.nightTarget>0.5);
-  $("bNight").textContent = S.nightTarget>0.5 ? "daybreak" : "nightfall";
+  $("bNight").textContent = S.nightTarget>0.5 ? "낮으로" : "밤으로";
 }
 function togglePause(){
   S.paused = !S.paused;
   $("bPause").classList.toggle("on", S.paused);
-  $("bPause").textContent = S.paused? "resume" : "pause";
+  $("bPause").textContent = S.paused? "계속" : "pause";
 }
 
 /* toast */
@@ -1718,7 +1718,7 @@ function drawWheel(){
   c.fillStyle = "rgba(226,238,222,0.85)";
   c.font = "italic 9px Georgia";
   c.textAlign = "center"; c.textBaseline = "middle";
-  c.fillText(["ver","aes","aut","hie"][Math.round(S.season)%4], cx, cy);
+  c.fillText(["봄","여름","가을","겨울"][Math.round(S.season)%4], cx, cy);
 }
 function wheelPoint(e){
   var r = wheel.getBoundingClientRect();
@@ -1784,7 +1784,7 @@ cv.addEventListener("pointerdown", function(e){
   }
   var npl = plantAt(mx/VW, layer, sid, undefined, 0.15);
   selectPlant(npl);
-  toast("Planted " + npl.spec.name.toLowerCase() + " — " + npl.latin);
+  toast("심을: " + npl.spec.name.toLowerCase() + " — " + npl.latin);
 });
 
 /* keyboard */
@@ -1801,7 +1801,7 @@ window.addEventListener("keydown", function(e){
     case "c": case "C": $("bCutting").click(); break;
     case "n": case "N": toggleNight(); break;
     case "s": case "S": toggleSound(); break;
-    case "w": case "W": spawnGust(0.85+Math.random()*0.4, 3); toast("A gust rolls through the glasshouse…"); break;
+    case "w": case "W": spawnGust(0.85+Math.random()*0.4, 3); toast("온실을 가로지르는 바람이 불어옵니다…"); break;
     case "p": case "P": exportPostcard(); break;
     case "x": case "X": clearGarden(); break;
     case " ": togglePause(); e.preventDefault(); break;
@@ -1839,7 +1839,7 @@ function toggleSound(){
       if(AC.state==="suspended") AC.resume();
       breezeGain.gain.setTargetAtTime(0.055, AC.currentTime, 0.8);
     }
-  }catch(err){ toast("Audio unavailable in this browser."); }
+  }catch(err){ toast("이 브라우저에서는 소리를 낼 수 없습니다."); }
   $("bSound").classList.toggle("on", S.audio);
 }
 function chime(){
@@ -1925,28 +1925,28 @@ function exportPostcard(){
     c.textAlign="center";
     c.fillStyle="rgba(233,240,230,0.92)";
     c.font = "13px Georgia";
-    var title = "V E R D A N T   C O N S E R V A T O R Y";
+    var title = "V E R D A N T  ·  식 물 원";
     c.fillText(title, VW/2, VH-30);
     c.font = "italic 10.5px Georgia";
     c.fillStyle="rgba(217,185,138,0.9)";
     var date = new Date();
     var seasonName = SEASON_NAMES[Math.round(S.season)%4];
-    c.fillText("grown in " + seasonName + " · " + date.toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"})
-      + " · " + S.plants.length + " specimens", VW/2, VH-13);
+    c.fillText("식물 시기: " + seasonName + " · " + date.toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"})
+      + " · " + S.plants.length + " 그루", VW/2, VH-13);
     c.strokeStyle="rgba(233,240,230,0.35)"; c.lineWidth=0.7;
     c.beginPath(); c.moveTo(VW/2-150, VH-44); c.lineTo(VW/2+150, VH-44); c.stroke();
 
     oc.toBlob(function(blob){
-      if(!blob){ toast("Export failed."); return; }
+      if(!blob){ toast("내보내기 실패."); return; }
       var a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = "verdant-postcard.png";
       document.body.appendChild(a); a.click();
       setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 2000);
-      toast("Postcard pressed and posted.");
+      toast("엽서를 인쇄해 보냈습니다.");
     }, "image/png");
   }catch(err){
-    toast("Export failed: " + err.message);
+    toast("내보내기 실패: " + err.message);
   }
 }
 
@@ -1984,7 +1984,7 @@ function frame(now){
     if(S.meadowGustAt>0 && S.t >= S.meadowGustAt){
       spawnGust(1.05, 3.4);
       S.meadowGustAt = -1;
-      toast("…and the wind arrives.");
+      toast("…그리고 바람이 도착합니다.");
     }
     /* prune dead gusts */
     for(var gi=gusts.length-1; gi>=0; gi--){
@@ -2101,7 +2101,7 @@ try{ init(); }
 catch(err){
   var bar = $("errbar");
   bar.style.display="block";
-  bar.textContent = "The conservatory failed to open: " + err.message;
+  bar.textContent = "식물원을 여는 데 실패했습니다: " + err.message;
   throw err;
 }
 

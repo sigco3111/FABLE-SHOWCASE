@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#17161a">
-<title>Shodo — Generative Ink Calligraphy Studio</title>
+<title>쇼도 — 생성형 잉크 서예 스튜디오</title>
 <style>
 /* ============================================================
    SHODO — Tokonoma Minimalism
@@ -278,39 +278,39 @@ body.zen #incense{opacity:1;}
 
 <div id="wordmark" class="chrome">
   <div class="kanji">書道</div>
-  <span class="romaji">shodo · ink studio</span>
+  <span class="romaji">쇼도 · 잉크 스튜디오</span>
 </div>
 
-<div id="liveDot"><i></i><span>breathing</span></div>
+<div id="liveDot"><i></i><span>호흡 중</span></div>
 
 <nav id="toolrail" class="chrome">
-  <button class="tool" id="bBrush" data-tip="brush · b">
+  <button class="tool" id="bBrush" data-tip="붓 · b">
     <svg viewBox="0 0 24 24"><path d="M4.5 19.5c2.8-.9 4-1.9 5.2-3.8l8.1-10.3c.8-1-.5-2.3-1.5-1.5L6.2 12.3c-1.9 1.2-2.6 2.8-3.2 5.6"/><path d="M8.4 15.7c.7.6 1.3 1.2 1.7 2"/></svg>
   </button>
-  <button class="tool" id="bEnso" data-tip="ensō · e">
+  <button class="tool" id="bEnso" data-tip="엔소 · e">
     <svg viewBox="0 0 24 24"><path d="M13.6 4.2a8 8 0 1 0 6.2 6.4"/></svg>
   </button>
-  <button class="tool" id="bGlyph" data-tip="glyph · g">
+  <button class="tool" id="bGlyph" data-tip="문자 · g">
     <svg viewBox="0 0 24 24"><path d="M5 7.5h14"/><path d="M12 4.5v15"/><path d="M7.5 12.5c1.5 2.5 4.5 4 9 4.2"/></svg>
   </button>
-  <button class="tool" id="bColumn" data-tip="composition · c">
+  <button class="tool" id="bColumn" data-tip="구도 · c">
     <svg viewBox="0 0 24 24"><path d="M9 5.5h6"/><path d="M8 11.5h8"/><path d="M10 17.5h4"/></svg>
   </button>
-  <button class="tool" id="bSeal" data-tip="carve seal · s">
+  <button class="tool" id="bSeal" data-tip="인장 새기기 · s">
     <svg viewBox="0 0 24 24"><rect x="5.5" y="5.5" width="13" height="13" rx="1.5"/><path d="M9.5 9.5h5v5h-5z"/></svg>
   </button>
   <div class="sep"></div>
-  <button class="tool" id="bUndo" data-tip="undo · cmd z">
+  <button class="tool" id="bUndo" data-tip="되돌리기 · cmd z">
     <svg viewBox="0 0 24 24"><path d="M8.5 6.5 4.5 10.5l4 4"/><path d="M4.5 10.5h9a6 6 0 0 1 6 6v1"/></svg>
   </button>
-  <button class="tool" id="bClear" data-tip="new sheet · n">
+  <button class="tool" id="bClear" data-tip="새 종이 · n">
     <svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4"/></svg>
   </button>
   <div class="sep"></div>
-  <button class="tool" id="bZen" data-tip="zen · z">
+  <button class="tool" id="bZen" data-tip="선(禪) · z">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
   </button>
-  <button class="tool" id="bExport" data-tip="export scroll · cmd s">
+  <button class="tool" id="bExport" data-tip="두루마리 내보내기 · cmd s">
     <svg viewBox="0 0 24 24"><path d="M12 4v10.5"/><path d="m8 11 4 4 4-4"/><path d="M5 19.5h14"/></svg>
   </button>
 </nav>
@@ -325,23 +325,23 @@ body.zen #incense{opacity:1;}
 </main>
 
 <div id="tray" class="chrome">
-  <div id="trayHandle"><span class="notch"></span>硯 · suzuri · controls<span class="notch"></span></div>
+  <div id="trayHandle"><span class="notch"></span>硯 · 스즈리 · 조절<span class="notch"></span></div>
   <div id="trayBody">
-    <div class="ctl"><label>brush size<b id="vSize"></b></label><input type="range" id="sSize" min="12" max="90" step="1" value="38"></div>
-    <div class="ctl"><label>ink load<b id="vLoad"></b></label><input type="range" id="sLoad" min="15" max="100" step="1" value="85"></div>
-    <div class="ctl"><label>wetness · bleed<b id="vWet"></b></label><input type="range" id="sWet" min="0" max="100" step="1" value="55"></div>
-    <div class="ctl"><label>bristle spread<b id="vSpread"></b></label><input type="range" id="sSpread" min="10" max="100" step="1" value="55"></div>
-    <div class="ctl"><label>wind · tremor<b id="vWind"></b></label><input type="range" id="sWind" min="0" max="100" step="1" value="25"></div>
-    <div class="ctl prev-wrap"><label>test stroke</label><canvas id="previewC" width="250" height="60"></canvas></div>
+    <div class="ctl"><label>붓 크기<b id="vSize"></b></label><input type="range" id="sSize" min="12" max="90" step="1" value="38"></div>
+    <div class="ctl"><label>잉크 흡수<b id="vLoad"></b></label><input type="range" id="sLoad" min="15" max="100" step="1" value="85"></div>
+    <div class="ctl"><label>젖음 · 번짐<b id="vWet"></b></label><input type="range" id="sWet" min="0" max="100" step="1" value="55"></div>
+    <div class="ctl"><label>빗살 퍼짐<b id="vSpread"></b></label><input type="range" id="sSpread" min="10" max="100" step="1" value="55"></div>
+    <div class="ctl"><label>바람 · 떨림<b id="vWind"></b></label><input type="range" id="sWind" min="0" max="100" step="1" value="25"></div>
+    <div class="ctl prev-wrap"><label>테스트 획</label><canvas id="previewC" width="250" height="60"></canvas></div>
     <div class="side">
       <div class="tone-row">
-        <button class="tone t-sumi on" data-tone="sumi" title="sumi black">墨</button>
-        <button class="tone t-gray" data-tone="gray" title="faded gray">灰</button>
-        <button class="tone t-sepia" data-tone="sepia" title="aged sepia">茶</button>
+        <button class="tone t-sumi on" data-tone="sumi" title="먹빛 검정">墨</button>
+        <button class="tone t-gray" data-tone="gray" title="바랜 회색">灰</button>
+        <button class="tone t-sepia" data-tone="sepia" title="오래된 세피아">茶</button>
       </div>
       <div class="tog-row">
-        <button class="tog" id="tAged">古 aged paper</button>
-        <button class="tog on" id="tMount">表装 mount scroll</button>
+        <button class="tog" id="tAged">古 오래된 종이</button>
+        <button class="tog on" id="tMount">表装 두루마리</button>
       </div>
     </div>
   </div>
@@ -351,32 +351,32 @@ body.zen #incense{opacity:1;}
 
 <div id="toast"></div>
 
-<button id="infoBtn" class="chrome" title="about">?</button>
+<button id="infoBtn" class="chrome" title="정보">?</button>
 <div id="infoCard">
-  <h3>書道 · Shodo</h3>
-  <p>A living sumi-e atelier. Every mark — yours or the machine's — is real simulated ink: 28 spring-loaded bristles, a depleting ink load, capillary bleed, dry-brush kasure, and splatter thrown by the physics of your hand.</p>
-  <p>A stick of senkō burns in the corner. Move the brush quickly and watch its smoke shiver — the air in the studio is shared.</p>
+  <h3>書道 · 쇼도</h3>
+  <p>살아 있는 수묵화 아틀리에. 당신의 흔적이든 기계의 흔적이든 모든 자국은 진짜 시뮬레이션된 잉크입니다 — 28개의 스프링 빗살, 줄어드는 잉크, 모관 번짐, 마른붓 카스레(kasure), 그리고 손의 물리에서 튀는 튀김.</p>
+  <p>구석에서는 선향(senkō) 한 가닥이 타고 있습니다. 붓을 빠르게 움직여 보세요 — 연기가 미세하게 흔들립니다. 스튜디오의 공기는 공유됩니다.</p>
   <div class="keys">
-    <b>E</b><span>breathe an ensō</span>
-    <b>G</b><span>write a glyph</span>
-    <b>C</b><span>compose a column</span>
-    <b>S</b><span>carve the seal</span>
-    <b>Z</b><span>zen mode</span>
-    <b>N</b><span>new sheet</span>
-    <b>⌘Z</b><span>undo (ink lifts away)</span>
-    <b>⌘S</b><span>export hanging scroll</span>
+    <b>E</b><span>엔소를 그어 호흡하기</span>
+    <b>G</b><span>한 글자 쓰기</span>
+    <b>C</b><span>구도 짜기</span>
+    <b>S</b><span>인장 새기기</span>
+    <b>Z</b><span>선(禪) 모드</span>
+    <b>N</b><span>새 종이</span>
+    <b>⌘Z</b><span>되돌리기 (잉크가 들려난다)</span>
+    <b>⌘S</b><span>걸개 두루마리로 내보내기</span>
   </div>
-  <p class="credit">Built by <em>Claude Fable 5</em> · single file · no network</p>
+  <p class="credit">Built by <em>Claude Fable 5</em> · 단일 파일 · 네트워크 없음</p>
 </div>
 
 <div id="sealModal">
   <div id="sealCard">
     <button id="sealClose">×</button>
-    <h3>刻印<span>carve your seal</span></h3>
+    <h3>刻印<span>당신의 인장을 새기세요</span></h3>
     <canvas id="sealPrev" width="240" height="240"></canvas>
-    <input id="sealText" type="text" maxlength="3" placeholder="1–3 letters · blank for a carved mark" autocomplete="off">
+    <input id="sealText" type="text" maxlength="3" placeholder="1–3 글자 · 비워두면 새겨진 흔적만" autocomplete="off">
     <div class="seal-btns">
-      <button id="sealDice">⟳ recut</button>
+      <button id="sealDice">⟳ 다시 새기기</button>
       <button id="sealGo">carve &amp; press</button>
     </div>
   </div>

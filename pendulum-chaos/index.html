@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0A0B14">
-<title>CHAOS — The Butterfly Cabinet</title>
+<title>카오스 — 나비 캐비닛</title>
 <style>
 :root{
   --bg:#0A0B14;
@@ -18,7 +18,7 @@
   --hair-soft:rgba(255,255,255,.045);
   --amber:#ffb454;
   --serif:"Bodoni Moda","Bodoni MT",Didot,"Didot LT STD","Playfair Display","Hoefler Text",Georgia,serif;
-  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",monospace;
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -197,9 +197,9 @@ body{
 
 <div id="hdr">
   <h1>C H A O S</h1>
-  <p>The Butterfly Cabinet · one hundred pendulums, a billionth of a radian apart</p>
+  <p>나비 캐비닛 · 백 개의 진자, 라디안의 10억 분의 1 만큼 떨어져</p>
 </div>
-<button id="aboutBtn" title="About / shortcuts (?)">i</button>
+<button id="aboutBtn" title="정보 / 단축키 (?)">i</button>
 
 <div id="hud">
   <div class="row"><span class="lbl">T</span><b id="hT">+00:00.0</b></div>
@@ -208,28 +208,28 @@ body{
   <div class="row"><span class="lbl">N</span><b id="hN">100</b></div>
   <div class="row" id="rowA" style="display:none"><span class="lbl">θ₁ θ₂</span><b id="hA">—</b></div>
   <canvas id="spark"></canvas>
-  <div id="sparkLbl">SEPARATION · LOG SCALE</div>
+  <div id="sparkLbl">분리 · 로그 눈금</div>
 </div>
 
 <div id="rail">
   <div class="grp">
-    <label>LAUNCH</label>
-    <button class="btn" id="launch">◉ GENESIS</button>
+    <label>시작</label>
+    <button class="btn" id="launch">◉ 제네시스</button>
   </div>
   <div class="grp">
-    <label>MODE</label>
+    <label>모드</label>
     <div class="seg">
-      <button class="btn" id="mSingle">SINGLE</button>
-      <button class="btn on" id="mSwarm">SWARM</button>
+      <button class="btn" id="mSingle">단일</button>
+      <button class="btn on" id="mSwarm">군체</button>
     </div>
   </div>
   <div class="grp" id="epsGrp">
-    <label>SPREAD ε</label>
+    <label>퍼짐 ε</label>
     <div id="epsTrack"><div id="epsThumb"></div></div>
     <div id="epsVal">10⁻⁹ rad</div>
   </div>
   <div class="grp">
-    <label>PERSIST</label>
+    <label>잔향</label>
     <div id="dialWrap">
       <svg width="46" height="46" viewBox="0 0 46 46">
         <path id="dialTrack" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="2" stroke-linecap="round"/>
@@ -237,70 +237,55 @@ body{
         <circle id="dialDot" r="2.6" fill="#efd9a8"/>
       </svg>
     </div>
-    <div id="persistLbl">RIBBON</div>
+    <div id="persistLbl">리본</div>
   </div>
   <div class="grp">
-    <label>TRACE</label>
-    <button class="btn" id="traceBtn">POINCARÉ</button>
+    <label>궤적</label>
+    <button class="btn" id="traceBtn">푸앵카레</button>
   </div>
   <div class="grp">
-    <label>TEMPO</label>
+    <label>속도</label>
     <div class="seg">
-      <button class="btn" id="pauseBtn" title="pause (P)">❚❚</button>
+      <button class="btn" id="pauseBtn" title="일시정지 (P)">❚❚</button>
       <button class="btn spd" data-s="0.1">.1</button>
       <button class="btn spd" data-s="0.5">.5</button>
       <button class="btn spd on" data-s="1">1×</button>
       <button class="btn spd" data-s="2">2</button>
       <button class="btn spd" data-s="4">4</button>
-      <button class="btn" id="stepBtn" title="single step (.)">❯❙</button>
+      <button class="btn" id="stepBtn" title="한 프레임 진행 (.)">❯❙</button>
     </div>
   </div>
 </div>
 
 <div id="overlay">
   <div id="card">
-    <button id="closeCard" title="close (esc)">✕</button>
+    <button id="closeCard" title="닫기 (esc)">✕</button>
     <h2>C H A O S</h2>
-    <p style="font-size:9px;letter-spacing:.3em;color:var(--ink-faint);text-transform:uppercase">The Butterfly Cabinet</p>
+    <p style="font-size:9px;letter-spacing:.3em;color:var(--ink-faint);text-transform:uppercase">나비 캐비닛</p>
 
-    <h3>What you are watching</h3>
-    <p>One hundred double pendulums are released together, their second joints offset by as
-       little as <em>10⁻⁹ radians</em> — about the width of an atom at arm's length. The equations
-       are perfectly deterministic; no randomness is ever added. Yet after a dozen seconds the
-       microscopic difference is amplified exponentially and the single white line detonates
-       into a hundred separate futures. This is <em>sensitive dependence on initial conditions</em> —
-       the butterfly effect, live. At the instant the swarm first splits to naked-eye width,
-       a butterfly rises from the point of no return, and the moment is scored as an amber
-       tick on the separation sparkline.</p>
+    <h3>당신이 보고 있는 것</h3>
+    <p>백 개의 이중 진자가가 함께 풀려나오고, 두 번째 관절은 단 <em>10⁻⁹ 라디안</em> — 팔 길이에서 원자 하나의 폭 정도 — 만큼 어긋나 있습니다. 방정식은 완벽하게 결정론적이며 어떤 무작위성도 더해지지 않습니다. 그런데 십여 초이 지나면 미세한 차이가 지수적으로 증폭되어, 하나의 하얀 선이 백 개의 분리된 미래로 폭발합니다. 이것이 <em>초기 조건에 대한 민감한 의존</em> — 실시간으로 일어나는 나비 효과입니다. 군체가 맨눈으로 보이는 폭으로 처음 갈라지는 순간, 돌이킬 수 없는 지점에서 나비가 솟아오르고, 그 순간이 분리 스파크라인 위에 호박빛 눈금으로 점찍힙니다.</p>
 
-    <h3>Honest physics</h3>
-    <p>The full Hamiltonian equations of motion are integrated with fixed-step 4th-order
-       Runge–Kutta at <em>960 substeps per second</em>, decoupled from the render loop. The ΔE
-       readout is the measured relative energy drift of pendulum 0 since launch — typically a
-       few millionths of a percent over minutes. If it ever crosses 0.001% the readout turns
-       amber. λ is a live estimate of the largest Lyapunov exponent, regressed from the slope
-       of the mean log-separation sparkline before it saturates.</p>
+    <h3>정직한 물리</h3>
+    <p>해밀토니안 운동 방정식은 고정 간격 4차 Runge-Kutta로 <em>초당 960 서브스텝</em> 적분되며, 렌더 루프와 분리되어 있습니다. ΔE 표시는 출시 이후 진자 0의 측정된 상대적 에너지 드리프트 — 보통 몇 분에 걸쳐 백만 분의 몇 퍼센트 수준입니다. 만약 0.001%를 넘는다면 표시는 호박빛으로 바뀝니다. λ는 가장 큰 리아푸노프 지수의 실시간 추정치로, 포화되기 전 평균 로그 분리 스파크라인의 기울기를 회귀로 구합니다.</p>
 
-    <h3>Poincaré trace</h3>
-    <p>The TRACE view swaps the vitrine for phase space: each time a pendulum's first arm
-       swings through vertical (θ₁ = 0, rising), a dot is plotted at (θ₂, ω₂). Islands of
-       quasi-periodic order and seas of chaos accumulate, colored by pendulum index.</p>
+    <h3>푸앵카레 궤적</h3>
+    <p>TRACE 뷰는 진열장을 위상 공간으로 바꿉니다: 진자의 첫 번째 팔이 수직(θ₁ = 0, 상승)을 지날 때마다 (θ₂, ω₂)에 점이 찍힙니다. 준주기적 질서의 섬과 혼돈의 바다가가 누적되어, 진자 색인별로 색이 입혀집니다.</p>
 
-    <h3>Keyboard</h3>
+    <h3>키보드</h3>
     <div class="keys">
-      <kbd>SPACE</kbd><span>genesis launch (slow-motion first swing)</span>
-      <kbd>R</kbd><span>relaunch with a new randomized seed</span>
-      <kbd>M</kbd><span>single ↔ swarm mode</span>
-      <kbd>T</kbd><span>Poincaré trace toggle</span>
-      <kbd>P</kbd><span>pause / resume</span>
-      <kbd>.</kbd><span>single-step one frame</span>
-      <kbd>[ ]</kbd><span>slower / faster</span>
-      <kbd>?</kbd><span>this panel</span>
+      <kbd>스페이스</kbd><span>제네시스 출시 (첫 스윙을 슬로우 모션으로)</span>
+      <kbd>R</kbd><span>새 무작위 씨앗으로 재출시</span>
+      <kbd>M</kbd><span>단일 ↔ 군체 모드</span>
+      <kbd>T</kbd><span>푸앵카레 궤적 토글</span>
+      <kbd>P</kbd><span>일시정지 / 재개</span>
+      <kbd>.</kbd><span>한 프레임 단일 진행</span>
+      <kbd>[ ]</kbd><span>더 느리게 / 더 빠르게</span>
+      <kbd>?</kbd><span>이 패널</span>
     </div>
-    <p style="margin-top:10px;color:var(--ink-faint)">In SINGLE mode, drag the pearls to pose the pendulum by hand and flick to release.
-       A secret lives in the digits: some numbers are one too many.</p>
+    <p style="margin-top:10px;color:var(--ink-faint)">단일 모드에서는 진주알을 드래그해 손으로 자세를 잡고 튕겨서 놓습니다. 숫자들 안에 비밀이 있습니다 — 어떤 숫자는 하나가 많습니다.</p>
 
-    <footer>Built by <b>Claude Fable 5</b> · zero dependencies · one file</footer>
+    <footer>제작 <b>Claude Fable 5</b> · 의존성 없음 · 단일 파일</footer>
   </div>
 </div>
 
@@ -437,7 +422,7 @@ function sampleTelemetry(){
     butterflySeen=true; butterflyT=simT;
     bobPos(0,BP);
     flutters.push({x:BP[2],y:BP[3],t0:performance.now()});
-    toast("THE BUTTERFLY AWAKENS · T+"+simT.toFixed(1)+"s",3200);
+    toast("나비가 깨어납니다 · T+"+simT.toFixed(1)+"초",3200);
   }
   estimateLyapunov();
 }
@@ -1066,7 +1051,7 @@ function updDial(){
   else dialVal.setAttribute("d","");
   dialDot.setAttribute("cx",23+17*Math.cos(a*PI/180));
   dialDot.setAttribute("cy",23+17*Math.sin(a*PI/180));
-  persistLbl.textContent = persist>=0.995?"INFINITE":persist>0.85?"EXPOSURE":persist>0.38?"RIBBON":"COMET";
+  persistLbl.textContent = persist>=0.995?"무한":persist>0.85?"노출":persist>0.38?"리본":"혜성";
 }
 var dialWrap=$("dialWrap");
 dialWrap.addEventListener("pointerdown",function(ev){

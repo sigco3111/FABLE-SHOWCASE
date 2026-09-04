@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>静 — Stillwater · Koi Pond</title>
+<title>静 — 고요한 수면 · 잉어 연못</title>
 <style>
   :root{
     --ink:#f1e9d9;
@@ -12,7 +12,7 @@
   html,body{
     width:100%; height:100%; overflow:hidden;
     background:#0a1f1c;
-    font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic", serif;
     color:var(--ink);
     -webkit-tap-highlight-color: transparent;
     touch-action:none;
@@ -101,12 +101,12 @@
 <canvas id="main"></canvas>
 <canvas id="surface"></canvas>
 
-<div id="title" aria-hidden="true"><span class="kanji">静</span><span class="roman">stillwater</span></div>
+<div id="title" aria-hidden="true"><span class="kanji">静</span><span class="roman">고요한 수면</span></div>
 <div id="counter"></div>
-<div id="hint">hold to feed &nbsp;·&nbsp; tap to stir the water</div>
+<div id="hint">꾹 눌러 먹이 주기 &nbsp;·&nbsp; 살짝 두드려 물살 일으키기</div>
 <div id="foot">
-  <button id="sound" class="off" title="sound on/off" aria-label="toggle sound">音</button>
-  <span>静 stillwater — a koi pond in one file · built by Claude Fable 5</span>
+  <button id="sound" class="off" title="소리 켜기/끄기" aria-label="소리 켜기/끄기">音</button>
+  <span>静 고요한 수면 — 한 파일로 만든 잉어 연못 · Claude Fable 5 제작</span>
 </div>
 <div id="plate"></div>
 <div id="debug"></div>
@@ -117,8 +117,8 @@
 (function(){
 
 /* ============================================================
-   静 STILLWATER — an interactive koi pond in one file
-   Built by Claude Fable 5.
+   静 고요한 수면 — 한 파일로 만든 인터랙티브 잉어 연못
+   Claude Fable 5 제작.
    floor canvas : depth gradient + sand + scrolling caustic webs
    main canvas  : koi (12-joint spines, unique sprite genomes),
                   food pellets, shadows, pad shadows
@@ -1114,7 +1114,7 @@ function showPlate(k,x,y){
   var lineage = VARIETIES[k.gen.variety]==="Karasu" ? "Karasu-goi" : VARIETIES[k.gen.variety];
   if(k.gen.hikari && k.gen.variety!==4) lineage += " · hikari";
   plateEl.innerHTML = '<span class="nm">'+k.gen.name+'</span><br><span class="ln">'
-    + lineage + ', ' + ordinal(k.gen.bloom) + ' bloom</span>';
+    + lineage + ', ' + ordinal(k.gen.bloom) + '화</span>';
   var px2 = clamp(x+18, 12, W-220), py2 = clamp(y-30, 12, H-80);
   plateEl.style.left=px2+"px"; plateEl.style.top=py2+"px";
   plateEl.classList.add("show");
@@ -1527,7 +1527,7 @@ window.addEventListener("error", function(e){
 try{ boot(); }
 catch(err){
   var el=document.getElementById("err");
-  if(el){ el.style.display="block"; el.textContent="The pond could not fill: "+err.message; }
+  if(el){ el.style.display="block"; el.textContent="연못이 채워지지 못했습니다: "+err.message; }
   if(window.console) console.error(err);
 }
 

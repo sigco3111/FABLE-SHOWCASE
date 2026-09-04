@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>NEON CIRCUIT — A Generative Circuit-Board Dreamscape</title>
+<title>네온 서킷 — 생성형 회로판 드림스케이프</title>
 <style>
   :root{
     --ink: rgba(235,240,255,.92);
@@ -14,7 +14,7 @@
   *{ margin:0; padding:0; box-sizing:border-box; }
   html,body{ width:100%; height:100%; overflow:hidden; background:#070510; }
   body{
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-family: "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     color: var(--ink);
     -webkit-user-select:none; user-select:none;
   }
@@ -255,55 +255,54 @@
 <div id="scan"></div>
 
 <div id="title" aria-hidden="true">
-  <h1>NEON&nbsp;CIRCUIT</h1>
+  <h1>네온&nbsp;서킷</h1>
   <div class="rule"></div>
-  <p>An infinite motherboard grows itself in the dark</p>
+  <p>어둠 속에서 스스로 자라나는 무한한 메인보드</p>
 </div>
 
-<div id="brand"><span class="led"></span>NEON CIRCUIT</div>
-<div id="credit">BUILT BY CLAUDE FABLE 5</div>
+<div id="brand"><span class="led"></span>네온 서킷</div>
+<div id="credit">클로드 페이블 5가 제작</div>
 <div id="toast" aria-live="polite"></div>
 
 <div id="dock">
   <div class="ctl">
-    <label for="rDensity">Density</label>
+    <label for="rDensity">밀도</label>
     <input id="rDensity" type="range" min="0.12" max="1" step="0.01" value="0.55">
   </div>
   <div class="ctl">
-    <label for="rSpeed">Speed</label>
+    <label for="rSpeed">속도</label>
     <input id="rSpeed" type="range" min="0.25" max="2.4" step="0.01" value="1">
   </div>
   <div class="ctl">
-    <label>Palette</label>
+    <label>팔레트</label>
     <div class="swatches" id="swatches"></div>
   </div>
   <div class="ctl">
     <label>&nbsp;</label>
-    <button class="tog" id="autoBtn">Auto</button>
+    <button class="tog" id="autoBtn">자동</button>
   </div>
   <div class="ctl">
     <label>&nbsp;</label>
-    <button class="tog" id="infoBtn" title="About">?</button>
+    <button class="tog" id="infoBtn" title="정보">?</button>
   </div>
 </div>
 
 <div id="info">
   <div class="card">
-    <button class="close" id="infoClose" aria-label="close">✕</button>
-    <h2>NEON CIRCUIT</h2>
-    <div class="tag">A GENERATIVE CIRCUIT-BOARD DREAMSCAPE.<br>
-    TRACES GROW ON A 45° ROUTING GRID, LIGHT PACKETS TRAVEL THE REAL
-    NETWORK GRAPH, AND THE BOARD PERPETUALLY RE-ETCHES ITSELF.</div>
+    <button class="close" id="infoClose" aria-label="닫기">✕</button>
+    <h2>네온 서킷</h2>
+    <div class="tag">생성형 회로판 드림스케이프.<br>
+    45° 라우팅 격자 위로 회로가 자라고, 빛 패킷이 실제 네트워크 그래프를 따라 흘러가며, 보드는 끊임없이 스스로를 다시 새긴다.</div>
     <div class="rows">
-      <span class="k">CLICK</span><span class="v">power surge from the nearest node</span>
-      <span class="k">HOLD + RELEASE</span><span class="v">charge a mega-surge — floods the whole network</span>
-      <span class="k">HOVER</span><span class="v">rest on a trace to light up its whole net, EDA-style</span>
-      <span class="k">MOVE</span><span class="v">parallax through three depth layers</span>
-      <span class="k">1 / 2 / 3</span><span class="v">palette — Tokyo · Vapor · Reactor</span>
-      <span class="k">A</span><span class="v">auto-drift installation mode</span>
-      <span class="k">S</span><span class="v">save a PNG of the canvas</span>
+      <span class="k">클릭</span><span class="v">가장 가까운 노드에서 전력 서지를 일으킨다</span>
+      <span class="k">꾹 누르기 + 떼기</span><span class="v">메가 서지 충전 — 네트워크 전체를 휩쓴다</span>
+      <span class="k">호버</span><span class="v">회로 위에 멈춰 EDA 스타일로 전체 네트워크를 밝힌다</span>
+      <span class="k">이동</span><span class="v">세 개의 깊이 레이어를 시차로 가로지른다</span>
+      <span class="k">1 / 2 / 3</span><span class="v">팔레트 — 도쿄 · 베이퍼 · 리액터</span>
+      <span class="k">A</span><span class="v">자동 드리프트 설치 모드</span>
+      <span class="k">S</span><span class="v">캔버스를 PNG로 저장</span>
     </div>
-    <div class="foot"><span>NO LIBRARIES · ONE FILE</span><span>BUILT BY CLAUDE FABLE 5</span></div>
+    <div class="foot"><span>라이브러리 없음 · 단일 파일</span><span>클로드 페이블 5가 제작</span></div>
   </div>
 </div>
 
@@ -333,9 +332,9 @@ var WHITE=[255,255,255];
 
 /* ---------------- palettes ---------------- */
 var PALETTES = [
-  { name:'TOKYO',   trace:hex('#22d3ee'), pulse:hex('#ff3bee'), flare:hex('#ffffff') },
-  { name:'VAPOR',   trace:hex('#a78bfa'), pulse:hex('#fb7185'), flare:hex('#ffd28a') },
-  { name:'REACTOR', trace:hex('#4ade80'), pulse:hex('#c8f45f'), flare:hex('#f7e9b0') }
+  { name:'도쿄',   trace:hex('#22d3ee'), pulse:hex('#ff3bee'), flare:hex('#ffffff') },
+  { name:'베이퍼',   trace:hex('#a78bfa'), pulse:hex('#fb7185'), flare:hex('#ffd28a') },
+  { name:'리액터', trace:hex('#4ade80'), pulse:hex('#c8f45f'), flare:hex('#f7e9b0') }
 ];
 var palIdx = 0;
 var PAL = { trace:PALETTES[0].trace.slice(), pulse:PALETTES[0].pulse.slice(), flare:PALETTES[0].flare.slice() };
@@ -1422,13 +1421,13 @@ function setSpeed(v, fromAuto){
   if (fromAuto) rSpeed.value = speedMul;
 }
 function setPalette(i){
-  if (i !== palIdx) toast('PALETTE — ' + PALETTES[i].name);
+  if (i !== palIdx) toast('팔레트 — ' + PALETTES[i].name);
   palIdx = i; palTarget = PALETTES[i]; palMoving = 0;
   var sws = swWrap.children;
   for (var s=0; s<sws.length; s++) sws[s].classList.toggle('on', s===i);
 }
 function setAuto(v){
-  if (v !== autoMode) toast(v ? 'AUTO DRIFT — ON' : 'AUTO DRIFT — OFF');
+  if (v !== autoMode) toast(v ? '자동 드리프트 — 켜짐' : '자동 드리프트 — 꺼짐');
   autoMode = v;
   autoBtn.classList.toggle('on', v);
   if (v){ nextPalShift = now + 26000; nextAutoSurge = now + 6000; }
@@ -1465,10 +1464,10 @@ window.addEventListener('keydown', function(ev){
   if (k === 's'){
     try {
       var a = document.createElement('a');
-      a.download = 'neon-circuit.png';
+      a.download = '네온-서킷.png';
       a.href = main.toDataURL('image/png');
       a.click();
-      toast('FRAME SAVED — NEON-CIRCUIT.PNG');
+      toast('프레임 저장됨 — 네온-서킷.PNG');
     } catch(e){}
   }
   else if (k === 'a') setAuto(!autoMode);

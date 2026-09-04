@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Zen Rake — 枯山水</title>
+<title>젠 라케 — 枯山水</title>
 <style>
   :root{
     --ink:#efe6d8;
@@ -17,7 +17,7 @@
   html,body{height:100%;overflow:hidden}
   body{
     background:#0b0a12;
-    font-family:Georgia,'Times New Roman',serif;
+    font-family:Georgia,'Times New Roman',"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",serif;
     color:var(--ink);
     -webkit-user-select:none;user-select:none;
   }
@@ -123,52 +123,51 @@
 <div id="dusk"></div>
 
 <header>
-  <h1>Zen Rake<span class="kanji">枯山水</span></h1>
-  <p>an evening in the dry garden — the wind will take what you draw</p>
+  <h1>젠 라케<span class="kanji">枯山水</span></h1>
+  <p>마른 정원의 저녁 — 바람이 당신이 그린 것을 데려가리라</p>
 </header>
 
-<div id="hint">drag to rake the sand</div>
+<div id="hint">드래그하여 모래를 갈아주세요</div>
 
 <div id="bar">
   <div class="grp" id="tools">
-    <span class="lbl">Tool</span>
-    <button data-tool="rake" class="on"><span class="ico">☵</span>Rake</button>
-    <button data-tool="rock"><span class="ico">◍</span>Rock</button>
-    <button data-tool="moss"><span class="ico">❋</span>Moss</button>
-    <button data-tool="remove"><span class="ico">✕</span>Lift</button>
+    <span class="lbl">도구</span>
+    <button data-tool="rake" class="on"><span class="ico">☵</span>갈퀴</button>
+    <button data-tool="rock"><span class="ico">◍</span>바위</button>
+    <button data-tool="moss"><span class="ico">❋</span>이끼</button>
+    <button data-tool="remove"><span class="ico">✕</span>치우기</button>
   </div>
   <div class="sep"></div>
   <div class="grp" id="styles">
-    <span class="lbl">Tines</span>
-    <button data-style="fine">Fine</button>
-    <button data-style="classic" class="on">Classic</button>
-    <button data-style="bold">Bold</button>
-    <button data-style="point">Stick</button>
+    <span class="lbl">이빨</span>
+    <button data-style="fine">가는</button>
+    <button data-style="classic" class="on">기본</button>
+    <button data-style="bold">굵은</button>
+    <button data-style="point">막대</button>
   </div>
   <div class="sep"></div>
   <div class="grp">
-    <button id="guideBtn" class="toggle"><span class="ico">◎</span>Guides</button>
-    <button id="windBtn" class="toggle on"><span class="ico">風</span>Wind</button>
-    <button id="soundBtn" class="toggle on"><span class="ico">♪</span>Sound</button>
+    <button id="guideBtn" class="toggle"><span class="ico">◎</span>가이드</button>
+    <button id="windBtn" class="toggle on"><span class="ico">風</span>바람</button>
+    <button id="soundBtn" class="toggle on"><span class="ico">♪</span>소리</button>
   </div>
   <div class="sep"></div>
-  <button id="smoothBtn"><span class="ico">〰</span>Smooth the Sand</button>
+  <button id="smoothBtn"><span class="ico">〰</span>모래를 고르기</button>
 </div>
 
 <button id="aboutBtn">i</button>
 <div id="about">
-  <h2>About this garden</h2>
-  Karesansui, the Japanese dry garden, uses raked gravel to suggest water.
-  Drag to carve grooves that <em>flow around the stones</em>; set rocks and
-  moss islands, trace the guide rings, and let the evening wind slowly
-  soften your work back into stillness.
+  <h2>이 정원에 대하여</h2>
+  카레산스이(枯山水), 일본의 마른 정원은 깎아놓은 자갈로 물결을 상징합니다.
+  드래그하여 <em>돌 주변을 감싸 도는</em> 골을 새겨보세요. 바위와 이끼 섬을 놓고,
+  가이드 원을 따라가다 보면 저녁바람이 당신의 작업을 천천히 고요로 되돌려 놓습니다.
   <div class="keys">
-    <div><b>1 – 4</b> switch tool</div>
-    <div><b>G</b> pattern guides</div>
-    <div><b>W</b> wind on / off</div>
-    <div><b>S</b> smooth the sand</div>
+    <div><b>1 – 4</b> 도구 전환</div>
+    <div><b>G</b> 가이드 패턴</div>
+    <div><b>W</b> 바람 켜기 / 끄기</div>
+    <div><b>S</b> 모래 고르기</div>
   </div>
-  <div class="credit">Built by <b>Claude Fable 5</b> · a single self-contained page, no libraries.</div>
+  <div class="credit"><b>Claude Fable 5</b> 제작 · 단일 독립 페이지, 외부 라이브러리 없음.</div>
 </div>
 
 <script>

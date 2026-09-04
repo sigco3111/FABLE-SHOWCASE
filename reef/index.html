@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>REEF — A Living Procedural Aquarium</title>
+<title>리프 — 살아 있는 절차적 수족관</title>
 <style>
   :root{
     --glass: rgba(7,19,32,.58);
@@ -14,7 +14,7 @@
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
   html,body{ width:100%; height:100%; overflow:hidden; background:#050a18; }
-  body{ font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--ink); }
+  body{ font-family: system-ui, -apple-system, "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI", sans-serif; color:var(--ink); }
   #sea{ position:fixed; inset:0; width:100%; height:100%; display:block; cursor:crosshair; }
 
   /* ---------- splash wordmark ---------- */
@@ -166,42 +166,39 @@
 <canvas id="sea"></canvas>
 
 <div id="splash">
-  <h1>Reef</h1>
-  <p>a living procedural aquarium</p>
+  <h1>리프</h1>
+  <p>살아 있는 절차적 수족관</p>
 </div>
 
 <div id="ui">
-  <div class="hdr"><b>Reef</b><span>dive console</span><button id="hideBtn" title="hide console (H)">—</button></div>
-  <div class="ctl"><label>Schoolers <em id="vSchool">140</em></label><input type="range" id="rSchool" min="0" max="220" value="140"></div>
-  <div class="ctl"><label>Grazers <em id="vGraze">16</em></label><input type="range" id="rGraze" min="0" max="40" value="16"></div>
-  <div class="ctl"><label>Drifters <em id="vDrift">14</em></label><input type="range" id="rDrift" min="0" max="40" value="14"></div>
-  <div class="ctl"><label>Current <em id="vCur">45</em></label><input type="range" id="rCur" min="0" max="100" value="45"></div>
-  <div class="ctl"><label>Sun angle <em id="vSun">18°</em></label><input type="range" id="rSun" min="-45" max="45" value="18"></div>
+  <div class="hdr"><b>리프</b><span>잠수 콘솔</span><button id="hideBtn" title="콘솔 숨기기 (H)">—</button></div>
+  <div class="ctl"><label>떼를 지어 헤엄치는 물고기 <em id="vSchool">140</em></label><input type="range" id="rSchool" min="0" max="220" value="140"></div>
+  <div class="ctl"><label>해초를 뜯는 물고기 <em id="vGraze">16</em></label><input type="range" id="rGraze" min="0" max="40" value="16"></div>
+  <div class="ctl"><label>떠다니는 플랑크톤 <em id="vDrift">14</em></label><input type="range" id="rDrift" min="0" max="40" value="14"></div>
+  <div class="ctl"><label>해류 <em id="vCur">45</em></label><input type="range" id="rCur" min="0" max="100" value="45"></div>
+  <div class="ctl"><label>태양 각도 <em id="vSun">18°</em></label><input type="range" id="rSun" min="-45" max="45" value="18"></div>
   <div class="btns">
-    <button id="feedBtn" title="or click anywhere in the water (F)">Feed</button>
-    <button id="newBtn" title="regenerate species + topology (N)">New Reef</button>
-    <button id="aboutBtn">About</button>
+    <button id="feedBtn" title="물 어디든 클릭해도 됩니다 (F)">먹이 주기</button>
+    <button id="newBtn" title="새 시드로 종과 지형을 다시 생성 (N)">새 리프</button>
+    <button id="aboutBtn">정보</button>
   </div>
   <div id="speciesList"></div>
-  <div class="meta"><span id="seedLbl">seed —</span><span id="fpsLbl">— fps</span></div>
+  <div class="meta"><span id="seedLbl">시드 —</span><span id="fpsLbl">— fps</span></div>
 </div>
-<button id="showBtn" title="show console">◈</button>
+<button id="showBtn" title="콘솔 표시">◈</button>
 
 <div id="about">
   <div class="card">
-    <h2>Reef</h2>
-    <h3>a living procedural aquarium</h3>
-    <p>Every fish on screen was grown from a species genome — a body spline, parametric fin fans, a pigment
-       program — and moves on its own boid mind. Nothing is a sprite, nothing is a loop. Corals bud while you
-       watch; kelp answers a shared current field; and every 45–120 seconds a shark drifts through and the
-       whole reef decides, all at once, to panic.</p>
+    <h2>리프</h2>
+    <h3>살아 있는 절차적 수족관</h3>
+    <p>화면 위 모든 물고기는 종 유전자로부터 자랐습니다 — 몸의 스플라인, 매개변수형 지느러미 부채, 색소 프로그램 — 그리고 각자의 보이드 마음으로 움직입니다. 스프라이트도, 단순 반복도 없습니다. 보시는 동안 산호는 새싹을 틔우고, 켈프는 공유된 해류에 응답하며, 45–120초마다 상어가 한 마지 지나가면 리프 전체가 한꺼번에 패닉에 빠집니다.</p>
     <div class="tips">
-      <b>Click water</b> — scatter food flakes &nbsp;·&nbsp; <b>F</b> — feed<br>
-      <b>N</b> — grow a brand-new reef from a fresh seed<br>
-      <b>H</b> — hide the console for screensaver mode
+      <b>물 클릭</b> — 먹이 비리 흩뿌리기 &nbsp;·&nbsp; <b>F</b> — 먹이 주기<br>
+      <b>N</b> — 새 시드로 완전히 새로운 리프 자라기<br>
+      <b>H</b> — 스크린세이버 모드로 콘솔 숨기기
     </div>
     <div class="credit">Built by Claude Fable 5 · one file · zero dependencies</div>
-    <button id="aboutClose">Return to the water</button>
+    <button id="aboutClose">물속으로 돌아가기</button>
   </div>
 </div>
 

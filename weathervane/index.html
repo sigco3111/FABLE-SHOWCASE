@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Weathervane — A Living Weather Diorama</title>
+<title>웨더베인 — 살아 있는 날씨 디오라마</title>
 <style>
 /* ============================================================
    WEATHERVANE — "Lacquered Miniature"
@@ -13,8 +13,8 @@
   --brass:#c9a35f; --brass-hi:#ecd096; --brass-dim:#8a6f3f;
   --ink:#efe4d0; --ink-dim:#b9a88c;
   --walnut:#241a10; --walnut-hi:#3a2b1a; --walnut-lo:#170f08;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
-  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%}
@@ -168,12 +168,12 @@ kbd{border:1px solid rgba(201,163,95,.4);border-radius:3px;padding:0 4px;font-si
 </head>
 <body>
 <header>
-  <h1>WEATHERVANE</h1>
-  <p class="tag">A living weather diorama · one valley, six moods · everything procedural</p>
+  <h1>웨더베인</h1>
+  <p class="tag">살아 있는 날씨 디오라마 · 하나의 골짜기, 여섯 가지 무드 · 모든 것이 절차적으로 생성됩니다</p>
 </header>
 
 <div class="stage-wrap">
-  <div id="stage" aria-label="Animated weather diorama of a valley landscape">
+  <div id="stage" aria-label="골짜기 풍경의 살아 움직이는 날씨 디오라마">
     <canvas id="cvB"></canvas>
     <svg id="sceneSvg" class="scene" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
     <canvas id="cvF"></canvas>
@@ -182,25 +182,25 @@ kbd{border:1px solid rgba(201,163,95,.4);border-radius:3px;padding:0 4px;font-si
       <rect width="100%" height="100%" filter="url(#fGrain)"/>
     </svg>
     <div class="vignette"></div>
-    <div class="temp"><div class="n" id="tempN">18°</div><div class="u">valley air</div></div>
-    <div class="plaque"><div class="k">Exhibit · No. 1</div><div class="v" id="plaqueV">Clear sun, 5:36 pm — intensity 55</div></div>
+    <div class="temp"><div class="n" id="tempN">18°</div><div class="u">골짜기 공기</div></div>
+    <div class="plaque"><div class="k">전시품 · 제1호</div><div class="v" id="plaqueV">맑은 태양, 오후 5:36 — 강도 55</div></div>
   </div>
 </div>
 
 <div class="deck">
   <div>
-    <div class="grp-label">Weather</div>
-    <div class="picker" id="picker" role="group" aria-label="Weather condition"></div>
+    <div class="grp-label">날씨</div>
+    <div class="picker" id="picker" role="group" aria-label="날씨 상태"></div>
   </div>
   <div class="dial-blk">
-    <div class="grp-label">Intensity</div>
-    <div class="knurl"><div id="dial" role="slider" tabindex="0" aria-label="Weather intensity" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55"><div id="needle"></div></div></div>
+    <div class="grp-label">강도</div>
+    <div class="knurl"><div id="dial" role="slider" tabindex="0" aria-label="날씨 강도" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55"><div id="needle"></div></div></div>
     <div class="dial-val" id="dialVal">55</div>
   </div>
   <div class="arc-blk">
-    <div class="grp-label">Time of Day</div>
+    <div class="grp-label">시간대</div>
     <svg id="arcSvg" width="240" height="112" viewBox="0 0 240 112" role="slider" tabindex="0"
-         aria-label="Time of day" aria-valuemin="0" aria-valuemax="24" aria-valuenow="17.6">
+         aria-label="시간대" aria-valuemin="0" aria-valuemax="24" aria-valuenow="17.6">
       <path id="arcTrack" d="" fill="none" stroke="rgba(201,163,95,.4)" stroke-width="2.5" stroke-linecap="round"/>
       <g id="arcTicks" stroke="rgba(201,163,95,.55)" stroke-width="1.5"></g>
       <g id="arcThumb">
@@ -208,21 +208,21 @@ kbd{border:1px solid rgba(201,163,95,.4);border-radius:3px;padding:0 4px;font-si
         <g id="thMoon" style="display:none"><circle r="8.5" fill="#dfe3ee" stroke="#241503" stroke-width="1"/><circle r="7" cx="4" cy="-2" fill="#241a0e"/></g>
       </g>
     </svg>
-    <div class="arc-val" id="arcVal">5:36 pm</div>
+    <div class="arc-val" id="arcVal">오후 5:36</div>
   </div>
   <div class="side">
-    <div class="grp-label" style="margin-bottom:0">Machine</div>
-    <button class="tgl" id="tglDrift" aria-pressed="false" title="Auto-wander weather and time">
-      <svg viewBox="0 0 24 24"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg>Drift</button>
-    <button class="tgl" id="tglSound" aria-pressed="false" title="Procedural soundscape (synthesized, no audio files)">
-      <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path id="sndWaves" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" style="display:none"/></svg>Sound</button>
+    <div class="grp-label" style="margin-bottom:0">머신</div>
+    <button class="tgl" id="tglDrift" aria-pressed="false" title="날씨와 시간을 자동으로 흘려보내기">
+      <svg viewBox="0 0 24 24"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg>드리프트</button>
+    <button class="tgl" id="tglSound" aria-pressed="false" title="절차적 사운드스케이프 (오디오 파일 없이 합성)">
+      <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path id="sndWaves" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" style="display:none"/></svg>사운드</button>
   </div>
 </div>
 
 <footer>
-  <p>Everything here is drawn and synthesized live — the hills, the storm, the thunder in your speakers. One HTML file; no images, no libraries, no video.
-     Keys <kbd>1</kbd>–<kbd>6</kbd> pick weather · drag the dial and the sun · switch to snow and wait a minute · after rain, type <kbd>petrichor</kbd>.</p>
-  <p class="cr">Built by Claude Fable 5</p>
+  <p>여기 모든 것은 실시간으로 그리고 합성됩니다 — 언덕, 폭풍, 스피커에서 들리는 천둥까지. 단일 HTML 파일; 이미지, 라이브러리, 영상 없음.
+     <kbd>1</kbd>–<kbd>6</kbd> 키로 날씨 선택 · 다이얼과 태양을 드래그 · 눈으로 바꾼 뒤 잠시 기다리세요 · 비가 내린 뒤에는 <kbd>petrichor</kbd>를 입력해 보세요.</p>
+  <p class="cr">제작 Claude Fable 5</p>
 </footer>
 <p id="err"></p>
 
@@ -240,7 +240,7 @@ function RNG(seed){let t=seed>>>0;return function(){t+=0x6D2B79F5;let r=Math.imu
 const rng=RNG(20260707);
 const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function showErr(e){const el=document.getElementById('err');el.style.display='block';el.textContent='Weathervane hit a squall: '+(e&&e.message||e);}
+function showErr(e){const el=document.getElementById('err');el.style.display='block';el.textContent='웨더베인 폭풍우 경고: '+(e&&e.message||e);}
 
 /* =============================================================
    1 · COLOR — hand-rolled OKLCH/OKLab → sRGB
@@ -302,8 +302,8 @@ const PARAMS={
   wind:   p=>({wind:.32+.68*p, cloud:.30, debris:.2+.8*p, rays:.15*(1-p)})
 };
 const CONDS=['sun','fog','drizzle','storm','snow','wind'];
-const CLABEL={sun:'Sun',fog:'Fog',drizzle:'Drizzle',storm:'Storm',snow:'Snow',wind:'Wind'};
-const CPLAQUE={sun:'Clear sun',fog:'Rolling fog',drizzle:'A steady drizzle',storm:'Thunderstorm',snow:'Snowfall',wind:'High wind'};
+const CLABEL={sun:'맑음',fog:'안개',drizzle:'이슬비',storm:'폭풍',snow:'눈',wind:'바람'};
+const CPLAQUE={sun:'맑은 태양',fog:'흐르는 안개',drizzle:'잔잔한 이슬비',storm:'천둥 폭풍',snow:'함박눈',wind:'강한 바람'};
 const WKEYS=['rain','snow','fog','wind','cloud','rays','bolts','debris','shimmer'];
 
 /* =============================================================
@@ -701,7 +701,7 @@ function fmtTime(h){
   h=((h%24)+24)%24;
   let hh=h|0,mm=Math.round((h-hh)*60);
   if(mm===60){mm=0;hh=(hh+1)%24;}
-  const ap=hh<12?'am':'pm';let h12=hh%12;if(h12===0)h12=12;
+  const ap=hh<12?'오전':'오후';let h12=hh%12;if(h12===0)h12=12;
   return h12+':'+(mm<10?'0':'')+mm+' '+ap;
 }
 function setHour(h,quiet){
@@ -1241,7 +1241,7 @@ function step(dt){
     let temp=13+9*sin((S.hour-8.5)/24*TAU);
     temp+=w.sun*5*effI - w.snow*16 - w.storm*4 - w.drizzle*3 - w.fog*2 - w.wind*1.5;
     EL('tempN').textContent=Math.round(temp)+'°';
-    const txt=(S.drift?'Drifting · ':'')+CPLAQUE[S.cond]+', '+fmtTime(S.hour)+' — intensity '+Math.round(S.intensity*100);
+    const txt=(S.drift?'드리프트 · ':'')+CPLAQUE[S.cond]+', '+fmtTime(S.hour)+' — 강도 '+Math.round(S.intensity*100);
     if(txt!==lastPlaqueTxt){lastPlaqueTxt=txt;EL('plaqueV').textContent=txt;}
   }
 

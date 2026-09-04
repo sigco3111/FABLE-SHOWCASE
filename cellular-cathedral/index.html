@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cellular Cathedral</title>
+<title>셀룰러 대성당</title>
 <style>
 :root{
   /* palette variables re-tinted per theme (JS drives these) */
@@ -18,7 +18,7 @@
   --text: #E9E4D6;
   --text-mute: rgba(233,228,214,.60);
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-ui: "Inter", system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
   --ease: cubic-bezier(.22,.61,.36,1);
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -272,31 +272,31 @@ input[type=range]::-moz-range-thumb{
 </div>
 
 <div id="brand">
-  <h1>Cellular Cathedral</h1>
-  <div class="tag">A cathedral of living light</div>
+  <h1>셀룰러 대성당</h1>
+  <div class="tag">살아 있는 빛의 대성당</div>
 </div>
 
 <div id="ruleName"></div>
 
-<button id="infoBtn" title="About" aria-label="About">i</button>
+<button id="infoBtn" title="소개" aria-label="소개">i</button>
 
-<div id="credit">Built by Claude Fable 5</div>
+<div id="credit">클로드 페이블 5 제작</div>
 
 <!-- ============ CONTROL RAIL ============ -->
 <div id="rail">
   <div class="row top">
     <!-- rulesets -->
     <div class="segwrap" id="ruleSeg">
-      <button class="seg active" data-rule="conway"><span class="k">1</span>Life</button>
-      <button class="seg" data-rule="highlife"><span class="k">2</span>HighLife</button>
-      <button class="seg" data-rule="daynight"><span class="k">3</span>Day&amp;Night</button>
-      <button class="seg" data-rule="smooth"><span class="k">4</span>Smooth</button>
+      <button class="seg active" data-rule="conway"><span class="k">1</span>라이프</button>
+      <button class="seg" data-rule="highlife"><span class="k">2</span>하이라이프</button>
+      <button class="seg" data-rule="daynight"><span class="k">3</span>데이&amp;나이트</button>
+      <button class="seg" data-rule="smooth"><span class="k">4</span>스무스</button>
     </div>
 
     <div id="sparkWrap">
       <canvas id="spark" width="180" height="34"></canvas>
       <span id="popNow">0</span>
-      <span id="genNow" title="Generation">gen 0</span>
+      <span id="genNow" title="세대">세대 0</span>
     </div>
 
     <!-- themes -->
@@ -308,19 +308,19 @@ input[type=range]::-moz-range-thumb{
   <div class="row">
     <!-- transport -->
     <div class="group">
-      <button class="icon-btn play" id="playBtn" title="Play / Pause (Space)" aria-label="Play">
+      <button class="icon-btn play" id="playBtn" title="재생 / 일시정지 (Space)" aria-label="재생">
         <svg viewBox="0 0 24 24" id="playIco"><polygon points="7,5 19,12 7,19" fill="currentColor" stroke="none"/></svg>
       </button>
-      <button class="icon-btn" id="stepBtn" title="Step (→)" aria-label="Step one generation">
+      <button class="icon-btn" id="stepBtn" title="한 세대 진행 (→)" aria-label="한 세대 진행">
         <svg viewBox="0 0 24 24"><path d="M7 5v14M17 5v14"/><path d="M9 12h7M13 8l4 4-4 4" fill="none"/></svg>
       </button>
-      <button class="icon-btn" id="randBtn" title="Randomize (R)" aria-label="Randomize">
+      <button class="icon-btn" id="randBtn" title="무작위 (R)" aria-label="무작위">
         <svg viewBox="0 0 24 24"><path d="M4 8l8-4 8 4-8 4-8-4z"/><path d="M4 16l8 4 8-4M4 12l8 4 8-4"/></svg>
       </button>
-      <button class="icon-btn" id="clearBtn" title="Clear (C)" aria-label="Clear">
+      <button class="icon-btn" id="clearBtn" title="지우기 (C)" aria-label="지우기">
         <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
-      <button class="icon-btn" id="wrapBtn" title="Toggle wrap (W)" aria-label="Toggle edge mode">
+      <button class="icon-btn" id="wrapBtn" title="경계 모드 토글 (W)" aria-label="경계 모드 토글">
         <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8"/><path d="M12 20l-3-3M12 20l3-3" fill="none"/></svg>
       </button>
     </div>
@@ -329,7 +329,7 @@ input[type=range]::-moz-range-thumb{
 
     <!-- speed -->
     <div class="group">
-      <label class="lbl" for="speed">Speed</label>
+      <label class="lbl" for="speed">속도</label>
       <input type="range" id="speed" min="1" max="60" value="12">
       <span class="val" id="speedVal">12/s</span>
     </div>
@@ -338,7 +338,7 @@ input[type=range]::-moz-range-thumb{
 
     <!-- brush -->
     <div class="group">
-      <label class="lbl" for="brush">Brush</label>
+      <label class="lbl" for="brush">브러시</label>
       <input type="range" id="brush" min="1" max="8" value="2" style="width:78px">
       <span class="val" id="brushVal">2</span>
     </div>
@@ -353,23 +353,23 @@ input[type=range]::-moz-range-thumb{
 <!-- ============ ABOUT OVERLAY ============ -->
 <div id="overlay">
   <div class="card">
-    <h2>Cellular Cathedral</h2>
-    <div class="tag">Paint the seed — watch order bloom and decay</div>
-    <p>A living laboratory of cellular automata rendered as stained glass. Every live cell tracks its <em>age</em>; the theme ramp maps that age to hue and brightness, so ancient, stable structures glow deep gold while churning membranes flicker cool at the edges.</p>
-    <p>Four rulesets are live-switchable. Three are discrete life-family rules — Conway's <strong>Life</strong>, <strong>HighLife</strong> (with its self-replicators), and <strong>Day&amp;Night</strong>. The fourth is a continuous <strong>SmoothLife</strong> variant: instead of pixels, soft breathing organisms glide and pulse like bioluminescent plankton. Switch to it mid-bloom for the wow.</p>
+    <h2>셀룰러 대성당</h2>
+    <div class="tag">씨앗을 칠하고 — 질서가 피고 지는 것을 지켜보세요</div>
+    <p>스테인드 글라스로 렌더된 셀룰러 오토마타의 살아 있는 실험실. 살아 있는 모든 세포가 자신의 <em>나이</em>를 추적하고, 테마 램프가 그 나이를 색상과 밝기에 대응시키므로 오래되고 안정된 구조는 깊은 금빛으로 빛나는 반면 휘저어지는 막들은 가장자리에서 차갑게 깜빡입니다.</p>
+    <p>네 가지 규칙이 즉시 전환됩니다. 세 가지는 이산적인 라이프 계열 규칙 — 콘웨이의 <strong>라이프</strong>, 자기복제자를 가진 <strong>하이라이프</strong>, 그리고 <strong>데이&amp;나이트</strong>. 네 번째는 연속적인 <strong>스무스라이프</strong> 변형입니다 — 픽셀 대신 부드럽게 숨 쉬는 생물들이 생발광 플랑크톤처럼 미끄러지고 맥동합니다. 만개하는 중간에 그것으로 전환해 보세요.</p>
     <div class="keys">
-      <kbd>Space</kbd><span>Play / pause</span>
-      <kbd>→</kbd><span>Single step</span>
-      <kbd>1&nbsp;2&nbsp;3&nbsp;4</kbd><span>Switch ruleset</span>
-      <kbd>R</kbd><span>Randomize noise field</span>
-      <kbd>C</kbd><span>Clear the nave</span>
-      <kbd>W</kbd><span>Torus / hard wall</span>
-      <kbd>drag</kbd><span>Paint cells &middot; Shift/right-drag erases</span>
-      <kbd>E&nbsp;/&nbsp;F</kbd><span>Rotate / flip an armed stamp</span>
+      <kbd>Space</kbd><span>재생 / 일시정지</span>
+      <kbd>→</kbd><span>한 세대 진행</span>
+      <kbd>1&nbsp;2&nbsp;3&nbsp;4</kbd><span>규칙 전환</span>
+      <kbd>R</kbd><span>노이즈 필드 무작위</span>
+      <kbd>C</kbd><span>본당 비우기</span>
+      <kbd>W</kbd><span>토러스 / 단단한 벽</span>
+      <kbd>drag</kbd><span>세포 칠하기 &middot; Shift/우클릭 드래그로 지우기</span>
+      <kbd>E&nbsp;/&nbsp;F</kbd><span>선택한 스탬프 회전 / 뒤집기</span>
     </div>
     <div class="foot">
-      <span>Built by Claude Fable 5 &middot; vanilla JS &middot; zero dependencies</span>
-      <button class="close" id="closeInfo">Enter</button>
+      <span>클로드 페이블 5 제작 &middot; 바닐라 JS &middot; 의존성 제로</span>
+      <button class="close" id="closeInfo">입장</button>
     </div>
   </div>
 </div>

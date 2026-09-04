@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>CLOCKWORK — The Horologist's Drafting Table</title>
+<title>클락워크 — 시각 장인의 제도대</title>
 <style>
 :root{
   --bp0:#0e2038; --bp1:#16304f;
@@ -180,30 +180,30 @@ body.sepia #aboutCard .credit{color:#6b4a1e}
 <canvas id="main"></canvas>
 <div id="lamp"></div>
 
-<div class="ui" id="masthead"><h1>CLOCKWORK</h1><div class="sub">THE HOROLOGIST'S DRAFTING TABLE</div></div>
+<div class="ui" id="masthead"><h1>클락워크</h1><div class="sub">시각 장인의 제도대</div></div>
 <div class="ui" id="caption"><span class="t"></span><span class="l1"></span><span class="l2"></span></div>
 
 <div class="ui" id="panel">
-  <h3>INSTRUMENT PANEL</h3>
-  <div class="prow"><div><div class="plabel">VOLUME</div><div class="plabel" id="volPct" style="color:var(--ink);margin-top:3px">80%</div></div>
+  <h3>기기판</h3>
+  <div class="prow"><div><div class="plabel">볼륨</div><div class="plabel" id="volPct" style="color:var(--ink);margin-top:3px">80%</div></div>
     <div id="dial"><div id="dialNeedle"></div></div></div>
-  <div class="plabel">MAINSPRING GOVERNOR — <span id="govVal" style="color:var(--ink)">30</span> RPM</div>
+  <div class="plabel">메인스프링 조정기 — <span id="govVal" style="color:var(--ink)">30</span> RPM</div>
   <input type="range" id="gov" min="0" max="120" value="30" step="1">
-  <button class="btn" id="btnTheme">◑ SEPIA WORKSHOP</button>
-  <button class="btn" id="btnWipe">✧ WIPE THE INK</button>
-  <button class="btn" id="btnClear">⌫ CLEAR SHEET</button>
-  <button class="btn" id="btnUndo">↶ UNDO &nbsp;(Z)</button>
-  <button class="btn" id="btnAbout">§ ABOUT THIS SHEET</button>
+  <button class="btn" id="btnTheme">◑ 세피아 공방</button>
+  <button class="btn" id="btnWipe">✧ 잉크 닦아내기</button>
+  <button class="btn" id="btnClear">⌫ 도화 비우기</button>
+  <button class="btn" id="btnUndo">↶ 실행 취소 &nbsp;(Z)</button>
+  <button class="btn" id="btnAbout">§ 이 도화에 대하여</button>
 </div>
 
-<div class="ui" id="drawerTab">THE&nbsp;MARVELS</div>
+<div class="ui" id="drawerTab">기&nbsp;보</div>
 <div class="ui" id="drawer">
-  <h3>CABINET OF MARVELS</h3>
-  <button class="marvel" data-p="metronome"><b>Ⅰ · ONE-SECOND METRONOME</b><i>a 1:60 train that truly ticks the seconds</i></button>
-  <button class="marvel" data-p="hypnotist"><b>Ⅱ · THE HYPNOTIST</b><i>1:2,109 — dare to watch the last wheel move</i></button>
-  <button class="marvel" data-p="drawing"><b>Ⅲ · DRAWING ENGINE</b><i>gears trace a rosette; edit them, change the flower</i></button>
-  <button class="marvel" data-p="cuckoo"><b>Ⅳ · CUCKOO SURPRISE</b><i>a belt, a barrel, and a bird on schedule</i></button>
-  <button class="marvel" data-p="folly"><b>Ⅴ · PERPETUAL FOLLY</b><i>three wheels in an impossible quarrel</i></button>
+  <h3>보물 함</h3>
+  <button class="marvel" data-p="metronome"><b>Ⅰ · 1초 메트로놈</b><i>초 단위로 진짜 똑딱거리는 1:60 기어 열차</i></button>
+  <button class="marvel" data-p="hypnotist"><b>Ⅱ · 최면사</b><i>1:2,109 — 마지막 바퀴가 도는 것을 감시하라</i></button>
+  <button class="marvel" data-p="drawing"><b>Ⅲ · 제도 엔진</b><i>바퀴들이 장미 무늬를 그려냅니다; 고쳐 꽃을 바꾸세요</i></button>
+  <button class="marvel" data-p="cuckoo"><b>Ⅳ · 뻐꾸기 놀라움</b><i>벨트, 통, 정시에 울 새 한 마리</i></button>
+  <button class="marvel" data-p="folly"><b>Ⅴ · 영원한 어리석음</b><i>불가능한 다툼을 벌이는 세 바퀴</i></button>
 </div>
 
 <div class="ui" id="dock">
@@ -212,28 +212,24 @@ body.sepia #aboutCard .credit{color:#6b4a1e}
 </div>
 
 <div class="ui" id="titleblock">
-  <div class="r"><div class="c big">CLOCKWORK</div></div>
-  <div class="r"><div class="c">SHEET 1 OF 1</div><div class="c">SCALE: WHIMSICAL</div></div>
-  <div class="r"><div class="c">DRAWN BY: <a id="creditLink">CLAUDE FABLE 5</a></div><div class="c" id="tbDate"></div></div>
+  <div class="r"><div class="c big">클락워크</div></div>
+  <div class="r"><div class="c">1 / 1 도화</div><div class="c">축적: 기발함</div></div>
+  <div class="r"><div class="c">그린 이: <a id="creditLink">클로드 페이블 5</a></div><div class="c" id="tbDate"></div></div>
 </div>
 
-<div class="ui" id="hint">drag a brass wheel from the tray onto a peg — nearby wheels will pull it into mesh</div>
-<div class="ui" id="toast">🔈 THE SHOP'S SOUND WAKES WITH YOUR FIRST TOUCH</div>
+<div class="ui" id="hint">황동 바퀴를 쟁반에서 손잡이 위로 끌고 오세요 — 가까운 바퀴들이 맞물리도록 끌어당깁니다</div>
+<div class="ui" id="toast">🔈 손이 처음 닿으면 공방의 소리가 깨어납니다</div>
 
 <div class="ui" id="about"><div id="aboutCard">
-  <h2>CLOCKWORK</h2>
-  <p>A working gear-train playground. Nothing here is a canned animation: meshes are detected by
-  center-distance, rotation propagates with exact tooth ratios, teeth interleave by solved phase,
-  and every tick you hear is synthesized live from the actual tooth-passing frequency of each mesh.
-  Jam the geometry and the train honestly seizes.</p>
-  <p>Drag wheels from the brass tray. Stack a smaller wheel atop a larger one to compound a shaft.
-  Belt distant pulleys. Crank with real circular strokes — it coasts on its flywheel when you let go.</p>
+  <h2>클락워크</h2>
+  <p>실제 동작하는 기어 열차 놀이판. 여기 보이는 것은 미리 짜인 움직임이 아닙니다: 맞물림은 중심 거리로 감지되고, 회전은 정확한 잇몸 비율로 전파되며, 이빨은 풀린 위상에 따라 엇갈리고, 듣는 모든 똑딱임은 각 맞물림의 실제 이빨 통과 주파수에서 실시간 합성됩니다. 기하를 옭으면 열차는 정직하게 멈춥니다.</p>
+  <p>황동 쟁반에서 바퀴를 끌어 도화 위에 놓으세요. 작은 바퀴를 큰 것 위로 쌓아 축을 합성합니다. 멀리 떨어진 풀리를 벨트로 잇고. 진짜 원호로 손잡이를 돌리세요 — 놓으면 플라이휠로 관성 주행을 합니다.</p>
   <div class="keys">
-    <b>drag</b> place / move wheels &nbsp;·&nbsp; <b>right-click</b> pluck a wheel or belt<br>
-    <b>click</b> pin a dimension callout &nbsp;·&nbsp; <b>scroll</b> nudge a wheel (⇧ sideways)<br>
-    <b>B</b> belt tool &nbsp;·&nbsp; <b>Z</b> undo &nbsp;·&nbsp; <b>drag empty sheet</b> pan the table
+    <b>끌기</b> 바퀴 놓기 / 옮기기 &nbsp;·&nbsp; <b>우클릭</b> 바퀴나 벨트 뽑기<br>
+    <b>클릭</b> 치수 호출기 박기 &nbsp;·&nbsp; <b>스크롤</b> 바퀴 살짝 이동 (⇧ 가로 방향)<br>
+    <b>B</b> 벨트 도구 &nbsp;·&nbsp; <b>Z</b> 실행 취소 &nbsp;·&nbsp; <b>빈 도화 끌기</b> 제도대 옮기기
   </div>
-  <div class="credit">BUILT BY CLAUDE FABLE 5 — ONE SHEET OF HTML, ZERO EXTERNAL PARTS</div>
+  <div class="credit">클로드 페이블 5 제작 — HTML 한 장, 외부 부품 제로</div>
 </div></div>
 
 <script>
@@ -2381,13 +2377,13 @@ $('gov').addEventListener('input', e => {
 $('btnTheme').addEventListener('click', () => {
   theme = theme === 'blue' ? 'sepia' : 'blue';
   document.body.classList.toggle('sepia', theme === 'sepia');
-  $('btnTheme').textContent = theme === 'sepia' ? '◐ PRUSSIAN BLUEPRINT' : '◑ SEPIA WORKSHOP';
+  $('btnTheme').textContent = theme === 'sepia' ? '◐ 프로이센 청사진' : '◑ 세피아 공방';
   makeGridPattern();
 });
 $('btnWipe').addEventListener('click', () => { wipeInk(); clickSound(0.4); });
 $('btnClear').addEventListener('click', () => {
   clearBoard(true); wipeInk(); clearCaption();
-  setCaption('', 'A blank sheet. The tray waits below.', '');
+  setCaption('', '빈 도화. 쟁반이 아래에서 기다립니다.', '');
   popSound();
 });
 $('btnUndo').addEventListener('click', doUndo);

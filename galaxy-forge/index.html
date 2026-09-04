@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galaxy Forge</title>
+<title>은하 대장간</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden;background:#020308}
-body{font-family:'Avenir Next','Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(235,240,250,.85);-webkit-font-smoothing:antialiased;user-select:none;-webkit-user-select:none}
+body{font-family:'Avenir Next',"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(235,240,250,.85);-webkit-font-smoothing:antialiased;user-select:none;-webkit-user-select:none}
 #gl{position:fixed;inset:0;width:100%;height:100%;display:block;cursor:grab;z-index:0;touch-action:none}
 #gl.drag{cursor:grabbing}
 #grain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;opacity:.05;mix-blend-mode:overlay;image-rendering:pixelated;z-index:3}
@@ -114,45 +114,45 @@ input[type=range]:hover::-moz-range-thumb{filter:drop-shadow(0 0 9px rgba(200,22
 <canvas id="gl"></canvas>
 <canvas id="grain"></canvas>
 <div id="lbT" class="lb"></div><div id="lbB" class="lb"></div>
-<h1 id="title">GALAXY&nbsp;FORGE</h1>
-<div id="wordmark">GALAXY FORGE</div>
+<h1 id="title">은하&nbsp;대장간</h1>
+<div id="wordmark">은하 대장간</div>
 <div id="gname"></div>
 <div id="hud"></div>
 
 <div id="rail" class="hide">
-  <div class="grp"><div class="lbl">Arms</div><div id="armBox"></div></div>
-  <div class="grp"><div class="lbl">Twist</div><input id="sTwist" type="range" min="2.2" max="10.5" step="0.01"></div>
-  <div class="grp"><div class="lbl">Core</div><input id="sCore" type="range" min="0.08" max="0.42" step="0.001"></div>
-  <div class="grp"><div class="lbl">Bar</div><input id="sBar" type="range" min="0" max="0.8" step="0.005"></div>
-  <div class="grp"><div class="lbl">Temperature</div><input id="sTemp" type="range" min="0" max="1" step="0.005"></div>
-  <div class="grp"><div class="lbl">Palette</div><div id="palBox"></div></div>
+  <div class="grp"><div class="lbl">팔</div><div id="armBox"></div></div>
+  <div class="grp"><div class="lbl">나선</div><input id="sTwist" type="range" min="2.2" max="10.5" step="0.01"></div>
+  <div class="grp"><div class="lbl">중심</div><input id="sCore" type="range" min="0.08" max="0.42" step="0.001"></div>
+  <div class="grp"><div class="lbl">막대</div><input id="sBar" type="range" min="0" max="0.8" step="0.005"></div>
+  <div class="grp"><div class="lbl">온도</div><input id="sTemp" type="range" min="0" max="1" step="0.005"></div>
+  <div class="grp"><div class="lbl">팔레트</div><div id="palBox"></div></div>
   <div class="grp btns">
-    <button class="act" id="bForge">Forge</button>
-    <button class="act" id="bCap">Capture&nbsp;Plate</button>
+    <button class="act" id="bForge">벼리기</button>
+    <button class="act" id="bCap">캡처 플레이트</button>
     <button class="act" id="bInfo">i</button>
   </div>
 </div>
 
 <div id="about" hidden>
   <div class="panel">
-    <h2>GALAXY FORGE</h2>
-    <p>A living spiral galaxy computed entirely on your GPU. Up to four hundred thousand stars each ride their own tilted elliptical orbit; the arms are density waves — standing patterns the stars drift through as the disk turns, just as in real galaxies.</p>
-    <p class="keys">drag&nbsp;·&nbsp;orbit&ensp;&ensp;scroll&nbsp;·&nbsp;dolly&ensp;&ensp;F&nbsp;·&nbsp;hud&ensp;&ensp;G&nbsp;·&nbsp;forge&ensp;&ensp;C&nbsp;·&nbsp;capture&ensp;&ensp;D&nbsp;·&nbsp;cinema</p>
-    <p class="credit">Built by Claude Fable 5 — one self-contained file. No libraries, no network, only light.</p>
-    <button class="act" id="bClose">Close</button>
+    <h2>은하 대장간</h2>
+    <p>GPU 위에서 완전히 계산되는 살아 있는 나선 은하. 최대 사십만 개의 별이 각자의 기울어진 타원 궤도를 달리며, 나선팔은 밀도 파동 — 별들이 원반이 회전할 때 그 사이를 흘러가는 정상 패턴 — 입니다. 실제 은하에서처럼요.</p>
+    <p class="keys">드래그&nbsp;·&nbsp;궤도&ensp;&ensp;스크롤&nbsp;·&nbsp;돌리&ensp;&ensp;F&nbsp;·&nbsp;HUD&ensp;&ensp;G&nbsp;·&nbsp;벼리기&ensp;&ensp;C&nbsp;·&nbsp;캡처&ensp;&ensp;D&nbsp;·&nbsp;시네마</p>
+    <p class="credit">제작 Claude Fable 5 — 단일 자력 self 있는 파일. 라이브러리도, 네트워크 호출도 없고, 빛만 있습니다.</p>
+    <button class="act" id="bClose">닫기</button>
   </div>
 </div>
 
 <div id="toast"></div>
 <div id="err" hidden></div>
-<noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#889">Galaxy Forge requires JavaScript.</div></noscript>
+<noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#889">은하 대장간에는 JavaScript가 필요합니다.</div></noscript>
 
 <script id="app">
 (function(){
 'use strict';
 var $=function(s){return document.querySelector(s)};
 function fail(msg){var e=$('#err');e.hidden=false;e.textContent=msg;}
-try{ boot(); }catch(ex){ fail('GALAXY FORGE could not ignite — '+(ex&&ex.message?ex.message:ex)); if(window.console)console.error(ex); }
+try{ boot(); }catch(ex){ fail('은하 대장간이 점화되지 못했습니다 — '+(ex&&ex.message?ex.message:ex)); if(window.console)console.error(ex); }
 
 function boot(){
 /* ---------- utils ---------- */
@@ -177,7 +177,7 @@ var canvas=$('#gl');
 var gl=canvas.getContext('webgl2',{alpha:false,antialias:false,depth:false,stencil:false,powerPreference:'high-performance'})
       ||canvas.getContext('webgl',{alpha:false,antialias:false,depth:false,stencil:false,powerPreference:'high-performance'});
 if(!gl)throw new Error('WebGL is not available on this device');
-canvas.addEventListener('webglcontextlost',function(e){e.preventDefault();fail('GPU CONTEXT LOST — RELOAD TO REFORGE');},false);
+canvas.addEventListener('webglcontextlost',function(e){e.preventDefault();fail('GPU 컨텍스트 손실 — 새로 고침해 다시 벼리세요');},false);
 
 function makeProg(vs,fs){
   function compile(type,src){
@@ -570,11 +570,11 @@ function setArms(n){
 
 /* ---------- name generator ---------- */
 var CATS=['NGC','IC','UGC','ESO','PGC','ARP'];
-var ADJ=['Silent','Sleeping','Burning','Sovereign','Pale','Drowned','Winter','Hollow','Amber','Iron','Quiet','Wandering','Grieving','First','Gilded','Distant','Patient','Radiant','Forgotten','Slow','Crowned','Inverted','Luminous','Last'],
-    NOUN=['Wheel','Crown','Lantern','Whirl','Rose','Eye','Veil','Anchor','Chalice','Mirror','Harp','Cinder','Compass','Bloom','Furnace','Pilgrim','Sister','Serpent','Clock','Garden','Witness','Anvil','Tide','Loom'];
+var ADJ='고요한,잠든,불타는,위엄있는,창백한,가라앉은,겨울의,텅 빈,호박빛,쇠,조용한,떠도는,슬퍼하는,첫,금박의,먼,인내하는,빛나는,잊혀진,느린,왕관을 쓴,거꾸로 된,빛나는,마지막'.split(','),
+    NOUN='바퀴,왕관,랜턴,소용돌이,장미,눈,장막,닻,성배,거울,하프,재,나침반,꽃,용광로,순례자,자매,뱀,시계,정원,증인,모루,조류,베틀'.split(',');
 function forgeName(){
   return CATS[Math.floor(Math.random()*CATS.length)]+'-'+(1000+Math.floor(Math.random()*8999))+
-    ' · The '+ADJ[Math.floor(Math.random()*ADJ.length)]+' '+NOUN[Math.floor(Math.random()*NOUN.length)];
+    ' · 그 '+ADJ[Math.floor(Math.random()*ADJ.length)]+' '+NOUN[Math.floor(Math.random()*NOUN.length)];
 }
 
 /* ---------- state <-> hash ---------- */
@@ -964,9 +964,9 @@ function adapt(dtMs){
 }
 function hudUpdate(){
   fps=Math.round(1000/Math.max(emaMs,1));
-  hud.innerHTML='FPS '+fps+'<br>STARS '+drawCount.toLocaleString()+
-    '<br>QUALITY '+Math.round(quality*100)+'%'+
-    '<br>RES '+canvas.width+'×'+canvas.height;
+  hud.innerHTML='초당 프레임 '+fps+'<br>별 '+drawCount.toLocaleString()+
+    '<br>품질 '+Math.round(quality*100)+'%'+
+    '<br>해상도 '+canvas.width+'×'+canvas.height;
 }
 
 /* ---------- intro & main loop ---------- */

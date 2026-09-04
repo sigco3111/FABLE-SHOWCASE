@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="TERRA MINOR — a pocket planet observatory. Procedural worlds software-rendered in pure Canvas 2D.">
-<title>TERRA MINOR — A Pocket Planet Observatory</title>
+<meta name="description" content="테라 마이너 — 주머니 속 행성 관측소. 절차적 세계를 순수 Canvas 2D로 소프트웨어 렌더링합니다.">
+<title>테라 마이너 — 주머니 속 행성 관측소</title>
 <style>
 :root{
   --amber:#d4a24e;
@@ -17,7 +17,7 @@
   --txt-dim:rgba(235,240,248,.42);
   --txt-faint:rgba(235,240,248,.24);
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --sans:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI",Roboto,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
@@ -168,26 +168,26 @@ body{
   <div id="vignette"></div>
   <div id="globeWrap">
     <canvas id="halo"></canvas>
-    <canvas id="globe" aria-label="Rotating procedural planet. Drag to spin."></canvas>
+    <canvas id="globe" aria-label="회전하는 절차적 행성. 끌어 돌려보세요."></canvas>
     <canvas id="ring"></canvas>
   </div>
   <header id="masthead">
-    <h1>TERRA <b>MINOR</b></h1>
-    <p>A POCKET PLANET OBSERVATORY</p>
+    <h1>테라 <b>마이너</b></h1>
+    <p>주머니 속 행성 관측소</p>
   </header>
   <aside id="dossier" aria-live="polite">
-    <div class="d-cap">SURVEY PLATE</div>
+    <div class="d-cap">관측 기록</div>
     <div class="d-name" id="dName">&nbsp;</div>
     <dl>
-      <div><dt>LAND COVERAGE</dt><dd id="dLand">—</dd></div>
-      <div><dt>DOMINANT BIOME</dt><dd id="dBiome">—</dd></div>
-      <div><dt>SETTLEMENTS</dt><dd id="dSett">—</dd></div>
-      <div><dt>SPECTRAL SEED</dt><dd id="dSeed" class="hot">—</dd></div>
+      <div><dt>육지 비율</dt><dd id="dLand">—</dd></div>
+      <div><dt>주된 생태계</dt><dd id="dBiome">—</dd></div>
+      <div><dt>정착지 수</dt><dd id="dSett">—</dd></div>
+      <div><dt>스펙트럼 시드</dt><dd id="dSeed" class="hot">—</dd></div>
     </dl>
   </aside>
   <div id="consoleBar">
     <div class="c-regen">
-      <button id="regen" aria-label="Regenerate world (R)" title="Regenerate (R)">
+      <button id="regen" aria-label="세계 재생성 (R)" title="재생성 (R)">
         <svg viewBox="0 0 64 64" aria-hidden="true">
           <circle class="rg-track" cx="32" cy="32" r="28"/>
           <circle class="rg-prog" id="rgProg" cx="32" cy="32" r="28"/>
@@ -195,31 +195,29 @@ body{
           <path class="rg-glyph" d="M41 17.5 v7.5 h-7.5"/>
         </svg>
       </button>
-      <span class="c-label">REGENERATE</span>
+      <span class="c-label">재생성</span>
     </div>
     <div class="c-seed">
-      <span class="c-label">SPECTRAL SEED</span>
-      <button id="seedBtn" title="Click to enter a seed">·······</button>
+      <span class="c-label">스펙트럼 시드</span>
+      <button id="seedBtn" title="클릭해 시드 입력">·······</button>
     </div>
     <div class="c-fader" id="fadeOcean"></div>
     <div class="c-fader" id="fadeTilt"></div>
-    <div class="c-hints">DRAG TO SLEW<br>SCROLL TO RANGE<br><span class="mono">`</span>&nbsp;TELEMETRY</div>
+    <div class="c-hints">드래그로 시선 이동<br>스크롤로 거리 조절<br><span class="mono">`</span> 텔레메트리</div>
   </div>
-  <button id="aboutBtn">ABOUT</button>
+  <button id="aboutBtn">소개</button>
   <div id="aboutPanel" hidden>
-    <h2>TERRA MINOR</h2>
-    <p>A pocket planet observatory. Every world is grown from a single number:
-    continents from 3-D noise, biomes classified by heat and rain, ice at the
-    poles, clouds on their own wind, and cities glittering along night-side
-    coasts.</p>
-    <p>Software-rendered — one HTML file, zero dependencies, pure Canvas&nbsp;2D.
-    Drag to slew, scroll to range, <kbd>R</kbd> to survey a new world,
-    <kbd>`</kbd> for telemetry. The URL hash stores the world, so any planet
-    can be shared.</p>
-    <p class="credit">Built by Claude Fable 5</p>
+    <h2>테라 마이너</h2>
+    <p>주머니 속 행성 관측소. 모든 세계는 단 하나의 숫자로부터 자랍니다:
+    3차원 노이즈로 빚어지는 대지, 열과 강수로 분류되는 생태계, 양극의 빙하,
+    각자 바람을 타는 구름, 그리고 야간 해안을 따라 반짝이는 도시들.</p>
+    <p>소프트웨어 렌더링 — 단일 HTML 파일, 의존성 제로, 순수 Canvas&nbsp;2D.
+    드래그로 시선을 돌리고, 스크롤로 거리를 조절하며, <kbd>R</kbd>로 새로운 세계를 답사하고,
+    <kbd>`</kbd>로 텔레메트리를 봅니다. URL 해시에 세계가 저장되어 어떤 행성이든 공유할 수 있습니다.</p>
+    <p class="credit">클로드 페이블 5 제작</p>
   </div>
   <div id="hud" hidden>
-    <span class="c-label">TELEMETRY</span>
+    <span class="c-label">텔레메트리</span>
     <canvas id="hudCv" width="190" height="42"></canvas>
     <div id="hudTxt"></div>
   </div>
@@ -618,13 +616,13 @@ function Fader(hostId,opt){
 
 var recolorFastPending=false, recolorFullPending=false;
 var oceanFader=new Fader("fadeOcean",{
-  label:"OCEAN DATUM",min:0,max:1,value:P.ocean,step:0.02,eps:0.002,
+  label:"해수면",min:0,max:1,value:P.ocean,step:0.02,eps:0.002,
   fmt:function(v){var m=Math.round((v-0.5)*1600);return(m>=0?"+":"−")+String(Math.abs(m)).padStart(3,"0")+" m"},
   onDisp:function(v){P.ocean=v;recolorFastPending=true},
   onSettle:function(v){P.ocean=v;recolorFullPending=true;pushHash()}
 });
 var tiltFader=new Fader("fadeTilt",{
-  label:"OBLIQUITY",min:0,max:45,value:P.tilt,step:0.5,eps:0.08,
+  label:"축 경사",min:0,max:45,value:P.tilt,step:0.5,eps:0.08,
   fmt:function(v){return v.toFixed(1)+"°"},
   onDisp:function(v){P.tilt=v;recolorFastPending=true;ringDirty=true},
   onSettle:function(v){P.tilt=v;recolorFullPending=true;ringDirty=true;pushHash()}
@@ -813,7 +811,7 @@ regenBtn.addEventListener("click",function(){
 seedBtn.addEventListener("click",function(){
   var inp=document.createElement("input");
   inp.id="seedInput";inp.maxLength=9;inp.value=serialOf(P.seed).replace("-","");
-  inp.setAttribute("aria-label","Enter hex seed");
+  inp.setAttribute("aria-label","시드 16진수 입력");
   seedBtn.replaceWith(inp);inp.focus();inp.select();
   function commit(apply){
     inp.replaceWith(seedBtn);
@@ -866,9 +864,9 @@ function updateDossier(){
 var perf={frame:0,pass:0,recolor:0,ema:16,bad:0,good:0,hist:new Float32Array(96),hi:0};
 function drawHud(){
   hudTxt.textContent=
-    "RES "+R.S+"²  Q "+quality.toFixed(2)+"\n"+
-    "FRAME "+perf.frame.toFixed(1)+" ms   PASS "+perf.pass.toFixed(1)+" ms\n"+
-    "RECOLOR "+perf.recolor.toFixed(1)+" ms";
+    "해상도 "+R.S+"²  Q "+quality.toFixed(2)+"\n"+
+    "프레임 "+perf.frame.toFixed(1)+" ms   패스 "+perf.pass.toFixed(1)+" ms\n"+
+    "리컬러 "+perf.recolor.toFixed(1)+" ms";
   var c=hudCv.getContext("2d");
   c.clearRect(0,0,190,42);
   for(var i=0;i<96;i++){
@@ -1135,7 +1133,7 @@ var errShown=false;
 function showErr(err){
   if(errShown)return;errShown=true;
   var e=$("err");e.hidden=false;
-  e.textContent="INSTRUMENT FAULT — "+(err&&err.message?err.message:String(err));
+  e.textContent="기기 오류 — "+(err&&err.message?err.message:String(err));
   if(console&&console.error)console.error(err);
 }
 

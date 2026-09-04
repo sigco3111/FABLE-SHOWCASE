@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Physarum — Living Ink</title>
+<title>피사룸 — 살아 있는 잉크</title>
 <style>
   :root{
     --tip: #b8fbff;
@@ -18,7 +18,7 @@
   *{ box-sizing:border-box; margin:0; padding:0; }
   html,body{ height:100%; width:100%; overflow:hidden; background:#05070b; }
   body{
-    font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family: system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--txt);
     -webkit-font-smoothing:antialiased;
     cursor:crosshair;
@@ -184,20 +184,20 @@
 
 <div id="ui">
   <div class="head">
-    <div class="title">Physarum<span class="dot"> ·</span> Living Ink</div>
+    <div class="title">피사룸<span class="dot"> ·</span> 살아 있는 잉크</div>
   </div>
-  <div class="sub">Bioluminescent slime mold</div>
-  <div class="tag"><em>Click</em> the void to drop food. <em>Drag</em> to lure the colony across the dark — it will chase your light. <em>Shift-click</em> removes food.</div>
+  <div class="sub">생물 발광 점균류</div>
+  <div class="tag"><em>클릭</em>으로 어둠 속에 먹이를 떨어뜨리세요. <em>드래그</em>하면 빛을 따라 콜로니가 다크를 가로질러 이동합니다. <em>Shift-클릭</em>은 먹이를 지웁니다.</div>
 
-  <div class="lbl">Palette</div>
+  <div class="lbl">팔레트</div>
   <div class="seg" id="palettes"></div>
 
-  <div class="lbl">Behaviour moods</div>
+  <div class="lbl">행동 무드</div>
   <div class="grid2" style="margin-bottom:16px">
-    <button class="btn" data-mood="neurons">Neurons</button>
-    <button class="btn" data-mood="coral">Coral</button>
-    <button class="btn" data-mood="veins">Veins</button>
-    <button class="btn" data-mood="static">Static Cling</button>
+    <button class="btn" data-mood="neurons">뉴런</button>
+    <button class="btn" data-mood="coral">산호</button>
+    <button class="btn" data-mood="veins">혈관</button>
+    <button class="btn" data-mood="static">정전기</button>
   </div>
 
   <div class="divider"></div>
@@ -207,22 +207,22 @@
   <div class="divider"></div>
 
   <div class="grid2">
-    <button class="btn tgl on" id="pulseBtn">Pulse</button>
-    <button class="btn tgl" id="pauseBtn">Pause</button>
-    <button class="btn" id="reseedBtn">Reseed</button>
-    <button class="btn" id="clearBtn">Clear Food</button>
-    <button class="btn" id="saveBtn">Save Frame</button>
-    <button class="btn" id="hideBtn">Hide UI</button>
+    <button class="btn tgl on" id="pulseBtn">펄스</button>
+    <button class="btn tgl" id="pauseBtn">일시정지</button>
+    <button class="btn" id="reseedBtn">리시드</button>
+    <button class="btn" id="clearBtn">먹이 지우기</button>
+    <button class="btn" id="saveBtn">프레임 저장</button>
+    <button class="btn" id="hideBtn">UI 숨기기</button>
   </div>
 
   <div class="foot">
-    <div class="pill">FOOD <b id="foodCount">0</b></div>
-    <div class="pill">PERF <b id="perf">auto</b></div>
+    <div class="pill">먹이 <b id="foodCount">0</b></div>
+    <div class="pill">성능 <b id="perf">자동</b></div>
   </div>
 
-  <div class="keys"><b>Space</b> pause · <b>H</b> hide · <b>S</b> save · <b>R</b> reseed · <b>C</b> clear · <b>P</b> pulse</div>
+  <div class="keys"><b>Space</b> 일시정지 · <b>H</b> 숨기기 · <b>S</b> 저장 · <b>R</b> 리시드 · <b>C</b> 먹이 지우기 · <b>P</b> 펄스</div>
 
-  <div class="credit">A single-file WebGL2 organism — GPU agents, ping-ponged pheromone field, hand-tuned gradient LUTs. Built by <b>Claude Fable 5</b>.</div>
+  <div class="credit">단일 파일 WebGL2 유기체 — GPU 에이전트, 핑퐁 페로몬 필드, 손으로 다듬은 그라데이션 LUT. <b>Claude Fable 5</b> 제작.</div>
 </div>
 
 <div id="toast"></div>

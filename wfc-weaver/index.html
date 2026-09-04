@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WEAVER — Watch Order Emerge from Chaos</title>
-<meta name="description" content="Weaver — an interactive wave-function-collapse loom. Watch order emerge from chaos, one collapsing cell at a time.">
+<title>WFC 위버 — 혼돈 속에서 질서가 피어나는 모습</title>
+<meta name="description" content="위버 — 인터랙티브 파동함수붕괴 직조기. 무너지는 셀 하나하나에서 혼돈 속에서 질서가 피어나는 모습을 지켜보세요.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%230A0B14'/%3E%3Cpath d='M32 11L53 32 32 53 11 32Z' fill='none' stroke='%234DD8FF' stroke-width='3.5'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%234DD8FF'/%3E%3C/svg%3E">
 <style>
 /* ============================================================
@@ -27,7 +27,7 @@ html,body{height:100%}
 body{
   background:var(--ink);
   color:var(--text-dim);
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",sans-serif;
   overflow:hidden;
   display:flex;
   flex-direction:column;
@@ -285,13 +285,13 @@ header{
 <div id="flash"></div>
 
 <header>
-  <div id="wordmark">We<em>a</em>ver</div>
-  <div id="tagline">a loom for collapsing wave functions · watch order emerge from chaos</div>
+  <div id="wordmark">위<em>버</em></div>
+  <div id="tagline">파동함수를 붕괴시키는 직조기 · 혼돈 속에서 피어나는 질서</div>
   <div id="stats">
-    <span><span class="lbl">cells </span><b id="stCells">0/0</b></span>
-    <span><span class="lbl">props/s </span><b id="stProps">0</b></span>
-    <span><span class="lbl">min H </span><b id="stEnt">—</b></span>
-    <span id="seedchip" title="click to copy shareable link"><span class="lbl">seed </span><b id="stSeed">—</b></span>
+    <span><span class="lbl">셀 </span><b id="stCells">0/0</b></span>
+    <span><span class="lbl">전파/초</span><b id="stProps">0</b></span>
+    <span><span class="lbl">최소 H </span><b id="stEnt">—</b></span>
+    <span id="seedchip" title="공유 가능한 링크 복사"><span class="lbl">시드</span><b id="stSeed">—</b></span>
   </div>
 </header>
 
@@ -303,63 +303,63 @@ header{
   </div>
 </main>
 
-<div id="statusline">warming the loom…</div>
+<div id="statusline">직조기를 예열하는 중…</div>
 
 <div id="controls">
   <div class="seg" id="themeseg">
-    <button data-theme="circuit" class="on">Circuit</button>
-    <button data-theme="pipes">Pipes</button>
-    <button data-theme="celtic">Celtic</button>
+    <button data-theme="circuit" class="on">회로</button>
+    <button data-theme="pipes">파이프</button>
+    <button data-theme="celtic">켈트</button>
   </div>
   <div class="divider"></div>
-  <button class="ibtn" id="btnPause" title="pause / resume (space)" aria-label="pause or resume">
+  <button class="ibtn" id="btnPause" title="일시정지 / 재개 (스페이스)" aria-label="일시정지 또는 재개">
     <svg viewBox="0 0 16 16" id="icoPause"><path d="M3 2h3.4v12H3zM9.6 2H13v12H9.6z"/></svg>
     <svg viewBox="0 0 16 16" id="icoPlay" style="display:none"><path d="M4 2l10 6-10 6z"/></svg>
   </button>
-  <button class="ibtn" id="btnStep" title="single collapse (→)" aria-label="single collapse step">
+  <button class="ibtn" id="btnStep" title="단일 붕괴 (→)" aria-label="단일 붕괴 단계">
     <svg viewBox="0 0 16 16"><path d="M3 2l7 6-7 6zM12 2h2v12h-2z"/></svg>
   </button>
-  <button class="ibtn" id="btnRegen" title="regenerate (R)" aria-label="regenerate">
+  <button class="ibtn" id="btnRegen" title="재생성 (R)" aria-label="재생성">
     <svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 1-5.66 4H4.5A4.7 4.7 0 1 0 8 3.3V6L3.8 3 8 0v2z"/></svg>
   </button>
   <div class="divider"></div>
   <div id="speedwrap">
     <input type="range" id="speed" min="0" max="100" value="42">
-    <span id="speedlabel">Brisk</span>
+    <span id="speedlabel">경쾌</span>
   </div>
   <div class="divider"></div>
-  <button class="ibtn" id="btnXray" title="x-ray: entropy numerals + ghost superpositions (X)" aria-label="toggle x-ray">
+  <button class="ibtn" id="btnXray" title="엑스레이: 엔트로피 수치 + 유령 중첩 (X)" aria-label="엑스레이 토글">
     <svg viewBox="0 0 16 16"><path d="M8 3C4.5 3 1.8 5.6.8 8c1 2.4 3.7 5 7.2 5s6.2-2.6 7.2-5C14.2 5.6 11.5 3 8 3zm0 8.2A3.2 3.2 0 1 1 8 4.8a3.2 3.2 0 0 1 0 6.4zM8 6.5A1.5 1.5 0 1 0 8 9.5 1.5 1.5 0 0 0 8 6.5z"/></svg>
   </button>
-  <button class="ibtn" id="btnAbout" title="about" aria-label="about">
+  <button class="ibtn" id="btnAbout" title="정보" aria-label="정보">
     <svg viewBox="0 0 16 16"><path d="M7 12h2v2H7zm2.6-3.4C10.4 7.9 12 7.3 12 5.4 12 3.4 10.4 2 8.1 2 5.9 2 4.2 3.4 4 5.6l2 .3C6.1 4.6 6.9 3.9 8 3.9c1.1 0 1.9.6 1.9 1.5 0 1-.8 1.3-1.8 2C7.4 8 7 8.7 7 10v.6h2v-.4c0-.8.2-1.1.6-1.6z"/></svg>
   </button>
 </div>
 
 <div id="about">
   <div id="aboutcard">
-    <h1>Weaver</h1>
-    <p style="color:var(--text-faint);font-size:11px;letter-spacing:.1em;text-transform:uppercase">wave-function collapse, made visible</p>
-    <h2>What you are watching</h2>
-    <p>Every cell begins as a superposition of every legal tile. The shimmer you see is <i>Shannon entropy</i> — white-hot where anything could still happen, cooling to deep violet as possibilities die. Each step, the loom finds the most-decided undecided cell, collapses it to one tile, and the consequences ripple outward through constraint propagation. Sometimes a region half a board away snaps into place because of a choice you made here.</p>
-    <h2>Divine intervention</h2>
-    <p>Click any shimmering cell and its legal futures fan out under your cursor. Pick one, and watch reality reorganize. Overreach — force a contradiction — and the tapestry shatters and unweaves itself to heal, backtracking cell by cell.</p>
-    <h2>The observer effect</h2>
-    <p>Rest your cursor anywhere on the loom and the collapse gravitates toward your attention — among the undecided, cells near the pointer are chosen first, so the weave literally grows where you look. Step away, and the loom returns to weaving wherever entropy runs lowest.</p>
-    <h2>Keys</h2>
+    <h1>위버</h1>
+    <p style="color:var(--text-faint);font-size:11px;letter-spacing:.1em;text-transform:uppercase">눈에 보이게 된 파동함수 붕괴</p>
+    <h2>무엇을 보고 계신가요</h2>
+    <p>모든 셀은 처음에 가능한 모든 타일의 중첩 상태로 시작합니다. 보이는 빛의 깜빡임은 <i>섀넌 엔트로피</i>입니다 — 무엇이든 일어날 수 있는 곳은 흰 열기로, 가능성이 사라질수록 짙은 보라색으로 식어갑니다. 매 단계마다 직조기는 가장 결정에 가까운 미결정 셀을 골라 하나의 타일로 붕괴시키고, 그 결과가 제약 전파를 통해 바깥으로 파문을 만듭니다. 때때로 보드의 반대편 영역이 여기서 내린 선택 때문에 제자리에 맞춰지기도 합니다.</p>
+    <h2>신의 개입</h2>
+    <p>빛이 깜빡이는 셀을 클릭하면 가능한 미래가 커서 아래로 펼쳐집니다. 하나를 고르면 현실이 다시 짜여지는 모습을 보게 됩니다. 너무 멀리 가서 — 모순을 강요하면 — 태피스트리가 스스로 깨지고 풀려나가며 한 셀씩 되돌아가 치유됩니다.</p>
+    <h2>관측자 효과</h2>
+    <p>직조기 어디에나 커서를 올려놓으면 붕괴가 시선이 향하는 쪽으로 끌려갑니다 — 미결정 셀 중에서 포인터에 가까운 셀이 먼저 선택되므로 직물이 문자 그대로 보는 곳에서 자라납니다. 떠나면 직조기는 엔트로피가 가장 낮은 곳에서 다시 짜기 시작합니다.</p>
+    <h2>단축키</h2>
     <div class="keys">
-      <kbd>space</kbd><span>pause / resume</span>
-      <kbd>→ / .</kbd><span>single collapse step</span>
-      <kbd>R</kbd><span>regenerate (new seed, ceremonial unweave)</span>
-      <kbd>1 2 3</kbd><span>circuit / pipes / celtic</span>
-      <kbd>X</kbd><span>x-ray: candidate counts + ghost superpositions</span>
-      <kbd>?</kbd><span>this panel</span>
+      <kbd>space</kbd><span>일시정지 / 재개</span>
+      <kbd>→ / .</kbd><span>단일 붕괴 단계</span>
+      <kbd>R</kbd><span>재생성 (새 시드, 의식적인 풀어내기)</span>
+      <kbd>1 2 3</kbd><span>회로 / 파이프 / 켈트</span>
+      <kbd>X</kbd><span>엑스레이: 후보 수 + 유령 중첩</span>
+      <kbd>?</kbd><span>이 패널</span>
     </div>
-    <h2>Under the hood</h2>
-    <p>Zero assets, zero dependencies. All tiles are drawn by Canvas2D path code into an offscreen atlas at boot; adjacency rules are derived automatically from edge-socket signatures. Cell state is a 32-bit possibility bitmask, propagation is a flat work-queue, and contradictions heal via a delta-snapshot backtracking ring. Seeded PRNG — the seed in the URL hash reproduces the exact same weave.</p>
+    <h2>내부 구조</h2>
+    <p>에셋 없음, 의존성 없음. 모든 타일은 부팅 시 Canvas2D 패스 코드로 오프스크린 아틀라스에 그려지며, 인접 규칙은 가장자리 시그니처에서 자동으로 파생됩니다. 셀 상태는 32비트 가능성 비트마스크, 전파는 플랫 워크플이고, 모순은 델타 스냅샷 백트래킹 링으로 치유됩니다. 시드 기반 PRNG — URL 해시의 시드가 똑같은 직물을 정확히 재현합니다.</p>
     <footer>
-      <span>Built by Claude Fable 5</span>
-      <button id="aboutclose">weave on</button>
+      <span>제작 Claude Fable 5</span>
+      <button id="aboutclose">이어 짜기</button>
     </footer>
   </div>
 </div>
@@ -607,16 +607,16 @@ function buildConnectorTiles(drawFn,weights){
 }
 const THEMES={
   circuit:{
-    label:'Circuit',board:'#0B100D',
+    label:'회로',board:'#0B100D',
     tiles:(()=>{const t=buildConnectorTiles(drawCircuit,{blank:3.2,straight:2.6,corner:1.8,tee:0.9,cross:0.45});
       t.push({w:0.7,sockets:[1,1,1,1],draw:drawChip});return t;})(),
   },
   pipes:{
-    label:'Pipes',board:'#161A21',
+    label:'파이프',board:'#161A21',
     tiles:buildConnectorTiles(drawPipes,{blank:2.4,straight:2.8,corner:1.9,tee:0.8,cross:0.5}),
   },
   celtic:{
-    label:'Celtic',board:'#0D0A1C',
+    label:'켈트',board:'#0D0A1C',
     tiles:(()=>{const t=buildConnectorTiles(drawCeltic,{blank:2.0,straight:2.6,corner:2.0});
       t.push({w:1.3,sockets:[1,1,1,1],draw:(c,s)=>drawCelticCross(c,s,true)});
       t.push({w:1.3,sockets:[1,1,1,1],draw:(c,s)=>drawCelticCross(c,s,false)});
@@ -786,7 +786,7 @@ function stepOnce(){
   const i=findMinEntropy();
   if(i<0){
     mode='done';
-    setStatus(`weave complete — ${N} cells · seed ${seed.toString(16)}`,'glow');
+    setStatus(`직조 완료 — ${N} 셀 · 시드 ${seed.toString(16)}`,'glow');
     return false;
   }
   collapseAt(i,pickWeighted(mask[i]),false);
@@ -815,7 +815,7 @@ function heal(contraCell){
     const step=steps.pop();
     if(!step){hardReset();return;}
     const unwoven=undoStep(step);
-    setStatus(`contradiction at (${cx},${cy}) — unweaving ${unwoven} cells`,'alert');
+    setStatus(`(${cx},${cy})에서 모순 발생 — ${unwoven} 셀을 풀어냅니다`,'alert');
     ripples.push({x:(cx+.5)*cs,y:(cy+.5)*cs,t0:now(),max:Math.max(cols,rows)*cs*.5,hot:true});
     const banned=mask[step.cell]&~((1<<step.tile)>>>0);
     if(banned===0)continue;              /* dig deeper into history */
@@ -830,7 +830,7 @@ function heal(contraCell){
   hardReset();
 }
 function hardReset(){
-  setStatus('the weave collapsed beyond repair — reweaving from a fresh seed','alert');
+  setStatus('직물이 복구할 수 없을 만큼 무너졌습니다 — 새 시드로 다시 짜는 중','alert');
   regenerate();
 }
 
@@ -943,7 +943,7 @@ function render(t,dt){
     if(p>=1){
       mode='weave';
       sctx.clearRect(0,0,W,H);
-      setStatus(`weaving seed ${seed.toString(16)} · ${cols}×${rows} · ${TH.n} ${themeKey} tiles`);
+      setStatus(`시드 ${seed.toString(16)} 직조 · ${cols}×${rows} · ${TH.n} ${themeKey} 타일`);
     }
   }
 
@@ -1194,12 +1194,12 @@ function regenerate(opts={}){
     /* ceremonial unweave: keep old pixels on settled, wipe diagonally */
     mode='unweave';
     wipeT0=now();
-    setStatus('unweaving — entropy floods back like ink in water…','glow');
+    setStatus('풀어내는 중 — 엔트로피가 물속의 잉크처럼 다시 퍼져나갑니다…','glow');
   }else{
     mode='weave';
     sctx.clearRect(0,0,cols*cs,rows*cs);
     for(let i=0;i<N;i++)wipedA[i]=1;
-    setStatus(`weaving seed ${seed.toString(16)} · ${cols}×${rows} · ${TH.n} ${themeKey} tiles`);
+    setStatus(`시드 ${seed.toString(16)} 직조 · ${cols}×${rows} · ${TH.n} ${themeKey} 타일`);
   }
 }
 
@@ -1251,7 +1251,7 @@ function openPicker(i,px,py){
   cands.forEach((t,k)=>{
     const b=document.createElement('button');
     b.className='pk';
-    b.title=`weight ${TH.w[t].toFixed(2)}`;
+    b.title=`가중치 ${TH.w[t].toFixed(2)}`;
     const cv=document.createElement('canvas');
     cv.width=92;cv.height=92;
     cv.getContext('2d').drawImage(TH.atlas,t*TS,0,TS,TS,0,0,92,92);
@@ -1269,7 +1269,7 @@ function openPicker(i,px,py){
       closePicker();
       if(cell>=0&&countA[cell]>1&&(mask[cell]>>>t&1)){
         const x=cell%cols,y=(cell/cols)|0;
-        setStatus(`divine intervention at (${x},${y}) — reality reorganizes`,'glow');
+        setStatus(`(${x},${y})에 신의 개입 — 현실이 다시 짜여집니다`,'glow');
         collapseAt(cell,t,true);
       }
     });
@@ -1289,7 +1289,7 @@ boardEl.addEventListener('click',e=>{
   const x=clamp((px/cs)|0,0,cols-1),y=clamp((py/cs)|0,0,rows-1);
   const i=idx(x,y);
   if(countA[i]<=1){
-    setStatus(`(${x},${y}) is sealed — its fate is woven`,'');
+    setStatus(`(${x},${y}) 봉인됨 — 운명은 짜여졌습니다`,'');
     ripples.push({x:(x+.5)*cs,y:(y+.5)*cs,t0:now(),max:cs*4});
     return;
   }
@@ -1308,7 +1308,7 @@ boardEl.addEventListener('pointermove',e=>{
   obsX=obsPx/cs;obsY=obsPy/cs;
   if(!obsHinted&&mode==='weave'&&running){
     obsHinted=true;
-    setStatus('observer effect — the weave bends toward your attention','glow');
+    setStatus('관측자 효과 — 직물이 시선을 따라 휘어집니다','glow');
   }
 });
 boardEl.addEventListener('pointerleave',()=>{obsX=-1;obsY=-1;});
@@ -1321,7 +1321,7 @@ function setRunning(v){
   $('icoPause').style.display=v?'':'none';
   $('icoPlay').style.display=v?'none':'';
   $('btnPause').classList.toggle('on',!v);
-  if(!v)setStatus('loom paused — → to step, space to resume');
+  if(!v)setStatus('직조기 일시정지 — → 키로 한 단계, 스페이스로 재개');
   else if(mode==='weave')setStatus('');
 }
 $('btnPause').addEventListener('click',()=>setRunning(!running));
@@ -1331,7 +1331,7 @@ let xray=false;
 $('btnXray').addEventListener('click',()=>{
   xray=!xray;
   $('btnXray').classList.toggle('on',xray);
-  setStatus(xray?'x-ray on — candidate counts + ghost superpositions':'x-ray off');
+  setStatus(xray?'엑스레이 켜짐 — 후보 수 + 유령 중첩':'엑스레이 꺼짐');
 });
 $('btnAbout').addEventListener('click',()=>$('about').classList.add('open'));
 $('aboutclose').addEventListener('click',()=>$('about').classList.remove('open'));
@@ -1354,7 +1354,7 @@ for(const b of document.querySelectorAll('#themeseg button'))
 $('seedchip').addEventListener('click',()=>{
   const url=location.href.split('#')[0]+`#s=${seed.toString(16)}&t=${themeKey}`;
   if(navigator.clipboard)navigator.clipboard.writeText(url).then(
-    ()=>setStatus('shareable weave copied to clipboard','glow'),
+    ()=>setStatus('공유 가능한 직물이 클립보드에 복사되었습니다','glow'),
     ()=>setStatus(url));
   else setStatus(url);
 });
@@ -1409,7 +1409,7 @@ window.__weaver={
 }catch(err){
   console.error(err);
   const el=document.getElementById('statusline');
-  if(el){el.textContent='loom error: '+err.message;el.className='alert';}
+  if(el){el.textContent='직조기 오류: '+err.message;el.className='alert';}
 }})();
 </script>
 </body>

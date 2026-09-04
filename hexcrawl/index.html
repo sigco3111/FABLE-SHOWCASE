@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hexcrawl — The Cartographer's Table</title>
+<title>헥스크롤 — 카토그래퍼의 탁자</title>
 <style>
 :root{
   --ink:#4a3826;
@@ -15,7 +15,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
 body{
-  font-family:Georgia,'Iowan Old Style','Times New Roman',serif;
+  font-family:Georgia,'Iowan Old Style','Times New Roman','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',serif;
   color:var(--ink);
   background:
     radial-gradient(120% 90% at 50% 30%, rgba(255,190,90,.10), rgba(0,0,0,.55)),
@@ -168,63 +168,63 @@ button.bt:active{transform:translateY(1px)}
   <div id="vign"></div>
   <div id="candle"></div>
   <div id="tip"></div>
-  <div id="card" class="hidden"><button id="cardX" title="close">x</button><div id="cardBody"></div></div>
+  <div id="card" class="hidden"><button id="cardX" title="닫기">x</button><div id="cardBody"></div></div>
 </div>
 
 <aside id="panel">
-  <h1>Hexcrawl</h1>
-  <div class="tag">The Cartographer's Table — turn a seed into a world, one hex, river and rune-named village at a time.</div>
+  <h1>헥스크롤</h1>
+  <div class="tag">카토그래퍼의 탁자 — 씨앗 하나로 세계를, 육각 한 칸과 강, 룬 문자가 새겨진 마을을 하나씩 빚어냅니다.</div>
 
   <div class="note">
-    <div class="nlabel">Seed of the World</div>
+    <div class="nlabel">세계의 씨앗</div>
     <input id="seed" spellcheck="false" autocomplete="off">
     <div class="btnrow">
-      <button class="bt" id="roll" title="cast the dice">Cast the Dice</button>
-      <button class="bt" id="redraw" title="re-ink this seed">Re-ink</button>
+      <button class="bt" id="roll" title="주사위를 던지세요">주사위 굴리기</button>
+      <button class="bt" id="redraw" title="이 씨앗 다시 그리기">다시 그리기</button>
     </div>
   </div>
 
   <div class="note">
-    <div class="nlabel">Extent of the Survey</div>
+    <div class="nlabel">탐사의 범위</div>
     <div id="dialWrap">
-      <div id="dial" title="turn the dial">
+      <div id="dial" title="다이얼 돌리기">
         <div id="needle"></div>
-        <span class="dl s">S</span><span class="dl m">M</span><span class="dl l">L</span>
+        <span class="dl s">소</span><span class="dl m">중</span><span class="dl l">대</span>
       </div>
       <div id="sizeName"></div>
     </div>
   </div>
 
   <div class="note">
-    <div class="nlabel">Inkwell — Label Density</div>
+    <div class="nlabel">먹물 — 이름 밀도</div>
     <input type="range" id="ink" min="0" max="100" value="55">
-    <div class="inkcap"><span>sparse</span><span>gazetteer</span></div>
+    <div class="inkcap"><span>희소</span><span>풍부</span></div>
   </div>
 
   <div class="note">
-    <div class="nlabel">Marginalia</div>
-    <label class="tg"><input type="checkbox" id="tGrid"><span>Show hex lattice</span></label>
-    <label class="tg"><input type="checkbox" id="tCoord"><span>Surveyor's coordinates</span></label>
-    <label class="tg"><input type="checkbox" id="tPol"><span>Political ink (cultures)</span></label>
-    <label class="tg"><input type="checkbox" id="tCandle" checked><span>Candlelight</span></label>
+    <div class="nlabel">주변 기록</div>
+    <label class="tg"><input type="checkbox" id="tGrid"><span>육각 격자 표시</span></label>
+    <label class="tg"><input type="checkbox" id="tCoord"><span>측량 좌표</span></label>
+    <label class="tg"><input type="checkbox" id="tPol"><span>정치적 표시 (문화)</span></label>
+    <label class="tg"><input type="checkbox" id="tCandle" checked><span>촛불 조명</span></label>
   </div>
 
   <div class="note">
-    <div class="nlabel">Instruments</div>
+    <div class="nlabel">도구</div>
     <div class="btnrow">
-      <button class="bt" id="frame">Frame World</button>
-      <button class="bt" id="export">Export PNG</button>
+      <button class="bt" id="frame">액자 잡기</button>
+      <button class="bt" id="export">PNG 내보내기</button>
     </div>
   </div>
 
   <div id="about">
-    Every coastline, river, ruler and rumor on this sheet is derived from the seed above —
-    share those few characters and you share the whole world, down to the last village gossip.
-    Drag to pan, scroll to zoom, click any hex for its gazetteer entry.<br>
-    <b>Built by Claude Fable 5</b> — vellum &amp; ink, no network, one file.
+    이 도면 위의 모든 해안선과 강, 군주, 소문은 위의 씨앗에서 파생된 것입니다 —
+    그 몇 글자를 공유하면 마을의 마지막 소문에 이르기까지 세계 전체를 함께 공유하는 셈입니다.
+    드래그로 이동, 스크롤로 확대, 아무 육각 칸을 클릭하면 그곳의 지항서를 볼 수 있습니다.<br>
+    <b>Claude Fable 5 제작</b> — 양피지와 먹물, 네트워크 없음, 단일 파일.
   </div>
 </aside>
-<button id="panelToggle">Marginalia</button>
+<button id="panelToggle">주변 기록</button>
 
 <script>
 'use strict';
@@ -431,11 +431,11 @@ const CULTURES={
     ps:['vik','holm','fjord','gard','stad','heim','by','ness','dal','fell','strand','mark','vang','stave'],
     fp:['Hroth','Sig','Thor','Ast','Ey','Gud','Ing','Ragn','Sven','Bryn','Halv','Geir'],
     fs:['gar','run','dis','olf','vald','hild','mund','nir','var','frid'],
-    titles:['Elder','Reeve','Thane','Jarl'],
-    rp:['Wyrm','Cold','Grey','Iron','Elk','Night','Whale','Bone','Reed','Hail'],
+    titles:['원로','집사','영주','야를'],
+    rp:['뱀','한파','회색','철','엘크','밤','고래','뼈','갈대','우박'],
     rs:['wash','rush','beck','force','run','flood'],
     regionPat:['the {X} Fells','the {X}mark','the {X} Reaches','the Sound of {X}','the {X} Coast','the {X} Barrens','the Marches of {X}'],
-    exportsExtra:['whale oil','walrus ivory','stockfish']
+    exportsExtra:['고래기름','바다코끼리 상아','건어물']
   },
   bryth:{
     key:'bryth',adj:'Brythonic',demonym:'the Vale-folk',tint:'rgba(88,116,62,0.16)',
@@ -443,11 +443,11 @@ const CULTURES={
     ps:['wyn','dore','fach','llyn','combe','mere','tref','wick','carrow','hollow','dew','rath','morrow'],
     fp:['Bran','Eir','Gwen','Mael','Rhi','Cad','Ol','Tal','Ness','Ider'],
     fs:['wen','ys','dda','gan','annon','oc','wyn','ith','ora','ell'],
-    titles:['Elder','Squire','Baron','High Lord'],
+    titles:['원로','종자','남작','대영주'],
     rp:['Maren','Dun','Ash','Otter','Mist','Bell','Sallow','Hart','Wend','Lark'],
     rs:['water','brook','bourne','mere','rill','wend'],
     regionPat:['the Marches of {X}','the Vale of {X}','the {X} Wold','the {X} Downs','the {X} Hundred','the Weald of {X}','the {X} Levels'],
-    exportsExtra:['cider','tin','fleece']
+    exportsExtra:['사이다','주석','양모']
   },
   desert:{
     key:'desert',adj:'Desert-tongue',demonym:'the Sand-born',tint:'rgba(168,96,42,0.15)',
@@ -455,51 +455,51 @@ const CULTURES={
     ps:['sar','ath','im','qar','oun','esh','adi','um','ir','aza','ek','ah','ara'],
     fp:['Zul','Ras','Om','Sar','Kha','Fah','Idr','Naz','Yas','Har'],
     fs:['im','ira','oud','ath','een','al','iq','ez','ara','oun'],
-    titles:['Headman','Sheikh','Emir','Sultan'],
+    titles:['촌장','족장','아미르','술탄'],
     rp:['Glass','Salt','Mirror','Serpent','Amber','Dust','Moon','Copper','Falcon','Thirst'],
     rs:['flow','cut','seep','course','vein','wend'],
     regionPat:['the Erg of {X}','the {X} Wastes','the {X} Reaches','the Emirate of {X}','the {X} Steppe','the Sands of {X}'],
-    exportsExtra:['indigo','dates','blown glass']
+    exportsExtra:['남색','대추야자','블론 유리']
   }
 };
-const EPITHETS=['the Unsmiling','the Red-Handed','the Quiet','the Lame','Wyrmfriend','the Open-Handed','Three-Fingers','the Pious','the Wolf','Salt-Beard','the Younger','the Far-Eyed','Oathkeeper','the Hollow','Stormborn','the Gilded','the Patient','Crowfeeder','the Twice-Crowned','the Unlucky'];
+const EPITHETS=['무표정자','붉은 손의','고요한','다리 절은 자','용의 벗','열린 손의','세 손가락의','경건한','늑대','소금 수염','어린','먼 눈의','서약 지킨 자','텅 빈','폭풍 출신','도금된','인내심 강한','까마귀 먹인 자','두 번 왕관 쓴 자','운 없는'];
 const EXPORTS={
-  coast:['salt cod','amber','pearls','ship timber','sea salt','kelp ash'],
-  river:['freshwater eels','milled grain','river clay','dyed wool','barge pitch'],
-  grass:['wool','horses','barley','cheese','hides'],
-  forest:['furs','timber','honey','resin','charcoal','game'],
-  dark:['rare fungi','yew staves','pitch','nightshade'],
-  desert:['glasswork','rock salt','copper','saffron'],
-  tundra:['ivory','white furs','iron bloom','peat'],
-  hills:['silver','iron','granite','garnets','slate'],
-  mount:['silver','iron','gems','marble']
+  coast:['건어','호박','진주','선재','천일염','다시마 재'],
+  river:['민물 뱀장어','도정 곡물','강 점토','염색한 양모','운하용 역청'],
+  grass:['양모','말','보리','치즈','가죽'],
+  forest:['모피','목재','꿀','수지','숯','사냥감'],
+  dark:['희귀 균류','주목 지팡이','역청','벨라돈나'],
+  desert:['유리 공예','암염','구리','사프란'],
+  tundra:['상아','흰 모피','철 꽃','이탄'],
+  hills:['은','철','화강암','석류석','판석'],
+  mount:['은','철','보석','대리석']
 };
 const RUMORS=[
-  'They say the old road to {S} has gone quiet — too quiet for honest trade.',
-  'A fisherman pulled a sealed brass lamp out of {R}; he has not slept since.',
-  '{N} pays bounty on wyvern eggs, no questions asked.',
-  'The shrine bell rings by itself on moonless nights, and nobody will say why.',
-  'Wolves near {S} have been walking on two legs, if you believe the carters.',
-  'A map to the barrow-gold of {G} is said to be sewn inside the tithe-barn roof.',
-  'Every third well in {G} has turned sweet as mead. The priests are worried.',
-  'A pale ship was seen off the coast flying no flag and casting no wake.',
-  'The toll-keeper on the {S} road vanished, but his lantern still makes the rounds.',
-  'Children here draw the same spiral in the mud, and none of them will say where they learned it.'
+  '{S}로 가는 오래된 길이 너무 조용해졌다고 한다 — 정직한 교역치고는 너무 조용하다.',
+  '어부가 {R}에서 봉인된 황동 램프를 건져 올렸는데, 그 이후로 잠을 자지 못한다.',
+  '{N}에서 와이번 알에 대해 아무 묻지 말고 현상금을 건다.',
+  '달 없는 밤에 사원 종이 스스로 울리고, 그 이유를 아는 사람이 없다.',
+  '짐꾼들의 말을 믿는다면, {S} 근처의 늑대들이 두 발로 걷기 시작했다.',
+  '{G}의 구릉 속 금은 지붕 위에 바느질된 지도 하나가 있다고 한다.',
+  '{G}의 세 번째 우물마다 모두 미드처럼 달아졌다. 사제들이 노심초사한다.',
+  '깃발도 흔적도 없이 깃발 없는 배가 해안 밖에서 목격되었다.',
+  '{S} 길의 통행세 징수인이 사라졌지만, 그의 등불은 여전히 순찰을 돈다.',
+  '이 마을 아이들은 모두 진흙에 같은 소용돌이를 그리는데, 어디서 배웠는지 아무도 말하지 않는다.'
 ];
 const HOOKS=[
-  'Escort a reliquary to {S} before the passes close for winter.',
-  'Find out who — or what — has been salting the fields by night.',
-  'Recover the toll-ledger stolen from the ferry on {R}.',
-  'Break the siege of rats beneath the granary; their tunnels go down too far.',
-  'Chart the drowned quarter that the low tide revealed last month.',
-  'Deliver a sealed letter to {N} — unopened, whatever it whispers.',
-  'Hunt the beast that leaves six-toed prints along {R} after every storm.',
-  'A cartographer went into {G} with three mules and came back as a rumor. Find the maps.'
+  '눈가을 산길이 닫히기 전에 {S}까지 성유물을 호위하라.',
+  '밤마다 밭에 소금을 뿌려놓은 것이 누구 — 또는 무엇 — 인지 밝혀내라.',
+  '{R}의 나루에서 훔쳐간 통행 징수 장부를 되찾아라.',
+  '곡물 저장실 아래에서 쥐들의 포위를 풀어라. 그들이 판 터널은 너무 깊다.',
+  '지난달 간조가 드러낸 물에 잠긴 지구를 측량하라.',
+  '봉인된 — 무슨 속삭임이 들리든 — 편지를 {N}에게 전해라.',
+  '매 폭풍 뒤 {R} 여섯 발자국 자국을 남기는 짐승을 쫓아라.',
+  '한 카토그래퍼가 {G}에 노새 세 마리를 끌고 들어가 소문 하나가 되어 돌아왔다. 그 지도를 찾아라.'
 ];
-const RANKNAMES=['thorp','village','town','city'];
+const RANKNAMES=['촌','마을','소도시','대도시'];
 
 /* ============================ world generation =========================== */
-const SIZES={S:{cols:26,name:'Small'},M:{cols:40,name:'Middling'},L:{cols:64,name:'Large'}};
+const SIZES={S:{cols:26,name:'작게'},M:{cols:40,name:'중간'},L:{cols:64,name:'크게'}};
 const DIRS=[[1,0],[1,-1],[0,-1],[-1,0],[-1,1],[0,1]];
 const DIRA=[0,-60,-120,180,120,60];
 const SEA=0.5;
@@ -522,7 +522,7 @@ function classify(e,m,t){
   if(m>0.45)return 'forest';
   return 'grass';
 }
-const TERRNAME={deep:'the open sea',shal:'coastal shallows',grass:'open grassland',forest:'woodland',dark:'deep dark forest',hills:'rolling hills',mount:'high mountains',desert:'desert',tundra:'tundra',snow:'snowbound waste'};
+const TERRNAME={deep:'끝없는 바다',shal:'바닷가의 얕은 물',grass:'들판',dark:'짙은 숲',hills:'구릉',mount:'높은 산맥',desert:'사막',tundra:'툰드라',snow:'눈 덮인 황무지'};
 
 function generate(seedStr,sizeKey){
   const seedNum=xmur3(seedStr)();
@@ -1630,7 +1630,7 @@ function showTip(h,mx,my){
   if(!h||!world){hideTip();return;}
   const co='Hex '+pad2(h.col)+'.'+pad2(h.row);
   const place=h.set?('<b>'+h.set.name+'</b> — '+RANKNAMES[h.set.rank]) : TERRNAME[h.terr];
-  tip.innerHTML='<span class="co">'+co+'</span> — <span class="rg">'+(h.region?h.region.name:'uncharted')+'</span><br>'+place;
+  tip.innerHTML='<span class="co">'+co+'</span> — <span class="rg">'+(h.region?h.region.name:'미개척')+'</span><br>'+place;
   tip.style.display='block';
   moveTip(mx,my);
 }
@@ -1645,12 +1645,12 @@ function hideTip(){tip.style.display='none';}
 const card=$('card'),cardBody=$('cardBody');
 $('cardX').addEventListener('click',()=>card.classList.add('hidden'));
 function elevBand(e){
-  if(e<0.35)return 'deep water';
-  if(e<SEA)return 'shallows';
-  if(e<0.58)return 'lowlands';
-  if(e<0.7)return 'rolling country';
-  if(e<0.8)return 'high fells';
-  return 'peaks';
+  if(e<0.35)return '깊은 물';
+  if(e<SEA)return '얕은 물';
+  if(e<0.58)return '저지대';
+  if(e<0.7)return '구릉지대';
+  if(e<0.8)return '높은 구릉';
+  return '봉우리';
 }
 function nearestSett(h,exclude){
   let best=null,bd=1e9;
@@ -1683,23 +1683,23 @@ function openGazetteer(h){
     if(h.river)pool=pool.concat(EXPORTS.river);
     pool=pool.concat(cul.exportsExtra);
     const e1=pick(sub,pool);let e2=pick(sub,pool);if(e2===e1)e2=pick(sub,pool);
-    const fillCtx={S:near?near.s.name:'the next holding',R:rivNamed,G:rg?rg.name:'the wilds',N:ruler};
+    const fillCtx={S:near?near.s.name:'이웃 영지',R:rivNamed,G:rg?rg.name:'야지',N:ruler};
     html+='<h3>'+s.name+'</h3>';
-    html+='<div class="sub">'+cap(RANKNAMES[s.rank])+' of '+cul.demonym+' &middot; '+(rg?rg.name:'')+' &middot; '+co+'</div>';
-    html+='<div class="row"><b>Souls</b> &mdash; about '+fmtNum(pop)+'</div>';
-    html+='<div class="row"><b>Ruled by</b> &mdash; '+ruler+'</div>';
-    html+='<div class="row"><b>Chief exports</b> &mdash; '+e1+(e2!==e1?' and '+e2:'')+'</div>';
-    html+='<div class="row"><b>Sits upon</b> &mdash; '+TERRNAME[h.terr]+(h.river?', astride '+ (h.river.name||'a river'):'')+(h.isCoast?', hard against the sea':'')+'</div>';
+    html+='<div class="sub">'+cap(RANKNAMES[s.rank])+'의 '+cul.demonym+' &middot; '+(rg?rg.name:'')+' &middot; '+co+'</div>';
+    html+='<div class="row"><b>인구</b> &mdash; 약 '+fmtNum(pop)+'명</div>';
+    html+='<div class="row"><b>통치자</b> &mdash; '+ruler+'</div>';
+    html+='<div class="row"><b>주요 산출품</b> &mdash; '+e1+(e2!==e1?' 및 '+e2:'')+'</div>';
+    html+='<div class="row"><b>자리 잡은 곳</b> &mdash; '+TERRNAME[h.terr]+(h.river?', '+(h.river.name||'한 강')+' 옆에':'')+(h.isCoast?', 바다가 바로 옆에':'')+'</div>';
     html+='<div class="rum">&ldquo;'+fill(pick(sub,RUMORS),fillCtx)+'&rdquo;</div>';
-    html+='<div class="hook"><b>Hook</b> &mdash; '+fill(pick(sub,HOOKS),fillCtx)+'</div>';
+    html+='<div class="hook"><b>모티프</b> &mdash; '+fill(pick(sub,HOOKS),fillCtx)+'</div>';
   }else{
-    const title=h.water?(h.terr==='deep'?'The Open Sea':'Coastal Waters'):cap(TERRNAME[h.terr]);
+    const title=h.water?(h.terr==='deep'?'끝없는 바다':'바닷가'):cap(TERRNAME[h.terr]);
     html+='<h3>'+title+'</h3>';
     html+='<div class="sub">'+co+(rg?' &middot; '+rg.name:'')+'</div>';
-    html+='<div class="row"><b>Ground</b> &mdash; '+elevBand(h.e)+(h.lake?', holding a cold tarn':'')+(h.river?', crossed by '+(h.river.name||'a nameless river'):'')+'</div>';
-    if(!h.water)html+='<div class="row"><b>Tongue</b> &mdash; these lands answer to '+cul.demonym+' ('+cul.adj+' names)</div>';
-    html+='<div class="row"><b>Nearest hearth</b> &mdash; '+nearTxt+'</div>';
-    const wildRumor=['Old cairns here predate every kingdom on this sheet.','Hunters mark this hex with a crossed-twig sign and will not say why.','The birds go quiet here an hour before any storm.','Something large keeps the game trails wider than they should be.','A cartographer’s brass instrument was found here, still warm.'];
+    html+='<div class="row"><b>지형</b> &mdash; '+elevBand(h.e)+(h.lake?', 차가운 호수를 품고':'')+(h.river?', '+(h.river.name||'이름 없는 강')+'가 가로지름':'')+'</div>';
+    if(!h.water)html+='<div class="row"><b>언어</b> &mdash; 이 땅의 이름을 붙이는 것은 '+cul.demonym+' ('+cul.adj+' 어휘)</div>';
+    html+='<div class="row"><b>가장 가까운 영지</b> &mdash; '+nearTxt+'</div>';
+    const wildRumor=['이곳의 오래된 돌탑들은 이 도면의 어떤 왕국보다 먼저 세워졌다.','사냥꾼들은 이 칸에 나뭇가지를 엇갈려 세우는 표시를 남기고, 이유를 말하지 않는다.','폭풍 한 시간 전이면 이 새들이 침묵한다.','무언가 거대한 존재가 사냥길을 있어야 할 때보다 넓게 만든다.','여기서 한 카토그래퍼의 황동 측각기가 아직 따뜻한 채로 발견되었다.'];
     html+='<div class="rum">&ldquo;'+pick(sub,wildRumor)+'&rdquo;</div>';
   }
   cardBody.innerHTML=html;
@@ -1707,11 +1707,11 @@ function openGazetteer(h){
   card.scrollTop=0;
 }
 function showAbout(){
-  cardBody.innerHTML='<h3>The Cartographer’s Table</h3>'
-    +'<div class="sub">a seeded procedural atlas</div>'
-    +'<div class="row">Elevation and moisture fields (domain-warped simplex noise) are classified into biomes on a pointy-top hex grid; rivers follow real flow accumulation downhill to the sea; three syllable-grammars give each culture its own names for towns, rivers and marches.</div>'
-    +'<div class="row" style="margin-top:8px">Everything &mdash; every coastline, jarl and rumor &mdash; is deterministically derived from the seed. Share the seed (the URL carries it) and you share the world.</div>'
-    +'<div class="rum">Built by Claude Fable 5 &mdash; vellum &amp; ink, a single file, no network.</div>';
+  cardBody.innerHTML='<h3>카토그래퍼의 탁자</h3>'
+    +'<div class="sub">씨앗 기반 절차적 지도책</div>'
+    +'<div class="row">고도와 수분 필드(도메인 워프 심플렉스 노이즈)를 뾰족 위쪽 육각 격자 위의 바이옴으로 분류하고, 강은 실제로 흐름 누적값을 따라 바다까지 흘러 내려갑니다. 세 개의 음절 문법이 각 문화에 고유한 마을·강·변두리의 명명법을 부여합니다.</div>'
+    +'<div class="row" style="margin-top:8px">모든 것 — 해안선, 영주, 소문까지 — 은 씨앗에서 결정적으로 파생됩니다. 씨앗을 공유하세요(URL에 담겨 있습니다) — 그러면 세계를 함께 공유하는 셈입니다.</div>'
+    +'<div class="rum">Claude Fable 5 제작 — vellum &amp; ink, 단일 파일, 네트워크 없음.</div>';
   card.classList.remove('hidden');
 }
 
@@ -1752,7 +1752,7 @@ const needle=$('needle'),sizeName=$('sizeName');
 const dialAng={S:-62,M:0,L:62};
 function setDial(){
   needle.style.transform='rotate('+dialAng[ui.size]+'deg)';
-  sizeName.innerHTML='<b style="font-variant:small-caps;letter-spacing:1px">'+SIZES[ui.size].name+'</b><br>'+SIZES[ui.size].cols+' columns of hexes';
+  sizeName.innerHTML='<b style="font-variant:small-caps;letter-spacing:1px">'+SIZES[ui.size].name+'</b><br>'+SIZES[ui.size].cols+'개의 육각 열';
 }
 $('dial').addEventListener('click',()=>{
   ui.size=ui.size==='S'?'M':ui.size==='M'?'L':'S';
@@ -1818,7 +1818,7 @@ $('about').style.cursor='pointer';
 
 function showErr(e){
   const el=$('err');
-  el.textContent='The cartographer spilled the ink: '+(e&&e.message?e.message:e);
+  el.textContent='카토그래퍼가 먹물을 엎지르다: '+(e&&e.message?e.message:e);
   el.style.display='block';
   console.error(e);
 }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0B0F">
-<meta name="description" content="Sandfall — an alchemist's terrarium. A falling-sand physics playground of eight elements that burn, flow, grow and dissolve.">
-<title>SANDFALL — An Alchemist's Terrarium</title>
+<meta name="description" content="샌드폴 — 연금술사의 테라리움. 여덟 가지 원소가 타고, 흐르고, 자라고, 녹는 모래-낙하 물리 놀이터.">
+<title>샌드폴 — 연금술사의 테라리움</title>
 <style>
 /* ============================================================
    SANDFALL — Dark Alchemy Atelier
@@ -302,11 +302,11 @@ button:focus-visible{outline:1px solid var(--brass);outline-offset:2px}
 
 <div id="app">
   <header>
-    <div class="wordmark">Sandfall</div>
-    <div class="tagline">an alchemist's terrarium &nbsp;·&nbsp; eight elements that burn, flow, grow &amp; dissolve</div>
+    <div class="wordmark">샌드폴</div>
+    <div class="tagline">연금술사의 테라리움 &nbsp;·&nbsp; 타고, 흐르고, 자라고, 녹는 여덟 원소</div>
     <div class="spacer"></div>
-    <div id="readout"><span id="elName">sand</span><b id="pcount">0</b> grains &nbsp;·&nbsp; <b id="fps">60</b> fps</div>
-    <button id="infoBtn" title="About Sandfall">?</button>
+    <div id="readout"><span id="elName">모래</span><b id="pcount">0</b> 알 &nbsp;·&nbsp; <b id="fps">60</b> fps</div>
+    <button id="infoBtn" title="샌드폴 정보">?</button>
   </header>
 
   <div id="stage">
@@ -315,8 +315,8 @@ button:focus-visible{outline:1px solid var(--brass);outline-offset:2px}
         <canvas id="sim"></canvas>
         <canvas id="glow"></canvas>
       </div>
-      <div id="pausedChip">time suspended</div>
-      <div id="hint">now you try.</div>
+      <div id="pausedChip">시간 정지</div>
+      <div id="hint">이제 당신 차례.</div>
     </div>
   </div>
 
@@ -324,25 +324,25 @@ button:focus-visible{outline:1px solid var(--brass);outline-offset:2px}
     <div class="tgroup" id="phials"></div>
     <div class="tsep"></div>
     <div class="tgroup" id="brushGroup">
-      <label for="brushSize">brush</label>
+      <label for="brushSize">브러시</label>
       <input type="range" id="brushSize" min="1" max="40" value="6">
       <span id="brushVal">6</span>
     </div>
     <div class="tsep"></div>
     <div class="tgroup">
-      <button class="tbtn icon" id="pauseBtn" title="Pause / resume (Space)">&#10074;&#10074;</button>
-      <button class="tbtn icon" id="stepBtn"  title="Single step (while paused)">&#8250;&#10074;</button>
-      <button class="tbtn" id="clearBtn" title="Clear the vessel (C)">clear</button>
+      <button class="tbtn icon" id="pauseBtn" title="일시정지 / 재개 (Space)">&#10074;&#10074;</button>
+      <button class="tbtn icon" id="stepBtn"  title="한 스텝 진행 (정지 중)">&#8250;&#10074;</button>
+      <button class="tbtn" id="clearBtn" title="용기 비우기 (C)">비우기</button>
     </div>
     <div class="tsep"></div>
     <div class="tgroup">
-      <button class="tbtn preset" data-preset="oilrig"   title="Stamp the Oil Rig diorama">oil rig</button>
-      <button class="tbtn preset" data-preset="gardens"  title="Stamp the Hanging Gardens — then try fire">gardens</button>
-      <button class="tbtn preset" data-preset="hourglass" title="Stamp the Hourglass">hourglass</button>
+      <button class="tbtn preset" data-preset="oilrig"   title="오일 릭 디오라마 찍기">오일 릭</button>
+      <button class="tbtn preset" data-preset="gardens"  title="공중 정원 찍기 — 그리고 불을 써 보세요">정원</button>
+      <button class="tbtn preset" data-preset="hourglass" title="모래시계 찍기">모래시계</button>
     </div>
     <div class="tsep"></div>
     <div class="tgroup">
-      <button class="tbtn" id="cometBtn" title="Summon a falling star (M)">&#10022;&nbsp;comet</button>
+      <button class="tbtn" id="cometBtn" title="별똥별 소환 (M)">&#10022;&nbsp;코멧</button>
     </div>
   </div>
 </div>
@@ -351,33 +351,32 @@ button:focus-visible{outline:1px solid var(--brass);outline-offset:2px}
 
 <div id="about">
   <div id="aboutCard">
-    <h2>Sandfall</h2>
-    <div class="sub">an alchemist's terrarium — a falling-sand physics playground</div>
-    <p>Eight elements share one vessel and one set of laws. Sand piles at its angle of repose;
-       water seeks its level; oil floats on water and burns ferociously; plants drink water and
-       climb; fire spreads, smokes, and is hissed out into steam; acid sinks and dissolves nearly
-       everything it touches. Nothing here is scripted — every spectacle emerges from neighbor
-       rules on a quarter-million cells.</p>
-    <p>Try the <i>Hanging Gardens</i> preset, wait for the vines to climb the terraces,
-       then touch a single leaf with fire. And when the mood strikes, press <b>M</b> —
-       a falling star crosses the vessel, hisses through water, and detonates on whatever
-       it finds first.</p>
+    <h2>샌드폴</h2>
+    <div class="sub">연금술사의 테라리움 — 모래-낙하 물리 놀이터</div>
+    <p>여덟 원소가 하나의 용기와 하나의 법칙을 공유합니다. 모래는 안식각에 쌓이고,
+       물은 수평을 찾으며, 기름은 물 위에서 뜨올라 사나운 불을 뿜고, 식물은 물을 마시며
+       자라올라갑니다. 불은 번지고, 연기를 내며, 물에 닿아 쉬익 증기로 사그라지고,
+       산은 가라앉아 닿는 거의 모든 것을 녹입니다. 여기선 아무것도 스크립트되지 않습니다 —
+       25만 셀 위의 이웃 규칙에서 모든 광경이 피어납니다.</p>
+    <p><i>공중 정원</i> 프리셋으로 덩굴이 층계를 타고 오르길 기다린 뒤,
+       단 하나의 잎에 불을 닿게 해 보세요. 그리고 기분이 내키면 <b>M</b>을 누르세요 —
+       별똥별 하나가 용기를 가로질러 날아, 물을 가르며, 먼저 만난 것에 부딪혀 폭발합니다.</p>
     <div class="keys">
-      <div><b>1–8</b> pick element</div>
-      <div><b>E / 0</b> eraser</div>
-      <div><b>drag</b> pour</div>
-      <div><b>shift</b> straight lines</div>
-      <div><b>rt-click</b> erase</div>
-      <div><b>scroll</b> brush size</div>
-      <div><b>space</b> pause</div>
-      <div><b>&#8594; / .</b> single step</div>
-      <div><b>C</b> clear</div>
-      <div><b>[ ]</b> brush −/+</div>
-      <div><b>M</b> falling star</div>
+      <div><b>1–8</b> 원소 선택</div>
+      <div><b>E / 0</b> 지우개</div>
+      <div><b>드래그</b> 붓기</div>
+      <div><b>Shift</b> 직선</div>
+      <div><b>우클릭</b> 지우기</div>
+      <div><b>스크롤</b> 브러시 크기</div>
+      <div><b>Space</b> 일시정지</div>
+      <div><b>&#8594; / .</b> 한 스텝</div>
+      <div><b>C</b> 비우기</div>
+      <div><b>[ ]</b> 브러시 −/+</div>
+      <div><b>M</b> 별똥별</div>
     </div>
     <footer>
       <span>Built by Claude Fable 5</span>
-      <button id="aboutClose">return</button>
+      <button id="aboutClose">돌아가기</button>
     </footer>
   </div>
 </div>

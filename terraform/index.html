@@ -1,6 +1,7 @@
+<html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Terraform — Cartographer's Table</title>
+<title>테라폼 — 지도 제작자의 작업대</title>
 <style>
   :root{
     --paper:#F4ECD8; --paper-deep:#EBE0C6; --ink:#1C1A17; --ink-soft:#4A443A;
@@ -15,7 +16,7 @@
     background:
       radial-gradient(120% 120% at 50% -10%, #FBF5E5 0%, #F4ECD8 42%, #E9DCBF 100%);
     color:var(--ink);
-    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",serif;
     -webkit-font-smoothing:antialiased; overflow-x:hidden;
   }
   .mono{font-family:"SF Mono",ui-monospace,"Cascadia Mono",Menlo,Consolas,monospace}
@@ -222,8 +223,8 @@
 <div class="shell">
   <header class="topbar">
     <div class="lockup">
-      <h1>Terraform</h1>
-      <div class="sub">Spin a seed and watch a whole world surface from noise — rendered like a hand-inked antique atlas.</div>
+      <h1>테라폼</h1>
+      <div class="sub">시드를 돌리면 노이즈에서 하나의 세계가 떠오릅니다 — 손으로 잉크를 입힌 고전 지도첩처럼 그려집니다.</div>
     </div>
     <svg class="compass-mark" id="compassMark" viewBox="0 0 100 100" aria-hidden="true">
       <g class="rose-spin" id="roseSpin">
@@ -243,11 +244,11 @@
           <canvas id="view"></canvas>
           <canvas id="overlay"></canvas>
           <canvas id="reveal"></canvas>
-          <div class="busy" id="busy"><span class="dot"></span>Surveying</div>
+          <div class="busy" id="busy"><span class="dot"></span>측량 중</div>
           <div class="cartouche" id="cartouche">
             <div class="cn" id="placeName">—</div>
             <div class="cc mono" id="placeCoord">—</div>
-            <div class="cx mono" id="placeStamp">TERRAFORM · CARTOGRAPHER'S TABLE</div>
+            <div class="cx mono" id="placeStamp">테라폼 · 지도 제작자의 작업대</div>
           </div>
           <div class="loupe" id="loupe">
             <div class="ring">
@@ -269,47 +270,47 @@
     </div>
 
     <aside class="rail">
-      <h2>Instrument Panel</h2>
-      <p class="hint">Cheap dials redraw instantly · terrain dials resurvey the world. Hover the plate to survey.</p>
+      <h2>계기판</h2>
+      <p class="hint">가벼운 다이얼은 즉시 다시 그리고 · 지형 다이얼은 세계를 다시 측량합니다. 도판 위에 커서를 올려 측량하세요.</p>
 
       <div class="ctl">
-        <div class="lbl"><b>Seed</b></div>
+        <div class="lbl"><b>시드</b></div>
         <div class="seedrow">
           <input type="text" id="seed" value="Vellhollow" spellcheck="false" autocomplete="off">
-          <button class="btn dice" id="dice" title="Roll a new world">⚄</button>
+          <button class="btn dice" id="dice" title="새로운 세계 굴리기">⚄</button>
         </div>
       </div>
 
       <div class="ctl">
-        <div class="lbl"><b>Octaves</b><span class="val mono" id="octaves-v">5</span></div>
+        <div class="lbl"><b>옥타브</b><span class="val mono" id="octaves-v">5</span></div>
         <input type="range" id="octaves" min="1" max="8" step="1" value="5">
       </div>
 
       <div class="ctl">
-        <div class="lbl"><b>Domain Warp</b><span class="val mono" id="warp-v">0.55</span></div>
+        <div class="lbl"><b>도메인 워프</b><span class="val mono" id="warp-v">0.55</span></div>
         <input type="range" id="warp" min="0" max="1" step="0.01" value="0.55">
       </div>
 
       <div class="divider"></div>
 
       <div class="ctl">
-        <div class="lbl"><b>Sea Level</b><span class="val mono" id="sea-v">0.42</span></div>
+        <div class="lbl"><b>해수면</b><span class="val mono" id="sea-v">0.42</span></div>
         <input type="range" id="sea" min="0.05" max="0.85" step="0.005" value="0.42">
       </div>
 
       <div class="ctl">
-        <div class="lbl"><b>Contour Interval</b><span class="val mono" id="cont-v">0.08</span></div>
+        <div class="lbl"><b>등고선 간격</b><span class="val mono" id="cont-v">0.08</span></div>
         <input type="range" id="cont" min="0.03" max="0.2" step="0.005" value="0.08">
       </div>
 
       <div class="ctl">
-        <div class="lbl"><b>Relief</b><span class="val mono" id="relief-v">1.0</span></div>
+        <div class="lbl"><b>기복</b><span class="val mono" id="relief-v">1.0</span></div>
         <input type="range" id="relief" min="0.3" max="2.2" step="0.05" value="1.0">
       </div>
 
       <div class="ctl dial-row">
         <svg class="dial" id="dial" viewBox="0 0 100 100" role="slider" tabindex="0"
-             aria-label="Sun azimuth and altitude" aria-valuemin="0" aria-valuemax="360" aria-valuenow="315">
+             aria-label="태양 방위각과 고도" aria-valuemin="0" aria-valuemax="360" aria-valuenow="315">
           <circle cx="50" cy="50" r="44" fill="#F4ECD8" stroke="#C9B98E" stroke-width="1"/>
           <circle cx="50" cy="50" r="44" fill="none" stroke="#8A6D3B" stroke-width="1" opacity=".4"/>
           <g id="dialTicks"></g>
@@ -322,42 +323,42 @@
           <circle cx="50" cy="50" r="3" fill="#1C1A17"/>
         </svg>
         <div class="dial-meta">
-          <b class="mono" id="az-v">315°</b> azimuth<br>
-          <span class="mono" id="alt-v">45°</span> altitude<br>
-          <span style="opacity:.7">drag the compass</span>
+          <b class="mono" id="az-v">315°</b> 방위각<br>
+          <span class="mono" id="alt-v">45°</span> 고도<br>
+          <span style="opacity:.7">나침반을 드래그하세요</span>
         </div>
       </div>
 
       <div class="ctl">
-        <div class="lbl"><b>Palette</b></div>
+        <div class="lbl"><b>팔레트</b></div>
         <div class="seg" id="palette">
-          <button data-p="carto" class="on">Cartographer</button>
-          <button data-p="bathy">Bathymetric</button>
+          <button data-p="carto" class="on">지도 제작자</button>
+          <button data-p="bathy">수심도</button>
         </div>
       </div>
 
       <div class="divider"></div>
       <div class="actions">
-        <button class="btn wide" id="regen">↻ Resurvey</button>
-        <button class="btn wide" id="export">⇩ Export Plate</button>
+        <button class="btn wide" id="regen">↻ 재측량</button>
+        <button class="btn wide" id="export">⇩ 도판 내보내기</button>
       </div>
     </aside>
   </div>
 
   <div class="foot">
-    A procedural cartography engine · Built by <b>Claude Fable 5</b> · <a id="aboutLink">about this plate</a>
+    절차적 지도 제작 엔진 · 제작 <b>Claude Fable 5</b> · <a id="aboutLink">이 도판에 대하여</a>
   </div>
 </div>
 
 <div class="about-bd" id="aboutBd">
   <div class="about">
-    <button class="close" id="aboutClose" aria-label="Close">×</button>
-    <h3>Terraform</h3>
-    <p class="tl">Cartographer's Table — a plate you'd find in a rare-books room, not a shader toy.</p>
-    <p>Every world here is summoned from a single seed. A seeded PRNG feeds a fractal noise field (fBm over your chosen octaves), domain-warped for organic coastlines. Elevation and a second moisture field decide the biomes; an analytic Sobel hillshade embosses the relief in warm light and cool shadow.</p>
-    <p>Drag the <b>sea-level</b> slider and the ocean floods or drains in real time — coastlines redraw as living ink strokes because only the fast render pass reruns over the cached heightmap. Spin the <b>sun compass</b> to relight the terrain. Hover the plate and a <b>surveyor's loupe</b> magnifies the ground and reads live elevation, biome and coordinates. Roll the <b>dice</b> for a wholly new continent, deterministically named.</p>
-    <p>Export produces a genuinely re-rendered, print-ready 2× plate — the full noise-to-hillshade pipeline run again at double resolution, with ruled border, cartouche, north arrow and scale bar. Zero dependencies, zero network — one file of vanilla JavaScript.</p>
-    <div class="tag">Built by Claude Fable 5 · self-contained · no build step</div>
+    <button class="close" id="aboutClose" aria-label="닫기">×</button>
+    <h3>테라폼</h3>
+    <p class="tl">지도 제작자의 작업대 — 셰이더 장난감이 아니라, 희귀 도서실에서 발견할 만한 한 장의 도판입니다.</p>
+    <p>이곳의 모든 세계는 단 하나의 시드에서 불려 나옵니다. 시드가 심어진 PRNG가 프랙탈 노이즈 필드(선택한 옥타브의 fBm)를 만들고, 도메인 워프로 유기적인 해안선을 빚어냅니다. 고도와 두 번째 습도 필드가 생물군계를 결정하고, 해석적 소벨 힐셰이드가 따뜻한 빛과 차가운 그림자로 기복을 도장처럼 새깁니다.</p>
+    <p><b>해수면</b> 슬라이더를 끌면 바다가 실시간으로 밀려들거나 빠져나갑니다 — 캐시된 높이맵 위에서 빠른 렌더 패스만 다시 돌기에 해안선이 살아 있는 잉크 선처럼 다시 그려집니다. <b>태양 나침반</b>을 돌려 지형에 빛을 다시 비추세요. 도판 위에 커서를 올리면 <b>측량 확대경</b>이 지면을 확대하며 고도, 생물군계, 좌표를 실시간으로 읽어 줍니다. <b>주사위</b>를 굴리면 결정론적으로 이름 붙은 완전히 새로운 대륙이 나타납니다.</p>
+    <p>내보내기는 진짜로 다시 렌더링한 인쇄용 2× 도판을 만듭니다 — 노이즈부터 힐셰이드까지 전체 파이프라인을 두 배 해상도로 다시 돌리고, 괘선 테두리, 표제란, 북쪽 화살표, 축척 막대까지 넣습니다. 의존성 제로, 네트워크 제로 — 순수 자바스크립트 단일 파일입니다.</p>
+    <div class="tag">제작 Claude Fable 5 · 자기 완결형 · 빌드 단계 없음</div>
   </div>
 </div>
 
@@ -713,7 +714,7 @@
     const p=placeName(hashStr(state.seed));
     $("placeName").textContent=p.name;
     $("placeCoord").textContent=p.coord;
-    $("placeStamp").textContent="SEED · "+state.seed.toUpperCase();
+    $("placeStamp").textContent="시드 · "+state.seed.toUpperCase();
   }
 
   // ---------- survey loupe (live inspection) ----------
@@ -726,15 +727,15 @@
   function biomeAt(h,m){
     if(h<state.sea){
       const depth=(state.sea-h)/Math.max(1e-4,state.sea);
-      return depth>0.55?"Abyssal Deep": depth>0.25?"Open Sea":"Coastal Shallows";
+      return depth>0.55?"심해 대심연": depth>0.25?"먼바다":"연안 천해";
     }
     const e=(h-state.sea)/Math.max(1e-4,1-state.sea);
-    if(e<0.045) return "Tidal Sands";
-    if(e<0.28) return m>0.55?"Verdant Lowland":"Dry Steppe";
-    if(e<0.5)  return m>0.5?"Highland Forest":"Rolling Uplands";
-    if(e<0.68) return "Rocky Foothills";
-    if(e<0.86) return m<0.4?"Barren Scarp":"Alpine Slope";
-    return "Snowcap Summit";
+    if(e<0.045) return "조간대 사구";
+    if(e<0.28) return m>0.55?"녹음 저지대":"건조 스텝";
+    if(e<0.5)  return m>0.5?"고지 삼림":"완만한 고원";
+    if(e<0.68) return "암석 산기슭";
+    if(e<0.86) return m<0.4?"헐벗은 급사면":"고산 사면";
+    return "만년설 정상";
   }
   function metersAt(h){
     // map normalized elevation to a plausible meters figure for flavor
@@ -767,7 +768,7 @@
     const i=gy*RES+gx;
     const h=height[i], m=moist[i];
     $("loupeBiome").textContent=biomeAt(h,m);
-    $("loupeEl").textContent=metersAt(h)+" · "+(m<0.4?"arid":m>0.6?"humid":"temperate");
+    $("loupeEl").textContent=metersAt(h)+" · "+(m<0.4?"건조":m>0.6?"습윤":"온화");
     // coordinate: derive a lat/lon from the base cartouche anchor + offset within plate
     const base=placeName(hashStr(state.seed));
     const lat=clamp(base.lat + (0.5-fy)*24, -89, 89);
@@ -882,7 +883,7 @@
   // ---------- EXPORT: genuine 2x re-render ----------
   $("export").addEventListener("click",exportPlate);
   function exportPlate(){
-    const btn=$("export"); const old=btn.textContent; btn.textContent="⏳ Engraving…"; btn.disabled=true;
+    const btn=$("export"); const old=btn.textContent; btn.textContent="⏳ 판각 중…"; btn.disabled=true;
     // Let the label paint before we do the heavy synchronous render.
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
       try{ doExport(); }
@@ -928,7 +929,7 @@
 
     g.fillStyle="#1C1A17"; g.textAlign="center"; g.textBaseline="alphabetic";
     g.font="600 "+Math.round(EXP*0.03)+"px Georgia,'Times New Roman',serif";
-    g.fillText("T E R R A F O R M",W/2,pad*0.66);
+    g.fillText("테 라 폼",W/2,pad*0.66);
 
     const p=placeName(hashStr(state.seed));
     const cxx=pad+EXP*0.04, cyy=pad+EXP-EXP*0.14, cw=EXP*0.4, ch=EXP*0.11;
@@ -940,7 +941,7 @@
     g.fillStyle="#8A6D3B"; g.font=Math.round(EXP*0.02)+"px 'SF Mono',monospace";
     g.fillText(p.coord,cxx+EXP*0.028,cyy+EXP*0.075);
     g.fillStyle="#4A443A"; g.font=Math.round(EXP*0.014)+"px 'SF Mono',monospace";
-    g.fillText("SEED · "+state.seed.toUpperCase(),cxx+EXP*0.028,cyy+EXP*0.098);
+    g.fillText("시드 · "+state.seed.toUpperCase(),cxx+EXP*0.028,cyy+EXP*0.098);
 
     drawNorthArrow(g,pad+EXP-EXP*0.075,pad+EXP*0.085,EXP*0.045);
     drawScaleBar(g,pad+EXP-EXP*0.30,pad+EXP-EXP*0.05,EXP*0.24);
@@ -993,3 +994,4 @@
   requestAnimationFrame(()=>requestAnimationFrame(init));
 })();
 </script>
+</html>

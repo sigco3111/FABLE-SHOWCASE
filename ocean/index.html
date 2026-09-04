@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HALCYON — An Ocean in One File</title>
+<title>HALCYON — 한 파일의 바다</title>
 <link rel="icon" href="data:,">
 <style>
   :root{
@@ -15,7 +15,7 @@
   *{ margin:0; padding:0; box-sizing:border-box; }
   html,body{ width:100%; height:100%; overflow:hidden; background:#000; }
   body{
-    font-family: -apple-system, "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    font-family: -apple-system, "SF Pro Text", "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: var(--ink);
     user-select: none;
@@ -186,37 +186,37 @@
 
 <div id="ui">
   <div id="brand">H A L C Y O N</div>
-  <button id="aboutBtn" title="About" aria-haspopup="dialog">ABOUT</button>
-  <div id="slate"><b id="reel">GOLDEN HOUR</b>&nbsp;&nbsp;·&nbsp;&nbsp;<span id="clock">18:26</span></div>
+  <button id="aboutBtn" title="정보" aria-haspopup="dialog">정보</button>
+  <div id="slate"><b id="reel">황금빛 시간</b>&nbsp;&nbsp;·&nbsp;&nbsp;<span id="clock">18:26</span></div>
   <div id="rail">
     <div class="ctl">
-      <div class="lab"><span>WIND</span><output id="windOut">GENTLE BREEZE</output></div>
-      <input id="wind" type="range" min="0" max="9" step="0.05" value="3" aria-label="Wind force, Beaufort scale">
+      <div class="lab"><span>바람</span><output id="windOut">산들바람</output></div>
+      <input id="wind" type="range" min="0" max="9" step="0.05" value="3" aria-label="풍력 (보퍼트 풍력계급)">
     </div>
     <div class="ctl">
-      <div class="lab"><span>SWELL</span><output id="swellOut">45</output></div>
-      <input id="swell" type="range" min="0" max="100" step="1" value="45" aria-label="Swell energy">
+      <div class="lab"><span>파도</span><output id="swellOut">45</output></div>
+      <input id="swell" type="range" min="0" max="100" step="1" value="45" aria-label="파도 에너지">
     </div>
     <div class="ctl" style="width:210px">
-      <div class="lab"><span>HOUR</span><output id="hourOut">18:26</output></div>
-      <input id="hour" type="range" min="0" max="1000" step="1" value="100" aria-label="Time of evening">
+      <div class="lab"><span>시간</span><output id="hourOut">18:26</output></div>
+      <input id="hour" type="range" min="0" max="1000" step="1" value="100" aria-label="저녁 시각">
     </div>
-    <button id="play" class="btn"><span class="dot">▶</span>&nbsp;PLAY</button>
-    <button id="scope" class="btn" title="2.39:1 letterbox">2.39:1</button>
+    <button id="play" class="btn"><span class="dot">▶</span>&nbsp;재생</button>
+    <button id="scope" class="btn" title="2.39:1 레터박스">2.39:1</button>
   </div>
 </div>
 
-<div id="about" role="dialog" aria-modal="true" aria-label="About Halcyon">
+<div id="about" role="dialog" aria-modal="true" aria-label="Halcyon 정보">
   <div class="card">
     <h1>H A L C Y O N</h1>
     <div class="rule"></div>
-    <p>An ocean in one file. Eight Gerstner waves displace a screen-projected grid; foam is grown from the Jacobian of the surface where crests self-compress; an analytic sky feeds Fresnel reflections and a wind-stretched sun path. Press play and the sun swells, reddens and drowns — the breaking crests come back to life as bioluminescence under a rising moon, and meteors score the dark, doubled in the water below.</p>
-    <p class="keys">DRAG — LOOK&nbsp;&nbsp;&nbsp;SCROLL — LENS&nbsp;&nbsp;&nbsp;SPACE — PLAY&nbsp;&nbsp;&nbsp;L — 2.39:1&nbsp;&nbsp;&nbsp;ESC — CLOSE</p>
-    <p class="credit">A SINGLE SELF-CONTAINED HTML FILE · NO LIBRARIES<br>BUILT BY <b>CLAUDE FABLE 5</b></p>
+    <p>한 파일 안에 담긴 바다. 여덟 개의 거스트너 파도가 화면 투영 격자를 일그러뜨리고, 마루가 스스로 압축되는 지점의 야코비안에서 거품이 자라납니다. 해석적 하늘이 프레넬 반사와 바람에 길게 늘어진 태양 궤적을 만들고, 재생 버튼을 누르면 해가 부풀어올라 붉어졌다가 수평선 너머로 잠겨 갑니다 — 부서지는 마루는 떠오르는 달 아래에서 생물 발광으로 다시 살아나고, 유성우는 어둠을 가로지르며 그 아래 물에 두 배로 비납니다.</p>
+    <p class="keys">드래그 — 시선&nbsp;&nbsp;&nbsp;스크롤 — 렌즈&nbsp;&nbsp;&nbsp;스페이스 — 재생&nbsp;&nbsp;&nbsp;L — 2.39:1&nbsp;&nbsp;&nbsp;ESC — 닫기</p>
+    <p class="credit">하나의 자체 완결 HTML 파일 · 외부 라이브러리 없음<br>제작 <b>CLAUDE FABLE 5</b></p>
   </div>
 </div>
 
-<div id="fail"><div>This piece needs WebGL.<br>Please try a browser with hardware acceleration enabled.</div></div>
+<div id="fail"><div>이 작품은 WebGL이 필요합니다.<br>하드웨어 가속을 켠 브라우저로 다시 시도해 주세요.</div></div>
 
 <script>
 'use strict';
@@ -916,12 +916,12 @@ var elReel = document.getElementById('reel');
 var elClock = document.getElementById('clock');
 var elAbout = document.getElementById('about');
 
-var BF_NAMES = ['CALM','LIGHT AIR','LIGHT BREEZE','GENTLE BREEZE','MODERATE','FRESH BREEZE','STRONG BREEZE','NEAR GALE','GALE','STRONG GALE'];
+var BF_NAMES = ['고요','실바람','산들바람','순한바람','중간바람','신선한바람','센바람','강풍 직전','강풍','매우 센바람'];
 function reelName(h){
-  if (h < 0.34) return 'GOLDEN HOUR';
-  if (h < 0.56) return 'EMBER';
-  if (h < 0.70) return 'BLUE HOUR';
-  return 'BIOLUM';
+  if (h < 0.34) return '황금빛 시간';
+  if (h < 0.56) return '잿불';
+  if (h < 0.70) return '푸른 시간';
+  return '생물 발광';
 }
 function clockStr(h){
   var t = 17.6 + h*8.4;
@@ -966,13 +966,13 @@ function startPlay(){
   state.playFrom = state.hour > 0.94 ? 0.02 : state.hour;
   /* constant sky-speed regardless of where playback starts */
   state.playDur = Math.max(6, 90 * (1 - state.playFrom));
-  elPlay.innerHTML = '<span class="dot">❚❚</span>&nbsp;PAUSE';
+  elPlay.innerHTML = '<span class="dot">❚❚</span>&nbsp;일시정지';
   elPlay.classList.add('on');
 }
 function stopPlay(){
   if (!state.playing) return;
   state.playing = false;
-  elPlay.innerHTML = '<span class="dot">▶</span>&nbsp;PLAY';
+  elPlay.innerHTML = '<span class="dot">▶</span>&nbsp;재생';
   elPlay.classList.remove('on');
 }
 elPlay.addEventListener('click', function(){ state.playing ? stopPlay() : startPlay(); });
@@ -1308,7 +1308,7 @@ function frame(nowMs){
 canvas.addEventListener('webglcontextlost', function(e){
   e.preventDefault();
   document.getElementById('fail').style.display = 'flex';
-  document.getElementById('fail').firstElementChild.innerHTML = 'The tide went out (WebGL context lost).<br>Reload to bring the ocean back.';
+  document.getElementById('fail').firstElementChild.innerHTML = '조수가 빠져나갔습니다 (WebGL 컨텍스트 손실).<br>새로 고침으로 바다를 다시 불러오세요.';
 }, false);
 
 /* ---- launch ---- */

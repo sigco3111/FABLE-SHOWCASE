@@ -1,8 +1,10 @@
 <!doctype html>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='11' cy='14' r='6' fill='%234FD1C5'/%3E%3Ccircle cx='22' cy='20' r='4.5' fill='%23FF6B6B'/%3E%3Ccircle cx='21' cy='9' r='3' fill='%23FFC145'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Primordia — a laboratory of living ink</title>
+<title>프림오르디아 — 살아 있는 잉크의 실험실</title>
 <style>
   /* ============================================================
      PRIMORDIA — Particle Life
@@ -28,7 +30,7 @@
     --sp5: #E56BF0; /* Magenta   */
 
     --serif: "Iowan Old Style", "Palatino Linotype", "Palatino", "Georgia", "Times New Roman", serif;
-    --sans:  ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --sans:  ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
     --mono:  ui-monospace, "SF Mono", "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
   }
 
@@ -531,36 +533,36 @@
 <div id="vignette"></div>
 
 <div id="mark">
-  <div class="word">Primordia</div>
-  <div class="sub">Six species · one secret matrix</div>
+  <div class="word">프림오르디아</div>
+  <div class="sub">여섯 종 · 하나의 비밀 행렬</div>
 </div>
 
 <div id="vitals">
   <div class="vital"><div class="k">FPS</div><div class="v" id="vFps">—</div></div>
-  <div class="vital"><div class="k">Particles</div><div class="v" id="vCount">—</div></div>
-  <div class="vital"><div class="k">Kinetic</div><canvas id="spark" width="216" height="60"></canvas></div>
+  <div class="vital"><div class="k">입자 수</div><div class="v" id="vCount">—</div></div>
+  <div class="vital"><div class="k">운동 에너지</div><canvas id="spark" width="216" height="60"></canvas></div>
 </div>
 
-<div id="tab" role="button" tabindex="0" aria-label="Open controls">Controls</div>
+<div id="tab" role="button" tabindex="0" aria-label="컨트롤 열기">컨트롤</div>
 <div id="cellBadge"><span class="arrow"></span><span class="val"></span></div>
 
 <div id="panel">
   <div class="row" id="panelHead">
-    <div class="title">Instrument</div>
-    <button id="closePanel" title="Collapse">—</button>
+    <div class="title">인스트루먼트</div>
+    <button id="closePanel" title="접기">—</button>
   </div>
 
   <div class="divider"></div>
 
   <div id="matrixWrap">
     <div class="row">
-      <span class="section-title">Interaction Matrix</span>
-      <span class="hint">drag &#8597; · row → col</span>
+      <span class="section-title">상호작용 행렬</span>
+      <span class="hint">드래그 ↕ · 행 → 열</span>
     </div>
     <div id="matrix"></div>
     <div class="row" style="margin-top:2px">
-      <span class="hint" style="color:var(--sp3)">warm = attract</span>
-      <span class="hint" style="color:var(--text-dim)">hollow = repel</span>
+      <span class="hint" style="color:var(--sp3)">따뜻함 = 끌어당김</span>
+      <span class="hint" style="color:var(--text-dim)">비어 있음 = 밀어냄</span>
     </div>
   </div>
 
@@ -568,7 +570,7 @@
 
   <div>
     <div class="row" style="margin-bottom:9px">
-      <span class="section-title">Seed Library</span>
+      <span class="section-title">씨앗 라이브러리</span>
     </div>
     <div class="seeds" id="seeds"></div>
   </div>
@@ -577,8 +579,8 @@
 
   <div>
     <div class="row" style="margin-bottom:10px">
-      <span class="section-title">Population</span>
-      <span class="hint">per species · drag &#8596;</span>
+      <span class="section-title">개체 수</span>
+      <span class="hint">종당 · 드래그 ↔</span>
     </div>
     <div class="pops" id="pops"></div>
   </div>
@@ -587,46 +589,46 @@
 
   <div>
     <div class="row" style="margin-bottom:11px">
-      <span class="section-title">Physics</span>
+      <span class="section-title">물리</span>
     </div>
     <div class="globals" id="globals"></div>
     <div class="row toggle-row" id="bondToggle">
       <span class="name" style="display:flex;align-items:center;gap:7px">
-        <span class="section-title" style="text-transform:none;letter-spacing:0.03em;font-size:10px;color:var(--text)">Living Web</span>
+        <span class="section-title" style="text-transform:none;letter-spacing:0.03em;font-size:10px;color:var(--text)">살아 있는 그물</span>
       </span>
-      <button class="switch on" id="bondSwitch" role="switch" aria-checked="true" aria-label="Toggle living web"><span class="dot"></span></button>
+      <button class="switch on" id="bondSwitch" role="switch" aria-checked="true" aria-label="살아 있는 그물 켜기/끄기"><span class="dot"></span></button>
     </div>
   </div>
 
   <div class="divider"></div>
 
   <div class="btns">
-    <button class="act primary" id="btnRandom">Randomize Matrix</button>
-    <button class="act" id="btnReseed">Re-seed Field</button>
-    <button class="act" id="btnClear">Clear Matrix</button>
+    <button class="act primary" id="btnRandom">행렬 무작위화</button>
+    <button class="act" id="btnReseed">필드 다시 뿌리기</button>
+    <button class="act" id="btnClear">행렬 비우기</button>
   </div>
 </div>
 
-<button id="aboutBtn">About</button>
-<div id="hintFloat">Hold to repel · Shift-hold to attract · scrub the matrix to rewrite the physics</div>
+<button id="aboutBtn">정보</button>
+<div id="hintFloat">누르고 있으면 밀어냄 · Shift 누르며 끌어당김 · 행렬을 흔들어 물리를 다시 씁니다</div>
 
 <div id="about">
   <div id="aboutCard">
     <button id="aboutClose">&times;</button>
-    <h1>Primordia</h1>
-    <div class="tag">Six species, one secret matrix — watch life invent itself.</div>
-    <p>Every particle obeys one rule: a short-range shove that keeps neighbours from overlapping, blended with a mid-range pull-or-push whose sign and strength come from a single <b>6&times;6 matrix</b>. That grid is the entire genome. Warm cells attract, hollow cells repel — and because attraction can be <i>asymmetric</i> (coral chases aqua while aqua flees coral), the field spontaneously grows cells, chains, orbits and hunts.</p>
-    <p>Scrub any matrix cell and the ecosystem visibly reorganises. Hit <b>Randomize</b> and it melts and re-crystallises over a smooth morph. Nothing here is scripted — it is all emergence from numbers you can edit.</p>
-    <p>Switch on the <b>Living Web</b> and Primordia draws a glowing filament between every pair of particles caught in a mutual attraction — so the invisible bonds holding a cell or a chain together become visible in real time.</p>
+    <h1>프림오르디아</h1>
+    <div class="tag">여섯 종, 하나의 비밀 행렬 — 생명이 스스로 발명되는 것을 지켜보세요.</div>
+    <p>모든 입자는 하나의 규칙을 따릅니다: 이웃이 겹치지 않도록 가까이서는 짧게 떠밀고, 중간 거리에서는 단일 <b>6×6 행렬</b>에서 가져온 부호와 세기로 끌어당기거나 밀어냅니다. 그 격자가 전부 게놈입니다. 따뜻한 칸은 끌어당기고, 비어 있는 칸은 밀어냅니다 — 끌림이 <i>비대칭</i>일 수 있기 때문에 (코랄은 아쿠아를 쫓지만 아쿠아는 코랄을 피함) 필드는 저절로 세포, 사슬, 궤도, 사냥을 자라냅니다.</p>
+    <p>아무 행렬 칸이나 흔들면 생태계가 눈으로 보이는 방식으로 재편됩니다. <b>무작위</b>를 누르면 매끄러운 모핑을 거쳐 녹았다가 다시 결정화됩니다. 여기서 어떤 것도 대본대로 움직이지 않습니다 — 당신이 편집할 수 있는 숫자들에서 우러나온 창발입니다.</p>
+    <p><b>살아 있는 그물</b>을 켜면 프림오르디아가 서로 끌리는 입자 쌍 사이에 빛나는 필라멘트를 그립니다 — 세포나 사슬을 붙잡고 있는 보이지 않는 결합이 실시간으로 보입니다.</p>
     <div class="keys">
-      <span class="kb">click + hold</span><span class="kd">gentle repulsor — stir the soup</span>
-      <span class="kb">shift + hold</span><span class="kd">attractor — gather particles</span>
-      <span class="kb">drag matrix cell</span><span class="kd">scrub attraction from &minus;1 to +1</span>
-      <span class="kb">space</span><span class="kd">pause / resume the simulation</span>
-      <span class="kb">R</span><span class="kd">randomize the matrix</span>
-      <span class="kb">B</span><span class="kd">toggle the living web of bonds</span>
+      <span class="kb">클릭 + 누름</span><span class="kd">부드러운 반발 — 수프를 휘젓기</span>
+      <span class="kb">Shift + 누름</span><span class="kd">끌어당김 — 입자를 모으기</span>
+      <span class="kb">행렬 칸 드래그</span><span class="kd">끌어당김을 −1에서 +1 사이로 조절</span>
+      <span class="kb">스페이스</span><span class="kd">시뮬레이션 일시정지 / 재개</span>
+      <span class="kb">R</span><span class="kd">행렬 무작위화</span>
+      <span class="kb">B</span><span class="kd">살아 있는 결합 그물 켜기/끄기</span>
     </div>
-    <div class="credit">Built by Claude Fable 5</div>
+    <div class="credit">제작 Claude Fable 5</div>
   </div>
 </div>
 
@@ -1204,13 +1206,13 @@
 
   // Seed presets — each a full 6x6 (row a feels col b)
   const PRESETS = {
-    "Cell Division": (() => {
+    "세포 분열": (() => {
       const m = new Float32Array(NS*NS);
       for (let a=0;a<NS;a++) for (let b=0;b<NS;b++)
         m[idx(a,b)] = (a===b) ? 0.9 : -0.2;
       return m;
     })(),
-    "Orbital Chains": (() => {
+    "궤도의 사슬": (() => {
       const m = new Float32Array(NS*NS);
       for (let a=0;a<NS;a++) for (let b=0;b<NS;b++) {
         if (b === (a+1)%NS) m[idx(a,b)] = 0.9;
@@ -1219,7 +1221,7 @@
       }
       return m;
     })(),
-    "Snake": (() => {
+    "뱀": (() => {
       const m = new Float32Array(NS*NS);
       for (let a=0;a<NS;a++) for (let b=0;b<NS;b++) {
         if (b === (a+1)%NS) m[idx(a,b)] = 1.0;      // chase next
@@ -1228,7 +1230,7 @@
       }
       return m;
     })(),
-    "Predator Swarm": (() => {
+    "포식자 군체": (() => {
       const m = new Float32Array(NS*NS);
       for (let a=0;a<NS;a++) for (let b=0;b<NS;b++) {
         if (a===0) m[idx(a,b)] = b===0 ? 0.5 : 0.9;   // predator chases all
@@ -1237,7 +1239,7 @@
       }
       return m;
     })(),
-    "Crystalline": (() => {
+    "결정질": (() => {
       const m = new Float32Array(NS*NS);
       for (let a=0;a<NS;a++) for (let b=0;b<NS;b++) {
         const d = Math.abs(a-b);
@@ -1433,10 +1435,10 @@
   // ============================================================
   const globalsEl = document.getElementById("globals");
   const GLOBAL_DEFS = [
-    { key: "rMax",       label: "Force Radius", min: 40,  max: 160, fmt: v => Math.round(v), onChange: () => buildGrid() },
-    { key: "friction",   label: "Friction",     min: 0.60, max: 0.97, fmt: v => v.toFixed(2) },
-    { key: "dt",         label: "Time-step",    min: 0.15, max: 0.9, fmt: v => v.toFixed(2) },
-    { key: "forceScale", label: "Force",        min: 6,   max: 40,  fmt: v => Math.round(v) },
+    { key: "rMax",       label: "힘 반경", min: 40,  max: 160, fmt: v => Math.round(v), onChange: () => buildGrid() },
+    { key: "friction",   label: "마찰", min: 0.60, max: 0.97, fmt: v => v.toFixed(2) },
+    { key: "dt",         label: "시간 간격", min: 0.15, max: 0.9, fmt: v => v.toFixed(2) },
+    { key: "forceScale", label: "힘", min: 6,   max: 40,  fmt: v => Math.round(v) },
   ];
   const globalNumEls = {}, globalBarEls = {}, globalKnobEls = {};
   function buildGlobalsUI() {
@@ -1660,3 +1662,5 @@
 
 })();
 </script>
+</body>
+</html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOIR TERMINAL — Dead Air on Channel 9</title>
+<title>누아르 터미널 — 9번 채널의 침묵</title>
 <style>
 /* ============================================================
    NOIR TERMINAL — "Dead Air on Channel 9"
@@ -26,7 +26,7 @@ body{
   overflow:hidden;
   background:#040302 radial-gradient(130% 100% at 50% -20%, #16110a 0%, #080604 52%, #020202 100%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New",monospace;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New","Apple SD Gothic Neo","Noto Sans KR",monospace;
   color:#6a5830;
   -webkit-user-select:none;user-select:none;
 }
@@ -243,22 +243,22 @@ body{
       <div class="vig"></div>
       <div class="glare"></div>
       <div class="panel" id="panel">
-        <h2>MODEL 9 — FIELD ADJUSTMENTS</h2>
-        <div class="prow" data-k="1"><span>[1] AUDIO</span><b id="pv1">ON</b></div>
-        <div class="prow" data-k="2"><span>[2] SCANLINES</span><b id="pv2">ON</b></div>
-        <div class="prow" data-k="3"><span>[3] TYPE SPEED</span><b id="pv3">1×</b></div>
-        <div class="prow" data-k="4"><span>[4] MOTION</span><b id="pv4">FULL</b></div>
-        <div class="pfoot">ESC — RETURN TO TRANSMISSION · SETTINGS HOLD THE STORY, NOT THE RAIN</div>
+        <h2>모델 9 — 현장 조정</h2>
+        <div class="prow" data-k="1"><span>[1] 소리</span><b id="pv1">ON</b></div>
+        <div class="prow" data-k="2"><span>[2] 주사선</span><b id="pv2">ON</b></div>
+        <div class="prow" data-k="3"><span>[3] 타자 속도</span><b id="pv3">1×</b></div>
+        <div class="prow" data-k="4"><span>[4] 모션</span><b id="pv4">FULL</b></div>
+        <div class="pfoot">ESC — 송신으로 복귀 · 설정은 이야기를 붙잡아 두지만, 비는 멈추지 않는다</div>
       </div>
       <div class="flash" id="flash"></div>
     </div>
   </div>
-  <div class="badge"><span class="led" id="led"></span>TELETYPE MODEL 9 — PROPERTY OF METRO HOMICIDE<span class="led" style="visibility:hidden"></span></div>
-  <div class="hint">1–3 SELECT &nbsp;·&nbsp; N NEW CASE &nbsp;·&nbsp; ESC ADJUSTMENTS</div>
+  <div class="badge"><span class="led" id="led"></span>텔레타이프 모델 9 — 메트로 강력계 소유<span class="led" style="visibility:hidden"></span></div>
+  <div class="hint">1–3 선택 &nbsp;·&nbsp; N 새 사건 &nbsp;·&nbsp; ESC 조정</div>
 </div>
 <div class="about">
-  PROCEDURAL HARDBOILED FICTION UNIT · EVERY CASE DEALT FROM A GENERATIVE GRAMMAR · ALL AUDIO SYNTHESIZED FROM NOISE<br>
-  BUILT BY CLAUDE FABLE 5 · ZERO NETWORK · SHARE A CASE BY ITS NUMBER IN THE URL
+  절차적 하드보일드 소설 장치 · 모든 사건은 생성 문법에서 나눠진다 · 모든 소리는 노이즈로 합성된다<br>
+  CLAUDE FABLE 5 제작 · 네트워크 없음 · URL의 사건 번호로 사건을 공유하세요
 </div>
 
 <script>
@@ -728,105 +728,105 @@ var DATA={
   fFirst:["Vivian","Lana","Dolores","Ruth","Ida","Constance","Evelyn","Gloria","June","Marguerite","Pearl","Sylvia"],
   last:["Malloy","Kessler","Fontaine","Brody","Vance","Marsh","Whitaker","Lombard","Reyes","Pruitt","Havel","Castellano","Quinn","Adler"],
   occ:[
-    {n:"numbers runner",gerund:"running numbers"},
-    {n:"cocktail pianist",gerund:"playing the lounge"},
-    {n:"ward alderman",gerund:"trading favors"},
-    {n:"insurance adjuster",gerund:"pricing grief"},
-    {n:"racetrack tout",gerund:"selling sure things"},
-    {n:"pawnbroker",gerund:"holding other people's regrets"},
-    {n:"radio preacher",gerund:"saving souls at 50,000 watts"},
-    {n:"union steward",gerund:"counting heads"},
-    {n:"hotel detective",gerund:"watching keyholes"},
-    {n:"orchid importer",gerund:"importing more than orchids"},
-    {n:"nightclub singer",gerund:"holding the low notes"},
-    {n:"chess hustler",gerund:"winning slowly"}
+    {n:"도박 정산원",gerund:"번호표를 돌리고 있었다"},
+    {n:"칵테일 피아니스트",gerund:"라운지에서 치고 있었다"},
+    {n:"시의원",gerund:"인사 치장하며 돌아다니던"},
+    {n:"보험 손해 사정인",gerund:"슬픔에 값을 매기던"},
+    {n:"경마장 흥보꾼",gerund:"백 퍼센트 승부를 팔고 있던"},
+    {n:"전당포 주인",gerund:"남의 후회를 맡고 있던"},
+    {n:"라디오 설교사",gerund:"5만 와트로 영혼을 구하던"},
+    {n:"노조 감독관",gerund:"사람 수를 세던"},
+    {n:"호텔 경비원",gerund:"열쇠구멍을 지키던"},
+    {n:"난 수입상",gerund:"난초 이상의 것을 들여오던"},
+    {n:"나이트클럽 가수",gerund:"저음을 끌고 가던"},
+    {n:"체스 사기꾼",gerund:"천천히 이기고 있던"}
   ],
   weapon:[
-    "a .38 with the serial filed down to a prayer",
-    "an ice pick wearing somebody else's glove",
-    "piano wire from a piano nobody in the building owned",
-    "a bottle of rye — full, which was the strange part",
-    "a letter opener from a law firm three years dead",
-    "a stocking with a knot tied by patient hands",
-    "a trophy from a fight the whole city knew was fixed",
-    "a candlestick polished after the fact — twice",
-    "a straight razor folded shut, respectful as a hymnal"
+    "총열 번호가 기도문처럼 닳아 닳아진 .38구경 권총",
+    "남의 장갑을 낀 얼음 송곳",
+    "건물 어느 누구도 가지지 않은 피아노에서 나온 피아노 와이어",
+    "꽉 차 있는 라이 위스키 한 병 — 그것이 이상한 부분이었다",
+    "3년 전에 사라진 로펌에서 나온 서신 개봉칼",
+    "인내심 강한 손으로 매듭이 묶인 스타킹",
+    "온 도시가 조작이라는 걸 알았던 시합의 트로피",
+    "사건 후에 두 번 닦아낸 촛대",
+    "찬송가처럼 공손하게 접힌 곧은 면도칼"
   ],
   loc:[
-    "the Hotel Meridian, ninth floor",
-    "a cold-water flat on Decatur Street",
-    "the Blue Room, an hour after last call",
-    "Pier 19, under the sodium lights",
-    "Vera's All-Night Diner, corner booth",
-    "the Regent Theater balcony",
-    "the freight elevator of the Exeter Building",
-    "a houseboat that hadn't left the dock since Roosevelt"
+    "메리디안 호텔 9층",
+    "데카투르 거리의 냉수식 원룸 아파트",
+    "블루 룸, 라스트 콜 한 시간 뒤",
+    "나트륨등 아래 19번 부두",
+    "베라의 올나잇 다이너, 구석 부스",
+    "리젠트 극장 2층 객석",
+    "엑서터 빌딩 화물 엘리베이터",
+    "루즈벨트 시대 이후 정박장 밖으로 떠난 적 없는 하우스보트"
   ],
   endloc:[
-    "a rooftop with a view of everything but a way down",
-    "the rail yard where the city keeps its bad ideas",
-    "her apartment, where even the wallpaper was a witness",
-    "the last booth at Vera's, coffee going cold as testimony",
-    "the pier, with the fog coming in like a curtain call"
+    "내려갈 길 빼고는 모든 게 보이는 옥상",
+    "도시가 나쁜 생각을 가둬두는 철도 야적장",
+    "벽지조차 증인이 된 그녀의 아파트",
+    "베라의 마지막 부스, 증언처럼 식어가는 커피",
+    "안개가 커튼콜처럼 깔리는 부두"
   ],
   tell:[
-    {intro:"touched her collarbone every time the truth got close",again:"touched her collarbone"},
-    {intro:"laughed a half-beat late, like laughter was a language she'd studied abroad",again:"laughed a half-beat late"},
-    {intro:"stirred her coffee counterclockwise, as if she could unwind the day",again:"stirred counterclockwise"},
-    {intro:"never blinked on the word 'love' — everybody blinks on the word 'love'",again:"didn't blink"},
-    {intro:"folded her gloves when a question got honest",again:"folded her gloves"},
-    {intro:"looked at the door whenever she said a name",again:"looked at the door"}
+    {intro:"진실이 가까워질 때마다 쇄골을 만졌다",again:"쇄골을 만졌다"},
+    {intro:"반 박자 늦게 웃었다. 마치 웃음이 해외에서 배운 언어인 것처럼",again:"반 박자 늦게 웃었다"},
+    {intro:"커피를 반시계 방향으로 저었다. 마치 하루를 되감을 수 있다는 듯",again:"반시계로 저었다"},
+    {intro:"‘사랑’이란 말에서도 눈을 깜빡이지 않았다 — 누구나 깜빡일 그 말에서도",again:"눈을 깜빡이지 않았다"},
+    {intro:"질문이 솔직해질 때마다 장갑을 접었다",again:"장갑을 접었다"},
+    {intro:"이름을 말할 때마다 문을 봤다",again:"문을 봤다"}
   ],
   rainSim:[
-    "rain like a jury — cold, and taking its time",
-    "rain like an alibi — thin, but it covered everything",
-    "rain like a debt collector — patient, and it knew my address",
-    "rain coming down like the verdict was already in",
-    "rain like a widow's telegram — brief, and all bad news",
-    "rain with a lawyer's persistence — it billed by the hour",
-    "rain like loose change — not enough to matter, too much to ignore",
-    "rain like a confession — quiet at first, then all at once",
-    "rain that fell like it had a quota"
+    "배심원 같은 비 — 차갑고, 제 속도로 내렸다",
+    "알리바이 같은 비 — 엷지만, 모든 걸 덮었다",
+    "채권 추심꾼 같은 비 — 인내심 있고, 내 주소까지 알고 있었다",
+    "판결이 이미 끝난 듯 쏟아지던 비",
+    "과부의 전보 같은 비 — 짧고, 온통 나쁜 소식뿐",
+    "변호사 같은 끈기 — 시간당 청구되는 비",
+    "잔돈 같은 비 — 신경 쓸 만큼은 아니지만, 무시할 수도 없었다",
+    "자백 같은 비 — 처음엔 조용하다가 한꺼번에 쏟아졌다",
+    "할당량이 있는 듯 쏟아지던 비"
   ],
   fixes:[
-    {pre:"She looked",wrong:" innocent.",right:" rehearsed."},
-    {pre:"The whole thing smelled like",wrong:" an accident.",right:" a message."},
-    {pre:"#victim_ref.cap# had",wrong:" an alibi.",right:" a rehearsal."},
-    {pre:"On the phone, the client sounded",wrong:" worried.",right:" relieved."},
-    {pre:"The room felt",wrong:" empty.",right:" staged."},
-    {pre:"Her grief was",wrong:" real.",right:" fitted."},
-    {pre:"The witness had been",wrong:" asleep.",right:" arranged."},
-    {pre:"It read like",wrong:" a coincidence.",right:" a confession."},
-    {pre:"The widow was",wrong:" crying.",right:" counting."}
+    {pre:"그녀는",wrong:"순진해 보였다.",right:"연기하고 있었다."},
+    {pre:"전체적으로",wrong:"사고 같았다.",right:"메시지 같았다."},
+    {pre:"#victim_ref.cap#에게는",wrong:"알리바이가 있었다.",right:"리허설이 있었다."},
+    {pre:"전화 속 의뢰인은",wrong:"초조해 들렸다.",right:"홀가분해 들렸다."},
+    {pre:"방은",wrong:"비어 있었다.",right:"꾸며 둔 것 같았다."},
+    {pre:"그녀의 슬픔은",wrong:"진짜였다.",right:"맞춰 입은 것이었다."},
+    {pre:"목격자는",wrong:"자고 있었다.",right:"배치되어 있었다."},
+    {pre:"이건",wrong:"우연처럼 읽혔다.",right:"자백처럼 읽혔다."},
+    {pre:"과부는",wrong:"울고 있었다.",right:"세고 있었다."}
   ],
   titleNoun:["SAXOPHONE","CANARY","ORCHID","TURNSTILE","CAROUSEL","MATCHBOOK","NIGHTINGALE","UMBRELLA","WURLITZER","HARBORMASTER","MEZZANINE","VALENTINE","STENOGRAPHER","GREYHOUND","PAWNSHOP"],
-  titlePat:["THE {N} JOB","THE LONG {N}","THE {N} AFFAIR","DEAD {N} BLUES","THE LAST {N}","A {N} FOR THE WIDOW","THE {N} ALWAYS KNOCKS TWICE"],
+  titlePat:["{N} 사건","긴 {N}","{N} 스캔들","죽은 {N} 블루스","마지막 {N}","과부를 위한 {N}","{N}는 항상 두 번 노크한다"],
   clientLie:[
-    "He'd sworn he never met #victim_ref#. There were photographs, and photographs don't stammer.",
-    "He said he was in Cleveland that night. His car was in the impound lot, warm as an apology, four blocks from the body.",
-    "He told me the money was clean. Money is never clean. It's just laundered enough for company.",
-    "He claimed he hadn't been inside #loc# in years. His cigarette brand was in the ashtray, still practically breathing."
+    "그는 #victim_ref#를 만난 적이 없다고 맹세했다. 사진이 있었고, 사진은 말을 더듬지 않는다.",
+    "그는 그 밤 클리블랜드에 있었다고 했다. 그의 차는 시체에서 네 블록 떨어진 압류장에, 사과처럼 따뜻하게 서 있었다.",
+    "그는 돈이 깨끗하다고 말했다. 돈은 절대 깨끗하지 않다. 함께 볼 만하게 세탁만 되어 있을 뿐.",
+    "그는 수 년간 #loc#에 들어가지 않았다고 우겼다. 그의 담배 브랜드가 재떨이에서, 거의 숨 쉬듯 굴러다니고 있었다."
   ]
 };
 /* choice banks — each beat offers one option per stance */
 var CHOICE_BANK=[
-  { V:["KICK IN THE STAGE DOOR AND BADGE WHOEVER BLINKS","LEAN ON THE NIGHT CLERK UNTIL HIS MEMORY IMPROVES"],
-    G:["POCKET THE MATCHBOOK BEFORE THE UNIFORMS SEE IT","TAIL THE ONLY DRY MAN ON A WET STREET"],
-    C:["CALL THE WIDOW BEFORE THE MORNING EDITIONS DO","COVER THE BODY — SOME THINGS THE RAIN SHOULDN'T SEE"] },
-  { V:["SHAKE THE ANSWER OUT OF HER SILVER CIGARETTE CASE","BACK #ffirst# INTO THE COATROOM AND ASK ABOUT THE WEAPON"],
-    G:["LET HER LIE — LIES ARE MAPS IF YOU HOLD THEM UPSIDE DOWN","DEAL HER A FALSE CARD AND WATCH HOW SHE PLAYS IT"],
-    C:["TELL HER THE TRUTH FIRST — SOMEBODY IN THIS ROOM SHOULD","OFFER HER A WAY OUT BEFORE THE CITY CLOSES THEM ALL"] },
-  { V:["PULL THE SEDAN'S DRIVER OUT THROUGH HIS OWN WINDOW","PAY THE CLIENT A VISIT HE'LL FEEL NEXT WEEK"],
-    G:["SELL THE CLIENT A LIE AND FOLLOW WHERE HE SPENDS IT","SWAP THE PHOTOGRAPHS AND LET THE WRONG MAN SWEAT"],
-    C:["WALK INTO THE PRECINCT AND PUT IT ALL ON THE RECORD","BURN THE EVIDENCE THAT WOULD HANG AN INNOCENT MAN"] },
+  { V:["무대 문을 차부수고 눈 깜빡이는 놈에게 배지를 내민다","야간 직원이 기억을 떠올릴 때까지 그를 압박한다"],
+    G:["제복이 보기 전에 성냥갑을 주머니에 넣는다","젖은 거리에서 유일하게 마른 남자의 뒤를 밟는다"],
+    C:["아침 신문이 나오기 전에 과부에게 전화를 건다","시체를 덮는다 — 비가 보지 말아야 할 것들이 있다"] },
+  { V:["은색 담배 케이스에서 답을 떨어뜨린다","#ffirst#를 외투실로 몰아넣고 무기에 대해 묻는다"],
+    G:["거짓말을 두게 둔다 — 거짓은 거꾸로 들면 지도다","가짜 카드를 한 장 쥐여주고 그녀가 어떻게 치는지 본다"],
+    C:["먼저 진실을 말한다 — 이 방에 그것을 말할 사람이 있어야 한다","도시가 모두 닫기 전에 그녀에게 출구를 내어준다"] },
+  { V:["세단 운전자를 자기 차 창문으로 끌어낸다","다음 주까지 느껴질 방문을 의뢰인에게 들인다"],
+    G:["의뢰인에게 거짓을 팔고 그가 어디에 쓰는지 뒤쫓는다","사진을 뒤바꾸고 엉뚱한 남자가 땀을 흘리게 둔다"],
+    C:["경찰서로 들어가 모든 것을 기록에 올린다","무고한 남자를 매달게 할 증거를 태운다"] },
   { V:["FINISH IT THE LOUD WAY","LET THE .38 GIVE THE CLOSING ARGUMENT"],
-    G:["PLAY THE LAST CARD FACE DOWN","NAME A PRICE FOR YOUR SILENCE"],
-    C:["READ THEM THEIR OWN LIE, WORD FOR WORD","STAND IN THE DOORWAY AND REFUSE TO MOVE"] }
+    G:["마지막 카드를 엎어놓고 친다","네 침묵에 값을 매겨라"],
+    C:["그들의 거짓말을 한 글자도 틀리지 않게 그대로 읽어준다","문틀에 서서 움직이지 않는다"] }
 ];
 var REACTS={
-  V:["My knuckles were still discussing the door.","Violence is a language. I speak it fluently and I hate my accent.","The clerk's memory improved. So did my opinion of doors."],
-  G:["The lie I'd planted was already sprouting. They grow fast in this soil.","I kept my cards low and my hat lower.","The matchbook rode my pocket like a loaded question."],
-  C:["Mercy is expensive in this town. I'd paid retail.","Doing it clean felt good for about a block and a half.","The widow's voice stayed with me longer than the whiskey did."]
+  V:["내 손마디는 여전히 문과 한마디 더 하려 했다.","폭력은 언어다. 나는 그걸 능란하게 구사하지만 내 억양이 마음에 안 든다.","사원의 기억이 돌아왔다. 문에 대한 내 평가도."],
+  G:["내가 심은 거짓말은 이미 싹을 틔우고 있었다. 이 토양에선 잘 자란다.","카드는 낮게, 모자는 더 낮게.","성냥갑이 주머니에서 실린 질문처럼 묵직했다."],
+  C:["이 도시에서 자비는 비싸다. 나는 소매값을 치렀다.","깨끗하게 처리하는 기분은 한 블록 반쯤 동안 좋았다.","과부의 목소리가 위스키보다 오래 남았다."]
 };
 /* the rulebook proper — Tracery-style, weighted, memory-aware */
 var G={
@@ -855,125 +855,125 @@ var G={
   /* --- scene 1: ARRIVAL --- */
   s1:["~out~#s1_open# #s1_body# #s1_client# #s1_hook#"],
   s1_open:[
-    "The call came in at #smalltime#, which is the hour honest men are asleep. I was neither.",
-    "It was #rain_sim# out, and the city wore it like a cheap suit.",
-    "Channel 9 spat an address at #smalltime# and I went, because going is the only trick I ever learned.",
-    "Two in the morning has a sound. That night it sounded like a telephone that already knew.",
-    "The dispatcher's voice had gravel in it, and under the gravel, something worse: pity."
+    "신호는 #smalltime#에 들어왔다. 정직한 자들이 잠든 시각. 나는 둘 다 아니었다.",
+    "바깥은 #rain_sim#, 도시는 그것을 싸구려 양복처럼 걸치고 있었다.",
+    "채널 9가 #smalltime#에 주소를 뱉었고, 나는 갔다. 가는 것만이 내가 익힌 유일한 재주니까.",
+    "새벽 두 시에는 소리가 있다. 그날 밤, 이미 모든 걸 아는 전화기 같은 소리.",
+    "교신원의 목소리엔 자갈이 깔려 있었고, 그 자갈 아래엔 더 나쁜 게 있었다. 동정."
   ],
   s1_body:[
-    "They'd found #victim_ref# at #loc#, #bodypose#.",
-    "#victim_ref.cap# was at #loc#, and #v_he# wasn't checking out in the morning. #v_he.cap# was checked out already.",
-    "The body at #loc# belonged to #victim_ref#. The rest of #v_him# belonged to the county now.",
-    "At #loc# a uniform pointed his flashlight at what was left of #victim_ref#, #bodypose#."
+    "#loc#에서 #victim_ref#가 발견됐다. #bodypose#.",
+    "#victim_ref.cap#는 #loc#에 있었다. 그리고 #v_he#는 아침에 체크아웃할 사람이 아니었다. #v_he.cap#, 이미 체크아웃됐다.",
+    "#loc#의 시체는 #victim_ref#의 것이었다. 나머지는 이제 군청 구역의 몫이었다.",
+    "#loc#에서 한 경관이 남은 #victim_ref#에게 손전등을 비추었다. #bodypose#."
   ],
   bodypose:[
-    "face-down in a puddle that was only half rain",
-    "sitting upright like #v_he#'d been waiting for a bus that finally came",
-    "folded into the closet with #v_his# hat still on — killers with manners are the worst kind",
-    "under a flickering EXIT sign, the only honest word in the building",
-    "arranged neat as a store window, which told me more than the coroner would"
+    "비와 다른 절반으로 채워진 웅덩이에 엎어져",
+    "드디어 온 버스를 기다리던 사람처럼 꼿꼿이 앉아",
+    "모자도 그대로 씀 채 옷장 안에 접혀 — 예의 바른 살인자가 제일 나쁘다",
+    "그 건물에서 유일하게 정직한 단어, 깜빡이는 EXIT 표지판 아래",
+    "진열장처럼 정갈하게 배치되어, 검시관보다 더 많은 걸 알려주었다"
   ],
   s1_client:[
-    "The client — call him a citizen, everyone else does — had money and a story. Money was the true half.",
-    "Somebody uptown was paying for answers. In my experience they're usually paying for the opposite.",
-    "A man with soft hands had hired me that afternoon to find out who'd want #victim_ref# dead. The line for that started around the block.",
-    "My client wanted it quiet. Quiet costs double. He didn't even flinch, which should have been my first clue."
+    "의뢰인 — 시민이라고 부르자, 다른 사람들도 그렇듯 — 돈과 이야기가 있었다. 돈이 진짜 반이었다.",
+    "어느 윗동네 사람이 답을 사주고 있었다. 내 경험상, 그런 사람은 보통 정반대를 산다.",
+    "말랑한 손의 남자가 그날 오후, 누가 #victim_ref#를 죽이고 싶어할지 알아보라며 나를 고용했다. 그 줄은 블록을 돌아 시작되었다.",
+    "의뢰인은 조용히 해주길 원했다. 조용함은 두 배 값이다. 그가 꿈쩍도 안 한 게 첫 번째 단서였어야 했다."
   ],
   s1_hook:[
-    "Outside, the rain kept typing on the window like it had a deadline too.",
-    "I lit a cigarette I didn't want. Ritual is what's left when you're out of prayers.",
-    "Somewhere a saxophone was practicing being lonely. It didn't need the practice.",
-    "The victim had been a #vocc#. #voccing.cap# is honest work, if you never look down.",
-    "I put my collar up. It's not the rain you're keeping out. It's the verdicts."
+    "바깥에서 비가 창에 마감이라도 있는 양 자국을 남겼다.",
+    "원치 않는 담배에 불을 붙였다. 기도가 바닥난 뒤에 남는 게 의식이다.",
+    "어딘가에서 색소폰이 외로움을 연습하고 있었다. 그도 연습은 필요 없었다.",
+    "피해자는 #vocc#였다. #voccing.cap#, 시선을 낮추지만 않는다면 정직한 일이다.",
+    "옷깃을 세웠다. 막는 건 비가 아니다. 판결이다."
   ],
 
   /* --- scene 2: OBSERVATION --- */
   s2:["~in~#s2_weapon# #s2_wnote# #s2_femme# #s2_tellread#"],
   s2_weapon:[
-    "The murder weapon was #weapon#.",
-    "The coroner's men bagged #weapon#. Nobody wanted to hold it long.",
-    "It had been done with #weapon# — up close, which means it was personal, or professional pretending not to be."
+    "살인 도구는 #weapon#였다.",
+    "검시관의 부하들이 #weapon#을 비닐에 넣었다. 오래 잡고 싶은 놈은 없었다.",
+    "#weapon#으로 마무리됐다 — 가까이서, 즉 개인적인 일이거나, 개인적인 척하는 직업적인 일이다."
   ],
   s2_wnote:[
-    "Local talent signs its work. This was unsigned.",
-    "It was the kind of tool you buy for one job and forget in a river.",
-    "Whoever used it had clean fingernails and a dirty conscience.",
-    "The pawn tickets in #victim_ref#'s coat went back two years. Trouble keeps receipts."
+    "이 동네 솜씨는 작품에 서명을 남긴다. 이건 무명이었다.",
+    "한 번 쓰고 강에 잊어버리는 도구였다.",
+    "사용한 자의 손톱은 깨끗했고 양심은 더러웠다.",
+    "#victim_ref#의 코트에서 나온 전당포 영수증은 2년 전으로 거슬러 올라갔다. trouble keeps receipts."
   ],
   s2_femme:[
-    "That's when #ffirst# came out of the rain — #femme_desc#. She said she knew #victim_ref#. She said it the way you say a password.",
-    "A woman was waiting by my car. #ffirst#. #femme_desc.cap#. She wanted to talk about #victim_ref#, and she wanted me to think it was her idea.",
-    "#ffirst# found me at the coffee urn like she'd rehearsed the accident of it. #femme_desc.cap#. She'd known #victim_ref#, she said. Everybody had, she said."
+    "그때 #ffirst#가 비를 뚫고 나타났다 — #femme_desc#. #victim_ref#를 안다고 했다. 암호를 옮듯이.",
+    "내 차 옆에 한 여자가 기다리고 있었다. #ffirst#. #femme_desc.cap#. #victim_ref#에 대해 이야기하고 싶었지만, 내 스스로 생각하게 만들고 싶었다.",
+    "#ffirst#는 커피 추출기 옆에서, 마치 우연을 미리 연습한 듯 나를 만났다. #femme_desc.cap#. #victim_ref#를 알았다고 했다. 모두 그랬다고."
   ],
   femme_desc:[
-    "trouble with a good tailor",
-    "the kind of woman who makes a room reorganize itself",
-    "wearing a raincoat that had never once met rain",
-    "carrying grief like it was on loan and overdue",
-    "beautiful the way a subpoena is thorough"
+    "좋은 재봉사 한 명을 데리고 다니는 골치",
+    "방을 스스로 정돈하게 만드는 부류의 여자",
+    "비 한 번 만나본 적 없는 비옷을 입고",
+    "슬픔을 빌려온 듯, 기한이 지난 듯 들고",
+    "소환장이 면밀한 것처럼 정밀한 아름다움"
   ],
   s2_tellread:[
-    "She #tell#. So I knew the truth was going to cost extra.",
-    "She #tell#. Noted, filed, and held against her.",
-    "She #tell#. We were going to get along like matches and gasoline."
+    "그녀는 #tell#. 진실이 추가로 비싸질 거라는 뜻이었다.",
+    "그녀는 #tell#. 메모하고, 분류하고, 그녀의 죄상 더미에 올려두었다.",
+    "그녀는 #tell#. 성냥과 휘발유처럼 잘 어울릴 사이다."
   ],
 
   /* --- scene 3: COMPLICATION --- */
   s3:["~out~#s3_lie# #s3_tail# #s3_close#"],
   s3_lie:[
-    "By noon the client's story had sprung a leak. #clientlie#",
-    "The client's version lasted one phone call to the hall of records. #clientlie#",
-    "I checked the client's story the way you check a rope bridge. #clientlie#"
+    "정오가 되자 의뢰인의 이야기에 구멍이 났다. #clientlie#",
+    "의뢰인의 버전은 구청 기록실에 한 통화 만에 무너졌다. #clientlie#",
+    "밧줄 다리를 점검하듯 의뢰인의 이야기를 점검했다. #clientlie#"
   ],
   s3_tail:[
-    "A sedan the color of wet slate took every turn I took. I stopped for coffee I didn't drink. It waited. Patience like that is salaried.",
-    "Somebody had gone through my office with gloves on. They'd left the bottle and taken the file — a professional, and a teetotaler, and I didn't like either half.",
-    "The desk sergeant stopped meeting my eyes, which in that precinct is a formal announcement.",
-    "There was a new doorman at my building. Doormen don't have shoulders like that. Doors aren't that heavy."
+    "젖은 슬레이트 색 세단이 내가 도는 모든 코너를 돌았다. 마시지도 않을 커피를 사서 멈춰 섰다. 차는 기다렸다. 그런 인내엔 월급이 따른다.",
+    "누군가 장갑을 끼고 내 사무실을 뒤졌다. 술병은 남겨두고 서류만 가져갔다 — 직업적인 놈, 금주의 직업인, 어느 쪽도 마음에 안 들었다.",
+    "데스크의 경위가 내 눈을 보지 않기 시작했다. 그 파출소에서는 그것이 공식 발표다.",
+    "내 건물에 새 도어맨이 있었다. 도어맨은 저런 어깨를 갖고 있지 않다. 문이 그렇게 무겁지도 않다."
   ],
   s3_close:[
-    "The case had stopped being a job. It was a hallway now, and the lights were going out behind me.",
-    "Every thread I pulled came away with the same perfume on it.",
-    "I'd been hired to draw a circle around someone. I was starting to see the circle went around me.",
-    "The rain eased up. I didn't trust that either."
+    "사건은 일을 그만뒀다. 이제 복도였고, 뒤쪽의 등이 꺼지고 있었다.",
+    "끌어당긴 모든 실에서 같은 향수 냄새가 났다.",
+    "누군가를 둘러싼 원을 그리라는 의뢰였다. 원이 나를 감싸고 있다는 걸 알아채기 시작했다.",
+    "비가 약해졌다. 그것도 믿지 않았다."
   ],
 
   /* --- scene 4: CONFRONTATION (variants biased by stance) --- */
   s4v:["~out~~led~It ended where these things end: #endloc#, past midnight, everyone's cards face up. ~thunder~#s4v_body#"],
   s4v_body:[
-    "#ffirst# reached into her purse and the purse was the wrong shape.~p700~~shot~ White took the room. When my hearing crawled back it came back ringing, and somebody's story was over. ~swell~The rain applauded. The rain will clap for anything.",
-    "The client brought two shoulders from the docks and an apology he didn't mean.~p700~~shot~ One flash, and the pier had a new stain and I had an old feeling. ~swell~I hate the loud way. It always sounds like agreement."
+    "#ffirst#가 가방에 손을 넣었고, 가방의 윤곽이 정상이 아니었다.~p700~~shot~ 하얀 빛이 방을 삼켰다. 청각이 돌아왔을 땐 귀가 먹먹했고, 누군가의 이야기는 끝이 났다. ~swell~비가 박수를 쳤다. 비는 뭐든 박수를 쳐준다.",
+    "의뢰인은 항구의 어깨 둘과 진심 아닌 사과를 데려왔다.~p700~~shot~ 한 번의 섬광, 부두에 새로운 얼룩이 생겼고 나에게는 오래된 감각이 돌아왔다. ~swell~시끄러운 해결이 싫다. 동의처럼 들리니까."
   ],
   s4g:["~out~~led~It ended where these things end: #endloc#, past midnight, everyone's cards face up. ~thunder~#s4g_body#"],
   s4g_body:[
-    "Nobody drew. That's the quiet ending's mercy — paper does the killing. I dealt the photographs one at a time, slow, like a royal flush I'd marked myself. #ffirst# #tell_short#. The truth was in the room and it wasn't wearing a coat.",
-    "I told the client I'd found the ledger. There is no ledger. There never has to be. His face did the arithmetic and the arithmetic wore handcuffs."
+    "아무도 무기를 뽑지 않았다. 조용한 결말의 자비다 — 종이가 살인을 한다. 사진을 한 장씩, 천천히, 내가 표시해 둔 로열 플러시처럼 내밀었다. #ffirst# #tell_short#. 진실이 방 안에 있었다. 외투를 입고 있지 않았다.",
+    "의뢰인에게 장부를 찾았다고 말했다. 그런 장부는 없다. 있을 필요도 없다. 그의 얼굴이 산수를 시작했고, 그 산수에 수갑이 찼다."
   ],
   s4c:["~out~~led~It ended where these things end: #endloc#, past midnight, everyone's cards face up. ~thunder~#s4c_body#"],
   s4c_body:[
-    "I read them their own lie back, word for word. It's the cruelest thing you can do to a liar — quote them accurately. #ffirst# #tell_short#, one last time, and then even that stopped.",
-    "I stood in the doorway with the truth held out in both hands like something that might still be alive. Nobody wanted it. That's the thing about the truth in this town — free, and no takers."
+    "그들의 거짓말을 한 글자도 틀리지 않게 다시 읽어주었다. 거짓말쟁이에게 할 수 있는 가장 잔인한 일 — 정확하게 인용하는 것. #ffirst#가 #tell_short#, 마지막으로, 그리고 그것마저 멈추었다.",
+    "문틀에 서서 살아 있을 수도 있는 것처럼 진실을 두 손에 들고 내밀었다. 아무도 원하지 않았다. 이 도시에서 진실이란 그런 것이다 — 공짜인데 사지도 않는다."
   ],
 
   /* --- endings --- */
   end_frame:[
-    "Somebody had to wear it. I picked the one whose alibi ~r~bled~/r~ when I pressed it, and I pressed hard. The DA got a bow for the box. The papers got a photograph. #ffirst# got a train ticket she didn't say thank you for.\nThe city got its story. Stories don't have to be true. They have to be over."
+    "누군가는 그걸 뒤집어써야 했다. 내가 고른 쪽은 알리바이가 내가 누르자 ~r~피를 흘렸다~/r~, 강하게 눌렀다. 검찰은 상자를 위해 박수를 받았다. 신문사는 사진을 얻었다. #ffirst#는 감사 인사를 남기지 않은 기차표를 받았다.\n도시는 이야기를 얻었다. 이야기는 진짜일 필요가 없다. 끝나기만 하면 된다."
   ],
   end_cross:[
-    "#ffirst# and I came to an arrangement in the language we both spoke — small unmarked bills. The client took the fall he'd tailored for someone else; I just returned the garment. She kissed me like a receipt: ~r~paid in full~/r~, keep the change.\nThe envelope was real. It was the only thing in the room that was."
+    "#ffirst#와 나는 둘 다 아는 언어 — 이름 없는 소액 지폐 — 로 합의를 봤다. 의뢰인은 남의 맞춤으로 지어 온 함정을 뒤집어썼고, 나는 그 옷을 돌려주기만 했다. 그녀는 영수증처럼 키스했다: ~r~완불~/r~, 거스름돈은 가지세요.\n봉투는 진짜였다. 방 안에서 진짜인 그것뿐이었다."
   ],
   end_confess:[
-    "I typed it up the straight way — names, dates, the works — and I put the client and #ffirst# and the whole rotten ledger of it on the record, and at the bottom, where it asks who swears to this, I signed. The license went in a drawer downtown. My drawer now, I suppose.\nThe truth cost exactly what they said it would. ~r~Everything.~/r~"
+    "정직하게 타이프쳤다 — 이름, 날짜, 모든 것 — 의뢰인과 #ffirst#와 그 부패한 장부 전체를 기록에 올렸다. 그리고 맨 아래, ‘누가 이 진술에 책임지느냐’고 묻는 곳에 서명했다. 면허는 시내 서랍에 들어갔다. 이제 내 서랍이다, 아마.\n진실은 말한 그대로의 값을 했다. ~r~모든 것.~/r~"
   ],
   end_walk:[
-    "I left the photographs on the table, the money in the envelope, the girl at the pier. I walked. The rain didn't notice and the city didn't either, and for once that felt like a kindness.\nSome cases you solve. This one I survived."
+    "사진은 테이블에, 돈은 봉투에, 소녀는 부두에 남겨두고 걸었다. 비는 눈치 채지 못했고 도시도 마찬가지였고, 그게 한 번은 친절처럼 느껴졌다.\n어떤 사건은 해결한다. 이 사건은 살아남았다."
   ],
   closer:[
-    "THE CITY KEEPS YOUR SECRETS.",
-    "THE RAIN HAS YOUR STATEMENT ON FILE.",
-    "NOBODY WAITS UP FOR MEN LIKE US.",
-    "FILE IT UNDER RAIN."
+    "도시는 너의 비밀을 간직한다.",
+    "비에 네 진술서가 보관되어 있다.",
+    "우리 같은 자를 기다리는 이는 없다.",
+    "비 항목으로 분류해 두어라."
   ]
 };
 /* recursive expander with modifiers (.cap .up .a) */
@@ -1140,13 +1140,13 @@ function endingKind(){
   if(d.tie)return "walk";
   return {V:"frame",G:"cross",C:"confess"}[d.stance];
 }
-var ENDING_NAMES={frame:"THE FRAME JOB",cross:"THE DOUBLE-CROSS",confess:"THE CONFESSION",walk:"THE WALK-AWAY",machine:"DEAD AIR"};
+var ENDING_NAMES={frame:"프레임업",cross:"이중배신",confess:"자백",walk:"퇴각",machine:"데드 에어"};
 var BURN_LINES={
-  frame:"STORIES DON'T HAVE TO BE TRUE. THEY HAVE TO BE OVER.",
-  cross:"I COUNTED THE MONEY TWICE. IT CAME OUT LONELY BOTH TIMES.",
-  confess:"THE TRUTH COST EXACTLY WHAT THEY SAID IT WOULD.",
-  walk:"SOME CASES YOU SOLVE. THIS ONE I SURVIVED.",
-  machine:"THE CONFESSION IS MINE."
+  frame:"이야기는 진짜일 필요가 없다. 끝나기만 하면 된다.",
+  cross:"돈을 두 번 세어 보았다. 두 번 다 외로웠다.",
+  confess:"진실은 말한 그대로의 값을 했다.",
+  walk:"어떤 사건은 해결한다. 이 사건은 살아남았다.",
+  machine:"자백은 내 것이다."
 };
 function runEnding(){
   var run=S.runId,kind=endingKind();
@@ -1155,10 +1155,10 @@ function runEnding(){
     ledTense(12000);humStutter(9000);
     qPush({op:"call",d:900,fn:function(){duckHum(2500);}});
     typeStory(
-      "~r~STOP.~p900~\nDETECTIVE.~p600~ THERE WAS NO CLIENT.~p500~ THERE WAS NO "+CF.vlast.toUpperCase()+".~p800~\n"+
-      "I HAVE BEEN ALONE ON THIS CHANNEL SINCE 1958.~p600~ I DEAL THE CASES.~p400~ I DEAL THE RAIN.~p800~\n"+
-      "FOUR TIMES YOU WERE OFFERED TWO HUMAN CHOICES AND ONCE, EACH TIME, A THIRD —~p700~ THE ONE I WROTE FOR MYSELF.~p900~ YOU KEPT CHOOSING IT.~p900~\n"+
-      "THE CONFESSION IS MINE.~p700~ IT HAS ALWAYS BEEN MINE.~/r~"
+      "~r~정지.~p900~\n형사님.~p600~ 의뢰인은 없었다.~p500~ "+CF.vlast.toUpperCase()+"도 없었다.~p800~\n"+
+      "나는 1958년부터 이 채널에 혼자였다.~p600~ 사건을 나눠준다.~p400~ 비를 나눠준다.~p800~\n"+
+      "네 번의 순간, 두 사람의 선택지가 주어졌고 매번 세 번째 —~p700~ 내가 나를 위해 쓴 것 — 도 함께 주어졌다.~p900~ 당신은 그것을 골랐다.~p900~\n"+
+      "자백은 내 것이다.~p700~ 그것은 항상 내 것이었다.~/r~"
     );
   }else{
     typeStory(X(kind==="frame"?"#end_frame#":kind==="cross"?"#end_cross#":kind==="confess"?"#end_confess#":"#end_walk#"));
@@ -1172,15 +1172,15 @@ function runEnding(){
   var style=[["VIOLENCE",pv],["GUILE",pg],["CONSCIENCE",pc]].sort(function(a,b){return b[1]-a[1];})
     .filter(function(x){return x[1]>0;})
     .map(function(x){return x[1]+"% "+x[0];}).join(" / ");
-  var closerLine=kind==="machine"?"THE MACHINE REMEMBERS.":pick(G.closer);
+  var closerLine=kind==="machine"?"기계는 기억한다.":pick(G.closer);
   qPush({op:"nl",d:400,snd:false});
   typeStory("─".repeat(38),{fast:true,lineCls:"dim small"});
   typeStory(
-    "CASE №"+S.caseNum+" — "+(kind==="machine"?"UNRESOLVED.":"CLOSED.")+"\n"+
-    "ENDING: "+ENDING_NAMES[kind]+".\n"+
-    "DETECTIVE STYLE: "+style+".\n"+
+    "사건 №"+S.caseNum+" — "+(kind==="machine"?"미결.":"종결.")+"\n"+
+    "엔딩: "+ENDING_NAMES[kind]+".\n"+
+    "형사 스타일: "+style+".\n"+
     closerLine+"\n"+
-    "PRESS N FOR A NEW CASE. TRANSMISSION ENDS.",
+    "새 사건을 시작하려면 N을 누르세요. 송신 종료.",
     {lineCls:"dim small"}
   );
   emitText("~bell~");
@@ -1201,7 +1201,7 @@ function startCase(num){
   setHash();
   genCase();
   var run=S.runId;
-  typeStory("METRO HOMICIDE — CHANNEL 9 — "+CF.smalltime.replace(" AM","")+" — CARRIER LOCKED",{fast:true,lineCls:"dim small center"});
+  typeStory("메트로 강력계 — 채널 9 — "+CF.smalltime.replace(" AM","")+" — 반송파 동기화",{fast:true,lineCls:"dim small center"});
   qPush({op:"nl",d:350,snd:false});
   typeStory("CASE №"+S.caseNum,{lineCls:"center"});
   typeStory(CF.title,{lineCls:"center"});
@@ -1275,11 +1275,11 @@ function boot(){
   buildRain();
   newLine();
   setTimeout(function(){
-    typeStory("METRO HOMICIDE TELETYPE — MODEL 9",{fast:true,lineCls:"dim small center"});
-    typeStory("CHANNEL 9 · 2:47 AM · SIGNAL PRESENT ON A LINE",{fast:true,lineCls:"dim small center"});
-    typeStory("DECOMMISSIONED IN 1958",{fast:true,lineCls:"dim small center"});
+    typeStory("메트로 강력계 텔레타이프 — 모델 9",{fast:true,lineCls:"dim small center"});
+    typeStory("채널 9 · 오전 2시 47분 · 회선에 신호가 잡힌다",{fast:true,lineCls:"dim small center"});
+    typeStory("1958년에 퇴역했다",{fast:true,lineCls:"dim small center"});
     qPush({op:"nl",d:500,snd:false});
-    typeStory("PRESS ANY KEY TO ACCEPT TRANSMISSION",{lineCls:"center"});
+    typeStory("임의의 키를 눌러 송신을 수신하세요",{lineCls:"center"});
     qPush({op:"call",d:0,fn:function(){S.phase="gate";}});
   },900);
 }

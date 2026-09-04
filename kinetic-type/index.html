@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+<html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kinetic Type — Living Letterforms</title>
+<title>키네틱 타이포 — 살아 있는 글자</title>
 <style>
   :root{
     --ink:#0B0B0F;
@@ -11,7 +13,7 @@
     --accent:#FFB020;
     --accent2:#FFB020;
     --glass:rgba(18,18,24,.55);
-    --ff:'Helvetica Neue',Helvetica,Arial,'Segoe UI',system-ui,sans-serif;
+    --ff:'Helvetica Neue',Helvetica,Arial,'Segoe UI','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',system-ui,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
@@ -279,63 +281,63 @@
 <!-- top bar -->
 <div id="topbar">
   <div class="brand">
-    <span class="t">Kinetic Type</span>
-    <span class="s">Living Letterforms</span>
+    <span class="t">키네틱 타이포</span>
+    <span class="s">살아 있는 글자</span>
   </div>
-  <button id="infoBtn">About</button>
+  <button id="infoBtn">정보</button>
 </div>
 
 <!-- preset pill -->
 <div id="presets">
   <div id="pillGlider"></div>
-  <button class="pill active" data-p="wave">Wave</button>
-  <button class="pill" data-p="explode">Explode</button>
-  <button class="pill" data-p="liquid">Liquid</button>
-  <button class="pill" data-p="scroll">Scroll</button>
-  <button class="pill" data-p="magnetic">Magnetic</button>
+  <button class="pill active" data-p="wave">웨이브</button>
+  <button class="pill" data-p="explode">폭발</button>
+  <button class="pill" data-p="liquid">액체</button>
+  <button class="pill" data-p="scroll">스크럽</button>
+  <button class="pill" data-p="magnetic">자석</button>
 </div>
 
 <!-- scroll hint -->
 <div id="scrollHint">
-  <span class="rail-label">Scroll · drag · to scrub</span>
+  <span class="rail-label">스크롤 · 드래그 · 하여 탐색</span>
   <div class="bar"><div class="fill"></div></div>
 </div>
 
-<div id="attractTag"><span class="dot"></span><span>Attract mode — move to take control</span></div>
-<div id="footcredit">Built by Claude Fable 5</div>
+<div id="attractTag"><span class="dot"></span><span>유인 모드 — 움직여 장악을 가져가세요</span></div>
+<div id="footcredit">Claude Fable 5 제작</div>
 
 <!-- control rail -->
 <div id="rail">
   <div id="phraseRow">
-    <span class="rail-label">Phrase</span>
-    <input id="phrase" maxlength="42" value="living letterforms" spellcheck="false" autocomplete="off">
+    <span class="rail-label">문구</span>
+    <input id="phrase" maxlength="42" value="살아 있는 글자" spellcheck="false" autocomplete="off">
   </div>
   <div id="controls">
     <div class="ctl">
-      <div class="head"><span class="rail-label">Weight</span><span class="val" id="vWeight">400</span></div>
+      <div class="head"><span class="rail-label">굵기</span><span class="val" id="vWeight">400</span></div>
       <input type="range" id="sWeight" min="100" max="900" step="10" value="400">
     </div>
     <div class="ctl">
-      <div class="head"><span class="rail-label">Size</span><span class="val" id="vSize">120</span></div>
+      <div class="head"><span class="rail-label">크기</span><span class="val" id="vSize">120</span></div>
       <input type="range" id="sSize" min="40" max="240" step="1" value="120">
     </div>
     <div class="ctl">
-      <div class="head"><span class="rail-label">Tracking</span><span class="val" id="vTrack">0</span></div>
+      <div class="head"><span class="rail-label">자간</span><span class="val" id="vTrack">0</span></div>
       <input type="range" id="sTrack" min="-8" max="40" step="1" value="0">
     </div>
     <div class="ctl">
-      <div class="head"><span class="rail-label">Intensity</span><span class="val" id="vInt">100</span></div>
+      <div class="head"><span class="rail-label">강도</span><span class="val" id="vInt">100</span></div>
       <input type="range" id="sInt" min="20" max="200" step="1" value="100">
     </div>
     <div class="ctl" style="grid-column:span 2">
-      <div class="head"><span class="rail-label">Accent</span></div>
+      <div class="head"><span class="rail-label">강조색</span></div>
       <div id="palette"></div>
     </div>
     <div class="ctl" style="grid-column:span 2">
-      <div class="head"><span class="rail-label">Options</span></div>
+      <div class="head"><span class="rail-label">옵션</span></div>
       <div id="toggles">
-        <div class="tog" id="togTrail"><span class="box"></span><span class="rail-label">Ghost trail</span></div>
-        <div class="tog on" id="togGrain"><span class="box"></span><span class="rail-label">Grain</span></div>
+        <div class="tog" id="togTrail"><span class="box"></span><span class="rail-label">잔상</span></div>
+        <div class="tog on" id="togGrain"><span class="box"></span><span class="rail-label">그레인</span></div>
       </div>
     </div>
   </div>
@@ -344,20 +346,20 @@
 <!-- info overlay -->
 <div id="info">
   <div class="card">
-    <h1>Kinetic Type</h1>
-    <div class="tag">Type a phrase. Watch it breathe, shatter, melt, and chase your cursor.</div>
-    <p>Every letter is a persistent physics body — position, velocity, rotation, scale — driven by one shared spring integrator running on a single rAF loop. Presets are just force fields written each frame, so switching between them never rebuilds the word: the glyphs carry their momentum and get smoothly re-captured, one continuous living organism reshaping itself.</p>
+    <h1>키네틱 타이포</h1>
+    <div class="tag">문구를 적어 보세요. 호흡하고, 산산이 부서지고, 녹고, 커서를 따라잡는 모습을 지켜보세요.</div>
+    <p>모든 글자는 영구적인 물리 객체 — 위치, 속도, 회전, 크기 — 로, 단일 스프링 적분기와 단일 rAF 루프가 함께 구동합니다. 프리셋은 단지 매 프레임 작성되는 힘의 장이므로, 그 사이를 오가도 단어는 절대 다시 만들어지지 않습니다 — 글자가 자신의 관성을 유지하고 다시 부드럽게 붙잡히면서, 하나의 살아 있는 유기체가 끊임없이 자기 자신을 빚어냅니다.</p>
     <div class="modes">
-      <div><b>Wave</b> — sinusoidal ripple, per-letter phase</div>
-      <div><b>Explode</b> — scatter + spring gather</div>
-      <div><b>Liquid</b> — SVG goo melt & coalesce</div>
-      <div><b>Scroll</b> — scrub a keyframe arc</div>
-      <div><b>Magnetic</b> — glyphs chase your cursor</div>
-      <div><b>Idle</b> — attract mode auto-cycles</div>
+      <div><b>웨이브</b> — 사인파 물결, 글자별 위상</div>
+      <div><b>폭발</b> — 흩어진 뒤 스프링으로 모여듦</div>
+      <div><b>액체</b> — SVG 끈적한 녹음과 합류</div>
+      <div><b>스크럽</b> — 키프레임 호를 따라 탐색</div>
+      <div><b>자석</b> — 글리프가 커서를 따라옴</div>
+      <div><b>대기</b> — 유인 모드가 자동으로 순환</div>
     </div>
     <div class="foot">
-      <span class="credit">Built by Claude Fable 5</span>
-      <button class="close" id="infoClose">Enter</button>
+      <span class="credit">Claude Fable 5 제작</span>
+      <button class="close" id="infoClose">들어가기</button>
     </div>
   </div>
 </div>
@@ -728,7 +730,7 @@
 
   /* ---------------- attract mode ---------------- */
   const ATTRACT_DELAY = 9000;
-  const ATTRACT_PHRASES = ['living letterforms','breathe','shatter','melt','chase the cursor','kinetic type'];
+  const ATTRACT_PHRASES = ['살아 있는 글자','호흡하다','산산조각','녹다','커서를 쫓다','키네틱 타이포'];
   let attractOn=false, attractTimer=0, attractPhraseIx=0;
   function handleAttract(now){
     const idle = now - S.lastInteract;
@@ -795,7 +797,7 @@
   /* ---------------- build palette UI ---------------- */
   const palEl = document.getElementById('palette');
   const auto = document.createElement('div');
-  auto.className='sw auto sel'; auto.title='Auto (per preset)';
+  auto.className='sw auto sel'; auto.title='프리셋별 자동';
   auto.addEventListener('click',()=>{ selectAccent(-1); interact(); });
   palEl.appendChild(auto);
   PALETTE.forEach((c,i)=>{

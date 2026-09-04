@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tidepool — a living ecosystem</title>
+<title>타이드풀 — 살아 있는 생태계</title>
 <style>
   :root{
     --ink:#eaf6f4;
@@ -17,7 +17,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%;overflow:hidden;background:#0a2a3d}
-  body{font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;color:var(--ink)}
+  body{font-family:"Avenir Next","Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;color:var(--ink)}
   #sea{position:fixed;inset:0;display:block;cursor:crosshair}
 
   #panel{
@@ -110,49 +110,49 @@
 <canvas id="sea"></canvas>
 
 <div id="panel">
-  <h1>Tide<em>pool</em></h1>
-  <div class="sub">a living ecosystem</div>
+  <h1>타이드<em>풀</em></h1>
+  <div class="sub">살아 있는 생태계</div>
 
   <div class="stats">
-    <div class="stat p"><b id="cP">0</b><span><i></i>plankton</span></div>
-    <div class="stat g"><b id="cG">0</b><span><i></i>grazers</span></div>
-    <div class="stat d"><b id="cD">0</b><span><i></i>predators</span></div>
+    <div class="stat p"><b id="cP">0</b><span><i></i>플랑크톤</span></div>
+    <div class="stat g"><b id="cG">0</b><span><i></i>초식자</span></div>
+    <div class="stat d"><b id="cD">0</b><span><i></i>포식자</span></div>
   </div>
 
   <canvas id="chart"></canvas>
-  <div class="chartlabel">population &middot; relative boom &amp; bust</div>
+  <div class="chartlabel">개체수 &middot; 번성과 붕괴의 상대 변화</div>
 
   <div class="tools">
-    <button class="tool active" data-tool="feed" title="Feed (1) — sprinkle nutrients; hold &amp; drag to sow a bloom">
+    <button class="tool active" data-tool="feed" title="먹이 주기 (1) — 영양분을 흩뿌립니다. 누른 채 드래그하면 대번성을 씨 뿌립니다">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="9" r="1.6"/><circle cx="14" cy="6" r="1.3"/><circle cx="17" cy="12" r="1.6"/><circle cx="11" cy="14" r="1.2"/><circle cx="7" cy="17" r="1.4"/><circle cx="15" cy="18" r="1.1"/></svg>
-      <span>feed</span>
+      <span>먹이</span>
     </button>
-    <button class="tool" data-tool="grazer" title="Spawn grazers (2)">
+    <button class="tool" data-tool="grazer" title="초식자 풀어놓기 (2)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12c3-4 8-5 12-3l4-3v12l-4-3c-4 2-9 1-12-3z"/><circle cx="7.5" cy="11.2" r="0.4" fill="currentColor"/></svg>
-      <span>grazer</span>
+      <span>초식자</span>
     </button>
-    <button class="tool" data-tool="pred" title="Spawn a predator (3)">
+    <button class="tool" data-tool="pred" title="포식자 풀어놓기 (3)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 13c4-6 10-7 14-4l4-4-1 6 1 6-4-4c-4 3-10 2-14-2z"/><path d="M10 7l2 3"/><circle cx="6.5" cy="11.5" r="0.4" fill="currentColor"/></svg>
-      <span>hunter</span>
+      <span>사냥꾼</span>
     </button>
-    <button class="tool" data-tool="meteor" title="Meteor strike (4)">
+    <button class="tool" data-tool="meteor" title="운석 충돌 (4)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="15" r="4"/><path d="M14 10L21 3M17 3h4v4M12 5l1.5 2M19 12l-2 1.5"/></svg>
-      <span>meteor</span>
+      <span>운석</span>
     </button>
   </div>
 
   <div class="row">
-    <button class="btn" id="pauseBtn">Pause</button>
+    <button class="btn" id="pauseBtn">일시정지</button>
     <button class="btn" id="speedBtn">1&times;</button>
-    <div class="sun"><span>sun</span><input type="range" id="sunSlider" min="0" max="200" value="100"></div>
+    <div class="sun"><span>햇빛</span><input type="range" id="sunSlider" min="0" max="200" value="100"></div>
   </div>
 
-  <div class="hint">Click the water to use a tool. Plankton drink sunlight, grazers graze, hunters hunt — watch the cycles turn.</div>
+  <div class="hint">물을 클릭해 도구를 사용하세요. 플랑크톤은 햇빛을 마시고, 초식자는 풀을 뜯고, 사냥꾼은 사냥합니다 — 순환이 돌아가는 것을 지켜보세요.</div>
 
   <div class="about">
-    An ecosystem in a bowl of painted water: energy flows from sun to plankton
-    to grazer to hunter, and the graph remembers every boom and collapse.
-    <b>Built by Claude Fable 5.</b>
+    물감을 풀어 놓은 한 그릇의 물 속 생태계입니다. 에너지는 태양에서 플랑크톤으로,
+    초식자로, 사냥꾼으로 흐르고, 그래프는 모든 번성과 붕괴를 기억합니다.
+    <b>제작 Claude Fable 5.</b>
   </div>
 </div>
 
@@ -613,10 +613,10 @@ function driftIn(kind) {
   const y = edge ? rand(0, H) : (Math.random() < 0.5 ? 10 : H - 10);
   if (kind === 'grazer') {
     for (let i = 0; i < 4; i++) spawnGrazer(x + rand(-14, 14), y + rand(-14, 14));
-    flash('the tide carries in a shoal of wanderers');
+    flash('밀물이 방랑자 무리를 실어 옵니다');
   } else {
     spawnPred(x, y, PR.start * 1.3);
-    flash('something older slips in with the tide');
+    flash('더 오래된 무언가가 물결과 함께 스며듭니다');
   }
   ripple(x, y, 60, '210,240,255', 1.6);
 }
@@ -645,8 +645,8 @@ function impact(x, y) {
   compact(plankton); compact(grazers); compact(preds);
   blooms.push({ x, y, t: 0, delay: 3.5, left: 90 });
   flash(toll > 0
-    ? 'the sky falls — ' + toll + ' souls returned to the water'
-    : 'the sky falls on empty water');
+    ? '하늘이 무너집니다 — ' + toll + '의 영혼이 물로 돌아갔습니다'
+    : '하늘이 텅 빈 물 위로 무너집니다');
 }
 
 /* ---------- render ---------- */
@@ -922,16 +922,16 @@ function useTool(x, y, isDrag) {
     }
     if (!isDrag) {
       ripple(x, y, 52, '160,255,200', 1.6);
-      flash('nutrients scatter across the water');
+      flash('영양분이 물 위로 흩어집니다');
     }
   } else if (tool === 'grazer' && !isDrag) {
     for (let i = 0; i < 3; i++) spawnGrazer(x + rand(-12, 12), y + rand(-12, 12));
     ripple(x, y, 44, '255,207,138', 1.6);
-    flash('grazers slip into the pool');
+    flash('초식자들이 물웅덩이로 미끄러져 들어옵니다');
   } else if (tool === 'pred' && !isDrag) {
     spawnPred(x, y);
     ripple(x, y, 52, '201,162,245', 1.8);
-    flash('a hunter descends');
+    flash('사냥꾼이 내려옵니다');
   } else if (tool === 'meteor' && !isDrag) {
     if (meteor || meteorCooldown > 0) return;
     meteor = { x: x + rand(-30, 30), y: -60, ty: y, vy: 420 };
@@ -971,7 +971,7 @@ const pauseBtn = document.getElementById('pauseBtn');
 const speedBtn = document.getElementById('speedBtn');
 function togglePause() {
   paused = !paused;
-  pauseBtn.textContent = paused ? 'Resume' : 'Pause';
+  pauseBtn.textContent = paused ? '재생' : '일시정지';
 }
 pauseBtn.addEventListener('click', togglePause);
 speedBtn.addEventListener('click', () => {
@@ -1026,7 +1026,7 @@ function frame(now) {
 resize();
 seedWorld();
 sample(1); // populate counters immediately
-flash('the pool wakes');
+flash('물웅덩이가 깨어납니다');
 requestAnimationFrame(frame);
 </script>
 </body>

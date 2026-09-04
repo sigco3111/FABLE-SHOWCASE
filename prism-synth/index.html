@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Prism — Generative Light Sequencer</title>
+<title>프리즘 — 생성형 라이트 시퀀서</title>
 <style>
 :root{
   /* Spectral track hues — luminous, slightly desaturated neons */
@@ -27,7 +27,7 @@
   --ink-faint:#5f6478;
   --ease:cubic-bezier(.2,.8,.2,1);
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --ui:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,system-ui,sans-serif;
+  --ui:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Inter","Segoe UI",Roboto,system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 :focus-visible{outline:2px solid rgba(154,107,255,0.7);outline-offset:2px}
@@ -365,16 +365,16 @@ footer kbd{
           <path d="M62 54 L95 54" stroke="#c8e05a" stroke-width="2.2" stroke-linecap="round"/>
           <path d="M62 58 L94 68" stroke="#ff7a6b" stroke-width="2.2" stroke-linecap="round"/>
         </svg>
-        <h1>Prism <span class="thin">Light Sequencer</span></h1>
+        <h1>프리즘 <span class="thin">라이트 시퀀서</span></h1>
       </div>
-      <p class="tagline">Eight tracks of pure oscillator light — sequence it, or let the machine dream one up.</p>
+      <p class="tagline">순수 오실레이터 라이트의 8개 트랙 — 직접 시퀀싱하거나 머신이 만들어내게 둘 수도 있습니다.</p>
     </div>
     <div class="header-actions">
       <button class="btn surprise" id="surprise">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
-        Surprise Me
+        서프라이즈
       </button>
-      <button class="info-btn" id="infoBtn" title="About">i</button>
+      <button class="info-btn" id="infoBtn" title="정보">i</button>
     </div>
   </header>
 
@@ -384,16 +384,16 @@ footer kbd{
     <div class="hero-overlay">
       <div class="hero-top">
         <div>
-          <div class="hero-label">Spectral Field</div>
+          <div class="hero-label">스펙트럼 필드</div>
           <div class="prism-refractor" id="refractor"></div>
         </div>
         <div class="rms-readout">
           <div class="v" id="rmsV">0.00</div>
-          <div class="l">Output RMS</div>
+          <div class="l">출력 RMS</div>
         </div>
       </div>
       <div class="hero-seed">
-        <span class="seed-label">Seed</span>
+        <span class="seed-label">시드</span>
         <input class="seed-chip" id="seedInput" value="PRISM-001" spellcheck="false" maxlength="16" />
       </div>
     </div>
@@ -404,7 +404,7 @@ footer kbd{
     <div class="tgroup">
       <button class="btn primary play" id="play">
         <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>
-        <span id="playLabel">Play</span>
+        <span id="playLabel">재생</span>
       </button>
     </div>
 
@@ -412,8 +412,8 @@ footer kbd{
 
     <div class="tgroup">
       <div class="dial" id="bpmDial" role="slider" tabindex="0"
-           aria-label="Tempo in beats per minute" aria-valuemin="40" aria-valuemax="200" aria-valuenow="112"
-           title="Drag up/down, scroll, or use arrow keys · double-click to reset">
+           aria-label="분당 비트 수로 표시되는 템포" aria-valuemin="40" aria-valuemax="200" aria-valuenow="112"
+           title="드래그 / 스크롤 / 화살표 키 · 더블 클릭으로 리셋">
         <svg viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="6"/>
           <circle id="bpmArc" cx="50" cy="50" r="42" fill="none" stroke="url(#pg)" stroke-width="6"
@@ -427,15 +427,15 @@ footer kbd{
 
     <div class="tgroup">
       <div class="slider-wrap">
-        <div class="slider-head"><span class="l">Swing</span><span class="v" id="swingV">18%</span></div>
+        <div class="slider-head"><span class="l">스윙</span><span class="v" id="swingV">18%</span></div>
         <input type="range" id="swing" min="0" max="65" value="18" />
       </div>
       <div class="slider-wrap">
-        <div class="slider-head"><span class="l">Space</span><span class="v" id="spaceV">32%</span></div>
+        <div class="slider-head"><span class="l">스페이스</span><span class="v" id="spaceV">32%</span></div>
         <input type="range" id="space" min="0" max="100" value="32" />
       </div>
       <div class="slider-wrap">
-        <div class="slider-head"><span class="l">Master</span><span class="v" id="masterV">78%</span></div>
+        <div class="slider-head"><span class="l">마스터</span><span class="v" id="masterV">78%</span></div>
         <input type="range" id="master" min="0" max="100" value="78" />
       </div>
     </div>
@@ -444,7 +444,7 @@ footer kbd{
 
     <div class="tgroup selects">
       <div class="field">
-        <span class="l">Key</span>
+        <span class="l">키</span>
         <select id="key">
           <option>C</option><option>C#</option><option>D</option><option>D#</option>
           <option>E</option><option>F</option><option>F#</option><option>G</option>
@@ -452,19 +452,19 @@ footer kbd{
         </select>
       </div>
       <div class="field">
-        <span class="l">Scale</span>
+        <span class="l">스케일</span>
         <select id="scale">
-          <option value="major">Major</option>
-          <option value="minor" selected>Minor</option>
-          <option value="dorian">Dorian</option>
-          <option value="penta">Pentatonic</option>
-          <option value="lydian">Lydian</option>
-          <option value="phrygdom">Phrygian Dom.</option>
+          <option value="major">메이저</option>
+          <option value="minor" selected>마이너</option>
+          <option value="dorian">도리안</option>
+          <option value="penta">펜타토닉</option>
+          <option value="lydian">리디안</option>
+          <option value="phrygdom">프리지안 도미넌트</option>
         </select>
       </div>
       <div class="field">
         <span class="l">&nbsp;</span>
-        <button class="btn" id="clear">Clear</button>
+        <button class="btn" id="clear">클리어</button>
       </div>
     </div>
   </div>
@@ -479,10 +479,10 @@ footer kbd{
 
   <footer>
     <div class="kbd-hints">
-      <span><kbd>Space</kbd> play</span>
-      <span><kbd>R</kbd> re-roll</span>
-      <span><kbd>1</kbd>–<kbd>8</kbd> solo</span>
-      <span><kbd>C</kbd> clear</span>
+      <span><kbd>Space</kbd> 재생</span>
+      <span><kbd>R</kbd> 리롤</span>
+      <span><kbd>1</kbd>–<kbd>8</kbd> 솔로</span>
+      <span><kbd>C</kbd> 클리어</span>
     </div>
     <div class="credit">Built by Claude Fable 5</div>
   </footer>
@@ -491,18 +491,18 @@ footer kbd{
 <!-- About overlay -->
 <div class="overlay" id="overlay">
   <div class="panel about">
-    <button class="btn close" id="closeAbout">Close</button>
-    <h2>Prism</h2>
-    <div class="sub">A generative light sequencer. Pure Web Audio oscillators, no samples — every sound is synthesized live and painted as color.</div>
+    <button class="btn close" id="closeAbout">닫기</button>
+    <h2>프리즘</h2>
+    <div class="sub">생성형 라이트 시퀀서. 순수 웹 오디오 오실레이터로, 샘플 없이 모든 음향이 실시간 합성되어 색으로 그려집니다.</div>
     <div class="spectrum">
       <span style="background:var(--t0)"></span><span style="background:var(--t1)"></span>
       <span style="background:var(--t2)"></span><span style="background:var(--t3)"></span>
       <span style="background:var(--t4)"></span><span style="background:var(--t5)"></span>
       <span style="background:var(--t6)"></span><span style="background:var(--t7)"></span>
     </div>
-    <p>Eight tracks, each owning a fixed hue across the prism spectrum, so you see which voice is speaking. Toggle cells to build a groove, pick a scale so nothing lands off-key, then set a tempo, swing and a touch of <em>Space</em> reverb.</p>
-    <p>Press <strong>Surprise Me</strong> (or <kbd style="font-family:var(--mono)">R</kbd>) and a named seed deterministically dreams up a coherent pattern — bass on strong beats, leads in call-and-response, ticks filling the gaps. The same seed always reproduces the same groove; keep a good one by typing its name.</p>
-    <p>Timing runs on an AudioContext look-ahead scheduler for drift-free playback, while the visualizer reads a live analyser to erupt colored rings from the sweeping playhead.</p>
+    <p>프리즘 스펙트럼 위에서 각 트랙이 고유한 색을 가져 어떤 보이스가 울리는지 한눈에 보입니다. 셀을 토글해 그루브를 만들고, 스케일을 골라 음이 어긋나지 않게 한 뒤 템포·스윙·<em>스페이스</em> 리버브를 살짝 더해 보세요.</p>
+    <p><strong>서프라이즈</strong>(또는 <kbd style="font-family:var(--mono)">R</kbd>)를 누르면 이름 있는 시드가 결정론적으로 일관된 패턴을 꿈꿔냅니다 — 강박에 베이스, 응답에 리드, 빈틈을 채우는 틱. 같은 시드는 항상 같은 그루브를 재현하니 마음에 드는 이름은 적어 두세요.</p>
+    <p>타이밍은 AudioContext 룩어헤드 스케줄러로 드리프트 없이 재생되고, 비주얼라이저는 실시간 분석기로부터 스위핑 플레이헤드에서 색의 고리를 뿜어냅니다.</p>
     <div class="about-credit"><span>Built by Claude Fable 5</span><span style="font-family:var(--mono)">v1.0 · zero dependencies</span></div>
   </div>
 </div>

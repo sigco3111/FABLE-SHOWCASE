@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Reaction — A Reaction-Diffusion Playground</title>
+<title>리액션 — 반응-확산 플레이그라운드</title>
 <style>
   :root{
     --ink:#0B0D10;
@@ -15,7 +15,7 @@
     --glass:rgba(16,19,23,.62);
     --accent:#5EE6C8;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    --sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    --sans:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;width:100%;overflow:hidden;background:var(--ink)}
@@ -258,17 +258,17 @@
 
 <div id="topbar">
   <div id="brand">
-    <h1>Reaction</h1>
-    <div class="sub">A Gray-Scott reaction-diffusion playground. Paint life into the dish and watch it grow.</div>
+    <h1>리액션</h1>
+    <div class="sub">그레이-스콧 반응-확산 시뮬레이션 놀이터. 접시에 생명을 그려 넣고 자라는 모습을 지켜보세요.</div>
   </div>
   <div id="topright">
-    <button class="iconbtn" id="exportbtn" title="Export PNG (E)">
+    <button class="iconbtn" id="exportbtn" title="PNG 내보내기 (E)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke-linecap="round"/></svg>
     </button>
-    <button class="iconbtn" id="panelbtn" title="Toggle panel (H)">
+    <button class="iconbtn" id="panelbtn" title="패널 토글 (H)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14 4v16"/></svg>
     </button>
-    <button class="iconbtn" id="aboutbtn" title="About">
+    <button class="iconbtn" id="aboutbtn" title="정보">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 10.5v6" stroke-linecap="round"/><circle cx="12" cy="7.6" r="1" fill="currentColor" stroke="none"/></svg>
     </button>
   </div>
@@ -278,74 +278,74 @@
 
 <div id="panel">
   <div class="section">
-    <div class="label">Phase Space <span class="val" id="regimeName">Coral</span></div>
+    <div class="label">위상 공간 <span class="val" id="regimeName">코랄</span></div>
     <div id="phasewrap">
       <canvas id="phase"></canvas>
       <div id="phasecross"></div>
     </div>
-    <div id="phaselegend"><span>← kill</span><span>feed ↑</span></div>
+    <div id="phaselegend"><span>← 죽임</span><span>먹이 ↑</span></div>
     <div class="fkreadout">
-      <div class="box"><div class="k">Feed f</div><div class="v" id="feedVal">0.0545</div></div>
-      <div class="box"><div class="k">Kill k</div><div class="v" id="killVal">0.0620</div></div>
+      <div class="box"><div class="k">먹이 f</div><div class="v" id="feedVal">0.0545</div></div>
+      <div class="box"><div class="k">죽임 k</div><div class="v" id="killVal">0.0620</div></div>
     </div>
   </div>
 
   <div class="section">
-    <div class="label">Speed <span class="val" id="speedVal">8×</span></div>
+    <div class="label">속도 <span class="val" id="speedVal">8×</span></div>
     <input type="range" class="slider" id="speed" min="1" max="20" step="1" value="8">
   </div>
 
   <div class="section">
-    <div class="label">Brush <span class="val" id="brushVal">7%</span></div>
+    <div class="label">브러시 <span class="val" id="brushVal">7%</span></div>
     <input type="range" class="slider" id="brushsize" min="2" max="24" step="1" value="7">
   </div>
 
   <div class="section">
-    <div class="label">Palette</div>
+    <div class="label">팔레트</div>
     <div id="palettes"></div>
   </div>
 
   <div class="section">
     <div class="toggle" id="flowtoggle">
-      <span class="tl">Flow / Drift</span>
+      <span class="tl">흐름 / 드리프트</span>
       <span class="sw"></span>
     </div>
   </div>
 
   <div class="section btnrow">
-    <button class="btn" id="reseedbtn">Reseed</button>
-    <button class="btn" id="clearbtn">Clear</button>
+    <button class="btn" id="reseedbtn">리시드</button>
+    <button class="btn" id="clearbtn">클리어</button>
   </div>
 </div>
 
 <div id="transport">
-  <button id="playbtn" title="Play / Pause (Space)">
+  <button id="playbtn" title="재생 / 일시정지 (Space)">
     <svg id="playicon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
   </button>
   <div class="tinfo"><b id="fpsReadout">— fps</b><br><b id="stepReadout">0 steps</b></div>
 </div>
 
 <div id="hint">
-  <kbd>space</kbd> pause &nbsp; <kbd>1</kbd>–<kbd>7</kbd> presets &nbsp; <kbd>C</kbd> clear &nbsp; <kbd>R</kbd> reseed &nbsp; <kbd>B</kbd> big bang &nbsp; <kbd>E</kbd> export
+  <kbd>space</kbd> 일시정지 &nbsp; <kbd>1</kbd>–<kbd>7</kbd> 프리셋 &nbsp; <kbd>C</kbd> 클리어 &nbsp; <kbd>R</kbd> 리시드 &nbsp; <kbd>B</kbd> 빅뱅 &nbsp; <kbd>E</kbd> 내보내기
 </div>
 
 <div id="about">
   <div id="aboutcard">
-    <h2>Reaction</h2>
-    <p>This is a live <b>Gray-Scott reaction-diffusion</b> simulation — two virtual chemicals, <b>A</b> and <b>B</b>, diffusing and reacting across a grid. From two simple rules, an entire zoo of organic behavior emerges: coral, spots, stripes, dividing cells, labyrinths.</p>
-    <p>Drag the <b>crosshair</b> across the phase-space map to morph the living pattern in real time. <b>Paint</b> directly on the dish to seed new growth. Try the presets to tour the parameter space.</p>
+    <h2>리액션</h2>
+    <p>이것은 실시간 <b>그레이-스콧 반응-확산</b> 시뮬레이션입니다 — 두 개의 가상 화학 물질 <b>A</b>와 <b>B</b>가 격자 위에서 확산과 반응을 합니다. 단순한 두 규칙만으로 산호, 점, 줄무늬, 분열하는 세포, 미로 같은 방대한 유기적 행동이 모습을 드러냅니다.</p>
+    <p>위상 공간 맵에서 <b>십자선</b>을 끌면 살아 있는 패턴이 실시간으로 변형됩니다. 접시에 직접 <b>그려</b> 새로운 성장을 시드하고, 프리셋으로 매개변수 공간을 둘러보세요.</p>
     <div class="keys">
-      <span><b>Space</b> &nbsp;play / pause</span>
-      <span><b>1–7</b> &nbsp;presets</span>
-      <span><b>C</b> &nbsp;clear to void</span>
-      <span><b>R</b> &nbsp;reseed noise</span>
-      <span><b>B</b> &nbsp;big bang</span>
-      <span><b>E</b> &nbsp;export PNG</span>
-      <span><b>H</b> &nbsp;hide panel</span>
-      <span><b>drag</b> &nbsp;paint · right-drag erase</span>
+      <span><b>Space</b> &nbsp;재생 / 일시정지</span>
+      <span><b>1–7</b> &nbsp;프리셋</span>
+      <span><b>C</b> &nbsp;비우기</span>
+      <span><b>R</b> &nbsp;노이즈 리시드</span>
+      <span><b>B</b> &nbsp;빅뱅</span>
+      <span><b>E</b> &nbsp;PNG 내보내기</span>
+      <span><b>H</b> &nbsp;패널 숨기기</span>
+      <span><b>드래그</b> &nbsp;칠하기 · 우클릭 드래그로 지우기</span>
     </div>
     <div class="credit">Built by Claude Fable 5 · WebGL2 with Canvas2D fallback · zero dependencies</div>
-    <button class="btn aboutclose" id="aboutclose" style="margin-top:6px;max-width:120px;float:right">Close</button>
+    <button class="btn aboutclose" id="aboutclose" style="margin-top:6px;max-width:120px;float:right">닫기</button>
   </div>
 </div>
 

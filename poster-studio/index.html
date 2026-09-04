@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAIElEQVR42mP48vEVSYiBTA3PjDUJolENoxqI0UDD1AoAo7nvwG0BnSgAAAAASUVORK5CYII=">
-<title>HELVETICA RIOT — Poster Studio</title>
+<title>헬베티카 폭동 — 포스터 스튜디오</title>
 <style>
   /* ============ BASEL PRINT-STUDIO CHROME ============
      Two type sizes (10px / 13px), two weights (400 / 700),
@@ -22,7 +22,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
   body{
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:"Helvetica Neue",Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
     font-size:var(--fs-m);
     background:var(--paper);
     color:var(--ink);
@@ -211,31 +211,31 @@
 <body>
 <div id="app">
   <header>
-    <h1>Poster&nbsp;Studio</h1>
-    <span class="tag">Helvetica Riot · Seed-driven Swiss / Bauhaus poster machine · Basel 1965</span>
+    <h1>포스터&nbsp;스튜디오</h1>
+    <span class="tag">헬베티카 폭동 · 씨앗 기반 스위스/바우하우스 포스터 기계 · 바젤 1965</span>
     <span class="sp"></span>
-    <button id="aboutBtn" title="About this machine">About</button>
+    <button id="aboutBtn" title="이 기계에 관하여">정보</button>
   </header>
 
   <div id="mid">
     <aside id="panel">
       <div class="sec">
-        <h2>Seed <span class="val" id="seedEcho"></span></h2>
+        <h2>씨앗 <span class="val" id="seedEcho"></span></h2>
         <div id="seedRow">
-          <input id="seedInput" maxlength="6" spellcheck="false" autocomplete="off" aria-label="Seed (6 hex characters)">
-          <button id="lockBtn" title="Lock seed against shuffle">Lock</button>
+          <input id="seedInput" maxlength="6" spellcheck="false" autocomplete="off" aria-label="씨앗 (16진수 6자리)">
+          <button id="lockBtn" title="섞기를 막고 씨앗 고정">잠금</button>
         </div>
-        <div id="archRow" role="group" aria-label="Force layout archetype"></div>
+        <div id="archRow" role="group" aria-label="레이아웃 원형 강제 지정"></div>
         <div id="archName">—</div>
       </div>
 
       <div class="sec">
-        <h2>Dials</h2>
+        <h2>다이얼</h2>
         <div id="knobs"></div>
       </div>
 
       <div class="sec">
-        <h2>Palette</h2>
+        <h2>팔레트</h2>
         <div id="cardWrap"><div id="card">
           <div id="cardName"></div>
           <div id="chips"></div>
@@ -244,63 +244,59 @@
       </div>
 
       <div class="sec">
-        <button id="printBtn" title="Shuffle seed (Space)">Print&nbsp;/&nbsp;Shuffle</button>
+        <button id="printBtn" title="씨앗 다시 뽑기 (스페이스)">인쇄&nbsp;/&nbsp;섞기</button>
         <div class="exRow">
-          <button id="ex2">Export 2×</button>
-          <button id="ex4">Export 4×</button>
+          <button id="ex2">2× 내보내기</button>
+          <button id="ex4">4× 내보내기</button>
         </div>
       </div>
 
       <div id="keys">
-        <b>SPACE</b> shuffle<br>
-        <b>G</b> baseline grid<br>
-        <b>E / ⇧E</b> export 2× / 4×<br>
-        <b>1–5</b> force archetype<br>
-        <b>0</b> auto archetype<br>
-        <b>CLICK TYPE</b> edit on sheet
+        <b>스페이스</b> 섞기<br>
+        <b>G</b> 베이스라인 격자<br>
+        <b>E / ⇧E</b> 2× / 4× 내보내기<br>
+        <b>1–5</b> 원형 강제<br>
+        <b>0</b> 원형 자동<br>
+        <b>글자 클릭</b> 시트에서 편집
       </div>
-      <div id="credit">Built by Claude Fable 5</div>
+      <div id="credit">제작 Claude Fable 5</div>
     </aside>
 
     <section id="stage">
       <canvas id="sheet"></canvas>
       <div id="editRect"><span id="editTip"></span></div>
-      <input id="editInput" tabindex="-1" aria-label="Poster text editor">
-      <div id="hint">Click the headline to retitle · Space to print a new one</div>
+      <input id="editInput" tabindex="-1" aria-label="포스터 텍스트 편집기">
+      <div id="hint">헤드라인을 클릭해 제목을 바꾸세요 · 스페이스로 새 포스터 인쇄</div>
     </section>
   </div>
 
   <div id="galleryBar">
     <div class="glbl">
-      <span class="lbl">Variations</span>
-      <span class="lbl-lite" id="glNote">Sibling seeds · hover to proof · click to promote</span>
+      <span class="lbl">변형</span>
+      <span class="lbl-lite" id="glNote">자매 씨앗 — 호버로 미리보기 — 클릭으로 본 포스터로</span>
     </div>
     <div id="strip"></div>
   </div>
 </div>
 
-<div id="about" role="dialog" aria-modal="true" aria-label="About Poster Studio">
+<div id="about" role="dialog" aria-modal="true" aria-label="포스터 스튜디오 정보">
   <div id="aboutCard">
-    <button id="aboutClose" aria-label="Close">✕</button>
-    <h3>Helvetica Riot</h3>
-    <span class="lbl-lite">Poster Studio — a seed-driven print machine</span>
+    <button id="aboutClose" aria-label="닫기">✕</button>
+    <h3>헬베티카 폭동</h3>
+    <span class="lbl-lite">포스터 스튜디오 — 씨앗 기반 인쇄 기계</span>
     <div class="rule"></div>
-    <p>Every poster is a pure function of a six-character seed: grid, archetype,
-       type scale, rotation and ink roles all flow from one deterministic stream.
-       Type any seed back in and you get the exact same sheet — at any resolution,
-       forever. Five layout archetypes, six curated ink systems, and a chaos dial
-       that loosens the grid without ever breaking the composition.</p>
+    <p>모든 포스터는 여섯 글자 씨앗의 순수한 함수입니다. 격자, 원형, 글자 크기, 회전, 잉크 역할이 모두 하나의 결정론적 흐름에서 나옵니다. 같은 씨앗을 다시 입력하면 정확히 같은 포스터가 — 어떤 해상도에서도, 영원히 — 다시 나옵니다. 다섯 가지 레이아웃 원형, 여섯 가지 엄선된 잉크 시스템, 격자를 느슨하게 하되 결코 구성을 깨지 않는 카오스 다이얼이 함께합니다.</p>
     <div class="kmap">
-      <b>SPACE</b> print a fresh seed (squeegee pull)<br>
-      <b>G</b> designer’s baseline-grid overlay<br>
-      <b>E / ⇧E</b> export PNG at 2× / 4× (offscreen re-render)<br>
-      <b>1–5, 0</b> force / auto archetype<br>
-      <b>← →</b> fine-tune a focused dial<br>
-      <b>CLICK</b> headline or subline to edit in place<br>
-      <b>HOVER</b> a variation to proof it full-size before promoting
-    </div>
+      <b>스페이스</b> 새 씨앗 인쇄 (스퀴지 당기기)<br>
+      <b>G</b> 디자이너의 베이스라인 격자 오버레이<br>
+      <b>E / ⇧E</b> 2× / 4× 해상도로 PNG 내보내기 (오프스크린 재렌더)<br>
+      <b>1–5, 0</b> 원형 강제 / 자동<br>
+      <b>← →</b> 선택한 다이얼 미세 조정<br>
+      <b>클릭</b> 헤드라인이나 서브라인을 그 자리에서 편집<br>
+      <b>호버</b> 변형을 본 크기로 미리 보고 채택
+</div>
     <div class="rule"></div>
-    <div class="byline">Built by Claude Fable 5</div>
+    <div class="byline">제작 Claude Fable 5</div>
   </div>
 </div>
 
@@ -350,14 +346,14 @@ const ric=window.requestIdleCallback||function(fn){return setTimeout(function(){
    1 · PALETTES — six named ink systems from the canon
    ================================================================ */
 const PALETTES=[
- {name:'BASEL',           note:'Ivory · Ink · Signal Red',      paper:'#F1ECDF', inks:['#181818','#E63329'],                    accent:'#E63329', ratio:.28, dark:false},
- {name:'BAUHAUS PRIMARY', note:'Cadmium · Ultramarine · Verm.', paper:'#F3EAD6', inks:['#151515','#1D4E9E','#E5B32A','#D5442A'], accent:'#D5442A', ratio:.42, dark:false},
- {name:'ZÜRICH DUOTONE',  note:'Ink on chrome yellow',          paper:'#F0BE2C', inks:['#161616'],                              accent:'#161616', ratio:.10, dark:false},
- {name:'WERKBUND',        note:'Teal · Cream · Burnt Orange',   paper:'#EFE6D2', inks:['#0E6660','#C2661F','#25221D'],           accent:'#C2661F', ratio:.36, dark:false},
- {name:'ISOTYPE',         note:'Navy · White · Pictogram Red',  paper:'#F4F2EB', inks:['#1E3A5F','#C1272D'],                    accent:'#C1272D', ratio:.30, dark:false},
- {name:'NEON GRID',       note:'Acid green · Violet · Black',   paper:'#141414', inks:['#B7F235','#9163F5','#ECECEC'],           accent:'#9163F5', ratio:.40, dark:true}
+ {name:'바젤',           note:'아이보리 · 잉크 · 시그널 레드',      paper:'#F1ECDF', inks:['#181818','#E63329'],                    accent:'#E63329', ratio:.28, dark:false},
+ {name:'바우하우스 원색',     note:'카드뮴 · 울트라마린 · 버밀리언', paper:'#F3EAD6', inks:['#151515','#1D4E9E','#E5B32A','#D5442A'], accent:'#D5442A', ratio:.42, dark:false},
+ {name:'취리히 듀오톤',     note:'크롬 옐로우 위의 잉크',          paper:'#F0BE2C', inks:['#161616'],                              accent:'#161616', ratio:.10, dark:false},
+ {name:'베르크번트',         note:'틸 · 크림 · 구운 오렌지',     paper:'#EFE6D2', inks:['#0E6660','#C2661F','#25221D'],           accent:'#C2661F', ratio:.36, dark:false},
+ {name:'아이소타입',         note:'네이비 · 화이트 · 픽토그램 레드',  paper:'#F4F2EB', inks:['#1E3A5F','#C1272D'],                    accent:'#C1272D', ratio:.30, dark:false},
+ {name:'네온 격자',       note:'애시드 그린 · 바이올렛 · 블랙',   paper:'#141414', inks:['#B7F235','#9163F5','#ECECEC'],           accent:'#9163F5', ratio:.40, dark:true}
 ];
-const ARCH_NAMES=['DIAGONAL SHOUT','STACKED MONOLITH','CIRCLE & BAR','GRID BREAK','OVERPRINT'];
+const ARCH_NAMES=['대각선 외침','쌓인 모놀리스','원 & 막대','격자 붕괴','오버프린트'];
 const FAM='"Helvetica Neue",Helvetica,Arial,sans-serif';
 const COND='"Arial Narrow","Helvetica Neue",Arial,sans-serif';
 function font(w,s,fam){return w+' '+s+'px '+(fam||FAM);}
@@ -1389,17 +1385,17 @@ function updateArchButtons(){
 }
 function commitDials(){refreshStripSoon();}
 function initKnobs(){
-  makeKnob({label:'Chaos',min:0,max:100,step:1,detents:21,
+  makeKnob({label:'카오스',min:0,max:100,step:1,detents:21,
     fmt:function(v){return String(v).padStart(3,'0');},
     get:function(){return st.chaos;},
     set:function(v){st.chaos=v;paintPoster();},
     commit:commitDials});
-  makeKnob({label:'Weight',min:0,max:100,step:1,detents:21,
+  makeKnob({label:'굵기',min:0,max:100,step:1,detents:21,
     fmt:function(v){return String(v).padStart(3,'0');},
     get:function(){return st.weight;},
     set:function(v){st.weight=v;paintPoster();},
     commit:commitDials});
-  makeKnob({label:'Palette',min:0,max:5,step:1,detents:6,
+  makeKnob({label:'팔레트',min:0,max:5,step:1,detents:6,
     fmt:function(v){return PALETTES[v].name.split(' ')[0];},
     get:function(){return st.palette;},
     set:function(v){if(v!==st.palette){st.palette=v;flipCard();paintPoster();}},

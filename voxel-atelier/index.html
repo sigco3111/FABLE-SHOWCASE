@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Voxel Atelier — L'Atelier des Cubes</title>
-<meta name="description" content="A painterly isometric voxel sculpting studio — gouache palette, raked light, real ambient occlusion.">
+<title>복셀 아틀리에 — 입자의 작업실</title>
+<meta name="description" content="수채화 같은 아이소메트릭 복셀 조형 스튜디오 — 고구아슈 팔레트, 갈아엎은 빛, 진짜 앰비언트 오클루전.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5l25 13v28L32 59 7 46V18z' fill='%2396482F'/%3E%3Cpath d='M32 5l25 13-25 13L7 18z' fill='%23DCA53F'/%3E%3Cpath d='M32 31v28L7 46V18z' fill='%23C06A45'/%3E%3C/svg%3E">
 <style>
   :root{
@@ -19,8 +19,8 @@
     --accent:#C06A45;
     --shadow-sm:0 1px 2px rgba(43,38,32,.10), 0 4px 14px rgba(43,38,32,.08);
     --shadow-lift:0 2px 4px rgba(43,38,32,.14), 0 10px 26px rgba(43,38,32,.14);
-    --serif:Georgia,'Iowan Old Style','Times New Roman',serif;
-    --sans:system-ui,-apple-system,'Segoe UI',sans-serif;
+    --serif:Georgia,'Iowan Old Style','Times New Roman','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',serif;
+    --sans:system-ui,-apple-system,'Segoe UI','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%;overflow:hidden}
@@ -304,19 +304,19 @@
 <canvas id="stage"></canvas>
 
 <div class="wordmark">
-  <h1>Voxel <em>Atelier</em></h1>
-  <div class="sub">atelier de voxels</div>
+  <h1>복셀 <em>아틀리에</em></h1>
+  <div class="sub">입자의 작업실</div>
   <div class="rule"></div>
 </div>
 
 <div class="card" id="paletteCard">
   <div class="hole"></div>
-  <div class="plabel">gouache · 16</div>
+  <div class="plabel">고구아슈 · 16</div>
 </div>
-<div id="recentStrip"><span class="rlabel">Récents</span></div>
+<div id="recentStrip"><span class="rlabel">최근 사용</span></div>
 
 <div id="rail">
-  <div class="rtitle">étage</div>
+  <div class="rtitle">층</div>
   <div id="railTrack">
     <div id="railTicks"></div>
     <div id="railKnob"></div>
@@ -325,73 +325,69 @@
 </div>
 
 <div id="toolbar">
-  <button class="tbtn on" id="t-place" title="Place — B">
+  <button class="tbtn on" id="t-place" title="놓기 — B">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>
   </button>
-  <button class="tbtn" id="t-erase" title="Erase — X (or right-click)">
+  <button class="tbtn" id="t-erase" title="지우기 — X (또는 우클릭)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.5L13.5 6a2 2 0 012.8 0l3.2 3.2a2 2 0 010 2.8L12 19.5H8L6 17.5a2.5 2.5 0 010-4z"/><path d="M10 9.5l6 6M8 19.5h11"/></svg>
   </button>
-  <button class="tbtn" id="t-paint" title="Repaint — C">
+  <button class="tbtn" id="t-paint" title="다시 칠하기 — C">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5l5 5L9 20H4v-5L14.5 4.5z"/><path d="M12.5 6.5l5 5"/></svg>
   </button>
-  <button class="tbtn" id="t-pick" title="Eyedropper — I (or Alt-click)">
+  <button class="tbtn" id="t-pick" title="스포이트 — I (또는 Alt-클릭)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7l4 4M15 5l2-2a2.1 2.1 0 013 3l-2 2-3-3zM15 8L6 17l-2.5 1 .8-2.7L13 6.5"/></svg>
   </button>
   <div class="tsep"></div>
-  <button class="tbtn" id="t-undo" title="Undo — Cmd/Ctrl Z">
+  <button class="tbtn" id="t-undo" title="실행 취소 — Cmd/Ctrl Z">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5L4 9l4 4"/><path d="M4 9h10a6 6 0 016 6v1"/></svg>
     <span class="badge" id="undoBadge"></span>
   </button>
-  <button class="tbtn" id="t-redo" title="Redo — Shift Cmd/Ctrl Z">
+  <button class="tbtn" id="t-redo" title="다시 실행 — Shift Cmd/Ctrl Z">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5l4 4-4 4"/><path d="M20 9H10a6 6 0 00-6 6v1"/></svg>
   </button>
   <div class="tsep"></div>
-  <button class="tbtn" id="t-rotl" title="Rotate view left — Q">
+  <button class="tbtn" id="t-rotl" title="시점 왼쪽 회전 — Q">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10a8 8 0 11-.7 5"/><path d="M4 5v5h5"/></svg>
   </button>
-  <div id="compass"><span id="compassLetter">N</span><small>vue</small></div>
-  <button class="tbtn" id="t-rotr" title="Rotate view right — E">
+  <div id="compass"><span id="compassLetter">N</span><small>시점</small></div>
+  <button class="tbtn" id="t-rotr" title="시점 오른쪽 회전 — E">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 10a8 8 0 10.7 5"/><path d="M20 5v5h-5"/></svg>
   </button>
   <div class="tsep"></div>
-  <button class="tbtn" id="t-export" title="Export PNG">
+  <button class="tbtn" id="t-export" title="PNG 내보내기">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v10m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2"/></svg>
   </button>
-  <button class="tbtn" id="t-about" title="About Voxel Atelier">
+  <button class="tbtn" id="t-about" title="복셀 아틀리에 정보">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5"/><circle cx="12" cy="7.8" r="0.4" fill="currentColor"/></svg>
   </button>
 </div>
 
-<div class="hint" id="hint">Drag to sculpt · Q / E tumble the plinth · scroll slices layers</div>
+<div class="hint" id="hint">드래그하여 조형 · Q / E 로 받침대 회전 · 스크롤로 층 슬라이스</div>
 
 <div id="exportPop">
-  <h3>Export · gallery print</h3>
+  <h3>내보내기 · 갤러리 인쇄</h3>
   <div class="row">
-    <button class="chip on" id="bgPaper">Paper</button>
-    <button class="chip" id="bgClear">Transparent</button>
+    <button class="chip on" id="bgPaper">종이</button>
+    <button class="chip" id="bgClear">투명</button>
   </div>
-  <button id="exportGo">Download PNG · 2×</button>
+  <button id="exportGo">PNG 다운로드 · 2×</button>
 </div>
 
 <div id="scrim"></div>
 <div id="about">
-  <h2>Voxel <em>Atelier</em></h2>
-  <div class="asub">l'atelier des cubes</div>
-  <p>A painterly isometric sculpting studio. Every cube you place is lit by a fixed sun, shaded in three
-     hand-mixed gouache tones, and softly darkened by real ambient occlusion where it meets its neighbours.
-     Rotate the plinth and watch the light rake across your maquette.</p>
-  <p>You begin with a small <i>island bonsai</i> — terracotta rock, gnarled bark, a sage cloud-canopy and one
-     ochre lantern. Anything painted in <b>Ocre lanterne</b> glows in the dark of the studio.</p>
+  <h2>복셀 <em>아틀리에</em></h2>
+  <div class="asub">입자의 작업실</div>
+  <p>수채화 같은 아이소메트릭 조형 스튜디오입니다. 당신이 놓는 모든 큐브는 고정된 태양의 빛을 받고, 손으로 섞은 세 가지 고구아슈 톤으로 칠해지며, 이웃 큐브와 닿는 부분은 실제 앰비언트 오클루전으로 부드럽게 어두워집니다. 받침대를 돌리면 빛이 마퀴트 위를 훑고 지나가는 것을 볼 수 있습니다.</p>
+  <p>작은 <i>섬 분재</i>에서 시작합니다 — 테라코타 바위, 옹이 진 나무껍질, 세이지빛 구름 같은 수관, 그리고 한 자루의 황토 등불. <b>오크레 랑떼른</b>으로 칠해진 것은 스튜디오의 어둠 속에서 빛납니다.</p>
   <div class="keys">
-    <kbd>B</kbd><span>place cubes</span>          <kbd>X</kbd><span>erase</span>
-    <kbd>C</kbd><span>repaint</span>              <kbd>I</kbd><span>eyedropper</span>
-    <kbd>Q</kbd><span>tumble left</span>          <kbd>E</kbd><span>tumble right</span>
-    <kbd>1–9</kbd><span>swatches</span>           <kbd>⌘Z</kbd><span>undo / +⇧ redo</span>
-    <kbd>↑↓</kbd><span>layer slice (or scroll)</span> <kbd>⎋</kbd><span>close panels</span>
+    <kbd>B</kbd><span>큐브 놓기</span>          <kbd>X</kbd><span>지우기</span>
+    <kbd>C</kbd><span>다시 칠하기</span>              <kbd>I</kbd><span>스포이트</span>
+    <kbd>Q</kbd><span>왼쪽 회전</span>          <kbd>E</kbd><span>오른쪽 회전</span>
+    <kbd>1–9</kbd><span>스워치 선택</span>           <kbd>⌘Z</kbd><span>실행 취소 / +⇧ 다시 실행</span>
+    <kbd>↑↓</kbd><span>층 슬라이스 (또는 스크롤)</span> <kbd>⎋</kbd><span>패널 닫기</span>
   </div>
-  <p style="font-size:11px;color:var(--ink-soft)">Right-click erases; Alt-click samples a colour; drag to paint runs of
-     cubes along a face. The brass elevator on the right clamps the visible height so you can sculpt interiors.</p>
-  <div class="credit">Built by <b>Claude Fable 5</b> · anthropic · one self-contained file</div>
+  <p style="font-size:11px;color:var(--ink-soft)">우클릭은 지우기, Alt-클릭은 색상 샘플링, 드래그는 면을 따라 연속된 큐브를 칠합니다. 오른쪽의 황동 엘리베이터는 보이는 높이를 고정해 주므로 내부까지 조형할 수 있습니다.</p>
+  <div class="credit">제작 <b>Claude Fable 5</b> · anthropic · 단일 자족형 파일</div>
 </div>
 
 <div id="toast"></div>
@@ -410,14 +406,14 @@ const GLOW_CI = 3;                    // "Ocre lanterne" glows
 const INK = [38, 30, 22];
 
 const PALETTE = [
-  ['#C06A45','Terracotta'],   ['#96482F','Sienne brûlée'],
-  ['#DCA53F','Ocre lanterne'],['#E9DFC6','Os'],
-  ['#9DB289','Sauge'],        ['#66805C','Mousse'],
-  ['#6E9993','Sarcelle pâle'],['#3D5F5B','Sarcelle encre'],
-  ['#7D5A70','Prune'],        ['#C79793','Rose fané'],
-  ['#7A8CA3','Ardoise'],      ['#4A5170','Indigo'],
-  ['#A79E8E','Grès'],         ['#6B4E3B','Brou de noix'],
-  ['#3A342C','Encre'],        ['#F1ECDF','Porcelaine']
+  ['#C06A45','테라코타'],   ['#96482F','번 진 시에나'],
+  ['#DCA53F','오크레 랑떼른'],['#E9DFC6','본백'],
+  ['#9DB289','세이지'],        ['#66805C','이끼'],
+  ['#6E9993','옅은 청록'],['#3D5F5B','먹빛 청록'],
+  ['#7D5A70','자두'],        ['#C79793','바랜 장미'],
+  ['#7A8CA3','슬레이트'],      ['#4A5170','인디고'],
+  ['#A79E8E','사암'],         ['#6B4E3B','호두빛'],
+  ['#3A342C','먹빛'],        ['#F1ECDF','포셀렌']
 ];
 
 // fixed "sun": lightness / warmth per world-space face normal
@@ -1205,7 +1201,7 @@ function rotate(dir){
   hideHint();
 }
 function updateCompass(){
-  document.getElementById('compassLetter').textContent = ['N','E','S','O'][orient];
+  document.getElementById('compassLetter').textContent = ['N','E','S','W'][orient];
 }
 
 /* ============================== UI: tools / palette / rail ============================== */
@@ -1233,7 +1229,7 @@ const swEls = [];
     const el = document.createElement('button');
     el.className = 'swatch';
     el.style.background = `radial-gradient(circle at 35% 30%, ${shade(PALETTE[i][0], {dl:.09, dh:3, ds:0})}, ${PALETTE[i][0]} 60%, ${shade(PALETTE[i][0], {dl:-.08, dh:-4, ds:0})})`;
-    el.title = `${PALETTE[i][1]}${i < 9 ? ' — ' + (i+1) : (i === 9 ? ' — 0' : '')}${i+1 === GLOW_CI ? ' · glows' : ''}`;
+    el.title = `${PALETTE[i][1]}${i < 9 ? ' — ' + (i+1) : (i === 9 ? ' — 0' : '')}${i+1 === GLOW_CI ? ' · 발광' : ''}`;
     let a, r;
     if (i < 9){ a = -205 + i * 26.5; r = 88; }
     else      { a = -196 + (i - 9) * 30; r = 57; }
@@ -1358,8 +1354,8 @@ setTimeout(hideHint, 9000);
 
 /* ============================== export PNG ============================== */
 document.getElementById('exportGo').addEventListener('click', () => {
-  try { exportPNG(); toast('Gallery print saved — voxel-atelier.png'); }
-  catch (err){ toast('Export failed: ' + err.message); }
+  try { exportPNG(); toast('갤러리 인쇄물 저장 완료 — voxel-atelier.png'); }
+  catch (err){ toast('내보내기 실패: ' + err.message); }
   exportPop.classList.remove('open');
 });
 
@@ -1428,7 +1424,7 @@ function exportPNG(){
   g.font = `italic ${9.5 * kk}px Georgia, serif`;
   g.fillStyle = 'rgba(43,38,32,.62)';
   const date = new Date().toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
-  g.fillText(`atelier de voxels · ${date}`, px, midY + 11 * kk);
+  g.fillText(`입자의 작업실 · ${date}`, px, midY + 11 * kk);
   g.font = `${8 * kk}px system-ui, sans-serif`;
   g.textAlign = 'right';
   g.fillStyle = 'rgba(43,38,32,.45)';
@@ -1448,7 +1444,7 @@ window.addEventListener('resize', () => {
 });
 window.addEventListener('error', e => {
   const b = document.getElementById('errBanner');
-  b.textContent = 'Studio hiccup: ' + (e.message || 'unknown error');
+  b.textContent = '스튜디오 오류: ' + (e.message || '알 수 없는 오류');
   b.style.display = 'block';
   setTimeout(() => b.style.display = 'none', 5000);
 });
@@ -1483,7 +1479,7 @@ try {
                   get state(){ return { orient, slice, tool, cur, voxels: grid.reduce((a,v)=>a+(v?1:0),0), undo: undoStack.length }; } };
 } catch (err){
   const b = document.getElementById('errBanner');
-  b.textContent = 'Failed to open the atelier: ' + err.message;
+  b.textContent = '아틀리에를 열 수 없습니다: ' + err.message;
   b.style.display = 'block';
   throw err;
 }

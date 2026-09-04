@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arcana — The Generative Tarot</title>
+<title>아르카나 — 생성형 타로</title>
 <style>
 /* ============ ARCANA — occult art-deco ============ */
 :root{
@@ -12,7 +12,7 @@
   --ease:cubic-bezier(.22,1,.36,1);
   --cw:clamp(148px, min(21.5vw, 29vh), 236px);
   --disp:"Didot","Bodoni 72","Playfair Display","Times New Roman",Georgia,serif;
-  --prose:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --prose:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","Apple SD Gothic Neo","Noto Sans KR",Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{height:100%}
@@ -200,59 +200,59 @@ footer.note b{color:#77683f;font-weight:normal}
   <header>
     <div class="rule">✶ ✦ ✶</div>
     <h1>Arcana</h1>
-    <p class="tagline">An infinite deck: every card you draw is procedural art that has never existed before, and never will again.</p>
+    <p class="tagline">무한한 카드 덱 — 뽑는 모든 카드는 이제까지 한 번도, 또 다시는 없을 절차적 예술입니다.</p>
   </header>
 
-  <div id="altar" role="group" aria-label="Draw controls">
-    <input id="question" type="text" maxlength="120" placeholder="Ask, or draw in silence…" autocomplete="off" spellcheck="false">
-    <button id="drawBtn" title="Draw three cards (Enter)">Draw the Spread</button>
-    <button id="recordBtn" class="iconbtn" title="Seal this reading into the URL">✦ Seal</button>
-    <button id="muteBtn" class="iconbtn" title="Toggle sound" aria-pressed="false">♪ Sound</button>
-    <button id="aboutBtn" class="iconbtn" title="About Arcana">?</button>
+  <div id="altar" role="group" aria-label="카드 뽑기 컨트롤">
+    <input id="question" type="text" maxlength="120" placeholder="묻거나, 조용히 뽑거나…" autocomplete="off" spellcheck="false">
+    <button id="drawBtn" title="세 장의 카드 뽑기 (Enter)">스프레드 뽑기</button>
+    <button id="recordBtn" class="iconbtn" title="이 리딩을 URL에 봉인하기">✦ 봉인</button>
+    <button id="muteBtn" class="iconbtn" title="소리 켜기/끄기" aria-pressed="false">♪ 소리</button>
+    <button id="aboutBtn" class="iconbtn" title="아르카나 소개">?</button>
   </div>
 
-  <section id="spread" aria-label="Three-card spread">
+  <section id="spread" aria-label="세 장 스프레드">
     <svg id="leylines" aria-hidden="true"></svg>
     <div class="place">
-      <div class="poslabel">Past</div>
+      <div class="poslabel">과거</div>
       <div class="slot" data-i="0"></div>
       <div class="caption" data-i="0"></div>
     </div>
     <div class="place">
-      <div class="poslabel">Present</div>
+      <div class="poslabel">현재</div>
       <div class="slot" data-i="1"></div>
       <div class="caption" data-i="1"></div>
     </div>
     <div class="place">
-      <div class="poslabel">Future</div>
+      <div class="poslabel">미래</div>
       <div class="slot" data-i="2"></div>
       <div class="caption" data-i="2"></div>
     </div>
   </section>
 
-  <section id="readingWrap" aria-label="The reading">
-    <h2 class="ornhead">The Reading</h2>
-    <p id="readingText" aria-hidden="true" title="Click to skip the scribe"></p>
+  <section id="readingWrap" aria-label="리딩 본문">
+    <h2 class="ornhead">리딩</h2>
+    <p id="readingText" aria-hidden="true" title="기록사를 건너뛰려면 클릭"></p>
     <div id="srReading" class="sr" aria-live="polite"></div>
-    <div class="skipnote" id="skipnote">click the text to hasten the scribe</div>
+    <div class="skipnote" id="skipnote">기록을 재촉하려면 본문을 클릭하세요</div>
     <div id="meanings"></div>
   </section>
 
-  <footer class="note">every line is mathematics · every word is grammar · <b>built by Claude Fable 5</b></footer>
+  <footer class="note">모든 선은 수학이며 · 모든 단어는 문법입니다 · <b>Claude Fable 5 제작</b></footer>
 </main>
 
 <div id="fan" aria-hidden="true"><div class="fw"></div></div>
-<div id="grimoire" aria-label="Grimoire of past readings"></div>
+<div id="grimoire" aria-label="과거 리딩의 기록집"></div>
 <div id="toast" role="status"></div>
 
-<div id="about" role="dialog" aria-modal="true" aria-label="About Arcana">
+<div id="about" role="dialog" aria-modal="true" aria-label="아르카나 소개">
   <div class="panel">
-    <h2>✦ Arcana ✦</h2>
-    <p>An infinite tarot. Each card face — its sigil, celestial geometry, botanical border, name and meaning — is composed on the spot by a deterministic random engine from a single 32-bit seed. Nothing is an image; nothing is a wordlist. The same seed will always summon the same card, and the reading is written by a grammar that studies how your three cards resonate or quarrel.</p>
-    <p>Ask a question and the deck is fated: identical questions draw identical spreads. Seal a reading to fold it into the URL, and it can be re-summoned forever. And when a spread resolves, look up — the Present card's sigil is written faintly into the constellations overhead.</p>
-    <p class="keys">ENTER draw · ←/→ move between cards · SPACE or click to turn a card · click the reading to skip the scribe</p>
-    <p class="credit">Built by Claude Fable 5</p>
-    <button id="aboutClose">Return</button>
+    <h2>✦ 아르카나 ✦</h2>
+    <p>무한한 타로. 카드의 모든 면 — 문장(시질), 천체 문양, 식물 테두리, 이름과 의미 — 은 단 하나의 32비트 시드로부터 결정론적 무작위 엔진이 즉석에서 만들어냅니다. 이미지도 아니고 단어 목록도 아닙니다. 같은 시드는 언제나 같은 카드를 소환하며, 리딩은 세 장이 어떻게 공명하거나 다투는지를 연구하는 문법에 의해 쓰여집니다.</p>
+    <p>질문을 던지면 덱은 정해집니다 — 같은 질문은 같은 스프레드를 뽑습니다. 리딩을 봉인해 URL에 접으면 영원히 다시 소환할 수 있습니다. 스프레드가 펼쳐지면 하늘을 올려다보세요 — 현재 카드의 문장이 머리 위 별자리 속에 희미하게 새겨져 있습니다.</p>
+    <p class="keys">ENTER 카드 뽑기 · ←/→ 카드 사이 이동 · SPACE 또는 클릭으로 카드 뒤집기 · 리딩을 클릭해 기록사 건너뛰기</p>
+    <p class="credit">Claude Fable 5 제작</p>
+    <button id="aboutClose">돌아가기</button>
   </div>
 </div>
 
@@ -946,7 +946,7 @@ function cardEl(card){
   el.className="card"+(card.reversed?" is-rev":"");
   el.tabIndex=0;
   el.setAttribute("role","img");
-  el.setAttribute("aria-label",card.name+(card.reversed?" (reversed)":"")+", a card of "+card.element);
+  el.setAttribute("aria-label",card.name+(card.reversed?" (역방향)":"")+", "+card.element+"의 카드");
   el.innerHTML=
     '<div class="lifter"><div class="tilt"><div class="flipper">'
     +'<div class="face back">'+BACK_SVG+'</div>'
@@ -961,7 +961,7 @@ function cardEl(card){
   var maskUrl='url("data:image/svg+xml,'+encodeURIComponent(card.art.mask)+'")';
   foil.style.webkitMaskImage=maskUrl;
   foil.style.maskImage=maskUrl;
-  el.title="Turn the card";
+  el.title="카드 뒤집기";
   TILT.attach(el);
   function flip(){
     if(state.drawing)return; /* the deal has its own choreography */
@@ -1052,7 +1052,7 @@ function addGrimoire(spec,cards){
   var b=document.createElement("button");
   b.className="gitem";
   b.title=cards.map(function(c){return c.name}).join(" · ");
-  b.setAttribute("aria-label","Re-summon reading: "+b.title);
+  b.setAttribute("aria-label","리딩 다시 소환: "+b.title);
   var cnv=document.createElement("canvas");cnv.width=42;cnv.height=70;
   b.appendChild(cnv);
   var g=cnv.getContext("2d");

@@ -1,6 +1,9 @@
+<!doctype html>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Oracle — The Obsidian Loom</title>
+<title>오라클 — 흑요석의 직조기</title>
 <style>
   :root{
     --obsidian:#0B0A0F;
@@ -11,7 +14,7 @@
     --bone:#EDE6D6;
     --ink:#EDE6D6;
     --dim:#8a8272;
-    --serif: "Cormorant Garamond","EB Garamond",Cormorant,Garamond,"Hoefler Text",Georgia,"Times New Roman",serif;
+    --serif: "Cormorant Garamond","EB Garamond",Cormorant,Garamond,"Hoefler Text",Georgia,"Times New Roman","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
@@ -271,21 +274,21 @@
 
 <div id="stage">
   <aside id="ledger">
-    <div class="rail-label smallcaps">the ledger</div>
+    <div class="rail-label smallcaps">연장의 기록</div>
     <div id="ledger-items"></div>
-    <div class="ledger-empty" id="ledger-empty">castings<br>remembered<br>here</div>
+    <div class="ledger-empty" id="ledger-empty">던져진<br>점괘들이<br>여기 머문다</div>
   </aside>
 
   <div id="main">
     <header id="top">
       <div class="brand">
-        <h1>Oracle <span class="amp">·</span> <span style="font-style:italic;color:var(--gold)">The Obsidian Loom</span></h1>
-        <div class="tag">Cast a coin, and watch a living sigil weave itself from the dark — read your fortune in light and ink.</div>
+        <h1>오라클 <span class="amp">·</span> <span style="font-style:italic;color:var(--gold)">흑요석의 직조기</span></h1>
+        <div class="tag">동전을 던지세요 — 어둠 속에서 살아 있는 인장이 스스로 짜여나가는 것을 지켜보고, 빛과 잉크 속에서 당신의 운명을 읽으세요.</div>
       </div>
       <div class="toolbar">
-        <button class="tbtn" id="btn-sound" aria-pressed="false" title="Ambient soundscape">◍ sound</button>
-        <button class="tbtn" id="btn-vellum" title="Export the current reading">↧ vellum</button>
-        <button class="tbtn" id="btn-about">about</button>
+        <button class="tbtn" id="btn-sound" aria-pressed="false" title="분위기 음향">◍ 소리</button>
+        <button class="tbtn" id="btn-vellum" title="현재 점괘 내보내기">↧ 양피지</button>
+        <button class="tbtn" id="btn-about">정보</button>
       </div>
     </header>
 
@@ -310,7 +313,7 @@
         </div>
 
         <div id="cast-controls">
-          <button id="cast">Cast the Coins</button>
+          <button id="cast">동전 던지기</button>
           <div id="status" class="smallcaps"></div>
         </div>
       </div>
@@ -322,38 +325,38 @@
           <div id="hex-key"></div>
         </div>
 
-        <div class="passage present" id="p-present"><h3>Present</h3><p></p></div>
-        <div class="passage moving" id="p-moving"><h3>Moving</h3><p></p></div>
-        <div class="passage future" id="p-future"><h3>Becoming</h3><p></p></div>
+        <div class="passage present" id="p-present"><h3>현재</h3><p></p></div>
+        <div class="passage moving" id="p-moving"><h3>움직임</h3><p></p></div>
+        <div class="passage future" id="p-future"><h3>되어감</h3><p></p></div>
 
         <div id="seed-bar">
-          <span class="seed-lab smallcaps">seed</span>
-          <button id="seed-key" title="Click to copy this reading's seed">·····</button>
-          <button class="mini-btn" id="btn-copy">copy link</button>
+          <span class="seed-lab smallcaps">씨앗</span>
+          <button id="seed-key" title="이 점괘의 씨앗을 클릭하여 복사">·····</button>
+          <button class="mini-btn" id="btn-copy">링크 복사</button>
         </div>
       </div>
     </section>
 
     <footer>
-      An offline reliquary · no two readings alike · every one re-summonable · built by <em>Claude Fable 5</em>
+      오프라인 사당 · 두 점괘가 같지 않다 · 모두 다시 불러낼 수 있다 · 제작 <em>Claude Fable 5</em>
     </footer>
   </div>
 </div>
 
 <div id="veil">
-  <div class="v-title">The Obsidian <em>Loom</em></div>
-  <div class="v-tag">Three coins, six throws, one sigil woven from the dark. What is asked is not the future — only its shape, and yours within it.</div>
-  <button class="tbtn v-enter" id="enter" style="font-size:15px;padding:11px 28px">enter the reliquary</button>
+  <div class="v-title">흑요석의 <em>직조기</em></div>
+  <div class="v-tag">세 개의 동전, 여섯 번의 던짐, 어둠 속에서 한 줄의 인장이 짜여 나옵니다. 묻혀지는 것은 미래가 아니라 — 그 모양과, 그 안에 있는 당신의 자리일 뿐입니다.</div>
+  <button class="tbtn v-enter" id="enter" style="font-size:15px;padding:11px 28px">사당으로 들어가기</button>
 </div>
 
 <div id="about">
   <div class="card">
     <button class="close" id="about-close">×</button>
-    <h2>The Obsidian <em>Loom</em></h2>
-    <p>An I-Ching oracle, cast by the ancient three-coin method. Each throw yields a line — old yin, young yang, and their kin — built from the bottom up into one of sixty-four hexagrams. Changing lines carry the reading forward into what is <em>becoming</em>.</p>
-    <p>Every sigil here is drawn fresh: six ink strokes bled onto black, a gold aura whose symmetry is born of your two trigrams, embers rising from the lines in motion. Nothing is a stock glyph. A five-character seed reproduces any casting exactly — art, aura, and prose alike.</p>
-    <p>Hover the upper or lower half of the sigil to meet its trigrams. Toggle the drone for a WebAudio soundscape tuned to your seed. Press to vellum to keep a talisman.</p>
-    <div class="cred">Generative divination · procedural art & text · self-contained, offline, zero-network. Built by Claude Fable 5.</div>
+    <h2>흑요석의 <em>직조기</em></h2>
+    <p>고대의 삼전법(three-coin method)으로 점을 내는 주역 오라클. 매번의 던짐이 한 줄을 만들어냅니다 — 노은, 소양, 그리고 그 친척들이 아래에서 위로 쌓여 64효 중 하나가 됩니다. 변효는 점괘를 <em>되어감</em>으로 끌고 갑니다.</p>
+    <p>여기서의 모든 인장은 매번 새로 그려집니다 — 검은 바탕에 번지는 여섯 가닥의 잉크 선, 두 괘에서 태어나는 대칭의 금빛 후광, 움직이는 효에서 피어오르는 잿불. 어떤 것도 재고 문자가 아닙니다. 다섯 글자의 씨앗은 어떤 점괘든 — 예술, 후광, 산문까지 — 정확히 그대로 다시 불러냅니다.</p>
+    <p>인장의 위 또는 아래 절반 위로 마우스를 올려 두 괘를 만나보세요. 씨앗에 맞춘 WebAudio 음향 장면을 위해 음향을 켜세요. 양피지로 내보내기를 눌러护身符(부적)를 간직하세요.</p>
+    <div class="cred">생성적 점술 · 절차적 예술과 산문 · 자체 완결, 오프라인, 네트워크 없음. 제작 Claude Fable 5.</div>
   </div>
 </div>
 
@@ -409,14 +412,14 @@ function decodeSeed(s){
 */
 const TRI = [
   // idx, name, cn, element, dir, attr, image, lines(bottom->top), color
-  {id:0, name:"Earth",   cn:"坤", el:"earth",   dir:"southwest", attr:"the yielding",   img:"the field that receives all",       lines:[0,0,0]},
-  {id:1, name:"Mountain",cn:"艮", el:"mountain", dir:"northeast", attr:"stillness",      img:"the peak that halts the wind",       lines:[0,0,1]},
-  {id:2, name:"Water",   cn:"坎", el:"water",    dir:"north",     attr:"the abysmal",    img:"the gorge where the moon drowns",    lines:[0,1,0]},
-  {id:3, name:"Wind",    cn:"巽", el:"wind",     dir:"southeast", attr:"the gentle",     img:"the breath that enters everywhere",  lines:[0,1,1]},
-  {id:4, name:"Thunder", cn:"震", el:"thunder",  dir:"east",      attr:"the arousing",   img:"the crack that wakes the seed",      lines:[1,0,0]},
-  {id:5, name:"Fire",    cn:"離", el:"fire",     dir:"south",     attr:"the clinging",   img:"the flame that clings to what it burns", lines:[1,0,1]},
-  {id:6, name:"Lake",    cn:"兌", el:"lake",     dir:"west",      attr:"the joyous",     img:"the still water that answers the sky", lines:[1,1,0]},
-  {id:7, name:"Heaven",  cn:"乾", el:"heaven",   dir:"northwest", attr:"the creative",   img:"the ceaseless turning of the sky",   lines:[1,1,1]},
+  {id:0, name:"땅",   cn:"坤", el:"흙",   dir:"남서", attr:"내어주는 자",   img:"만물을 받는 들판",       lines:[0,0,0]},
+  {id:1, name:"산",cn:"艮", el:"산", dir:"북동", attr:"고요함",      img:"바람을 멈추는 봉우리",       lines:[0,0,1]},
+  {id:2, name:"물",   cn:"坎", el:"물",    dir:"북",     attr:"심연의",    img:"달이 빠져드는 깊은 골짜기",    lines:[0,1,0]},
+  {id:3, name:"바람",    cn:"巽", el:"바람",     dir:"남동", attr:"부드러운",     img:"모든 곳에 스며드는 숨결",  lines:[0,1,1]},
+  {id:4, name:"우레", cn:"震", el:"우레",  dir:"동",      attr:"일으키는",   img:"씨앗을 깨우는 금",      lines:[1,0,0]},
+  {id:5, name:"불",    cn:"離", el:"불",     dir:"남",     attr:"집착하는",   img:"태우는 것에 붙은 불꽃", lines:[1,0,1]},
+  {id:6, name:"호수",    cn:"兌", el:"호수",     dir:"서",      attr:"기쁜",     img:"하늘에 응답하는 잔잔한 물", lines:[1,1,0]},
+  {id:7, name:"하늘",  cn:"乾", el:"하늘",   dir:"북서", attr:"창조하는",   img:"하늘의 쉬임없는 회전",   lines:[1,1,1]},
 ];
 // map trigram line-triplet -> trigram id
 const TRI_BY_BITS = {};
@@ -449,70 +452,70 @@ function wenNumber(upperTri, lowerTri){
 
 // hexagram meta: number -> {name, cn, keyword, judgment fragment}
 const HEX = {
-1:{n:"The Creative",cn:"乾",k:"origination, ceaseless force",j:"sublime success through firm persistence — the dragon rides the storm"},
-2:{n:"The Receptive",cn:"坤",k:"devoted yielding, the great mare",j:"success to the one who follows and does not lead the way"},
-3:{n:"Difficulty at the Beginning",cn:"屯",k:"the sprout through hard ground",j:"do not act alone; the tangle unknots itself with helpers"},
-4:{n:"Youthful Folly",cn:"蒙",k:"the fog of the untaught mind",j:"it is not I who seek the young fool — the fool seeks me"},
-5:{n:"Waiting",cn:"需",k:"nourishment in patience",j:"cross the great water only when the time is ripe"},
-6:{n:"Conflict",cn:"訟",k:"the collision of wills",j:"halt halfway; do not press the quarrel to its bitter end"},
-7:{n:"The Army",cn:"師",k:"discipline gathered to a point",j:"the multitude needs one steady hand, or it scatters"},
-8:{n:"Holding Together",cn:"比",k:"union around a center",j:"come while the way is open; the latecomer meets misfortune"},
-9:{n:"Taming Power of the Small",cn:"小畜",k:"the gentle restraint",j:"dense clouds, no rain yet — small forces gather"},
-10:{n:"Treading",cn:"履",k:"the tiger's tail underfoot",j:"tread upon it with care and it does not bite"},
-11:{n:"Peace",cn:"泰",k:"heaven and earth in union",j:"the small departs, the great arrives — flourishing"},
-12:{n:"Standstill",cn:"否",k:"the withdrawal of the great",j:"the way is blocked; the inferior rises, the noble withdraws"},
-13:{n:"Fellowship",cn:"同人",k:"kinship in the open field",j:"union with others in the light succeeds"},
-14:{n:"Possession in Great Measure",cn:"大有",k:"the sun at zenith",j:"supreme success; hold abundance with humility"},
-15:{n:"Modesty",cn:"謙",k:"the mountain within the earth",j:"the modest carry things through to the end"},
-16:{n:"Enthusiasm",cn:"豫",k:"thunder rising from the earth",j:"it furthers to set armies marching and install helpers"},
-17:{n:"Following",cn:"隨",k:"the adaptive current",j:"supreme success — follow what is right, no blame"},
-18:{n:"Work on the Decayed",cn:"蠱",k:"repair of what was spoiled",j:"before the starting point, three days; after, three days"},
-19:{n:"Approach",cn:"臨",k:"the drawing near of the great",j:"success — but in the eighth month, misfortune"},
-20:{n:"Contemplation",cn:"觀",k:"the wind over the earth",j:"the ablution is made, the offering not yet brought"},
-21:{n:"Biting Through",cn:"噬嗑",k:"the jaw that breaks the obstacle",j:"it furthers to let justice be administered"},
-22:{n:"Grace",cn:"賁",k:"fire beneath the mountain",j:"success in small matters; adornment is not the substance"},
-23:{n:"Splitting Apart",cn:"剝",k:"the mountain crumbling",j:"it does not further to go anywhere now"},
-24:{n:"Return",cn:"復",k:"the turning point of light",j:"the light returns; friends come without blame"},
-25:{n:"Innocence",cn:"無妄",k:"the unexpected, the unforced",j:"if one is not as one should be, misfortune"},
-26:{n:"Taming Power of the Great",cn:"大畜",k:"the treasure held and fed",j:"it furthers to cross the great water"},
-27:{n:"Nourishment",cn:"頤",k:"the open mouth, the jaws",j:"pay heed to what you feed — yourself and others"},
-28:{n:"Preponderance of the Great",cn:"大過",k:"the ridgepole bending",j:"the beam sags; it furthers to have a goal and move"},
-29:{n:"The Abysmal",cn:"坎",k:"water upon water, the repeated pit",j:"if you are sincere, the heart wins through"},
-30:{n:"The Clinging",cn:"離",k:"fire that clings to fuel",j:"care of the cow brings good fortune"},
-31:{n:"Influence",cn:"咸",k:"the wooing, the felt attraction",j:"success — to take a maiden brings good fortune"},
-32:{n:"Duration",cn:"恆",k:"that which endures",j:"success, no blame — it furthers to have a goal"},
-33:{n:"Retreat",cn:"遯",k:"the timely withdrawal",j:"success lies in the small; retreat is not flight"},
-34:{n:"Power of the Great",cn:"大壯",k:"thunder above heaven",j:"perseverance furthers; power without justice fails"},
-35:{n:"Progress",cn:"晉",k:"the sun rising over earth",j:"the powerful prince is honored with horses"},
-36:{n:"Darkening of the Light",cn:"明夷",k:"the sun sunk beneath the earth",j:"in adversity it furthers to be persevering"},
-37:{n:"The Family",cn:"家人",k:"the hearth and its order",j:"the perseverance of the woman furthers"},
-38:{n:"Opposition",cn:"睽",k:"fire and lake pulling apart",j:"in small matters, good fortune"},
-39:{n:"Obstruction",cn:"蹇",k:"the water on the mountain",j:"it furthers to see the great; going leads back"},
-40:{n:"Deliverance",cn:"解",k:"the storm that breaks the tension",j:"if there is somewhere to go, hasten — good fortune"},
-41:{n:"Decrease",cn:"損",k:"the lake feeding the mountain",j:"decrease with sincerity brings supreme good fortune"},
-42:{n:"Increase",cn:"益",k:"wind and thunder redoubling",j:"it furthers to undertake something, to cross the water"},
-43:{n:"Breakthrough",cn:"夬",k:"the flood at the barrier's edge",j:"resolve the matter at the king's court, without arms"},
-44:{n:"Coming to Meet",cn:"姤",k:"the unbidden encounter",j:"the maiden is powerful; do not marry such a one"},
-45:{n:"Gathering Together",cn:"萃",k:"the lake risen upon earth",j:"the king approaches his temple; great offering, good fortune"},
-46:{n:"Pushing Upward",cn:"升",k:"the wood growing through the soil",j:"push upward; do not fear — good fortune"},
-47:{n:"Oppression",cn:"困",k:"the lake drained dry",j:"exhaustion, yet success to the great; words are not believed"},
-48:{n:"The Well",cn:"井",k:"the source that does not move",j:"the town may change, the well does not"},
-49:{n:"Revolution",cn:"革",k:"the molting, the overthrow",j:"on your own day you are believed; supreme success"},
-50:{n:"The Cauldron",cn:"鼎",k:"the vessel of transformation",j:"supreme good fortune; the sacred vessel is filled"},
-51:{n:"The Arousing",cn:"震",k:"thunder upon thunder",j:"shock comes — laughing words, ha ha! — and does not spill the wine"},
-52:{n:"Keeping Still",cn:"艮",k:"mountain upon mountain",j:"keep still the back; no blame when the self is quiet"},
-53:{n:"Development",cn:"漸",k:"the slow growth of the tree",j:"the maiden is given in marriage; gradual progress"},
-54:{n:"The Marrying Maiden",cn:"歸妹",k:"the union out of season",j:"undertakings bring misfortune; nothing furthers"},
-55:{n:"Abundance",cn:"豐",k:"the noon of fullness",j:"be like the sun at midday — do not grieve its coming decline"},
-56:{n:"The Wanderer",cn:"旅",k:"fire on the moving mountain",j:"success in small things; the stranger keeps his footing"},
-57:{n:"The Gentle",cn:"巽",k:"wind following wind",j:"success in the small; it furthers to see the great"},
-58:{n:"The Joyous",cn:"兌",k:"lake resting upon lake",j:"success through gladness that perseveres"},
-59:{n:"Dispersion",cn:"渙",k:"the wind that scatters the ice",j:"the king approaches his temple; cross the great water"},
-60:{n:"Limitation",cn:"節",k:"the water measured by its banks",j:"success — but galling limitation must not persevere"},
-61:{n:"Inner Truth",cn:"中孚",k:"the crane's answer in the shade",j:"the sincerity that moves even pigs and fishes — good fortune"},
-62:{n:"Preponderance of the Small",cn:"小過",k:"thunder on the mountain",j:"the bird brings the message: it is not well to ascend, well to remain"},
-63:{n:"After Completion",cn:"既濟",k:"the crossing achieved",j:"success in small matters; order at the start, disorder threatens at the end"},
-64:{n:"Before Completion",cn:"未濟",k:"the fox nearly across",j:"if the little fox wets its tail, nothing furthers — yet the way is open"},
+1:{n:"건 (창조)",k:"창발, 끊임없는 힘",j:"굳은 인내로 숭고한 성공을 거두라 — 용이 폭풍을 탄다"},
+2:{n:"곤 (수응)",k:"헌신적 겸손, 큰 암캐",j:"앞장서지 않고 따르는 자에게 성공이 있다"},
+3:{n:"屯 (난탄)",k:"단단한 땅을 뚫고 자라는 새싹",j:"홀로 행동하지 말라 — 도움의 손과 함께라면 얽힘이 풀린다"},
+4:{n:"蒙 (몽매)",k:"가르침을 받지 못한 마음의 안개",j:"스승이 미치(愚)를 찾는 것이 아니라 미치가 스승을 찾는다"},
+5:{n:"需 (대사)",k:"인내의 양육",j:"때가 익었을 때에야 큰 물을 건너라"},
+6:{n:"訟 (송사)",k:"의지의 충돌",j:"도중에서 멈추라 — 다투기를 끝까지 밀어붙이지 말라"},
+7:{n:"師 (병력)",k:"한 점으로 모인纪律",j:"무리는 한 단단한 손을 필요로 하니, 그렇지 않으면 흩어진다"},
+8:{n:"比 (비합)",k:"중심을 둘러싼 연합",j:"길이 열려 있을 때 오라 — 늦은 자는 불운을 만난다"},
+9:{n:"小畜 (소축)",k:"부드러운 절제",j:"짙은 구름은 모이되 아직 비는 없다 — 작은 힘들이 모인다"},
+10:{n:"履 (리履)",k:"범의 꼬리 아래를 밟음",j:"조심하여 밟으면 물리지 않는다"},
+11:{n:"泰 (태화)",k:"하늘과 땅의 합",j:"작은 것은 떠나고 큰 것은 온다 — 번영"},
+12:{n:"否 (비체)",k:"큰 것의 물러남",j:"길이 막혔다 — 어질지 못한 자가 올라가고 고귀한 자는 물러난다"},
+13:{n:"同人 (동인)",k:"드넓은 들판의 연의",j:"빛 안에서 다른 이들과 함께하면 성공한다"},
+14:{n:"大有 (대유)",k:"정점에 선 태양",j:"최상의 성공 — 겸손으로 풍요를 잡아라"},
+15:{n:"謙 (겸허)",k:"땅속에 감춘 산",j:"겸손한 자는 일을 끝까지 이룬다"},
+16:{n:"豫 (예비)",k:"땅에서 일어나는 우레",j:"군사를 출발시키고 도울 이를 세우면 이롭다"},
+17:{n:"隨 (수행)",k:"순응하는 흐름",j:"최상의 성공 — 옳은 것을 따르라, 허물 없다"},
+18:{n:"蠱 (고사)",k:"더러워진 것의 수선",j:"시작 전에 사흘, 시작 후에도 사흘"},
+19:{n:"臨 (임)",k:"큰 것의 다가옴",j:"성공 — 그러나 팔월에는 재앙이 온다"},
+20:{n:"觀 (관)",k:"땅 위의 바람",j:"목욕은 행하되 제물은 아직 바치지 않는다"},
+21:{n:"噬嗑 (합합)",k:"장애물 깨는 턱",j:"정의가 시행되도록 함이 이롭다"},
+22:{n:"賁 (비장)",k:"산 아래의 불",j:"작은 일에 성공함 — 장식은 본질이 아니다"},
+23:{n:"剝 (박락)",k:"무너지는 산",j:"지금은 어디로든 가는 것이 이롭지 않다"},
+24:{n:"復 (복)",k:"빛의 전환점",j:"빛이 돌아온다 — 벗들이 와도 허물 없다"},
+25:{n:"無妄 (무망)",k:"뜻밖의, 억지 없는",j:"만약 자신이 마땅하지 못하면 재앙이 온다"},
+26:{n:"大畜 (대축)",k:"간직하고 먹이는 보물",j:"큰 물을 건너면 이롭다"},
+27:{n:"頤 (이의)",k:"입, 턱, 먹는 것",j:"무엇을 먹이는가에 주의하라 — 자신과 타인 모두"},
+28:{n:"大過 (대과)",k:"굽는 대들보",j:"대들보가 휘었으나 목표를 갖고 움직이면 이롭다"},
+29:{n:"坎 (감)",k:"물 위의 물, 겹친 웠덩이",j:"만약 진실하면 마음이 이긴다"},
+30:{n:"離 (리)",k:"연료에 붙은 불",j:"암소 돌봄이 좋은 바른 결과를 가져온다"},
+31:{n:"咸 (함)",k:"느끼는 끌림",j:"성공 — 처녀를 맞아들임이 좋다"},
+32:{n:"恆 (항)",k:"지속되는 것",j:"성공, 허물 없음 — 목표를 잡으면 이롭다"},
+33:{n:"遯 (둔)",k:"때에 맞는 물러남",j:"작은 것에 성공이 있다 — 물러남은 도망이 아니다"},
+34:{n:"大壯 (대장)",k:"하늘 위의 우레",j:"인내가 이롭다 — 정의 없는 힘은 실패한다"},
+35:{n:"晉 (진)",k:"땅 위로 떠오르는 태양",j:"강력한 군주가 말로써 영예를 받는다"},
+36:{n:"明夷 (명이)",k:"땅 아래 잠긴 태양",j:"역경 속에서도 인내함이 이롭다"},
+37:{n:"家人 (가인)",k:"화덕과 그 질서",j:"여자의 인내가 이롭다"},
+38:{n:"睽 (괴)",k:"불과 호수가 갈라지다",j:"작은 일에 길조가 있다"},
+39:{n:"蹇 (건)",k:"산 위의 물",j:"큰 이를 보는 것이 이롭다 — 가면 돌아온다"},
+40:{n:"解 (해)",k:"긴장을 깨는 폭풍",j:"갈 곳이 있다면 서둘러라 — 길하다"},
+41:{n:"損 (손)",k:"산에 먹이는 호수",j:"진실한 줄임이 최고의 길조를 가져온다"},
+42:{n:"益 (익)",k:"바람과 우레의 겹침",j:"일을 시작하고 물을 건너면 이롭다"},
+43:{n:"夬 (괘)",k:"둑 끝의 홍수",j:"왕의 조정에서 무력 없이 일을 해결하라"},
+44:{n:"姤 (구)",k:"뜻밖에 만남",j:"처녀가 강하나 — 이런 이와 혼인하지 말라"},
+45:{n:"萃 (취)",k:"땅 위에 일어선 호수",j:"왕이 사직에 나아감 — 큰 제물, 길하다"},
+46:{n:"升 (승)",k:"흙 사이로 자라는 나무",j:"위로 올라가라 — 두려워하지 말라, 길하다"},
+47:{n:"困 (곤)",k:"마른 호수",j:"고갈되었으나 큰 자에게는 성공이 있다 — 말은 믿지 못한다"},
+48:{n:"井 (정)",k:"움직이지 않는 샘",j:"마을은 변해도 샘은 변하지 않는다"},
+49:{n:"革 (혁)",k:"탈피, 전복",j:"당신의 날이면 믿음을 얻는다 — 최고의 성공"},
+50:{n:"鼎 (정)",k:"변화의 그릇",j:"최고의 길조 — 신성한 그릇이 채워진다"},
+51:{n:"震 (진)",k:"우레 위의 우레",j:"충격이 온다 — 웃음의 말이, 하하! — 그러나 술을 엎지른다"},
+52:{n:"艮 (간)",k:"산 위의 산",j:"등을 고요히 가라 — 자아가 고요하면 허물 없다"},
+53:{n:"漸 (점)",k:"나무의 느린 성장",j:"처녀가 혼인함을 받다 — 점진적 진보"},
+54:{n:"歸妹 (귀매)",k:"때에 어긋난 결합",j:"일을 시작하면 재앙이 온다 — 아무것도 이롭지 않다"},
+55:{n:"豐 (풍)",k:"충만함의 정오",j:"정오의 태양처럼 — 다가오는 쇠퇴를 슬퍼하지 말라"},
+56:{n:"旅 (려)",k:"움직이는 산의 불",j:"작은 일에 성공 — 나그네가 발판을 잡는다"},
+57:{n:"巽 (순)",k:"바람 뒤의 바람",j:"작은 일에 성공 — 큰 이를 보는 것이 이롭다"},
+58:{n:"兌 (태)",k:"호수 위의 호수",j:"인내하는 기쁨으로 성공한다"},
+59:{n:"渙 (환)",k:"얼음을 흩뜨리는 바람",j:"왕이 사직에 나아감 — 큰 물을 건너라"},
+60:{n:"節 (절)",k:"둑으로 잰 물",j:"성공 — 그러나 답답한 제한은 지속되어서는 안 된다"},
+61:{n:"中孚 (중부)",k:"그늘에서 학의 대답",j:"돼지와 물고기도 움직이는 진실함 — 길하다"},
+62:{n:"小過 (소과)",k:"산 위의 우레",j:"새가 소식을 전한다 — 올라가기는 안 되나 머무름은 좋다"},
+63:{n:"既濟 (기제)",k:"이루어진 건너다",j:"작은 일에 성공 — 시작에는 질서가 있고 끝에는 무질서가 위협한다"},
+64:{n:"未濟 (미제)",k:"거의 건넌 여우",j:"작은 여우가 꼬리를 적시면 아무것도 이롭지 않다 — 그러나 길은 열려 있다"},
 };
 
 /* ---------- text-grammar helpers ---------- */
@@ -1449,13 +1452,13 @@ document.getElementById('about').addEventListener('click', e=>{ if(e.target.id==
 document.getElementById('seed-key').addEventListener('click', ()=>{
   if(!current) return;
   copyText(current.seedStr);
-  flash(document.getElementById('seed-key'), "copied");
+  flash(document.getElementById('seed-key'), "복사됨");
 });
 document.getElementById('btn-copy').addEventListener('click', ()=>{
   if(!current) return;
   const link = location.origin+location.pathname+"#"+current.seedStr;
   copyText(link);
-  flash(document.getElementById('btn-copy'), "copied ✓");
+  flash(document.getElementById('btn-copy'), "복사됨 ✓");
 });
 function copyText(t){
   try{ navigator.clipboard.writeText(t); }
@@ -1515,3 +1518,5 @@ current = null; // don't count preview as a real reading until enter
 
 })();
 </script>
+</body>
+</html>

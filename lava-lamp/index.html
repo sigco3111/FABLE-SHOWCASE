@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>MAGMA — A Liquid Light Instrument</title>
+<title>마그마 — 액체 빛 악기</title>
 <style>
 /* ============================================================
    MAGMA — museum-grade lava lamp
@@ -27,7 +27,7 @@ html,body{height:100%}
 body{
   background:var(--bg);
   color:var(--ink);
-  font-family:ui-sans-serif,-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family:ui-sans-serif,-apple-system,"Helvetica Neue",Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
   overflow:hidden;
   user-select:none;-webkit-user-select:none;
 }
@@ -306,88 +306,81 @@ header,#aboutBtn{animation:fadeIn 1.2s ease .45s backwards}
   <div id="vignette"></div>
 
   <header>
-    <button id="brand" title="Enter zen mode (Z)">MAG<em>MA</em></button>
-    <div id="tagline">A liquid light instrument · press &amp; hold inside the vessel to stir</div>
+    <button id="brand" title="젠 모드 진입 (Z)">MAG<em>MA</em></button>
+    <div id="tagline">액체 빛 악기 · 용기 안을 꾹 누르고 있으면 저어줍니다</div>
   </header>
 
-  <button id="aboutBtn" aria-label="About this piece" title="About">?</button>
+  <button id="aboutBtn" aria-label="이 작품 정보" title="정보">?</button>
 
   <div id="dock" role="group" aria-label="Lamp controls">
     <div class="ctl" id="knobWrap">
-      <canvas id="knob" role="slider" tabindex="0" aria-label="Heat"
+      <canvas id="knob" role="slider" tabindex="0" aria-label="열"
               aria-valuemin="0" aria-valuemax="100" aria-valuenow="55"></canvas>
-      <span class="lbl">Heat <span class="val" id="heatVal">55</span></span>
+      <span class="lbl">열 <span class="val" id="heatVal">55</span></span>
     </div>
 
     <div class="divider"></div>
 
     <div class="ctl">
-      <div id="palettes" role="radiogroup" aria-label="Palette">
+      <div id="palettes" role="radiogroup" aria-label="팔레트">
         <button class="chip" data-pal="magma" aria-pressed="true"><span class="swatch sw-magma"></span><span class="cname">MAGMA</span></button>
         <button class="chip" data-pal="plasma" aria-pressed="false"><span class="swatch sw-plasma"></span><span class="cname">PLASMA</span></button>
         <button class="chip" data-pal="aurora" aria-pressed="false"><span class="swatch sw-aurora"></span><span class="cname">AURORA</span></button>
       </div>
-      <span class="lbl">Palette</span>
+      <span class="lbl">팔레트</span>
     </div>
 
     <div class="divider"></div>
 
     <div class="ctl">
-      <div id="blobSlider" role="slider" tabindex="0" aria-label="Blob count"
+      <div id="blobSlider" role="slider" tabindex="0" aria-label="블롭 수"
            aria-valuemin="6" aria-valuemax="24" aria-valuenow="10">
         <div class="bs-track"><div class="bs-fill"></div><div class="bs-thumb"></div></div>
       </div>
-      <span class="lbl">Blobs <span class="val" id="blobVal">10</span></span>
+      <span class="lbl">블롭 <span class="val" id="blobVal">10</span></span>
     </div>
 
     <div class="divider"></div>
 
-    <button id="gravBtn" aria-pressed="false" title="Flip gravity (G)">
+    <button id="gravBtn" aria-pressed="false" title="중력 뒤집기 (G)">
       <span class="gicon">&#9660;</span>
-      <span class="lbl">Gravity</span>
+      <span class="lbl">중력</span>
     </button>
   </div>
 
   <div id="hud" aria-hidden="true">
-    <span>FRAME<b id="hFrame">—</b></span>
-    <span>SIM<b>120&thinsp;HZ</b></span>
-    <span>BLOBS<b id="hBlobs">—</b></span>
-    <span>GRID<b id="hGrid">—</b></span>
+    <span>프레임<b id="hFrame">—</b></span>
+    <span>시뮬<b>120&thinsp;Hz</b></span>
+    <span>블롭<b id="hBlobs">—</b></span>
+    <span>그리드<b id="hGrid">—</b></span>
     <canvas id="spark"></canvas>
   </div>
 
   <div id="hints">
     <div>ZEN<span class="k">Z</span></div>
-    <div>STATS<span class="k">D</span></div>
-    <div>FLIP<span class="k">G</span></div>
+    <div>통계<span class="k">D</span></div>
+    <div>뒤집기<span class="k">G</span></div>
   </div>
 
-  <div id="credit">Built by Claude Fable 5</div>
+  <div id="credit">Claude Fable 5 제작</div>
 
-  <div id="about" role="dialog" aria-modal="true" aria-label="About MAGMA">
+  <div id="about" role="dialog" aria-modal="true" aria-label="마그마 정보">
     <div id="aboutCard">
       <h1>MAG<em>MA</em></h1>
-      <div class="sub">A liquid light instrument</div>
-      <p>A physics-driven lava lamp. Every blob carries heat: it soaks it up at the
-         floor plate, rises on buoyancy, sheds it at the cap, stalls, and sinks —
-         the canonical lava-lamp circulation, with nothing keyframed.</p>
-      <p>Blobs merge by transferring mass through sustained contact; overheated
-         giants pinch off children. Total volume is conserved, so the lamp never
-         empties. The surface is a metaball scalar field shaded through a palette
-         LUT, with marching-squares iso-contours stroked on top as a glass rim and
-         a fresnel crown. Run it hot and champagne micro-bubbles boil off the
-         plate — flip gravity mid-rise and they hang weightless.</p>
+      <div class="sub">액체 빛 악기</div>
+      <p>물리 기반 라바 lamp. 모든 블롭은 열을 가지고 — 바닥 플레이트에서 흡수해 부력으로 떠올라, 뚜껑에서 열을 뿜고, 정지하고, 가라앉습니다 — 정통 라바 lamp 순환, 키프레임 없이.</p>
+      <p>블롭은 지속 접촉을 통해 질량를 서로 전달하며 합쳐지고, 과열된 거인은 새끼를 끊어냅니다. 전체 부피가 보존되어 lamp는 절대 텅 비지 않습니다. 표면은 팔레트 LUT을 통해 음영 처리된 메타볼 스칼라 필드이며, 위에는 행진-제곱 알고리즘의 iso-등치선이 유리 테두리와 프레넬 왕관으로 그려집니다. 뜨겁게 돌리면 샴페인 미세 거품이 플레이트에서 끓어오르고 — 상승 도중 중력을 뒤집으면 무중력으로 매달립니다.</p>
       <div class="keys">
-        <b>DRAG KNOB</b><span>set heat — low congeals, high runs frantic</span>
-        <b>HOLD IN VESSEL</b><span>heat lance — stir, swell &amp; shear the wax</span>
-        <b>G</b><span>flip gravity (eases through weightless zero)</span>
-        <b>1 / 2 / 3</b><span>magma · plasma · aurora regrade</span>
-        <b>Z</b><span>zen mode — UI fades, heat drifts on its own</span>
-        <b>D</b><span>performance HUD</span>
+        <b>노브 드래그</b><span>열 조절 — 낮으면 굳고, 높으면 미친 듯이 흐름</span>
+        <b>용기 안에서 꾹 누</b><span>열 랜스 — 왁스를 저으며, 부풀리고, 전단</span>
+        <b>G</b><span>중력 뒤집기 (무중력 0을 부드럽게 통과)</span>
+        <b>1 / 2 / 3</b><span>마그마 · 플라즈마 · 오로라 등급 변경</span>
+        <b>Z</b><span>젠 모드 — UI가 사라지고, 열이 스스로 흐름</span>
+        <b>D</b><span>성능 HUD</span>
       </div>
-      <p>Single file · zero dependencies · Canvas 2D + math.</p>
-      <div class="credit">Built by Claude Fable 5</div>
-      <button id="aboutClose">Return to the lamp</button>
+      <p>단일 파일 · 의존성 없음 · Canvas 2D + 수학.</p>
+      <div class="credit">Claude Fable 5 제작</div>
+      <button id="aboutClose">램프로 돌아가기</button>
     </div>
   </div>
 
@@ -1248,7 +1241,7 @@ try { boot(); }
 catch(e){
   var el=$('err');
   el.style.display='flex';
-  el.textContent='MAGMA failed to ignite: '+(e&&e.message?e.message:e);
+  el.textContent='마그마 점화에 실패: '+(e&&e.message?e.message:e);
   if (window.console) console.error(e);
 }
 })();

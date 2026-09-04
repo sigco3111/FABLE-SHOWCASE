@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>NEBULA TILT — Neon-Cosmos Pinball</title>
+<title>네뷸라 틸트 — 네온 코스모스 핀볼</title>
 <style>
   :root{
     --bg:#030108; --field:#070312;
@@ -12,7 +12,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%;overflow:hidden;background:var(--bg);color:#cfe9ff;
-    font-family:"Avenir Next Condensed","Arial Narrow",'Helvetica Neue',Arial,sans-serif;
+    font-family:"Avenir Next Condensed","Arial Narrow","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",'Helvetica Neue',Arial,sans-serif;
     -webkit-user-select:none;user-select:none;touch-action:none}
   #app{height:100%;display:flex;flex-direction:column;align-items:center}
 
@@ -80,24 +80,24 @@
 <div id="app">
   <header id="backglass">
     <div class="bgcol">
-      <div id="title">NEBULA&nbsp;TILT</div>
-      <div id="subtitle">Neon-Cosmos Pinball</div>
-      <div class="bglabel" style="margin-top:5px">High Score</div>
+      <div id="title">네뷸라&nbsp;틸트</div>
+      <div id="subtitle">네온 코스모스 핀볼</div>
+      <div class="bglabel" style="margin-top:5px">최고 점수</div>
       <div class="bgval gold" id="hiVal" style="font-size:clamp(13px,2vmin,18px)">0</div>
     </div>
     <div id="dmdwrap"><canvas id="dmd"></canvas></div>
     <div class="bgcol right">
-      <div class="bglabel">Score</div>
+      <div class="bglabel">점수</div>
       <div class="bgval" id="scoreVal">0</div>
       <div style="display:flex;gap:14px;margin-top:4px">
-        <div><div class="bglabel">Ball</div><div class="bgval" id="ballVal" style="font-size:clamp(13px,2vmin,18px)">–</div></div>
-        <div id="multwrap"><div class="bglabel">Bonus X</div><div class="bgval" id="multVal" style="font-size:clamp(13px,2vmin,18px)">×1</div></div>
+        <div><div class="bglabel">공</div><div class="bgval" id="ballVal" style="font-size:clamp(13px,2vmin,18px)">–</div></div>
+        <div id="multwrap"><div class="bglabel">보너스 X</div><div class="bgval" id="multVal" style="font-size:clamp(13px,2vmin,18px)">×1</div></div>
       </div>
     </div>
   </header>
   <div id="stage"><div id="tiltwrap"><canvas id="pf"></canvas><div id="floorGlow"></div></div></div>
   <footer id="about">
-    <b>NEBULA TILT</b> · built by <b>Claude Fable 5</b> · flippers <span class="k">Z</span><span class="k">/</span> or <span class="k">←</span><span class="k">→</span> · plunger hold <span class="k">↵</span> or <span class="k">↓</span> · nudge <span class="k">SPACE</span> (three nudges = TILT) · touch: halves flip, drag lane to plunge
+    <b>네뷸라 틸트</b> · 제작 <b>Claude Fable 5</b> · 플립퍼 <span class="k">Z</span><span class="k">/</span> 또는 <span class="k">←</span><span class="k">→</span> · 플런저 길게 누르기 <span class="k">↵</span> 또는 <span class="k">↓</span> · 밀기 <span class="k">SPACE</span> (세 번이면 틸트) · 터치: 좌우 절반이 플립, 레인을 드래그해 발사
   </footer>
   <div id="err"></div>
 </div>
@@ -623,7 +623,7 @@ function dmdRender(dt){
   else{
     dmdMsg=null;
     if(game.state===S.ATTRACT){
-      var cyc=[['NEBULA TILT',CYAN],['PRESS ENTER',MAG],['HIGH '+fmt(game.high.s)+' '+game.high.n,GOLD],['Z AND / FLIP · SPACE NUDGE',CYAN]];
+      var cyc=[['네뷸라 틸트',CYAN],['엔터를 누르세요',MAG],['최고 '+fmt(game.high.s)+' '+game.high.n,GOLD],['Z 와 / 플립 · SPACE 밀기',CYAN]];
       var p=cyc[(game.rt/2.6|0)%cyc.length];txt=p[0];color=p[1];
     }else if(game.state===S.INITIALS){
       var A='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ';
@@ -632,9 +632,9 @@ function dmdRender(dt){
         var ch=A[game.init.chars[k]];
         s+=(k===game.init.slot&&Math.sin(game.rt*10)>0)?'_':ch;
       }
-      txt='ENTER NAME  '+s;color=GOLD;
+      txt='이름 입력  '+s;color=GOLD;
     }else if(game.state===S.BONUS){
-      txt='BONUS '+fmt(game.bonusShown);color=MAG;
+      txt='보너스 '+fmt(game.bonusShown);color=MAG;
     }else{
       game.dispScore+=(game.score-game.dispScore)*Math.min(1,dt*8);
       if(game.score-game.dispScore<2)game.dispScore=game.score;
@@ -697,14 +697,14 @@ function onLane(i){
     game.nebCount++;
     if(game.multIdx<4)game.multIdx++;
     updateHeader();
-    dmdShow('N-E-B  BONUS X'+mult(),1.8,MAG);
+    dmdShow('NEB 보너스 X'+mult(),1.8,MAG);
     addScore(25000,50,26,MAG);
     playShow([{t:0,fn:function(){radialShow(50,14,160)}},
               {t:0.4,fn:function(){allFlash(2,0.22)}}]);
     SFX.extra();
     if(game.nebCount>=2&&!game.novaLit){
       game.novaLit=true;
-      dmdShow('SUPERNOVA LIT · SHOOT ORBIT',2.6,GOLD);
+      dmdShow('초신성 점등 · 궤도로 발사',2.6,GOLD);
       playShow([{t:0.2,fn:function(){[Lm.arrL,Lm.arrR,Lm.nova].forEach(function(l){flash(l)})}},
                 {t:0.5,fn:function(){allFlash(3,0.3)}}]);
     }
@@ -718,12 +718,12 @@ function onLoop(){
   if(game.novaLit){superNova();return;}
   if(comboT<3){
     addScore(25000,50,44,GOLD);
-    dmdShow('COMBO LOOP',1.2,GOLD);
+    dmdShow('콤보 루프',1.2,GOLD);
     game.goldScore=game.rt+1;
     playShow([{t:0,fn:function(){radialShow(ball.x,ball.y,180)}}]);
   }else{
     addScore(12500,50,44,CYAN);
-    dmdShow('LOOP',0.9,CYAN);
+    dmdShow('루프',0.9,CYAN);
     sweepShow(1);
   }
   SFX.roll(3+game.multIdx);
@@ -731,14 +731,14 @@ function onLoop(){
 function onSkillShot(){
   addScore(75000,50,12,GOLD);
   game.goldScore=game.rt+1.2;
-  dmdShow('SKILL SHOT',1.6,GOLD);
+  dmdShow('스킬 샷',1.6,GOLD);
   radialShow(50,7,150);
   SFX.jackpotChord();
   burst(50,10,40,GOLD,140);
 }
 function awardExtraBall(){
   game.balls++;
-  dmdShow('EXTRA BALL',2.4,GOLD);
+  dmdShow('추가 공',2.4,GOLD);
   SFX.extra();
   allFlash(5,0.2);
   updateHeader();
@@ -757,7 +757,7 @@ function onSensor(k){
       game.kickback=false;
       ball.vy=-115;ball.vx=1;
       addScore(5000,10,140,CYAN);
-      dmdShow('KICKBACK',1,CYAN);
+      dmdShow('킥백',1,CYAN);
       SFX.kickback();flash(Lm.kick);burst(6.5,150,20,CYAN,120);
     }
   }
@@ -790,7 +790,7 @@ function superNova(){
   nova.on=true;nova.t=0;nova.x=ball.x;nova.y=ball.y;
   tsTarget=0.25;
   game.goldScore=game.rt+3;
-  dmdShow('SUPERNOVA',2.6,GOLD);
+  dmdShow('슈퍼노바',2.6,GOLD);
   dmdScatter();
   SFX.shepard(0.95);
   addScore(1000000,null);
@@ -837,13 +837,13 @@ function nudge(dir){
   if(n>=3){doTilt();}
   else{
     game.tiltWarn=1;
-    if(n===2)dmdShow('DANGER',0.8,'#FF3355');
-    else dmdShow('CAREFUL',0.7,MAG);
+    if(n===2)dmdShow('위험',0.8,'#FF3355');
+    else dmdShow('주의',0.7,MAG);
   }
 }
 function doTilt(){
   game.tilted=true;
-  dmdShow('TILT',3,'#FF3355');
+  dmdShow('틸트',3,'#FF3355');
   SFX.tilt();
   flipL.pressed=flipR.pressed=false;
   lamps.forEach(function(L){L.c0=L.c;L.c='#FF3355';flash(L)});
@@ -875,7 +875,7 @@ function startGame(){
   game.score=0;game.dispScore=0;game.ballNum=1;game.balls=3;
   game.extraGiven=false;
   newBall();
-  dmdShow('BALL 1 · PULL PLUNGER',2.2,CYAN);
+  dmdShow('공 1 · 플런저 당기기',2.2,CYAN);
   updateHeader();
 }
 function newBall(){
@@ -905,7 +905,7 @@ function drained(){
   burst(ball.x,170,25,MAG,120);
   if(game.state!==S.PLAY){newBall();return;}
   if(game.time<game.saveUntil&&!game.tilted){
-    dmdShow('BALL SAVED',1.6,CYAN);
+    dmdShow('공 살림',1.6,CYAN);
     playShow([{t:0,fn:function(){flash(Lm.save);sweepShow(-1)}}]);
     ballTo(94.5,149);ball.held=true;
     game.autoLaunch=game.rt+0.8;
@@ -925,7 +925,7 @@ function endBonus(){
   if(game.ballNum<game.balls){
     game.ballNum++;
     newBall();
-    dmdShow('BALL '+game.ballNum,1.8,CYAN);
+    dmdShow('공 '+game.ballNum,1.8,CYAN);
   }else{
     // game over
     if(game.score>game.high.s){
@@ -935,7 +935,7 @@ function endBonus(){
       allFlash(6,0.22);
     }else{
       game.state=S.OVER;game.overT=game.rt;
-      dmdShow('GAME OVER',3,MAG);
+      dmdShow('게임 오버',3,MAG);
     }
   }
   updateHeader();
@@ -946,7 +946,7 @@ function commitInitials(){
   game.high={s:game.score,n:n};
   try{localStorage.setItem('nebulaTiltHigh',JSON.stringify(game.high));}catch(e){}
   game.state=S.OVER;game.overT=game.rt;
-  dmdShow('HIGH SCORE '+n,3,GOLD);
+  dmdShow('고득점 '+n,3,GOLD);
   radialShow(50,90,100);
   updateHeader();
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CHLADNI — Resonance Bench</title>
+<title>클라드니 — 공명 벤치</title>
 <style>
   :root{
     --bg:#0A0C10;
@@ -18,7 +18,7 @@
     --cyan:rgba(96,214,224,.75);
     --sand:#EDE6D6;
     --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
-    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    --sans:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI",Roboto,"Helvetica Neue",sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
@@ -306,36 +306,36 @@
 <div class="app">
 
   <header>
-    <h1>CHLADNI</h1>
-    <span class="subtitle">Resonance Bench</span>
-    <span class="tagline">sweep a tone — watch ten thousand grains find silence</span>
-    <button class="about-btn" id="aboutBtn" aria-label="About this instrument" title="About">?</button>
+    <h1>클라드니</h1>
+    <span class="subtitle">공명 벤치</span>
+    <span class="tagline">음을 쓸어 — 만 개의 알갱이가 침묵을 찾는 것을 지켜보세요</span>
+    <button class="about-btn" id="aboutBtn" aria-label="이 악기 소개" title="소개">?</button>
   </header>
 
   <section class="stage">
     <div class="plate-wrap">
       <canvas id="plate"></canvas>
-      <div class="stamp">Plate 01 — Steel · 240 mm · Fixed Center</div>
+      <div class="stamp">01번 판 — 강철 · 240 mm · 중앙 고정</div>
     </div>
     <div class="hints">
-      <span><b>bow</b> — drag along plate edge</span>
-      <span><b>tap</b> — spacebar / click plate</span>
-      <span><b>hunt</b> — sweep toward amber ticks</span>
+      <span><b>활</b> — 판 가장자리를 따라 끌기</span>
+      <span><b>두드림</b> — 스페이스바 / 판 클릭</span>
+      <span><b>사냥</b> — 호박색 눈금 쪽으로 쓸기</span>
     </div>
   </section>
 
   <aside class="console">
 
     <div class="block">
-      <div class="lab"><span>Drive Frequency</span><span class="sub">80 – 2000 Hz · LOG</span></div>
+      <div class="lab"><span>구동 주파수</span><span class="sub">80 – 2000 Hz · 로그</span></div>
       <div class="freq-read">
         <span class="freq-val" id="freqVal">432.1</span>
         <span class="freq-unit">Hz</span>
-        <span class="lock-pill" id="lockPill">LOCK ··%</span>
+        <span class="lock-pill" id="lockPill">고정 ··%</span>
       </div>
       <div class="slider" id="slider" role="slider" tabindex="0"
-           aria-label="Drive frequency" aria-valuemin="80" aria-valuemax="2000"
-           aria-valuenow="432" aria-valuetext="432 hertz">
+           aria-label="구동 주파수" aria-valuemin="80" aria-valuemax="2000"
+           aria-valuenow="432" aria-valuetext="432 헤르츠">
         <div class="rail"></div>
         <div id="ticks"></div>
         <div class="thumb" id="thumb"></div>
@@ -345,48 +345,48 @@
     </div>
 
     <div class="block">
-      <div class="lab"><span>Mode Console</span><span class="sub">Eigenmode (m,n)</span></div>
+      <div class="lab"><span>모드 콘솔</span><span class="sub">고유 모드 (m,n)</span></div>
       <div class="mode-row">
         <div class="stepper">
           <span class="tag">M</span>
-          <button id="mDown" aria-label="decrease m">−</button>
+          <button id="mDown" aria-label="m 감소">−</button>
           <span class="val" id="mVal">2</span>
-          <button id="mUp" aria-label="increase m">+</button>
+          <button id="mUp" aria-label="m 증가">+</button>
         </div>
         <div class="stepper">
           <span class="tag">N</span>
-          <button id="nDown" aria-label="decrease n">−</button>
+          <button id="nDown" aria-label="n 감소">−</button>
           <span class="val" id="nVal">4</span>
-          <button id="nUp" aria-label="increase n">+</button>
+          <button id="nUp" aria-label="n 증가">+</button>
         </div>
-        <button class="sym-toggle" id="symBtn" title="Superposition sign: symmetric / antisymmetric">
+        <button class="sym-toggle" id="symBtn" title="중첩 부호: 대칭 / 반대칭">
           <span class="s-on" id="symPlus">+</span>&hairsp;/&hairsp;<span id="symMinus">−</span>
         </button>
       </div>
     </div>
 
     <div class="block">
-      <div class="lab"><span>Bench</span><span class="sub">tone · ghost · concert</span></div>
+      <div class="lab"><span>벤치</span><span class="sub">음 · 유령 · 연주회</span></div>
       <div class="tog-row">
-        <button class="tog" id="audioBtn" aria-pressed="false" title="Sine tone at drive frequency">
-          <canvas id="meter" width="30" height="14" style="width:15px;height:7px"></canvas>Tone
+        <button class="tog" id="audioBtn" aria-pressed="false" title="구동 주파수의 사인파 음">
+          <canvas id="meter" width="30" height="14" style="width:15px;height:7px"></canvas>음
         </button>
-        <button class="tog" id="ghostBtn" aria-pressed="false" title="Theoretical nodal-line overlay">Ghost</button>
-        <button class="tog" id="concertBtn" aria-pressed="false" title="Auto-sweep six resonances">▸ Concert</button>
+        <button class="tog" id="ghostBtn" aria-pressed="false" title="이론적 노드선 오버레이">유령</button>
+        <button class="tog" id="concertBtn" aria-pressed="false" title="공명 6개 자동 순회">▸ 연주회</button>
       </div>
     </div>
 
     <div class="block">
-      <div class="lab"><span>Mode Matrix</span><span class="sub">m ↓ · n →</span></div>
+      <div class="lab"><span>모드 매트릭스</span><span class="sub">m ↓ · n →</span></div>
       <div class="matrix" id="matrix"></div>
     </div>
 
     <div class="block" style="border-bottom:none">
-      <div class="lab"><span>Readout</span><span class="sub">live</span></div>
+      <div class="lab"><span>측정값</span><span class="sub">실시간</span></div>
       <div class="strip">
-        <div class="cellr"><div class="k">Drive</div><div class="v" id="rHz">—</div></div>
-        <div class="cellr"><div class="k">Mode</div><div class="v" id="rMode">—</div></div>
-        <div class="cellr"><div class="k">Grains</div><div class="v" id="rGrains">—</div></div>
+        <div class="cellr"><div class="k">구동</div><div class="v" id="rHz">—</div></div>
+        <div class="cellr"><div class="k">모드</div><div class="v" id="rMode">—</div></div>
+        <div class="cellr"><div class="k">알갱이</div><div class="v" id="rGrains">—</div></div>
         <canvas id="scope" width="240" height="76"></canvas>
       </div>
     </div>
@@ -394,42 +394,36 @@
   </aside>
 
   <footer>
-    <span>Ernst Chladni · Entdeckungen über die Theorie des Klanges · 1787</span>
-    <button id="aboutBtn2">Built by Claude Fable 5</button>
+    <span>에른스트 클라드니 · 음향 이론에 관한 발견들 · 1787</span>
+    <button id="aboutBtn2">클로드 페이블 5 제작</button>
   </footer>
 </div>
 
-<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="About">
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="소개">
   <div class="sheet">
-    <button class="close-x" id="closeX" aria-label="Close">✕</button>
-    <h2>CHLADNI</h2>
-    <div class="sh-sub">Resonance Bench — a cymatics instrument</div>
-    <p>In 1787 Ernst Chladni drew a violin bow across a sand-dusted metal plate and
-       watched the grains flee the vibrating regions, gathering along the silent
-       <em>nodal lines</em> — the first pictures of sound. This bench drives a simulated
-       square plate through its standing-wave eigenmodes. Twelve thousand grains follow
-       the true gradient of the vibration field:</p>
+    <button class="close-x" id="closeX" aria-label="닫기">✕</button>
+    <h2>클라드니</h2>
+    <div class="sh-sub">공명 벤치 — 사이매틱 악기</div>
+    <p>1787년 에른스트 클라드니는 모래를 뿌린 금속 판 위에 바이올린 활을 그으면서
+       알갱이들이 진동하는 자리를 피해 <em>노드선</em> — 소리의 첫 번째 그림 — 을 따라 모이는 것을 보았습니다. 이 벤치는 시뮬레이션된 정사각형 판을 정상파 고유 모드로 구동합니다. 만 이천 개의 알갱이가 진동장의 실제 기울기를 따릅니다:</p>
     <div class="eq">A(x,y) = sin(mπx)·sin(nπy) ± sin(nπx)·sin(mπy) &nbsp;·&nbsp; F = −∇A²</div>
-    <p>Each grain is shaken in proportion to the local amplitude and pushed down the
-       energy gradient — so it shivers hard at antinodes and comes to rest exactly on the
-       nodal curves. Off resonance the pattern washes out into chaotic shimmer; as the drive
-       approaches an eigenfrequency (amber ticks), geometry crystallizes out of the noise.</p>
+    <p>각 알갱이는 국부 진폭에 비례하여 진동하고 에너지 기울기를 따라 밀려 내려가므로
+       안티노드에서는 격렬하게 떨리다가 노드 곡선 위에서 정확히 멈춥니다. 공명점에서 벗어나면 패턴은 혼돈스러운 깜빡임으로 흩어지고, 구동이 고유 주파수(호박색 눈금)에 가까워지면 잡음 속에서 기하가 결정화되어 나타납니다.</p>
     <ul>
-      <li><b>slider / ← →</b>sweep the drive frequency · hold Shift for ±0.1 Hz fine-tune · mouse-wheel nudges</li>
-      <li><b>m , n steppers</b>jump straight to an eigenmode (1–9)</li>
-      <li><b>+ / −</b>symmetric vs antisymmetric superposition — two classical variants of every figure</li>
-      <li><b>mode matrix</b>click any thumbnail to glide there, sand re-migrating live</li>
-      <li><b>tone</b>a soft sine at the drive frequency; it blooms in volume as the plate locks on</li>
-      <li><b>ghost</b>faint cyan trace of the theoretical zero-amplitude curves under the sand</li>
-      <li><b>concert</b>a 40-second self-running tour through six curated resonances</li>
-      <li><b>lock bloom</b>seize a resonance dead-on and a ring of light rolls across the plate — with the tone on, it strikes a soft octave chime</li>
-      <li><b>bow / tap</b>drag along the plate edge to bow it; spacebar or click for a percussive scatter</li>
+      <li><b>슬라이더 / ← →</b>구동 주파수 쓸기 · Shift로 ±0.1 Hz 미세조정 · 마우스 휠로 살짝 이동</li>
+      <li><b>m , n 스테퍼</b>고유 모드로 즉시 점프 (1–9)</li>
+      <li><b>+ / −</b>대칭과 반대칭 중첩 — 모든 형상의 두 가지 고전 변형</li>
+      <li><b>모드 매트릭스</b>썸네일을 클릭하면 모래가 실시간으로 재배치되는 채로 미끄러집니다</li>
+      <li><b>음</b>구동 주파수의 부드러운 사인파 — 판이 고정될수록 볼륨이 커집니다</li>
+      <li><b>유령</b>모래 아래에 이론적 영진폭 곡선의 옅은 청록빛 흔적</li>
+      <li><b>연주회</b>선별된 여섯 공명을 40초 동안 자동으로 순회</li>
+      <li><b>고정 빛남</b>공명을 정통으로 붙잡으면 빛의 고리가 판을 가로질러 흐릅니다 — 음이 켜져 있으면 부드러운 옥타브 종을 울립니다</li>
+      <li><b>활 / 두드림</b>판 가장자리를 끌어 활주르기 · 스페이스바 또는 클릭으로 타격 산개</li>
     </ul>
-    <p style="font-size:11.5px;color:#6d7684">Pure physics, no trickery: the force field, resonance
-       Lorentzians and nodal traces are all computed live from the closed-form plate equation.</p>
+    <p style="font-size:11.5px;color:#6d7684">순수한 물리, 비술 없음: 힘장, 공명 로렌츠 함수, 노드선은 모두 닫힌 형 판 방정식에서 실시간 계산됩니다.</p>
     <div class="credit">
-      <span>Built by <b>Claude Fable 5</b></span>
-      <span>vanilla JS · Canvas 2D · Web Audio · zero dependencies</span>
+      <span><b>클로드 페이블 5</b> 제작</span>
+      <span>바닐라 JS · Canvas 2D · Web Audio · 의존성 제로</span>
     </div>
   </div>
 </div>
@@ -879,7 +873,7 @@ function stopConcert(){
   if(!S.concert) return;
   S.concert=null;
   concertBtn.setAttribute("aria-pressed","false");
-  concertBtn.textContent="▸ Concert";
+  concertBtn.textContent="▸ 연주회";
 }
 concertBtn.onclick=()=>{
   if(S.concert){ stopConcert(); }
